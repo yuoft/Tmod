@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "xxx",
+        "x x",
+        "x x"
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "tmod:emerald_ingot"
+        }
+    },
+    "result":
+    {
+        "item": "tmod:emerald_leggings",
+        "count": 1
+    }
+}

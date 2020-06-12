@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "age=0": { "model": "tmod:emerald_crop0" },
+        "age=1": { "model": "tmod:emerald_crop1" },
+        "age=2": { "model": "tmod:emerald_crop2" },
+        "age=3": { "model": "tmod:emerald_crop3" }
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "variants": {
+	    "normal": { "model": "tmod:power_extractor" },
+        "axis=y": { "model": "tmod:power_extractor" },
+        "axis=z": { "model": "tmod:power_extractor", "y": 90 },
+        "axis=x": { "model": "tmod:power_extractor", "y": 90, "x": 90 }
+    }
+}

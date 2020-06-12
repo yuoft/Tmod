@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        " x ",
+        "xox",
+        " x "
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "tmod:emerald_ingot_block"
+        },
+		"o":
+        {
+            "item": "minecraft:furnace"
+        }
+    },
+    "result":
+    {
+        "item": "tmod:power_extractor",
+        "count": 1
+    }
+}

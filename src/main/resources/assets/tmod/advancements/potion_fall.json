@@ -1,0 +1,22 @@
+{
+    "display": {
+        "icon": { "item": "tmod:tallgrass_block" },
+        "title": { "translate": "advancement.tmod:potion_fall" },
+        "frame": "challenge",
+        "description": { "translate": "advancement.tmod:potion_fall.desc" }
+    },
+    "parent": "tmod:good_food",
+    "criteria": {
+        "tmod_potion_fall": {
+            "trigger": "minecraft:effects_changed",
+            "conditions": {
+			    "effects": {
+                    "tmod:potionFall": {}
+			    }
+            }
+	    }
+    },
+    "rewards": {
+        "experience": 330
+    }
+}

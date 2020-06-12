@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "oxo",
+        "xox",
+        "oxo"
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "minecraft:diamond"
+        },
+		"o":
+        {
+            "item": "tmod:emerald_powder"
+        }
+    },
+    "result":
+    {
+        "item": "tmod:change_powder",
+        "count": 3
+    }
+}
