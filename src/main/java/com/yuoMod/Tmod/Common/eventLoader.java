@@ -1,12 +1,8 @@
 package com.yuoMod.Tmod.Common;
 
 import com.yuoMod.Tmod.Client.KeyLoader;
-import com.yuoMod.Tmod.Common.Blocks.blockLoader;
-import com.yuoMod.Tmod.Common.Items.itemLoader;
 import com.yuoMod.Tmod.Enchantment.enchantmentLoader;
 import com.yuoMod.Tmod.Potion.potionLoader;
-
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
@@ -17,9 +13,9 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.minecraftforge.event.entity.player.PlayerEvent.HarvestCheck;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.InputEvent;
+import net.minecraftforge.fml.common.gameevent.PlayerEvent.ItemCraftedEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -87,6 +83,29 @@ public class eventLoader
     		if(fireImmune_chest==1 || fireImmune_feet==1 || fireImmune_head==1 || fireImmune_legs==1)
     		{
     			event.setAmount(0);
+    			//耐久减少
+    			if(fireImmune_chest==1)
+    			{
+    				Stack_chest.setItemDamage(Stack_chest.getItemDamage()+2);
+    			}
+    			else
+    			{
+    				if(fireImmune_feet==1)
+    				{
+    					Stack_feet.setItemDamage(Stack_feet.getItemDamage()+2);
+    				}
+    				else
+    				{
+    					if(fireImmune_head==1)
+    					{
+    						Stack_head.setItemDamage(Stack_head.getItemDamage()+2);
+    					}
+    					else
+    					{
+    						Stack_legs.setItemDamage(Stack_legs.getItemDamage()+2);
+    					}
+    				}
+    			}
     		}
 //    		else
 //    		{
@@ -114,26 +133,30 @@ public class eventLoader
 	}
 	*/
 	//挖掘等级
-	@SubscribeEvent
-    public void emerald_ingot_block(HarvestCheck event)
-    {
-		IBlockState block=event.getTargetBlock();
-		EntityPlayer player=event.getEntityPlayer();
-		ItemStack pickaxe=player.getHeldItemMainhand();
-		ItemStack e_pickaxe=new ItemStack(itemLoader.emerald_pickaxe);
-		if((block==blockLoader.emerald_ingot_block)&&(pickaxe!=e_pickaxe))
-		{
-			event.setCanHarvest(false);//设置挖掘是否成功
-			System.out.println("使用的镐子"+pickaxe.toString());
-			System.out.println("挖掘的方块"+block.toString());
+//	@SubscribeEvent
+//    public void emerald_ingot_block(HarvestCheck event)
+//    {
+//		event.setCanHarvest(false);
+//		IBlockState block=event.getTargetBlock();//得到挖掘方块
+//		EntityPlayer player=event.getEntityPlayer();//得到挖掘玩家
+//		ItemStack pickaxe=player.getHeldItemMainhand();//得到玩家主手物品
+//		ItemStack e_pickaxe=new ItemStack(itemLoader.emerald_pickaxe);
+//		if((block.equals(blockLoader.emerald_ingot_block))&&(!pickaxe.equals(e_pickaxe)))
+//		{
+//			event.setCanHarvest(false);//设置挖掘是否成功
+//			System.out.println("使用的镐子"+pickaxe.toString());
+//			System.out.println("挖掘的方块"+block.toString());
 //			FMLCommonHandler.instance().getMinecraftServerInstance();
 //			ITextComponent component;
 //			component.getFormattedText();
 //			player.sendMessage();
-		}
-//		else 
-//		{
-//			player.setHealth(player.getHealth()/2);
 //		}
+//    }
+	//音频播放
+	@SideOnly(Side.CLIENT)
+	@SubscribeEvent
+    public void onPlayerItemCrafted(ItemCraftedEvent event)
+    {
+//		event.player.playSound(soundLoader.CLOSE,1.0f,1.0f);
     }
 }

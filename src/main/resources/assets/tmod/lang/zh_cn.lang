@@ -11,6 +11,7 @@ item.emerald_ingot.name=绿宝石锭
 item.emerald_powder.name=绿宝石粉末
 item.emerald_crop_seeds.name=绿宝石作物种子
 item.change_powder.name=转换粉
+item.golden_tnt.name=黄金炸弹
 #工具
 item.emerald_pickaxe.name=绿宝石镐
 item.emerald_axe.name=绿宝石斧
@@ -18,7 +19,7 @@ item.emerald_sword.name=绿宝石剑
 item.emerald_shovel.name=绿宝石铲
 item.emerald_hoe.name=绿宝石锄
 #方块
-tile.emerald_ingot_block.name=绿宝石块
+tile.emerald_ingot_block.name=绿宝石锭块
 tile.tallgrass_block.name=青草块
 tile.emerald_ingot_ore.name=绿宝石锭矿石
 tile.emerald_tree.name=绿宝石树木
@@ -27,7 +28,7 @@ tile.emerald_sapling.name=绿宝石树苗
 tile.power_extractor.name=粉末提取机
 #流体
 fluid.emerald_fluid=熔融绿宝石
-tile.block_Emerald_Fluid.name=熔融绿宝石
+tile.emerald_fluid.name=熔融绿宝石
 #按键
 key.tmod.key=给与经验
 key.categories.tmod=T MOD
@@ -47,3 +48,17 @@ advancement.tmod:potion_fall=无伤降落
 advancement.tmod:potion_fall.desc=获得大于等于二级的摔落免疫效果
 advancement.tmod:emerald_powder=矿物粉末
 advancement.tmod:emerald_powder.desc=获得绿宝石粉末
+#GUI
+container.tmod.gui=提取机
+#实体
+entity.GoldenChicken.name=黄金鸡
+#音效
+tmod.sounds.LTY1=测试音效:洛天依
+tmod.sounds.HY1=测试音效:狐妖
+tmod.sounds.CD1=测试音效:超电磁炮
+item.record.tmod_music1.desc=阿良良木-绝体绝命
+item.tmod_music1.name=洛天依music1
+item.record.tmod_music2.desc=呦猫-铭记
+item.tmod_music2.name=狐妖小红娘music1
+item.record.tmod_music3.desc=超电-OP
+item.tmod_music3.name=超电磁炮music1

@@ -1,18 +1,12 @@
 package com.yuoMod.Tmod.Common.Items;
 
-import java.util.Collections;
-import java.util.Set;
-
-import javax.annotation.Nullable;
-
 import com.yuoMod.Tmod.Creativetab.CreativeTabsLoader;
 
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemPickaxe;
-import net.minecraft.item.ItemStack;
 
 public class emerald_pickaxe extends ItemPickaxe
+
 {
 	/*
 	The harvestlevel parameter represents the level of the tool you make. This is especially obvious in pickaxes. For example, if the wood is 0, only the diamonds with the corresponding level of 0 can be excavated to drop objects, such as stones. 
@@ -30,15 +24,9 @@ public class emerald_pickaxe extends ItemPickaxe
         this.setCreativeTab(CreativeTabsLoader.TMOD);
         this.setHarvestLevel(name, 4);
 	}
-	@Override
-    public Set<String> getToolClasses(ItemStack stack) 
-	{
-        return Collections.singleton("emerald_pickaxe");
-    }
-
-    @Override
-    public int getHarvestLevel(ItemStack stack, String toolClass, @Nullable EntityPlayer player, @Nullable IBlockState blockState) 
+	//ÍÚ¾ò¿ØÖÆ
+	public boolean canHarvestBlock(IBlockState blockIn)
     {
-        return 4;
+		return true;
     }
 }

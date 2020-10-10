@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        " x ",
+        "xox",
+        " x "
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "minecraft:tnt"
+        },
+		"o":
+        {
+            "item": "minecraft:gold_block"
+        }
+    },
+    "result":
+    {
+        "item": "tmod:goldenTNT",
+        "count": 1
+    }
+}

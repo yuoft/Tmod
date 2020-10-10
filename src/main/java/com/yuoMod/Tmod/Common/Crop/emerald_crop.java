@@ -15,12 +15,12 @@ public class emerald_crop extends BlockCrops
 	{
 		// TODO 自动生成的构造函数存根
 		this.setUnlocalizedName(name);//绿宝石作物
-		this.setDefaultState(null);
 		this.setTickRandomly(true);
 		this.setCreativeTab(CreativeTabsLoader.TMOD);
 		this.setHardness(0.0F);
         this.setSoundType(SoundType.PLANT);
         this.disableStats();
+        this.setDefaultState(this.blockState.getBaseState().withProperty(this.getAgeProperty(), Integer.valueOf(0)));
 	}
 	// SRG func_149866_i
     @Nonnull

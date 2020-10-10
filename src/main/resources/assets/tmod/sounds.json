@@ -1,0 +1,41 @@
+{
+    "tmodSound1": {
+	    "category": "music", 
+		"subtitle": "tmod.sounds.LTY1",
+        "sounds": [
+		    {
+			 "name": "LTY_JueTiJueMing", 
+			 "stream": true
+			 }
+		]
+    },
+	"tmod.HY.MingJi": {
+	    "category": "music", 
+		"subtitle": "tmod.sounds.HY1",
+		"sounds": [
+		     {
+			 "name": "tmod:HY_MingJi", 
+			 "stream": true
+			 }
+		]
+	},
+	"tmod.CD.Op": {
+	    "category": "music", 
+		"subtitle": "tmod.sounds.CD1",
+		"sounds": [
+		     {
+			 "name": "music/CD_Op", 
+			 "stream": true
+			 }
+		]
+	},
+	"mingji": {
+	    "category": "music", 
+        "sounds": [
+		    {
+			 "name": "mingji", 
+			 "stream": true
+			 }
+		]
+    }
+}

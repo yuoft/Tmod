@@ -8,6 +8,7 @@ import com.yuoMod.Tmod.WorldCreate.WorldTreeCreate;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.SoundType;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -20,7 +21,7 @@ public class emerald_sapling extends BlockBush implements IGrowable
 	//ÂÌ±¦Ê¯Ê÷Ãç
 	public emerald_sapling(String name) 
 	{
-		super();
+		super(Material.LEAVES);
 		this.setUnlocalizedName(name);
 	    this.setHardness(0.01f);
 	    this.setResistance(0.3f);

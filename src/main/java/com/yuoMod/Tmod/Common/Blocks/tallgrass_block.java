@@ -18,5 +18,6 @@ public class tallgrass_block extends Block
         this.setCreativeTab(CreativeTabsLoader.TMOD);
         this.setSoundType(SoundType.PLANT);
         this.setResistance(0.5f);
+        this.setHarvestLevel("Ότµ¶", 1);
 	}
 }

@@ -8,9 +8,9 @@ import net.minecraftforge.fluids.Fluid;
 public class emerald_fluid  extends Fluid
 {
 	//静止材质
-	public static final ResourceLocation still = new ResourceLocation(tmod.MODID + ":" + "textures/fluid/emerald_fluid_still.png");
+	public static final ResourceLocation still = new ResourceLocation(tmod.MODID + ":" + "fluid/emerald_fluid");
     //流动材质
-	public static final ResourceLocation flowing = new ResourceLocation(tmod.MODID + ":" + "textures/fluid/emerald_fluid_flow.png");
+	public static final ResourceLocation flowing = new ResourceLocation(tmod.MODID + ":" + "fluid/emerald_fluid_flow");
 
     public emerald_fluid (String name)
     {
@@ -24,7 +24,7 @@ public class emerald_fluid  extends Fluid
           setTemperature方法用于设置这个流体的温度，使用热力学温标，也就是开尔文，默认为室温，也就是300
           setGaseous方法用于标注这个流体是否为气体，默认不是
     	 */
-        super(name, emerald_fluid .still, emerald_fluid .flowing);
+        super(name, emerald_fluid.still, emerald_fluid.flowing);
         this.setUnlocalizedName(name);
         this.setDensity(10000);
         this.setViscosity(1500);

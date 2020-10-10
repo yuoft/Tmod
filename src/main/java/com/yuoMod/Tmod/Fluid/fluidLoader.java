@@ -1,14 +1,15 @@
 package com.yuoMod.Tmod.Fluid;
 
+import javax.annotation.Nonnull;
+
 import com.yuoMod.Tmod.tmod;
 import com.yuoMod.Tmod.Common.Blocks.blockLoader;
 
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.block.statemap.StateMapperBase;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fluids.BlockFluidBase;
 import net.minecraftforge.fluids.Fluid;
@@ -38,12 +39,13 @@ public class fluidLoader
     @SideOnly(Side.CLIENT)
     public static void registerRenders()
     {
-        registerFluidRender((BlockFluidBase) blockLoader.block_Emerald_Fluid, "emerald_fluid");
+        registerFluidRender((BlockFluidBase) blockLoader.emerald_fluid, "emerald_fluid");
     }
 
     @SideOnly(Side.CLIENT)
     public static void registerFluidRender(BlockFluidBase blockFluid, String blockStateName)
     {
+    	/*
         final String location = tmod.MODID + ":" + blockStateName;
         final Item itemFluid = Item.getItemFromBlock(blockFluid);
         ModelLoader.setCustomMeshDefinition(itemFluid, new ItemMeshDefinition()
@@ -54,6 +56,8 @@ public class fluidLoader
                 return new ModelResourceLocation(location, "fluid");
             }
         });
+        //注意到 setCustomStateMapper 将目标方块指向了一个特殊的 StateMapper，
+        //它进而无条件将模型指向 assets/my_mod/blockstates/fluid.json 中定义的 my_fluid 这个 variant。
         ModelLoader.setCustomStateMapper(blockFluid, new StateMapperBase()
         {
             @Override
@@ -62,17 +66,16 @@ public class fluidLoader
                 return new ModelResourceLocation(location, "fluid");
             }
         });
-//        ModelLoader.setCustomStateMapper(emerald_fluid.getBlock(), new StateMapperBase() {
-//            @Override
-//            protected ModelResourceLocation getModelResourceLocation(@Nonnull IBlockState state) {
-//                return new ModelResourceLocation(new ResourceLocation(tmod.MODID, "emerald_fluid"), "fluid");
-//            }
-//        });
+        */
+        ModelLoader.setCustomStateMapper(emerald_fluid.getBlock(), new StateMapperBase() {
+            @Override
+            protected ModelResourceLocation getModelResourceLocation(@Nonnull IBlockState state) {
+                return new ModelResourceLocation(new ResourceLocation(tmod.MODID, "emerald_fluid"), "fluid");
+            }
+        });
+        ModelResourceLocation model = new ModelResourceLocation(blockFluid.getRegistryName(), "inventory");
+        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(blockFluid), 0, model);
     } 
-//    @SubscribeEvent
-//    public static void regFluidSpirit(TextureStitchEvent.Pre event) {
-//        TextureMap textureMap = event.getMap();
-//        textureMap.registerSprite(emerald_fluid.getFlowing());
-//        textureMap.registerSprite(emerald_fluid.getStill());
-//    }
+    
+	
 }
