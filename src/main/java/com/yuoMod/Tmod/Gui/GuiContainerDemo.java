@@ -12,17 +12,22 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-//客户端注解
+//客户端注解 GUI绘制
 @SideOnly(Side.CLIENT)
 public class GuiContainerDemo extends GuiContainer
 {
 	private static final String TEXTURE_PATH = tmod.MODID + ":" + "textures/gui/power_extractor.png";
 	private static final ResourceLocation TEXTURE = new ResourceLocation(TEXTURE_PATH);
 
+	protected ContainerDemo inventory;
+	private int totalBurnTime;
+	
 	public GuiContainerDemo(ContainerDemo inventorySlotsIn) {
 		super(inventorySlotsIn);
 		this.xSize = 176;
         this.ySize = 166;
+        this.inventory=inventorySlotsIn;
+        this.totalBurnTime = inventorySlotsIn.getTotalBurnTime();
 	}
 
 	@Override
@@ -33,8 +38,11 @@ public class GuiContainerDemo extends GuiContainer
 		//使gui位于界面中间
         this.mc.getTextureManager().bindTexture(TEXTURE);
         int offsetX = (this.width - this.xSize) / 2, offsetY = (this.height - this.ySize) / 2;
-
         this.drawTexturedModalRect(offsetX, offsetY, 0, 0, this.xSize, this.ySize);
+        //绘制进度条 
+        int burnTime = this.inventory.getBurnTime();
+        int textureWidth = 1 + (int) Math.ceil(22.0 * burnTime / this.totalBurnTime);
+        this.drawTexturedModalRect(offsetX + 79, offsetY + 35, 176, 0, textureWidth, 17);
 	}
 
 	@Override

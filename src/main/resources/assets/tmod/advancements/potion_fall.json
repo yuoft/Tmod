@@ -11,7 +11,7 @@
             "trigger": "minecraft:effects_changed",
             "conditions": {
 			    "effects": {
-                    "tmod:potionFall": {}
+                    "tmod:potionFall": { "amplifier": 1}
 			    }
             }
 	    }

@@ -1,8 +1,6 @@
 package com.yuoMod.Tmod.Common.Blocks;
 
 import com.yuoMod.Tmod.Creativetab.CreativeTabsLoader;
-import com.yuoMod.Tmod.Sound.soundLoader;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -42,9 +40,9 @@ public class emerald_ingot_block extends Block
 	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
     {
-//        return false;
-		playerIn.playSound(soundLoader.CD_Op, 1.0f, 3.0f);
-		return true;
+        return false;
+//		playerIn.playSound(soundLoader.CD_Op, 1.0f, 3.0f);
+//		return true;
     }
 	//·½¿éÍÚ¾ò
     public boolean canHarvestBlock(IBlockAccess world, BlockPos pos, EntityPlayer player)

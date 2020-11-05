@@ -4,7 +4,6 @@ import java.util.Random;
 
 import com.yuoMod.Tmod.Creativetab.CreativeTabsLoader;
 import com.yuoMod.Tmod.WorldCreate.WorldTreeCreate;
-
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.SoundType;
@@ -27,7 +26,7 @@ public class emerald_sapling extends BlockBush implements IGrowable
 	    this.setResistance(0.3f);
 	    this.setCreativeTab(CreativeTabsLoader.TMOD);
 	    this.setSoundType(SoundType.PLANT);
-//	    this.setTickRandomly(true);
+	    this.setTickRandomly(true);
 	}
 	//获取边界框
 	@Override
@@ -53,4 +52,14 @@ public class emerald_sapling extends BlockBush implements IGrowable
 		WorldTreeCreate tree=new WorldTreeCreate();
 		tree.generate(worldIn, rand, pos);
 	}
+	@Override
+    public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
+        if (!worldIn.isRemote) {
+            super.updateTick(worldIn, pos, state, rand);
+            //光照等级大于9,1/7
+            if (worldIn.getLightFromNeighbors(pos.up()) >= 9 && rand.nextInt(7) == 0) {
+                this.grow(worldIn, rand, pos, state);
+            }
+        }
+    }
 }

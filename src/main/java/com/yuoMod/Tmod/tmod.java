@@ -15,9 +15,9 @@ public class tmod
 {
     public static final String MODID = "tmod";//modID
     public static final String NAME = "T Mod";//mod名称
-    public static final String VERSION = "1.0";//mod版本
+    public static final String VERSION = "1.1.5";//mod版本
     public static final String AcceptedMinecraftVersions="1.12.2";//mod运行游戏版本
-    public static final String ConfigGuiFactory="com.yuoMod.Tmod.Common.ConfigGuiFactory";
+    public static final String ConfigGuiFactory="com.yuoMod.Tmod.Common.ConfigGuiFactory";//可视化配置文件
 
     @Mod.Instance(tmod.MODID)
     public static tmod instance;//生成mod实例

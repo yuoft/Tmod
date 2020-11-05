@@ -1,8 +1,12 @@
 {
     "variants": {
-	    "normal": { "model": "tmod:power_extractor" },
-        "axis=y": { "model": "tmod:power_extractor" },
-        "axis=z": { "model": "tmod:power_extractor", "y": 90 },
-        "axis=x": { "model": "tmod:power_extractor", "y": 90, "x": 90 }
+        "burning=false,facing=north":{ "model": "tmod:power_extractor"},
+		"burning=false,facing=south":{ "model": "tmod:power_extractor","y":180},
+		"burning=false,facing=east":{ "model": "tmod:power_extractor","y":90},
+		"burning=false,facing=west":{ "model": "tmod:power_extractor","y":270},
+		"burning=true,facing=north":{ "model": "tmod:power_extractor_burning"},
+		"burning=true,facing=south":{ "model": "tmod:power_extractor_burning","y":180},
+		"burning=true,facing=east":{ "model": "tmod:power_extractor_burning","y":90},
+		"burning=true,facing=west":{ "model": "tmod:power_extractor_burning","y":270}
     }
 }

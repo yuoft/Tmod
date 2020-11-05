@@ -1,8 +1,14 @@
 package com.yuoMod.Tmod.Common.Items;
 
+import java.util.List;
+
+import javax.annotation.Nullable;
+
 import com.yuoMod.Tmod.Creativetab.CreativeTabsLoader;
 import com.yuoMod.Tmod.Entity.EntityGoldenTNT;
 
+import net.minecraft.client.resources.I18n;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -10,6 +16,8 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class GoldenTNT extends Item
 {
@@ -26,7 +34,7 @@ public class GoldenTNT extends Item
 		if (!playerIn.capabilities.isCreativeMode) {
 			itemStack.setCount(itemStack.getCount()-1);
 		}
-		if (!worldIn.isRemote) {
+		if (!worldIn.isRemote) {//判断是否是service
 			EntityGoldenTNT egg=new EntityGoldenTNT(worldIn, playerIn);
 //			egg.shoot(playerIn.posX, playerIn.posY, playerIn.posZ, 3.0f, 0f);
 			//确定投掷物的初速度方向rotationYaw:实体围绕Y轴旋转程度；rotationPitch：实体围绕X轴旋转的程度;render:渲染偏移
@@ -35,4 +43,11 @@ public class GoldenTNT extends Item
 		}
 		return new ActionResult<ItemStack>(EnumActionResult.PASS, playerIn.getHeldItem(handIn));
 	}
+	//物品介绍信息
+	@SideOnly(Side.CLIENT)
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn)
+    {
+       tooltip.add(I18n.format("tmod.item.golden_tnt1", ""));
+       tooltip.add(I18n.format("tmod.item.golden_tnt2", ""));
+    }
 }

@@ -88,7 +88,7 @@ public class emerald_leaf extends BlockLeaves
 	@Override
 	public int getMetaFromState(IBlockState state) {//״̬��Ӧֵ
 		int meta=0;
-		if (!state.getValue(DECAYABLE)) {
+		if (state.getValue(DECAYABLE)) {
 			meta = 4;
 		}
 

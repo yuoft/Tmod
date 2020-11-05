@@ -2,8 +2,7 @@ package com.yuoMod.Tmod.Entity.render;
 
 import com.yuoMod.Tmod.tmod;
 import com.yuoMod.Tmod.Entity.EntityGoldenChicken;
-import com.yuoMod.Tmod.Entity.model.ModelGoldenChicken;
-
+import net.minecraft.client.model.ModelChicken;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -29,7 +28,7 @@ public class RenderGoldenChicken extends RenderLiving<EntityGoldenChicken>
      */
     public RenderGoldenChicken(RenderManager renderManager)
     {
-        super(renderManager, new ModelGoldenChicken(), 0.5F);
+        super(renderManager, new ModelChicken(), 0.5F);
     }
     //这里我们可以加一些我们想要的变换操作
     @Override

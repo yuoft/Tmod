@@ -3,8 +3,8 @@ package com.yuoMod.Tmod.Common.Items;
 
 import com.yuoMod.Tmod.tmod;
 import com.yuoMod.Tmod.Common.Blocks.blockLoader;
-import com.yuoMod.Tmod.Common.Crop.emerald_crop_seeds;
 import com.yuoMod.Tmod.Common.ItemBlock.item_block;
+import com.yuoMod.Tmod.Common.Items.Crops.emerald_crop_seeds;
 import com.yuoMod.Tmod.Sound.soundLoader;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -36,7 +36,7 @@ public class itemLoader
 	//绿宝石锭工具材料
 	public static final Item emerald_powder=new emerald_powder("emerald_powder");
 	public static final Item change_powder=new change_powder("change_powder");
-	public static final ToolMaterial EMERALD_INGOT=EnumHelper.addToolMaterial(itemLoader.emerald_ingot.toString(), 4, 5000, 20.0f, 30.0f, 15);
+	public static final ToolMaterial EMERALD_INGOT=EnumHelper.addToolMaterial(itemLoader.emerald_ingot.toString(), 4, 2500, 15.0f, 20.0f, 15);
 	public static final emerald_axe emerald_axe=new emerald_axe("emerald_axe",EMERALD_INGOT);
 	public static final emerald_hoe emerald_hoe=new emerald_hoe("emerald_hoe",EMERALD_INGOT);
 	public static final emerald_pickaxe emerald_pickaxe=new emerald_pickaxe("emerald_pickaxe",EMERALD_INGOT);
@@ -52,7 +52,8 @@ public class itemLoader
 	public static final item_block power_extractor = new item_block(blockLoader.power_extractor);
 	//特殊物品
 	public static final GoldenTNT golden_tnt=new GoldenTNT("golden_tnt");
-	public static final tmodMusicRecord tmod_music1=new tmodMusicRecord("tmod_music1", soundLoader.tmodSound);
+	public static final PotionFallUse potion_fall_use=new PotionFallUse("potion_fall_use");
+	public static final tmodMusicRecord tmod_music1=new tmodMusicRecord("tmod_music1", soundLoader.LTY_JueTiJueMimg);
 	public static final tmodMusicRecord tmod_music2=new tmodMusicRecord("tmod_music2", soundLoader.HY_MingJi);
 	public static final tmodMusicRecord tmod_music3=new tmodMusicRecord("tmod_music3", soundLoader.CD_Op);
 	//作物
@@ -86,6 +87,7 @@ public class itemLoader
 		ForgeRegistries.ITEMS.register(power_extractor.setRegistryName("power_extractor"));
 		
 		ForgeRegistries.ITEMS.register(golden_tnt.setRegistryName("golden_tnt"));
+		ForgeRegistries.ITEMS.register(potion_fall_use.setRegistryName("potion_fall_use"));
 		ForgeRegistries.ITEMS.register(tmod_music1.setRegistryName("tmod_music1"));
 		ForgeRegistries.ITEMS.register(tmod_music2.setRegistryName("tmod_music2"));
 		ForgeRegistries.ITEMS.register(tmod_music3.setRegistryName("tmod_music3"));
@@ -119,12 +121,13 @@ public class itemLoader
 		registerRender(emerald_ingot_block);
 		registerRender(tallgrass_block);
 		registerRender(emerald_ingot_ore);
-		registerRender(emerald_tree);
+		registerRender(emerald_tree,0);
 		registerRender(emerald_leaf,0);
 		registerRender(emerald_sapling);
-		registerRender(power_extractor);
+		registerRender(power_extractor,0);
 		
 		registerRender(golden_tnt);
+		registerRender(potion_fall_use);
 		registerRender(tmod_music1);
 		registerRender(tmod_music2);
 		registerRender(tmod_music3);

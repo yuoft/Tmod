@@ -2,19 +2,23 @@
     "type": "minecraft:crafting_shaped",
     "pattern":
     [
-        "  x",
-        " x ",
+        " zz",
+        " xz",
         "o  "
     ],
     "key":
     {
         "x":
         {
-            "item": "tmod:emerald_ingot"
+            "item": "tmod:emerald_ingot_block"
+        },
+		"z":
+        {
+            "item": "minecraft:blaze_rod"
         },
 		"o":
         {
-            "item": "minecraft:diamond"
+            "item": "minecraft:diamond_block"
         }
     },
     "result":

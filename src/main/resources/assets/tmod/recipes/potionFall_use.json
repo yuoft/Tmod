@@ -1,0 +1,30 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "zxz",
+        "xox",
+        "zxz"
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "tmod:emerald_powder"
+        },
+		"o":
+        {
+            "item": "minecraft:golden_apple",
+			"data": 0
+        },
+		"z":
+        {
+            "item": "minecraft:milk_bucket"
+        }
+    },
+    "result":
+    {
+        "item": "tmod:potion_fall_use",
+        "count": 4
+    }
+}

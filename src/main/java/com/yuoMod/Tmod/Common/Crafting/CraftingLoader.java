@@ -28,8 +28,9 @@ public class CraftingLoader
 	private static void registerSmelting()
 	{
 		//Input item ID, output item ID, get experience value
-	    GameRegistry.addSmelting(itemLoader.emerald_powder,new ItemStack(itemLoader.emerald_ingot), 100.0f);
-	    GameRegistry.addSmelting(itemLoader.bad_apple,new ItemStack(Items.APPLE), 1000.0f);
+	    GameRegistry.addSmelting(itemLoader.emerald_powder,new ItemStack(itemLoader.emerald_ingot), 20.0f);
+	    GameRegistry.addSmelting(Items.EMERALD,new ItemStack(itemLoader.emerald_ingot), 20.0f);
+	    GameRegistry.addSmelting(itemLoader.bad_apple,new ItemStack(Items.APPLE), 5.0f);
 	}
 	//添加燃料
 	private static void registerFuel()
@@ -39,7 +40,7 @@ public class CraftingLoader
             @Override
             public int getBurnTime(ItemStack fuel)
             {
-                return itemLoader.emerald_powder != fuel.getItem() ? 0 : 128000;//燃烧时间
+                return itemLoader.emerald_powder != fuel.getItem() ? 0 : 6400;//燃烧时间
             }
         });
 	}

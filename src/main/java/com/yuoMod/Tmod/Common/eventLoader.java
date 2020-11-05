@@ -1,12 +1,9 @@
 package com.yuoMod.Tmod.Common;
 
-import com.yuoMod.Tmod.Client.KeyLoader;
 import com.yuoMod.Tmod.Enchantment.enchantmentLoader;
 import com.yuoMod.Tmod.Potion.potionLoader;
-import net.minecraft.client.Minecraft;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
@@ -14,10 +11,6 @@ import net.minecraft.util.DamageSource;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.gameevent.InputEvent;
-import net.minecraftforge.fml.common.gameevent.PlayerEvent.ItemCraftedEvent;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class eventLoader 
 {
@@ -27,19 +20,6 @@ public class eventLoader
 	public eventLoader()
     {
         MinecraftForge.EVENT_BUS.register(this);
-    }
-    //快捷键"X"
-    @SideOnly(Side.CLIENT)
-    @SubscribeEvent
-    public void onKeyInput(InputEvent.KeyInputEvent event)
-    {
-        if (KeyLoader.key.isPressed())
-        {
-            EntityPlayer player = Minecraft.getMinecraft().player;
-            player.setHealth(player.getHealth()+10);
-            player.addExperienceLevel(ConfigLoader.txp);//给与玩家经验等级
-//            player.addChatMessage(new ChatComponentTranslation("chat.tmod.time", world.getTotalWorldTime()));
-        }
     }
     //药水效果，摔落减免
 	@SubscribeEvent
@@ -152,11 +132,4 @@ public class eventLoader
 //			player.sendMessage();
 //		}
 //    }
-	//音频播放
-	@SideOnly(Side.CLIENT)
-	@SubscribeEvent
-    public void onPlayerItemCrafted(ItemCraftedEvent event)
-    {
-//		event.player.playSound(soundLoader.CLOSE,1.0f,1.0f);
-    }
 }

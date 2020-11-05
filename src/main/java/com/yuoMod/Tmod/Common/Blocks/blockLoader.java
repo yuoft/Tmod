@@ -1,5 +1,7 @@
 package com.yuoMod.Tmod.Common.Blocks;
 
+import com.yuoMod.Tmod.Common.Blocks.Crops.emerald_crop;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -12,7 +14,6 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import com.yuoMod.Tmod.Common.Crop.emerald_crop;
 
 public class blockLoader 
 {
@@ -50,11 +51,15 @@ public class blockLoader
         registerRender(tallgrass_block,0);
         registerRender(emerald_ingot_ore,0);
         registerRender(emerald_tree,0);
+        registerStateMapper(emerald_tree,
+                new StateMap.Builder().build());
         registerRender(emerald_leaf,0);
-        registerStateMapper(emerald_sapling,
+        registerStateMapper(emerald_leaf,//重定位模型资源
                 new StateMap.Builder().build());
         registerRender(emerald_sapling,0);
         registerRender(power_extractor,0);
+        registerStateMapper(power_extractor,
+                new StateMap.Builder().build());
         registerRender(emerald_crop,0);
     }
     @SideOnly(Side.CLIENT)

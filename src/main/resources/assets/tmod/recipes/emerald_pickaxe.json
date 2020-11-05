@@ -2,19 +2,31 @@
     "type": "minecraft:crafting_shaped",
     "pattern":
     [
-        "xxx",
-        " o ",
+        "zxm",
+        " y ",
         " o "
     ],
     "key":
     {
         "x":
         {
-            "item": "tmod:emerald_ingot"
+            "item": "tmod:emerald_ingot_block"
+        },
+		"z":
+        {
+            "item": "minecraft:packed_ice"
+        },
+		"m":
+        {
+            "item": "minecraft:snow"
+        },
+		"y":
+        {
+            "item": "minecraft:ghast_tear"
         },
 		"o":
         {
-            "item": "minecraft:diamond"
+            "item": "minecraft:diamond_block"
         }
     },
     "result":

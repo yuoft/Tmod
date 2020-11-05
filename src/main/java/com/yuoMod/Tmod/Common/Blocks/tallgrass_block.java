@@ -2,16 +2,15 @@ package com.yuoMod.Tmod.Common.Blocks;
 
 import com.yuoMod.Tmod.Creativetab.CreativeTabsLoader;
 
-import net.minecraft.block.Block;
+import net.minecraft.block.BlockHay;
 import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
 
-public class tallgrass_block extends Block
+public class tallgrass_block extends BlockHay
 {
 	//ЗаІЭїй
 	public tallgrass_block(String name) 
 	{
-		super(Material.GRASS);
+		super();
 		this.setUnlocalizedName(name);
         this.setHardness(0.5f);
         this.setResistance(2);

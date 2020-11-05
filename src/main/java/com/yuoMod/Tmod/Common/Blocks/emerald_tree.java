@@ -2,21 +2,30 @@ package com.yuoMod.Tmod.Common.Blocks;
 
 import java.util.Random;
 
+import javax.annotation.Nonnull;
+
 import com.yuoMod.Tmod.Creativetab.CreativeTabsLoader;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockLog;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.PropertyEnum;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 
 public class emerald_tree extends Block
 {
+	public static final PropertyEnum<BlockLog.EnumAxis> LOG_AXIS = PropertyEnum.<BlockLog.EnumAxis>create("axis", BlockLog.EnumAxis.class);
 	//绿宝石树木
 	public emerald_tree(String name) 
 	{
@@ -28,7 +37,45 @@ public class emerald_tree extends Block
 	    this.setCreativeTab(CreativeTabsLoader.TMOD);
 	    this.setSoundType(SoundType.WOOD);
 	    this.setHarvestLevel("斧", 4);
+	    this.setDefaultState(this.blockState.getBaseState().withProperty(LOG_AXIS, BlockLog.EnumAxis.Y));
 	}
+	@Nonnull
+	@Override
+	protected BlockStateContainer createBlockState() {
+		return new BlockStateContainer(this, LOG_AXIS);
+	}
+	@Override
+    public IBlockState getStateFromMeta(int meta)
+    {
+		BlockLog.EnumAxis axis = BlockLog.EnumAxis.Y;
+		switch(meta)
+		{
+		case 0: axis = BlockLog.EnumAxis.Y;break;
+		case 1: axis = BlockLog.EnumAxis.X;break;
+		case 2: axis = BlockLog.EnumAxis.Z;break;
+		}
+        return this.getDefaultState().withProperty(LOG_AXIS, axis);
+    }
+    @Override
+    public int getMetaFromState(IBlockState state)
+    {
+        int meta=0;
+        if(state.getValue(LOG_AXIS)==BlockLog.EnumAxis.Y || state.getValue(LOG_AXIS)==BlockLog.EnumAxis.NONE)
+        	meta=0;
+        if(state.getValue(LOG_AXIS)==BlockLog.EnumAxis.X)
+        	meta=1;
+        if(state.getValue(LOG_AXIS)==BlockLog.EnumAxis.Z)
+        	meta=2;
+        return meta;
+    }
+    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
+    {
+        return this.getDefaultState().withProperty(LOG_AXIS, BlockLog.EnumAxis.fromFacingAxis(facing.getAxis()));
+    }
+    public int getMetadata(int damage)
+    {
+        return 0;
+    }
 	@Override
 	public void getDrops(NonNullList<ItemStack> drops, IBlockAccess blockAccess, BlockPos pos, IBlockState state, int fortune) {
 	    // 把要掉落的物品塞进 drops 里即可。
@@ -70,4 +117,13 @@ public class emerald_tree extends Block
     		return false;
     	}
     }
+//    @Override
+//	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
+//    {
+//		worldIn.setBlockState(pos, state.cycleProperty(LOG_AXIS));
+//		Block block=worldIn.getBlockState(pos).getBlock();
+//		playerIn.sendMessage(new TextComponentTranslation(block.getMetaFromState(state)+" "
+//				+state.getValue(LOG_AXIS).toString()));
+//        return true;
+//    }
 }
