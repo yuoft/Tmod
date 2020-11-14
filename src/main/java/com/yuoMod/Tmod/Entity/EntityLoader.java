@@ -1,11 +1,20 @@
 package com.yuoMod.Tmod.Entity;
 
-import java.util.List;
-
 import com.yuoMod.Tmod.tmod;
 import com.yuoMod.Tmod.Entity.render.RenderGoldenChicken;
 import com.yuoMod.Tmod.Entity.render.RenderGoldenTNT;
-import com.yuoMod.Tmod.Entity.render.RenderNewZombies;
+import com.yuoMod.Tmod.Entity.render.RenderGreenCreeper;
+import com.yuoMod.Tmod.Entity.render.RenderGreenEnderman;
+import com.yuoMod.Tmod.Entity.render.RenderGreenSkeleton;
+import com.yuoMod.Tmod.Entity.render.RenderGreenSpider;
+import com.yuoMod.Tmod.Entity.render.RenderGreenZombies;
+import com.yuoMod.Tmod.Entity.render.RenderNewAlex;
+import com.yuoMod.Tmod.Entity.render.RenderNewSteve;
+import com.yuoMod.Tmod.Entity.render.RenderRedCreeper;
+import com.yuoMod.Tmod.Entity.render.RenderRedEnderman;
+import com.yuoMod.Tmod.Entity.render.RenderRedSkeleton;
+import com.yuoMod.Tmod.Entity.render.RenderRedSpider;
+import com.yuoMod.Tmod.Entity.render.RenderRedZombies;
 
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
@@ -14,10 +23,6 @@ import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Biomes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeBeach;
-import net.minecraftforge.common.BiomeManager;
-import net.minecraftforge.common.BiomeManager.BiomeEntry;
-import net.minecraftforge.common.BiomeManager.BiomeType;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.relauncher.Side;
@@ -36,9 +41,64 @@ public class EntityLoader
     	//Í¶ÖÀÎï£¬»Æ½ðtnt
     	registerEntity(EntityGoldenTNT.class, "GoldenTNT", 64, 10, true);
     	//ÐÂµÄ½©Ê¬:ÂÌ½©
-    	registerEntity(EntityNewZombies.class, "NewZombies", 80, 3, true);
-    	registerEntityEgg(new ResourceLocation("NewZombies"), 0x006400, 0x00FF00);
-    	registerEntitySpawn(EntityNewZombies.class, 100, 1, 3, EnumCreatureType.MONSTER, Biomes.PLAINS,Biomes.DESERT,Biomes.FOREST
+    	registerEntity(EntityGreenZombies.class, "GreenZombies", 80, 3, true);
+    	registerEntityEgg(new ResourceLocation("GreenZombies"), 0x006400, 0x00FF00);
+    	registerEntitySpawn(EntityGreenZombies.class, 60, 1, 3, EnumCreatureType.MONSTER, Biomes.PLAINS,Biomes.DESERT,Biomes.FOREST
+    			,Biomes.TAIGA,Biomes.SWAMPLAND,Biomes.RIVER,Biomes.JUNGLE);
+    	//ºì½©
+    	registerEntity(EntityRedZombies.class, "RedZombies", 80, 3, true);
+    	registerEntityEgg(new ResourceLocation("RedZombies"), 0x006400, 0xFF0000);
+    	registerEntitySpawn(EntityRedZombies.class, 40, 1, 2, EnumCreatureType.MONSTER, Biomes.PLAINS,Biomes.DESERT,Biomes.FOREST
+    			,Biomes.TAIGA,Biomes.SWAMPLAND,Biomes.RIVER,Biomes.JUNGLE);
+    	//ÂÌ÷¼÷Ã
+    	registerEntity(EntityGreenSkeleton.class, "GreenSkeleton", 80, 3, true);
+    	registerEntityEgg(new ResourceLocation("GreenSkeleton"), 0x006400, 0x00FF00);
+    	registerEntitySpawn(EntityGreenSkeleton.class, 60, 1, 3, EnumCreatureType.MONSTER, Biomes.PLAINS,Biomes.DESERT,Biomes.FOREST
+    			,Biomes.TAIGA,Biomes.SWAMPLAND,Biomes.RIVER,Biomes.JUNGLE);
+    	//ºì÷¼÷Ã
+    	registerEntity(EntityRedSkeleton.class, "RedSkeleton", 80, 3, true);
+    	registerEntityEgg(new ResourceLocation("RedSkeleton"), 0x006400, 0xFF0000);
+    	registerEntitySpawn(EntityRedSkeleton.class, 40, 1, 2, EnumCreatureType.MONSTER, Biomes.PLAINS,Biomes.DESERT,Biomes.FOREST
+    			,Biomes.TAIGA,Biomes.SWAMPLAND,Biomes.RIVER,Biomes.JUNGLE);
+    	//ÂÌ¿àÁ¦ÅÂ
+    	registerEntity(EntityGreenCreeper.class, "GreenCreeper", 80, 3, true);
+    	registerEntityEgg(new ResourceLocation("GreenCreeper"), 0x006400, 0x00FF00);
+    	registerEntitySpawn(EntityGreenCreeper.class, 40, 1, 3, EnumCreatureType.MONSTER, Biomes.PLAINS,Biomes.DESERT,Biomes.FOREST
+    			,Biomes.TAIGA,Biomes.SWAMPLAND,Biomes.RIVER,Biomes.JUNGLE);
+    	//ºì¿àÁ¦ÅÂ
+    	registerEntity(EntityRedCreeper.class, "RedCreeper", 80, 3, true);
+    	registerEntityEgg(new ResourceLocation("RedCreeper"), 0x006400, 0xFF0000);
+    	registerEntitySpawn(EntityRedCreeper.class, 2, 1, 2, EnumCreatureType.MONSTER, Biomes.PLAINS,Biomes.DESERT,Biomes.FOREST
+    			,Biomes.TAIGA,Biomes.SWAMPLAND,Biomes.RIVER,Biomes.JUNGLE);
+    	//ÂÌÖ©Öë
+    	registerEntity(EntityGreenSpider.class, "GreenSpider", 80, 3, true);
+    	registerEntityEgg(new ResourceLocation("GreenSpider"), 0x006400, 0x00FF00);
+    	registerEntitySpawn(EntityGreenSpider.class, 60, 1, 3, EnumCreatureType.MONSTER, Biomes.PLAINS,Biomes.DESERT,Biomes.FOREST
+    			,Biomes.TAIGA,Biomes.SWAMPLAND,Biomes.RIVER,Biomes.JUNGLE);
+    	//ºìÖ©Öë
+    	registerEntity(EntityRedSpider.class, "RedSpider", 80, 3, true);
+    	registerEntityEgg(new ResourceLocation("RedSpider"), 0x006400, 0xFF0000);
+    	registerEntitySpawn(EntityRedSpider.class, 40, 1, 2, EnumCreatureType.MONSTER, Biomes.PLAINS,Biomes.DESERT,Biomes.FOREST
+    			,Biomes.TAIGA,Biomes.SWAMPLAND,Biomes.RIVER,Biomes.JUNGLE);
+    	//ÂÌÄ©Ó°ÈË
+    	registerEntity(EntityGreenEnderman.class, "GreenEnderman", 80, 3, true);
+    	registerEntityEgg(new ResourceLocation("GreenEnderman"), 0x006400, 0x00FF00);
+    	registerEntitySpawn(EntityGreenEnderman.class, 60, 1, 3, EnumCreatureType.MONSTER, Biomes.PLAINS,Biomes.DESERT,Biomes.FOREST
+    			,Biomes.TAIGA,Biomes.SWAMPLAND,Biomes.RIVER,Biomes.JUNGLE);
+    	//ºìÄ©Ó°ÈË
+    	registerEntity(EntityRedEnderman.class, "RedEnderman", 80, 3, true);
+    	registerEntityEgg(new ResourceLocation("RedEnderman"), 0x006400, 0xFF0000);
+    	registerEntitySpawn(EntityRedEnderman.class, 40, 1, 2, EnumCreatureType.MONSTER, Biomes.PLAINS,Biomes.DESERT,Biomes.FOREST
+    			,Biomes.TAIGA,Biomes.SWAMPLAND,Biomes.RIVER,Biomes.JUNGLE);
+    	//°¬Àû¿ËË¹
+    	registerEntity(EntityNewAlex.class, "NewAlex", 80, 3, true);
+    	registerEntityEgg(new ResourceLocation("NewAlex"), 0x006400, 0x00FF00);
+    	registerEntitySpawn(EntityNewAlex.class, 10, 1, 1, EnumCreatureType.MONSTER, Biomes.PLAINS,Biomes.DESERT,Biomes.FOREST
+    			,Biomes.TAIGA,Biomes.SWAMPLAND,Biomes.RIVER,Biomes.JUNGLE);
+    	//Ê·µÙ·ò
+    	registerEntity(EntityNewSteve.class, "NewSteve", 80, 3, true);
+    	registerEntityEgg(new ResourceLocation("NewSteve"), 0x006400, 0xFF0000);
+    	registerEntitySpawn(EntityNewSteve.class, 10, 1, 1, EnumCreatureType.MONSTER, Biomes.PLAINS,Biomes.DESERT,Biomes.FOREST
     			,Biomes.TAIGA,Biomes.SWAMPLAND,Biomes.RIVER,Biomes.JUNGLE);
     }
     
@@ -47,7 +107,24 @@ public class EntityLoader
     {
     	registerEntityRender(EntityGoldenChicken.class, RenderGoldenChicken.class);
     	registerEntityRender(EntityGoldenTNT.class, RenderGoldenTNT.class);
-    	registerEntityRender(EntityNewZombies.class, RenderNewZombies.class);
+    	
+    	registerEntityRender(EntityGreenZombies.class, RenderGreenZombies.class);
+    	registerEntityRender(EntityRedZombies.class, RenderRedZombies.class);
+    	
+    	registerEntityRender(EntityGreenSkeleton.class, RenderGreenSkeleton.class);
+    	registerEntityRender(EntityRedSkeleton.class, RenderRedSkeleton.class);
+    	
+    	registerEntityRender(EntityGreenCreeper.class, RenderGreenCreeper.class);
+    	registerEntityRender(EntityRedCreeper.class, RenderRedCreeper.class);
+    	
+    	registerEntityRender(EntityGreenSpider.class, RenderGreenSpider.class);
+    	registerEntityRender(EntityRedSpider.class, RenderRedSpider.class);
+    	
+    	registerEntityRender(EntityGreenEnderman.class, RenderGreenEnderman.class);
+    	registerEntityRender(EntityRedEnderman.class, RenderRedEnderman.class);
+    	
+    	registerEntityRender(EntityNewAlex.class, RenderNewAlex.class);
+    	registerEntityRender(EntityNewSteve.class, RenderNewSteve.class);
     }
     //×¢²áÊµÌå
     private static void registerEntity(Class<? extends Entity> entityClass, String name, int trackingRange,

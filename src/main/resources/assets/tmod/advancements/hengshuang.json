@@ -1,0 +1,24 @@
+{
+    "display": {
+        "icon": { "item": "tmod:emerald_pickaxe"},
+        "title": { "translate": "advancement.tmod:hengshuang" },
+        "frame": "task",
+        "description": { "translate": "advancement.tmod:hengshuang.desc" } 
+    },
+	"parent": "tmod:good_food",
+    "criteria": {
+        "tmod_hengshuang": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+			    "items":[
+				    {
+				    "item":"tmod:emerald_pickaxe"					
+				    }
+				]
+			}
+        }
+    },
+	"rewards": {
+        "experience": 2000
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "display": {
+        "icon": { "item": "tmod:emerald_sword"},
+        "title": { "translate": "advancement.tmod:tianhuo" },
+        "frame": "task",
+        "description": { "translate": "advancement.tmod:tianhuo.desc" } 
+    },
+	"parent": "tmod:good_food",
+    "criteria": {
+        "tmod_tianhuo": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+			    "items":[
+				    {
+				    "item":"tmod:emerald_sword"					
+				    }
+				]
+			}
+        }
+    },
+	"rewards": {
+        "experience": 2200
+    }
+}

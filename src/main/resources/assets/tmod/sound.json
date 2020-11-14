@@ -1,9 +1,0 @@
-{
-    "tmodSound": {
-        "category": "music", 
-		"subtitle": "tmod.sound.tmodSound",
-        "sounds": [ 
-            "tmod:music/tmodSound" 
-        ] 
-    }
-}

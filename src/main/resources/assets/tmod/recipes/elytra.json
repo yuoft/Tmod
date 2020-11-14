@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "xoy",
+        "   ",
+        "   "
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "tmod:elytra_left"
+        },
+		"o":
+        {
+            "item": "minecraft:dragon_egg"
+        },
+		"y":
+		{
+		    "item": "tmod:elytra_right"
+		}
+    },
+    "result":
+    {
+        "item": "minecraft:elytra",
+        "count": 1
+    }
+}

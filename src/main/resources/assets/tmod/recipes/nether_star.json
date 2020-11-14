@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        " x ",
+        "xox",
+        " x "
+    ],
+    "key":
+    {
+        "o":
+        {
+            "item": "minecraft:diamond"
+        },
+		"x":
+        {
+            "item": "tmod:nether_star_small"
+        }
+    },
+    "result":
+    {
+        "item": "minecraft:nether_star",
+        "count": 1
+    }
+}

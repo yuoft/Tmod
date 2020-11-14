@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        " x ",
+        "xox",
+        " x "
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "tmod:exp_big"
+        },
+		"o":
+        {
+            "item": "minecraft:glass_bottle"
+        }
+    },
+    "result":
+    {
+        "item": "minecraft:experience_bottle",
+        "count": 3
+    }
+}

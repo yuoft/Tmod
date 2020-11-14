@@ -3,7 +3,7 @@
     "pattern":
     [
         "x x",
-        "xxx",
+        "xox",
         "xxx"
     ],
     "key":
@@ -11,6 +11,10 @@
         "x":
         {
             "item": "tmod:emerald_ingot"
+        },
+		"o":
+        {
+            "item": "minecraft:diamond_chestplate"
         }
     },
     "result":

@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "xxx",
+        "xox",
+        "xxx"
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "minecraft:emerald"
+        },
+		"o":
+        {
+            "item": "minecraft:apple"
+        }
+    },
+    "result":
+    {
+        "item": "tmod:emerald_apple",
+        "count": 1,
+		"data": 0
+    }
+}
