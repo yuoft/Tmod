@@ -1,7 +1,6 @@
 package com.yuoMod.Tmod.Entity.render;
 
 import com.yuoMod.Tmod.tmod;
-import com.yuoMod.Tmod.Entity.EntityGreenZombies;
 import com.yuoMod.Tmod.Entity.EntityNewSteve;
 
 import net.minecraft.client.model.ModelZombie;

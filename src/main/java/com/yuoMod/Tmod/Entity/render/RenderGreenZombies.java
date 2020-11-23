@@ -35,6 +35,7 @@ public class RenderGreenZombies extends RenderLiving<EntityGreenZombies>
     public void doRender(EntityGreenZombies entity, double x, double y, double z, float entityYaw, float partialTicks)
     {
         super.doRender(entity, x, y, z, entityYaw, partialTicks);
+        this.bindEntityTexture(entity);//切换当前的纹理上下文到你的纹理上。
     }
 	
 }

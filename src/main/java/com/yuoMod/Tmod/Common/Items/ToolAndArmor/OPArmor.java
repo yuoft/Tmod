@@ -42,7 +42,7 @@ equipmentSlotIn²ÎÊýºÍToolMaterialÒ»Ñù£¬ºÍ¶ÔÓ¦¿ø¼×µÄ¸½Ä§ÄÜÁ¦ÕýÏà¹Ø£¬Í¬Ñù£¬½ð¿ø¼×µ
 			if(player.isBurning())
 	             player.extinguish();//×Å»ðÊ±Ï¨Ãð
 			 player.capabilities.allowFlying = true;//·ÉÐÐ
-			 player.capabilities.setFlySpeed(0.15f);
+			 player.capabilities.setFlySpeed(0.1f);
 //			 player.capabilities.setPlayerWalkSpeed(0.3f);
 			 player.addPotionEffect(new PotionEffect(Potion.getPotionById(16), 100000, 0));
 			 player.addPotionEffect(new PotionEffect(Potion.getPotionById(26), 100000, 0));

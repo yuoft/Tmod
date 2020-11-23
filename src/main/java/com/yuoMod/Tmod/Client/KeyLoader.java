@@ -2,15 +2,10 @@ package com.yuoMod.Tmod.Client;
 
 import org.lwjgl.input.Keyboard;
 
-import com.yuoMod.Tmod.tmod;
-import com.yuoMod.Tmod.Gui.guiLoader;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
-import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -37,14 +32,14 @@ public class KeyLoader
   	public void onKeyInput(InputEvent.KeyInputEvent event) 
   	{
   		EntityPlayer player=Minecraft.getMinecraft().player;
-  		World world=Minecraft.getMinecraft().world;
+//  		World world=Minecraft.getMinecraft().world;
   		if(player !=null)
   		{
   			if(KeyLoader.key_X.isPressed())
   			{
   				player.sendMessage(new TextComponentTranslation("Äã°´ÏÂÁË¼ü£º"+key_X.getKeyDescription()));
-  				BlockPos pos=player.getPosition();
-  				player.openGui(tmod.instance, guiLoader.NINE_GUI, world, pos.getX(), pos.getY(), pos.getZ());
+//  				BlockPos pos=player.getPosition();
+//  				player.openGui(tmod.instance, guiLoader.NINE_GUI, world, pos.getX(), pos.getY(), pos.getZ());
   			}
   			if(KeyLoader.key_Z.isPressed())
   			{

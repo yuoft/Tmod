@@ -26,6 +26,7 @@ import net.minecraft.item.ItemArmor;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.client.model.obj.OBJLoader;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
@@ -68,6 +69,10 @@ public class itemLoader
 	public static final item_block emerald_leaf = new item_block(blockLoader.emerald_leaf);
 	public static final item_block emerald_sapling = new item_block(blockLoader.emerald_sapling);
 	public static final item_block power_extractor = new item_block(blockLoader.power_extractor);
+	public static final item_block boss_block = new item_block(blockLoader.boss_block);
+	public static final item_block emerald_chest = new item_block(blockLoader.emerald_chest);
+	public static final item_block space_ore = new item_block(blockLoader.space_ore);
+	public static final item_block space_block = new item_block(blockLoader.space_block);
 	//特殊物品
 	public static final GoldenTNT golden_tnt=new GoldenTNT("golden_tnt");
 	public static final PotionFallUse potion_fall_use=new PotionFallUse("potion_fall_use");
@@ -76,6 +81,9 @@ public class itemLoader
 	public static final tmodMusicRecord tmod_music3=new tmodMusicRecord("tmod_music3", soundLoader.CD_Op);
 	public static final Item exp_small=new ExpWaterDrop("exp_small");
 	public static final Item exp_big=new ExpWaterDrop("exp_big");
+	public static final Item storage_ring_big=new StorageRing("storage_ring_big");
+	public static final Item storage_ring_in=new StorageRing("storage_ring_in");
+	public static final Item storage_ring_small=new StorageRing("storage_ring_small");
 	//作物
 	public static final emerald_crop_seeds emerald_crop_seeds=new emerald_crop_seeds("emerald_crop_seeds");
 	//碎片物品 or 通用物品注册
@@ -84,6 +92,8 @@ public class itemLoader
 	public static final Item elytra_right=new ItemsAll("elytra_right");
 	public static final Item nether_star_small=new ItemsAll("nether_star_small");
 	public static final Item totem_small=new ItemsAll("totem_small");
+	public static final Item space_patch=new ItemsAll("space_patch");
+	public static final Item space_ingot=new ItemsAll("space_ingot");
 	//注册item的id
 	public static void init(FMLPreInitializationEvent event)
 	{
@@ -116,6 +126,10 @@ public class itemLoader
 		ForgeRegistries.ITEMS.register(emerald_leaf.setRegistryName("emerald_leaf"));
 		ForgeRegistries.ITEMS.register(emerald_sapling.setRegistryName("emerald_sapling"));
 		ForgeRegistries.ITEMS.register(power_extractor.setRegistryName("power_extractor"));
+		ForgeRegistries.ITEMS.register(boss_block.setRegistryName("boss_block"));
+		ForgeRegistries.ITEMS.register(emerald_chest.setRegistryName("emerald_chest"));
+		ForgeRegistries.ITEMS.register(space_ore.setRegistryName("space_ore"));
+		ForgeRegistries.ITEMS.register(space_block.setRegistryName("space_block"));
 		
 		ForgeRegistries.ITEMS.register(golden_tnt.setRegistryName("golden_tnt"));
 		ForgeRegistries.ITEMS.register(potion_fall_use.setRegistryName("potion_fall_use"));
@@ -124,6 +138,9 @@ public class itemLoader
 		ForgeRegistries.ITEMS.register(tmod_music3.setRegistryName("tmod_music3"));
 		ForgeRegistries.ITEMS.register(exp_small.setRegistryName("exp_small"));
 		ForgeRegistries.ITEMS.register(exp_big.setRegistryName("exp_big"));
+		ForgeRegistries.ITEMS.register(storage_ring_big.setRegistryName("storage_ring_big"));
+		ForgeRegistries.ITEMS.register(storage_ring_in.setRegistryName("storage_ring_in"));
+		ForgeRegistries.ITEMS.register(storage_ring_small.setRegistryName("storage_ring_small"));
 		
 		ForgeRegistries.ITEMS.register(emerald_crop_seeds.setRegistryName("emerald_crop_seeds"));
 		
@@ -132,6 +149,8 @@ public class itemLoader
 		ForgeRegistries.ITEMS.register(elytra_right.setRegistryName("elytra_right"));
 		ForgeRegistries.ITEMS.register(nether_star_small.setRegistryName("nether_star_small"));
 		ForgeRegistries.ITEMS.register(totem_small.setRegistryName("totem_small"));
+		ForgeRegistries.ITEMS.register(space_patch.setRegistryName("space_patch"));
+		ForgeRegistries.ITEMS.register(space_ingot.setRegistryName("space_ingot"));
 	}
 //	private static void register(Item items, String name)
 //	{
@@ -140,6 +159,8 @@ public class itemLoader
 	@SideOnly(Side.CLIENT)
 	public static void registerRenders()//zhucecaizhi
 	{
+		OBJLoader.INSTANCE.addDomain(tmod.MODID);
+		
 		registerRender(bad_apple);
 		registerRender(gold_diamond_bread);
 		registerRender(emerald_apple,0);
@@ -170,6 +191,10 @@ public class itemLoader
 		registerRender(emerald_leaf,0);
 		registerRender(emerald_sapling);
 		registerRender(power_extractor,0);
+		registerRender(boss_block);
+		registerRender(emerald_chest);
+		registerRender(space_ore);
+		registerRender(space_block);
 		
 		registerRender(golden_tnt);
 		registerRender(potion_fall_use);
@@ -178,6 +203,9 @@ public class itemLoader
 		registerRender(tmod_music3);
 		registerRender(exp_small);
 		registerRender(exp_big);
+		registerRender(storage_ring_big);
+		registerRender(storage_ring_in);
+		registerRender(storage_ring_small);
 		
 		registerRender(emerald_crop_seeds);
 		
@@ -186,6 +214,8 @@ public class itemLoader
 		registerRender(elytra_right);
 		registerRender(nether_star_small);
 		registerRender(totem_small);
+		registerRender(space_patch);
+		registerRender(space_ingot);
 	}
 	@SideOnly(Side.CLIENT)
 	public static void registerRender(Item item,int meta)//多状态物品注册

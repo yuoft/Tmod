@@ -49,13 +49,8 @@ public class emerald_pickaxe extends ItemPickaxe
 		super(toolmaterial);
 		this.setUnlocalizedName(name);
         this.setCreativeTab(CreativeTabsLoader.TMOD);
-        this.setHarvestLevel(name, 4);
+        this.setHarvestLevel("pickaxe", 4);
 	}
-	//ÍÚ¾ò¿ØÖÆ
-	public boolean canHarvestBlock(IBlockState blockIn)
-    {
-		return true;
-    }
 	@SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn)
     {

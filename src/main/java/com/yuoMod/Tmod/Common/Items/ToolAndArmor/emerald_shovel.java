@@ -28,6 +28,7 @@ public class emerald_shovel extends ItemTool
 	{
 		super(-20.0F, -2.8F, toolmaterial,EFFECTIVE_ON);
 		this.setUnlocalizedName(name);
+		this.setHarvestLevel("shovel", 3);
         this.setCreativeTab(CreativeTabsLoader.TMOD);
 	}
 	//铲子右键方法（使用原版）

@@ -5,6 +5,7 @@ import javax.annotation.Nullable;
 
 import com.yuoMod.Tmod.Common.ConfigLoader;
 import com.yuoMod.Tmod.Creativetab.CreativeTabsLoader;
+import com.yuoMod.Tmod.Entity.EntityGoldenTNT;
 
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
@@ -12,6 +13,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.util.ActionResult;
@@ -54,6 +56,13 @@ enchantability参数与附魔等级相关
 		{
 			float range=ConfigLoader.range * 1.0f;
 			attackAOE(playerIn, range, 10000.0f, ConfigLoader.opSwordType);
+			playerIn.playSound(SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, 1.0f, 3.0f);
+		}
+		else
+		{
+			EntityGoldenTNT goldenTNT=new EntityGoldenTNT(worldIn, playerIn);
+			goldenTNT.shoot(playerIn, playerIn.rotationPitch, playerIn.rotationYawHead,0f, 2.0f, 0.1f);
+			worldIn.spawnEntity(goldenTNT);
 		}
 		return new ActionResult<ItemStack>(EnumActionResult.PASS, playerIn.getHeldItem(handIn));
 	}
@@ -70,7 +79,7 @@ enchantability参数与附魔等级相关
 			{
 				target.setDead();
 			}
-			attacker.sendMessage(new TextComponentTranslation(target.getName()+"tmod.text.opSword"));
+			attacker.sendMessage(new TextComponentTranslation(target.getName()+"OnKill"));
 		}
 		else
 		{

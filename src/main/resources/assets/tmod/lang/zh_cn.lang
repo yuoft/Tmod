@@ -16,6 +16,11 @@ item.nether_star_small.name=下界之星碎片
 item.totem_small.name=不死图腾碎片
 item.exp_small.name=经验液滴·小
 item.exp_big.name=经验液滴·大
+item.storage_ring_big.name=大型储物戒指
+item.storage_ring_in.name=中型储物戒指
+item.storage_ring_small.name=小型储物戒指
+item.space_patch.name=§b空间碎片
+item.space_ingot.name=§b空间锭
 #工具or装备
 item.emerald_pickaxe.name=绿宝石镐--§b恒霜
 item.emerald_axe.name=绿宝石斧
@@ -40,6 +45,10 @@ tile.emerald_leaf.name=绿宝石树叶
 tile.emerald_sapling.name=绿宝石树苗
 tile.power_extractor.name=提取机
 tile.emerald_crop.name=绿宝石作物
+tile.boss_block.name=§cBoss方块
+tile.emerald_chest.name=绿宝石箱
+tile.space_ore.name=§b空间矿石
+tile.space_block.name=§b空间矿石块
 #流体
 fluid.emerald_fluid=熔融绿宝石
 tile.emerald_fluid.name=熔融绿宝石
@@ -74,7 +83,10 @@ advancement.tmod:hengshuang=§b恒霜
 advancement.tmod:hengshuang.desc=获得绿宝石镐
 #GUI
 container.tmod.gui=提取机
-container.tmod.NineGui=伪·无尽工作台
+container.tmod.NineGui=储物戒指·大
+container.tmod.SixGui=储物戒指·中
+container.tmod.ThreeGui=储物戒指·小
+container.tmod.ChestGui=绿宝石箱子
 #实体
 entity.GoldenChicken.name=黄金鸡
 entity.GreenZombies.name=§a僵尸
@@ -101,7 +113,6 @@ item.record.tmod_music3.desc=超电-OP
 item.tmod_music3.name=超电磁炮music3
 #聊天框
 tmod.text.emeraldSword=你的经验等级不足！
-tmod.text.opSword=被删除
 #物品信息
 tmod.item.golden_tnt1=使用造成10级爆炸,请谨慎使用
 tmod.item.golden_tnt2=不会伤害玩家,但会破坏地形

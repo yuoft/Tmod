@@ -1,8 +1,0 @@
-{
-    "parent": "block/orientable",
-    "textures": {
-        "top": "tmod:block/power_extractor_top",
-        "front": "tmod:block/power_extractor_off",
-        "side": "tmod:block/power_extractor_side"
-    }
-}

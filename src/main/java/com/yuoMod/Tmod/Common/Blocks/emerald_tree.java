@@ -32,11 +32,11 @@ public class emerald_tree extends Block
 		super(Material.WOOD);
 		this.setSoundType(SoundType.WOOD);
 		this.setUnlocalizedName(name);
-	    this.setHardness(2f);
-	    this.setResistance(2f);
+	    this.setHardness(5.0f);
+	    this.setResistance(5.0f);
 	    this.setCreativeTab(CreativeTabsLoader.TMOD);
 	    this.setSoundType(SoundType.WOOD);
-	    this.setHarvestLevel("¸«", 4);
+	    this.setHarvestLevel("axe", 3);
 	    this.setDefaultState(this.blockState.getBaseState().withProperty(LOG_AXIS, BlockLog.EnumAxis.Y));
 	}
 	@Nonnull

@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+		    "item": "tmod:space_block"
+		},
+		{
+            "item": "tmod:storage_ring_in"
+        }
+    ],
+    "result":
+    {
+        "item": "tmod:storage_ring_big",
+        "count": 1
+    }
+}

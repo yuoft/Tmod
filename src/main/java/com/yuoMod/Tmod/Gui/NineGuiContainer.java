@@ -4,7 +4,6 @@ import com.yuoMod.Tmod.tmod;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.resources.I18n;
-import net.minecraft.inventory.Container;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -14,8 +13,7 @@ public class NineGuiContainer extends GuiContainer
 {
 	private static final String TEXTURE_PATH = tmod.MODID + ":" + "textures/gui/nine_gui.png";
 	private static final ResourceLocation TEXTURE = new ResourceLocation(TEXTURE_PATH);
-	
-	public NineGuiContainer(Container inventorySlotsIn) {
+	public NineGuiContainer(NineContainer inventorySlotsIn) {
 		super(inventorySlotsIn);
 		this.xSize = 256;
         this.ySize = 256;

@@ -1,12 +1,26 @@
 {
-    "variants": {
-        "burning=false,facing=north":{ "model": "tmod:power_extractor"},
-		"burning=false,facing=south":{ "model": "tmod:power_extractor","y":180},
-		"burning=false,facing=east":{ "model": "tmod:power_extractor","y":90},
-		"burning=false,facing=west":{ "model": "tmod:power_extractor","y":270},
-		"burning=true,facing=north":{ "model": "tmod:power_extractor_burning"},
-		"burning=true,facing=south":{ "model": "tmod:power_extractor_burning","y":180},
-		"burning=true,facing=east":{ "model": "tmod:power_extractor_burning","y":90},
-		"burning=true,facing=west":{ "model": "tmod:power_extractor_burning","y":270}
+    "forge_marker": 1,
+    "defaults": {
+        "model": "orientable",
+        "textures": {
+            "top": "tmod:block/power_extractor_top",
+            "front": "tmod:block/power_extractor_off",
+            "side": "tmod:block/power_extractor_side"
+        }
+    },
+	"variants": {
+	    "inventory": [{
+             "textures": { "front": "tmod:block/power_extractor_off" }
+        }],
+        "burning": {
+            "true": { "textures": { "front": "tmod:block/power_extractor_on" } },
+            "false": { "textures": { "front": "tmod:block/power_extractor_off" } }
+        },
+		"facing": {
+            "east": { "y": 90 },
+            "north": {},
+            "south": { "y": 180},
+            "west": { "y": 270}
+        }
     }
 }

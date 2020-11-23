@@ -1,6 +1,7 @@
 package com.yuoMod.Tmod.Entity;
 
 import com.yuoMod.Tmod.Common.Items.itemLoader;
+import com.yuoMod.Tmod.Entity.AI.AISetBlock;
 
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityZombie;
@@ -14,6 +15,7 @@ public class EntityNewSteve extends EntityZombie
 {
 	public EntityNewSteve(World worldIn) {
 		super(worldIn);
+		this.tasks.addTask(3, new AISetBlock(this));
 		this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Items.DIAMOND_SWORD));
 		this.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(Items.DIAMOND_HELMET));
 		this.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(Items.DIAMOND_CHESTPLATE));

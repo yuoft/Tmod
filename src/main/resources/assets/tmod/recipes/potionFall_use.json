@@ -2,7 +2,8 @@
    "type": "minecraft:crafting_shapeless",
    "ingredients": [
 		{
-		    "item": "minecraft:golden_apple"
+		    "item": "minecraft:golden_apple",
+			"data": 0
 		},
 		{
             "item": "minecraft:milk_bucket"

@@ -5,17 +5,12 @@ import com.yuoMod.Tmod.Entity.render.RenderGoldenChicken;
 import com.yuoMod.Tmod.Entity.render.RenderGoldenTNT;
 import com.yuoMod.Tmod.Entity.render.RenderGreenCreeper;
 import com.yuoMod.Tmod.Entity.render.RenderGreenEnderman;
-import com.yuoMod.Tmod.Entity.render.RenderGreenSkeleton;
 import com.yuoMod.Tmod.Entity.render.RenderGreenSpider;
-import com.yuoMod.Tmod.Entity.render.RenderGreenZombies;
 import com.yuoMod.Tmod.Entity.render.RenderNewAlex;
 import com.yuoMod.Tmod.Entity.render.RenderNewSteve;
 import com.yuoMod.Tmod.Entity.render.RenderRedCreeper;
 import com.yuoMod.Tmod.Entity.render.RenderRedEnderman;
-import com.yuoMod.Tmod.Entity.render.RenderRedSkeleton;
 import com.yuoMod.Tmod.Entity.render.RenderRedSpider;
-import com.yuoMod.Tmod.Entity.render.RenderRedZombies;
-
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -108,11 +103,11 @@ public class EntityLoader
     	registerEntityRender(EntityGoldenChicken.class, RenderGoldenChicken.class);
     	registerEntityRender(EntityGoldenTNT.class, RenderGoldenTNT.class);
     	
-    	registerEntityRender(EntityGreenZombies.class, RenderGreenZombies.class);
-    	registerEntityRender(EntityRedZombies.class, RenderRedZombies.class);
-    	
-    	registerEntityRender(EntityGreenSkeleton.class, RenderGreenSkeleton.class);
-    	registerEntityRender(EntityRedSkeleton.class, RenderRedSkeleton.class);
+//    	registerEntityRender(EntityGreenZombies.class, RenderGreenZombies.class);
+//    	registerEntityRender(EntityRedZombies.class, RenderRedZombies.class);
+//    	
+//    	registerEntityRender(EntityGreenSkeleton.class, RenderGreenSkeleton.class);
+//    	registerEntityRender(EntityRedSkeleton.class, RenderRedSkeleton.class);
     	
     	registerEntityRender(EntityGreenCreeper.class, RenderGreenCreeper.class);
     	registerEntityRender(EntityRedCreeper.class, RenderRedCreeper.class);

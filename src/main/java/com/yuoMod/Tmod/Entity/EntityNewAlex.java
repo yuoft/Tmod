@@ -1,13 +1,10 @@
 package com.yuoMod.Tmod.Entity;
 
-import java.util.UUID;
-
-import com.mojang.authlib.GameProfile;
 import com.yuoMod.Tmod.Common.Items.itemLoader;
+import com.yuoMod.Tmod.Entity.AI.AISetBlock;
 
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityZombie;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
@@ -17,8 +14,8 @@ import net.minecraft.world.World;
 public class EntityNewAlex extends EntityZombie
 {
 	public EntityNewAlex(World worldIn) {
-//		super(worldIn, new GameProfile(UUID.randomUUID(), "NewAlex"));
 		super(worldIn);
+		this.tasks.addTask(3, new AISetBlock(this));
 		this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Items.DIAMOND_SWORD));
 		this.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(Items.DIAMOND_HELMET));
 		this.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(Items.DIAMOND_CHESTPLATE));
@@ -61,14 +58,4 @@ public class EntityNewAlex extends EntityZombie
 		this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(6.0D);//盔甲防御
 		this.getEntityAttribute(SharedMonsterAttributes.ARMOR_TOUGHNESS).setBaseValue(4.0D);//盔甲韧性
 	}
-//	@Override
-//	public boolean isSpectator() {
-//		// TODO 自动生成的方法存根
-//		return false;
-//	}
-//	@Override
-//	public boolean isCreative() {
-//		// TODO 自动生成的方法存根
-//		return false;
-//	}
 }

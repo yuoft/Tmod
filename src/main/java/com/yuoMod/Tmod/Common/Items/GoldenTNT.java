@@ -36,7 +36,6 @@ public class GoldenTNT extends Item
 		}
 		if (!worldIn.isRemote) {//判断是否是service
 			EntityGoldenTNT egg=new EntityGoldenTNT(worldIn, playerIn);
-//			egg.shoot(playerIn.posX, playerIn.posY, playerIn.posZ, 3.0f, 0f);
 			//确定投掷物的初速度方向rotationYaw:实体围绕Y轴旋转程度；rotationPitch：实体围绕X轴旋转的程度;render:渲染偏移
 			egg.shoot(playerIn, playerIn.rotationPitch, playerIn.rotationYawHead,0f, 2.0f, 0.1f);
 			worldIn.spawnEntity(egg);

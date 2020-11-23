@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "xxx",
+        "xxx",
+        "xxx"
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "tmod:space_ingot"
+        }
+    },
+    "result":
+    {
+        "item": "tmod:space_block",
+        "count": 1
+    }
+}

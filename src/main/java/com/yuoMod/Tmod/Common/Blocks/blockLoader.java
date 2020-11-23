@@ -26,6 +26,10 @@ public class blockLoader
 	public static final Block power_extractor=new power_extractor("power_extractor");
 	public static final BlockFluidClassic emerald_fluid=new block_Emerald_Fluid("emerald_fluid");
 	public static final BlockCrops emerald_crop=new emerald_crop("emerald_crop");
+	public static final Block boss_block=new BossBlock("boss_block");
+	public static final Block emerald_chest=new EmeraldChest("emerald_chest");
+	public static final Block space_ore=new SpaceOre("space_ore");
+	public static final Block space_block = new emerald_ingot_block("space_block");
 
     public blockLoader(FMLPreInitializationEvent event)
     {
@@ -38,6 +42,10 @@ public class blockLoader
         register(power_extractor, "power_extractor");
         register(emerald_fluid, "emerald_fluid");
         register(emerald_crop, "emerald_crop");
+        register(boss_block, "boss_block");
+        register(emerald_chest, "emerald_chest");
+        register(space_ore, "space_ore");
+        register(space_block, "space_block");
     }
     private static void register(Block block, String name)
     {
@@ -58,9 +66,12 @@ public class blockLoader
                 new StateMap.Builder().build());
         registerRender(emerald_sapling,0);
         registerRender(power_extractor,0);
-        registerStateMapper(power_extractor,
-                new StateMap.Builder().build());
+        registerStateMapper(power_extractor, new StateMap.Builder().build());
         registerRender(emerald_crop,0);
+        registerRender(boss_block,0);
+        registerRender(emerald_chest,0);
+        registerRender(space_ore,0);
+        registerRender(space_block,0);
     }
     @SideOnly(Side.CLIENT)
     private static void registerRender(Block block,int meta)

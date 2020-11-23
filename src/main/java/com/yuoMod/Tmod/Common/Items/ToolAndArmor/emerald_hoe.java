@@ -28,6 +28,7 @@ public class emerald_hoe extends ItemTool
 	{
 		super(-20.0F, -2.0F, toolmaterial,EFFECTIVE_ON);
 		this.setUnlocalizedName(name);
+		this.setHarvestLevel("hoe", 3);
         this.setCreativeTab(CreativeTabsLoader.TMOD);
 	}
 	//锄头右键方法（使用原版）

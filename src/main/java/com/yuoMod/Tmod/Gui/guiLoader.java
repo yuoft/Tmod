@@ -1,7 +1,7 @@
 package com.yuoMod.Tmod.Gui;
 
 import com.yuoMod.Tmod.tmod;
-
+import com.yuoMod.Tmod.Common.Inventory.InventoryStorageRingBag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -12,6 +12,9 @@ public class guiLoader implements IGuiHandler
 {
 	public static final int GUI_DEMO = 1;
 	public static final int NINE_GUI = 2;
+	public static final int SIX_GUI = 3;
+	public static final int THREE_GUI = 4;
+	public static final int CHEST_GUI = 5;
 	public guiLoader()
 	{
 		//第一个参数传入一个Mod的实例，第二个参数传入这个IGuiHandler。
@@ -23,7 +26,13 @@ public class guiLoader implements IGuiHandler
 		case GUI_DEMO:
 			return new ContainerDemo(player,world.getTileEntity(new BlockPos(x, y, z)));
 		case NINE_GUI:
-            return new NineContainer(player,world);
+            return new NineContainer(player,new InventoryStorageRingBag(player.getHeldItemMainhand(),81));
+		case SIX_GUI:
+			return new SixContainer(player, new InventoryStorageRingBag(player.getHeldItemMainhand(), 54));
+		case THREE_GUI:
+			return new ThreeContainer(player, new InventoryStorageRingBag(player.getHeldItemMainhand(), 27));
+		case CHEST_GUI:
+			return new ChestContainer(player, new BlockPos(x, y, z), world.getTileEntity(new BlockPos(x, y, z)));
 		default:
 			return null;
 		}
@@ -35,7 +44,13 @@ public class guiLoader implements IGuiHandler
 		case GUI_DEMO:
 			return new GuiContainerDemo(new ContainerDemo(player,world.getTileEntity(new BlockPos(x, y, z))));
 		case NINE_GUI:
-            return new NineGuiContainer(new NineContainer(player,world));
+            return new NineGuiContainer(new NineContainer(player,new InventoryStorageRingBag(player.getHeldItemMainhand(),81)));
+		case SIX_GUI:
+			return new SixGuiContainer(new SixContainer(player, new InventoryStorageRingBag(player.getHeldItemMainhand(), 54)));
+		case THREE_GUI:
+			return new ThreeGuiContainer(new ThreeContainer(player, new InventoryStorageRingBag(player.getHeldItemMainhand(), 27)));
+		case CHEST_GUI:
+			return new ChestGuiContainer(new ChestContainer(player, new BlockPos(x, y, z), world.getTileEntity(new BlockPos(x, y, z))));
 		default:
 			return null;
 		}

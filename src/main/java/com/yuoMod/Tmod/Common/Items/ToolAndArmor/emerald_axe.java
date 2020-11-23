@@ -12,6 +12,6 @@ public class emerald_axe extends ItemAxe
 		super(toolmaterial, 10.0f, -3.0f);
 		this.setUnlocalizedName(name);
         this.setCreativeTab(CreativeTabsLoader.TMOD);
-        this.setHarvestLevel(name, 4);
+        this.setHarvestLevel("axe", 3);
 	}
 }

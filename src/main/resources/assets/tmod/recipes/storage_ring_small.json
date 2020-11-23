@@ -1,0 +1,30 @@
+{
+    "type": "forge:ore_shaped",
+	"group": "tmod:storage_ring_small",
+    "pattern":
+    [
+        "oxo",
+        "y y",
+        "oyo"
+    ],
+    "key":
+    {
+        "y":
+        {
+           "item": "tmod:space_ingot"
+        },
+		"o":
+        {
+            "item": "tmod:emerald_ingot_block"
+        },
+		"x":
+        {
+            "item": "minecraft:emerald_block"
+        }
+    },
+    "result":
+    {
+        "item": "tmod:storage_ring_small",
+        "count": 1
+    }
+}

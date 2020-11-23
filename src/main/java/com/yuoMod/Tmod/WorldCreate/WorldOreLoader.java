@@ -10,6 +10,7 @@ import net.minecraftforge.fml.common.eventhandler.Event.Result;
 public class WorldOreLoader 
 {
 	private static WorldGenerator oreCreate = new WorldOreCreate();
+	private static WorldGenerator SpaceOre = new SpaceOreSpawn();
     private BlockPos pos;
     
     public WorldOreLoader()
@@ -25,6 +26,7 @@ public class WorldOreLoader
         {
             this.pos = event.getPos();
             oreCreate.generate(event.getWorld(), event.getRand(), event.getPos());
+            SpaceOre.generate(event.getWorld(), event.getRand(), event.getPos());
         }
     }
 

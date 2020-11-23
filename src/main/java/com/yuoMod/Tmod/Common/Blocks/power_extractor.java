@@ -8,7 +8,6 @@ import com.yuoMod.Tmod.tmod;
 import com.yuoMod.Tmod.Creativetab.CreativeTabsLoader;
 import com.yuoMod.Tmod.Gui.guiLoader;
 import com.yuoMod.Tmod.TileEntity.MyTileEntity;
-
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -47,6 +46,7 @@ public class power_extractor extends BlockContainer
 		this.setResistance(50);
 		this.setCreativeTab(CreativeTabsLoader.TMOD);
 		this.setSoundType(SoundType.STONE);
+		this.setHarvestLevel("pickaxe", 1);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(BURNING, false));
 	}
 	//告知我们的方块使用了这2种IProperty
