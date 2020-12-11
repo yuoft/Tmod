@@ -6,7 +6,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
@@ -16,48 +15,10 @@ import net.minecraft.world.World;
 
 public class EntityRedEnderman extends EntityEnderman
 {
-	private int tick=160;
+	private int tick=40;
 	public EntityRedEnderman(World worldIn) {
 		super(worldIn);
-		int i=rand.nextInt(100);
-		if(i < 70 && i >= 30)
-		{
-			if(rand.nextInt(100) >50)
-				this.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(Items.DIAMOND_HELMET));
-			else this.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(Items.IRON_HELMET));
-		}
-		else if(i < 85 && i>= 70)
-		{
-			if(rand.nextInt(100) > 50)
-				this.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(Items.IRON_CHESTPLATE));
-			else this.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(Items.DIAMOND_CHESTPLATE));
-		}
-		else if(i < 95 && i >= 85)
-		{
-			if(rand.nextInt(100) >50)
-				this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Items.DIAMOND_SWORD));
-			else this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Items.IRON_SWORD));
-		}
-		else if(i >= 95)
-		{
-			this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Items.DIAMOND_SWORD));
-			this.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(Items.DIAMOND_HELMET));
-			this.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(Items.DIAMOND_CHESTPLATE));
-			this.setItemStackToSlot(EntityEquipmentSlot.FEET, new ItemStack(Items.DIAMOND_BOOTS));
-			this.setItemStackToSlot(EntityEquipmentSlot.LEGS, new ItemStack(Items.DIAMOND_LEGGINGS));
-		}
-		else
-		{
-			if(rand.nextInt(10000) == 0)//0.01%¸ÅÂÊÂÌ±¦Ê¯¶§Ì×
-			{
-				this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(itemLoader.emerald_sword));
-				this.setItemStackToSlot(EntityEquipmentSlot.OFFHAND, new ItemStack(Items.TOTEM_OF_UNDYING));
-				this.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(itemLoader.emerald_helmet));
-				this.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(itemLoader.emerald_breastplate));
-				this.setItemStackToSlot(EntityEquipmentSlot.FEET, new ItemStack(itemLoader.emerald_shoes));
-				this.setItemStackToSlot(EntityEquipmentSlot.LEGS, new ItemStack(itemLoader.emerald_leggings));
-			}
-		}
+		this.SpwanMob();
 	}
 	@Override
 	public void onLivingUpdate() {
@@ -99,35 +60,63 @@ public class EntityRedEnderman extends EntityEnderman
 	{
 		super.onUpdate();
 		this.tick++;
+		if(tick < 40)
+		{
+			return ;
+		}
 		EntityPlayer player=this.attackingPlayer;
-		if(player !=null && this.tick >= 200 && rand.nextInt(100) > 50)
+		if(player !=null && rand.nextInt(100) > 50)
 		{
 			BlockPos pos=player.getPosition();
 			BlockPos pos1=new BlockPos(pos.getX(), pos.getY()+2, pos.getZ());
-			BlockPos pos2=new BlockPos(pos.getX()+1, pos.getY()+2, pos.getZ());
-			BlockPos pos3=new BlockPos(pos.getX()-1, pos.getY()+2, pos.getZ());
-			BlockPos pos4=new BlockPos(pos.getX(), pos.getY()+2, pos.getZ()+1);
-			BlockPos pos5=new BlockPos(pos.getX(), pos.getY()+2, pos.getZ()-1);
-			IBlockState state=Blocks.AIR.getDefaultState();
-			if(world.getBlockState(pos1).getBlockHardness(world, pos1) < 5.0f)
+			IBlockState state=world.getBlockState(pos1);
+			if(state.getBlockHardness(world, pos1) < 5.0f)
 			{
-				world.setBlockState(pos1, state);
+				this.setHeldBlockState(state);
+				world.setBlockToAir(pos1);
 			}
-			if(world.getBlockState(pos2).getBlockHardness(world, pos1) < 5.0f)
+			tick=0;
+		}
+	}
+	private void SpwanMob()
+	{
+		int i=rand.nextInt(100);
+		if(i < 70 && i >= 30)
+		{
+			if(rand.nextInt(100) >50)
+				this.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(Items.DIAMOND_HELMET));
+			else this.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(Items.IRON_HELMET));
+		}
+		else if(i < 85 && i>= 70)
+		{
+			if(rand.nextInt(100) > 50)
+				this.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(Items.IRON_CHESTPLATE));
+			else this.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(Items.DIAMOND_CHESTPLATE));
+		}
+		else if(i < 95 && i >= 85)
+		{
+			if(rand.nextInt(100) >50)
+				this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Items.DIAMOND_SWORD));
+			else this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Items.IRON_SWORD));
+		}
+		else if(i >= 95)
+		{
+			this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Items.DIAMOND_SWORD));
+			this.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(Items.DIAMOND_HELMET));
+			this.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(Items.DIAMOND_CHESTPLATE));
+			this.setItemStackToSlot(EntityEquipmentSlot.FEET, new ItemStack(Items.DIAMOND_BOOTS));
+			this.setItemStackToSlot(EntityEquipmentSlot.LEGS, new ItemStack(Items.DIAMOND_LEGGINGS));
+		}
+		else
+		{
+			if(rand.nextInt(10000) == 0)//0.01%¸ÅÂÊÂÌ±¦Ê¯¶§Ì×
 			{
-				world.setBlockState(pos2, state);
-			}
-			if(world.getBlockState(pos3).getBlockHardness(world, pos1) < 5.0f)
-			{
-				world.setBlockState(pos3, state);
-			}
-			if(world.getBlockState(pos4).getBlockHardness(world, pos1) < 5.0f)
-			{
-				world.setBlockState(pos4, state);
-			}
-			if(world.getBlockState(pos5).getBlockHardness(world, pos1) < 5.0f)
-			{
-				world.setBlockState(pos5, state);
+				this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(itemLoader.emerald_sword));
+				this.setItemStackToSlot(EntityEquipmentSlot.OFFHAND, new ItemStack(Items.TOTEM_OF_UNDYING));
+				this.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(itemLoader.emerald_helmet));
+				this.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(itemLoader.emerald_breastplate));
+				this.setItemStackToSlot(EntityEquipmentSlot.FEET, new ItemStack(itemLoader.emerald_shoes));
+				this.setItemStackToSlot(EntityEquipmentSlot.LEGS, new ItemStack(itemLoader.emerald_leggings));
 			}
 		}
 	}

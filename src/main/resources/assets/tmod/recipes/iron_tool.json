@@ -1,0 +1,37 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "xyz",
+        " m ",
+        " n "
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "minecraft:iron_axe"
+        },
+		"y":
+        {
+            "item": "minecraft:iron_pickaxe"
+        },
+		"z":
+        {
+            "item": "minecraft:iron_shovel"
+        },
+		"m":
+        {
+            "item": "minecraft:iron_hoe"
+        },
+		"n":
+        {
+            "item": "minecraft:iron_block"
+        }
+    },
+    "result":
+    {
+        "item": "tmod:iron_tool",
+        "count": 1
+    }
+}

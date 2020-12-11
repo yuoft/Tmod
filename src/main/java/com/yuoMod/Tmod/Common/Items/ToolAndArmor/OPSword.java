@@ -5,12 +5,14 @@ import javax.annotation.Nullable;
 
 import com.yuoMod.Tmod.Common.ConfigLoader;
 import com.yuoMod.Tmod.Creativetab.CreativeTabsLoader;
-import com.yuoMod.Tmod.Entity.EntityGoldenTNT;
+import com.yuoMod.Tmod.Entity.EntityLightningDiamond;
 
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.MultiPartEntityPart;
+import net.minecraft.entity.boss.EntityDragon;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
@@ -20,6 +22,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
@@ -52,19 +55,22 @@ enchantability参数与附魔等级相关
 	//主动
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
-		if(playerIn.isSneaking())
+		if(!worldIn.isRemote)
 		{
-			float range=ConfigLoader.range * 1.0f;
-			attackAOE(playerIn, range, 10000.0f, ConfigLoader.opSwordType);
-			playerIn.playSound(SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, 1.0f, 3.0f);
+			if(playerIn.isSneaking())
+			{
+				float range=ConfigLoader.range * 1.0f;
+				attackAOE(playerIn, range, 10000.0f, ConfigLoader.opSwordType);
+			}
+			else
+			{
+				EntityLightningDiamond lightningDiamond=new EntityLightningDiamond(worldIn,playerIn);
+				lightningDiamond.shoot(playerIn, playerIn.rotationPitch, playerIn.rotationYawHead,0, 2.0f, 0.1f);
+				worldIn.spawnEntity(lightningDiamond);
+			}
+			return new ActionResult<ItemStack>(EnumActionResult.PASS, playerIn.getHeldItem(handIn));
 		}
-		else
-		{
-			EntityGoldenTNT goldenTNT=new EntityGoldenTNT(worldIn, playerIn);
-			goldenTNT.shoot(playerIn, playerIn.rotationPitch, playerIn.rotationYawHead,0f, 2.0f, 0.1f);
-			worldIn.spawnEntity(goldenTNT);
-		}
-		return new ActionResult<ItemStack>(EnumActionResult.PASS, playerIn.getHeldItem(handIn));
+		else return new ActionResult<ItemStack>(EnumActionResult.PASS, playerIn.getHeldItem(handIn));
 	}
 	//攻击实体
 	@Override
@@ -77,12 +83,21 @@ enchantability参数与附魔等级相关
 			}
 			else
 			{
-				target.setDead();
+				if(target instanceof EntityDragon)
+				{
+					target.setHealth(0.0f);
+				}
+				else target.setDead();
 			}
 			attacker.sendMessage(new TextComponentTranslation(target.getName()+"OnKill"));
 		}
 		else
 		{
+			if(target instanceof EntityDragon)//对末影龙伤害
+			{
+				((EntityDragon) target).attackEntityFromPart(((EntityDragon) target).dragonPartBody, DamageSource.causePlayerDamage((EntityPlayer) attacker), 10000.0f);
+			}
+			else
 			target.attackEntityFrom(DamageSource.GENERIC, 10000.0f);
 		}
         return super.hitEntity(stack, target, attacker);
@@ -108,11 +123,12 @@ enchantability参数与附魔等级相关
 			}
 			else
 			{
-				if (entity instanceof IMob)
+				if (entity instanceof IMob || entity instanceof MultiPartEntityPart)
 				{
 					entity.attackEntityFrom(src, damage);
 				}
 			}
 		}
+		player.getEntityWorld().playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, SoundCategory.PLAYERS, 1.0f, 3.0f);
 	}
 }

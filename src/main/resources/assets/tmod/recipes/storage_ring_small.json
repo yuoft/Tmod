@@ -1,11 +1,10 @@
 {
-    "type": "forge:ore_shaped",
-	"group": "tmod:storage_ring_small",
+    "type": "minecraft:crafting_shaped",
     "pattern":
     [
-        "oxo",
-        "y y",
-        "oyo"
+        " x ",
+        "yoy",
+        " y "
     ],
     "key":
     {
@@ -13,13 +12,14 @@
         {
            "item": "tmod:space_ingot"
         },
-		"o":
+		"x":
         {
             "item": "tmod:emerald_ingot_block"
         },
-		"x":
+		"o":
         {
-            "item": "minecraft:emerald_block"
+            "item": "minecraft:wool",
+			"data": 32767
         }
     },
     "result":

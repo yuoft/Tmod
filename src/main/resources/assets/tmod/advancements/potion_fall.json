@@ -5,7 +5,7 @@
         "frame": "challenge",
         "description": { "translate": "advancement.tmod:potion_fall.desc" }
     },
-    "parent": "tmod:good_food",
+    "parent": "tmod:emerald_power",
     "criteria": {
         "tmod_potion_fall": {
             "trigger": "minecraft:effects_changed",

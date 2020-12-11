@@ -1,7 +1,10 @@
 package com.yuoMod.Tmod.Gui;
 
+import javax.annotation.Nonnull;
+
 import com.yuoMod.Tmod.Common.Inventory.InventoryStorageRingBag;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.ClickType;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
@@ -38,45 +41,46 @@ public class ThreeContainer extends Container
 		return true;
 	}
 	@Override
-    public ItemStack transferStackInSlot(EntityPlayer playerIn, int index)
+    public ItemStack transferStackInSlot(EntityPlayer playerIn, int index)//´ıĞŞ¸Ä
     {
-		Slot slot = inventorySlots.get(index);
-        if (slot == null || !slot.getHasStack())
-        {
-            return null;
-        }
-        ItemStack newStack = slot.getStack(), oldStack = newStack.copy();
-        boolean isMerged = false;
-        if (index >= 0 && index <=26)
-        {
-            isMerged = mergeItemStack(newStack, 27, 65, true);
-        }
-        else if (index >= 27 && index < 54)
-        {
-            isMerged = mergeItemStack(newStack, 0, 27, false)
-                    || mergeItemStack(newStack, 54, 65, false);
-        }
-        else if (index >= 54 && index < 65)
-        {
-            isMerged = mergeItemStack(newStack, 0, 27, false)
-                    || mergeItemStack(newStack, 27, 54, false);
-        }
-
-        if (!isMerged)
-        {
-            return null;
-        }
-        if (newStack.getMaxStackSize() == 0)
-        {
-            slot.putStack(null);
-        }
-        else
-        {
-            slot.onSlotChanged();
-        }
-        slot.onTake(playerIn, newStack);
-
-        return oldStack;
+		Slot slot = this.getSlot(index);
+		
+		if (slot == null || !slot.getHasStack()) 
+		{
+			return ItemStack.EMPTY;
+		}
+		
+		ItemStack stack = slot.getStack();
+		ItemStack newStack = stack.copy();
+		
+		if (index < 27)
+		{
+			if (!this.mergeItemStack(stack, 27, this.inventorySlots.size(), true))
+				return ItemStack.EMPTY;
+			slot.onSlotChanged();
+		}
+		else if (!this.mergeItemStack(stack, 0, 27, false))
+		{
+			return ItemStack.EMPTY;
+		}
+		if (stack.isEmpty())
+		{
+			slot.putStack(ItemStack.EMPTY);
+		}
+		else
+		{
+			slot.onSlotChanged();
+		}
+		
+		return slot.onTake(playerIn, newStack);
     }
-	
+	@Nonnull
+	public ItemStack slotClick(int slotId, int dragType, ClickType clickTypeIn, EntityPlayer player)
+	{
+		if(slotId == (inventorySlots.size() - 1) - (8 - player.inventory.currentItem))
+		{
+			return ItemStack.EMPTY;
+		}
+		return super.slotClick(slotId, dragType, clickTypeIn, player);
+	}
 }

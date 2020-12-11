@@ -12,26 +12,17 @@ import net.minecraftforge.event.terraingen.OreGenEvent;
 
 public class WorldOreCreate extends WorldGenerator
 {
-	private final WorldGenMinable glowstoneGenerator = new WorldGenMinable(blockLoader.emerald_ingot_ore.getDefaultState(),8);
+	private final WorldGenMinable EIOreGenerator = new WorldGenMinable(blockLoader.emerald_ingot_ore.getDefaultState(),8);
 	@Override
 	public boolean generate(World world, Random rand, BlockPos pos) 
 	{
-		// TODO ¿óÎïÉú³ÉÂß¼­
-		if (TerrainGen.generateOre(world, rand, this, pos, OreGenEvent.GenerateMinable.EventType.CUSTOM))
-        {
-            for (int i = 0; i < 4; ++i)
-            {
-                int posX = pos.getX() + rand.nextInt(16);
-                int posY = 16 + rand.nextInt(16);
-                int posZ = pos.getZ() + rand.nextInt(16);
-                BlockPos blockpos = new BlockPos(posX, posY, posZ);
-//                Biome biome = world.getBiomeForCoordsBody(blockpos);// getBiomeGenForCoords(blockpos);
-//                if (biome.getRainfall() < rand.nextInt(65536))
-//                {
-                    glowstoneGenerator.generate(world, rand, blockpos);
-//                }
-            }
-        }
+		switch(world.provider.getDimension())
+		{
+		case 0:genMain(world, rand, pos);break;
+//		case 1:genEnd(world, rand, pos);break;
+//		case -1:genHell(world, rand, pos);break;
+		default : ;
+		}
         return true;
 	}
 	/*
@@ -56,5 +47,18 @@ public class WorldOreCreate extends WorldGenerator
         return false;
     }
     */
-    
+	public void genMain(World world, Random rand, BlockPos pos)
+	{
+		if (TerrainGen.generateOre(world, rand, this, pos, OreGenEvent.GenerateMinable.EventType.CUSTOM))
+        {
+			for (int i = 0; i < 6; ++i)
+            {
+                int posX = pos.getX() + rand.nextInt(16);
+                int posY = 32 + rand.nextInt(32);
+                int posZ = pos.getZ() + rand.nextInt(16);
+                BlockPos blockpos = new BlockPos(posX, posY, posZ);
+                EIOreGenerator.generate(world, rand, blockpos);
+            }
+        }
+	}
 }

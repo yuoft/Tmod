@@ -17,6 +17,7 @@ import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -33,24 +34,28 @@ public class change_powder extends Item
 	//物品使用
 	public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
     {
-		Block block=worldIn.getBlockState(pos).getBlock();
-//		player.sendMessage(new TextComponentTranslation(block.getUnlocalizedName()+" "+pos.toString()));
-		if (block.getUnlocalizedName().equals("tile.sapling")) {
-			Random random=new Random();
-			if(random.nextInt(100)>89)
-			{
-//				player.sendMessage(new TextComponentTranslation("tmod.text.change_powder1"));
+		if(!worldIn.isRemote)
+		{
+			Block block=worldIn.getBlockState(pos).getBlock();
+			if (block.getUnlocalizedName().equals("tile.sapling")) {
+				Random random=new Random();
+				if(random.nextInt(100) > 79)
+				{
+					player.sendMessage(new TextComponentTranslation("tmod.text.change_powder1"));
+				}
+				else 
+				{
+					worldIn.playEvent(2005, pos, 0);
+					worldIn.setBlockState(pos, itemLoader.emerald_sapling.getBlock().getDefaultState());
+					// 构造器里把 Translation Key 放进去即可。
+					player.sendMessage(new TextComponentTranslation("tmod.text.change_powder2"));
+				}
+				ItemStack itemStack=player.getHeldItem(hand);
+				itemStack.setCount(itemStack.getCount()-1);
 			}
-			else 
-			{
-				worldIn.setBlockState(pos, itemLoader.emerald_sapling.getBlock().getDefaultState());
-				// 构造器里把 Translation Key 放进去即可。
-//				player.sendMessage(new TextComponentTranslation("tmod.text.change_powder2"));
-			}
-			ItemStack itemStack=player.getHeldItem(hand);
-			itemStack.setCount(itemStack.getCount()-1);
+			return EnumActionResult.PASS;
 		}
-        return EnumActionResult.PASS;
+		else return EnumActionResult.PASS;
     }
 	@SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn)

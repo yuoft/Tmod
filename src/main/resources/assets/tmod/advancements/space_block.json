@@ -1,0 +1,24 @@
+{
+    "display": {
+        "icon": { "item": "tmod:space_block"},
+        "title": { "translate": "advancement.tmod:space_block" },
+        "frame": "challenge",
+        "description": { "translate": "advancement.tmod:space_block.desc" } 
+    },
+	"parent": "tmod:space_patch",
+    "criteria": {
+        "tmod_space_block": {
+           "trigger": "minecraft:inventory_changed",
+            "conditions": {
+			    "items":[
+				    {
+				    "item":"tmod:space_block"					
+				    }
+				]
+			}
+        }
+    },
+	"rewards": {
+        "experience": 2000
+    }
+}

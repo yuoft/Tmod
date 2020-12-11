@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+		    "item": "minecraft:fish",
+			"data": 1		
+		},
+		{
+            "item": "tmod:salt"
+        }
+    ],
+    "result":
+    {
+        "item": "tmod:salt_fish_meat",
+        "count": 1
+    }
+}

@@ -1,7 +1,10 @@
 package com.yuoMod.Tmod.Gui;
 
+import javax.annotation.Nonnull;
+
 import com.yuoMod.Tmod.Common.Inventory.InventoryStorageRingBag;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.ClickType;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
@@ -40,63 +43,45 @@ public class NineContainer extends Container
 	@Override
     public ItemStack transferStackInSlot(EntityPlayer playerIn, int index)
     {
-		Slot slot = inventorySlots.get(index);
-        if (slot == null || !slot.getHasStack())
-        {
-            return null;
-        }
-        ItemStack newStack = slot.getStack(), oldStack = newStack.copy();
-        boolean isMerged = false;
-        if (index >= 0 && index <=80)
-        {
-            isMerged = mergeItemStack(newStack, 81, 117, true);
-        }
-        else if (index >= 81 && index < 108)
-        {
-            isMerged = mergeItemStack(newStack, 0, 81, false)
-                    || mergeItemStack(newStack, 108, 117, false);
-        }
-        else if (index >= 108 && index < 117)
-        {
-            isMerged = mergeItemStack(newStack, 0, 80, false)
-                    || mergeItemStack(newStack, 81, 108, false);
-        }
-
-        if (!isMerged)
-        {
-            return null;
-        }
-        if (newStack.getMaxStackSize() == 0)
-        {
-            slot.putStack(null);
-        }
-        else
-        {
-            slot.onSlotChanged();
-        }
-        slot.onTake(playerIn, newStack);
-
-        return oldStack;
+        Slot slot = this.getSlot(index);
+		
+		if (slot == null || !slot.getHasStack()) 
+		{
+			return ItemStack.EMPTY;
+		}
+		
+		ItemStack stack = slot.getStack();
+		ItemStack newStack = stack.copy();
+		
+		if (index < 81)
+		{
+			if (!this.mergeItemStack(stack, 81, this.inventorySlots.size(), true))
+				return ItemStack.EMPTY;
+			slot.onSlotChanged();
+		}
+		else if (!this.mergeItemStack(stack, 0, 81, false))
+		{
+			return ItemStack.EMPTY;
+		}
+		if (stack.isEmpty())
+		{
+			slot.putStack(ItemStack.EMPTY);
+		}
+		else
+		{
+			slot.onSlotChanged();
+		}
+		
+		return slot.onTake(playerIn, newStack);
     }
-//	@Override
-//	public void onContainerClosed(EntityPlayer playerIn) {
-//		super.onContainerClosed(playerIn);
-//		//检查玩家是否处于服务端
-//		if (playerIn.isServerWorld()) {
-//			for(int i=0; i<9 ;i++)
-//			{
-//				for(int j=0; j<9 ;j++)
-//				{
-//					ItemStack itemStack=this.slots[i][j].getStack();
-//					if(itemStack !=null)
-//					{
-////						playerIn.dropItem(itemStack,false);
-//						BlockPos pos=playerIn.getPosition();
-//						Block.spawnAsEntity(this.world, pos, itemStack);
-//					}
-//				}
-//			}
-//		}
-//	}
+	@Nonnull
+	public ItemStack slotClick(int slotId, int dragType, ClickType clickTypeIn, EntityPlayer player)
+	{
+		if(slotId == (inventorySlots.size() - 1) - (8 - player.inventory.currentItem))
+		{
+			return ItemStack.EMPTY;
+		}
+		return super.slotClick(slotId, dragType, clickTypeIn, player);
+	}
 	
 }

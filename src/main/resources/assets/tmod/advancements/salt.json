@@ -1,0 +1,24 @@
+{
+    "display": {
+        "icon": { "item": "tmod:salt"},
+        "title": { "translate": "advancement.tmod:salt" },
+        "frame": "task",
+        "description": { "translate": "advancement.tmod:salt.desc" } 
+    },
+	"parent": "tmod:good_food",
+    "criteria": {
+        "tmod_salt": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+			    "items":[
+				    {
+				    "item":"tmod:salt"					
+				    }
+				]
+			}
+        }
+    },
+	"rewards": {
+        "experience": 20
+    }
+}

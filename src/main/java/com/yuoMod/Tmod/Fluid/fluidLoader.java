@@ -32,7 +32,7 @@ public class fluidLoader
         else
         {
             FluidRegistry.registerFluid(emerald_fluid);
-            FluidRegistry.addBucketForFluid(emerald_fluid);
+            FluidRegistry.addBucketForFluid(emerald_fluid);//注册流体桶
         }
     }
     //注册流体方块材质
@@ -45,28 +45,8 @@ public class fluidLoader
     @SideOnly(Side.CLIENT)
     public static void registerFluidRender(BlockFluidBase blockFluid, String blockStateName)
     {
-    	/*
-        final String location = tmod.MODID + ":" + blockStateName;
-        final Item itemFluid = Item.getItemFromBlock(blockFluid);
-        ModelLoader.setCustomMeshDefinition(itemFluid, new ItemMeshDefinition()
-        {
-            @Override
-            public ModelResourceLocation getModelLocation(ItemStack stack)
-            {
-                return new ModelResourceLocation(location, "fluid");
-            }
-        });
         //注意到 setCustomStateMapper 将目标方块指向了一个特殊的 StateMapper，
         //它进而无条件将模型指向 assets/my_mod/blockstates/fluid.json 中定义的 my_fluid 这个 variant。
-        ModelLoader.setCustomStateMapper(blockFluid, new StateMapperBase()
-        {
-            @Override
-            protected ModelResourceLocation getModelResourceLocation(IBlockState state)
-            {
-                return new ModelResourceLocation(location, "fluid");
-            }
-        });
-        */
         ModelLoader.setCustomStateMapper(emerald_fluid.getBlock(), new StateMapperBase() {
             @Override
             protected ModelResourceLocation getModelResourceLocation(@Nonnull IBlockState state) {

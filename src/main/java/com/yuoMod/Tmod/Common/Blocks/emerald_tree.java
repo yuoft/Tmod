@@ -14,7 +14,6 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
@@ -88,8 +87,8 @@ public class emerald_tree extends Block
 			ItemStack stack1=new ItemStack(Items.EMERALD,number+1);
 			if(random.nextInt(10)>4)
 			{
-				drops.add(0, stack);
-				drops.add(1, stack1);
+//				drops.add(0, stack);
+				drops.add(0, stack1);
 			}
 			else drops.add(0, stack);
 		}
@@ -97,26 +96,26 @@ public class emerald_tree extends Block
 		{
 			if(random.nextInt(10)>8)
 			{
-				drops.add(0, stack);
-				drops.add(1, stack2);
+//				drops.add(0, stack);
+				drops.add(0, stack2);
 			}
 			else drops.add(0,stack);
 		}
 	}
-    public boolean canHarvestBlock(IBlockAccess world, BlockPos pos, EntityPlayer player)
-    {
-    	ItemStack pickaxe=player.getHeldItemMainhand();//获取玩家主手物品
-    	//获取物品本地化名称判断
-    	if(pickaxe.getUnlocalizedName().toString().equals("item.emerald_axe") ||
-    			pickaxe.getUnlocalizedName().toString().equals("item.hatchetDiamond"))
-    	{
-    		return true;
-    	}
-    	else 
-    	{
-    		return false;
-    	}
-    }
+//    public boolean canHarvestBlock(IBlockAccess world, BlockPos pos, EntityPlayer player)
+//    {
+//    	ItemStack pickaxe=player.getHeldItemMainhand();//获取玩家主手物品
+//    	//获取物品本地化名称判断
+//    	if(pickaxe.getUnlocalizedName().toString().equals("item.emerald_axe") ||
+//    			pickaxe.getUnlocalizedName().toString().equals("item.hatchetDiamond"))
+//    	{
+//    		return true;
+//    	}
+//    	else 
+//    	{
+//    		return false;
+//    	}
+//    }
 //    @Override
 //	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
 //    {

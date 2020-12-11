@@ -12,7 +12,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-
+//Ê÷ÃçÉú³¤
 public class WorldTreeCreate extends WorldGenAbstractTree
 {
 	public static final IBlockState tree=blockLoader.emerald_tree.getDefaultState();

@@ -1,5 +1,6 @@
 package com.yuoMod.Tmod.Common.Crafting;
 
+import com.yuoMod.Tmod.Common.Blocks.blockLoader;
 import com.yuoMod.Tmod.Common.Items.itemLoader;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -31,6 +32,7 @@ public class CraftingLoader
 	    GameRegistry.addSmelting(itemLoader.emerald_powder,new ItemStack(itemLoader.emerald_ingot), 20.0f);
 	    GameRegistry.addSmelting(Items.EMERALD,new ItemStack(itemLoader.emerald_ingot), 20.0f);
 	    GameRegistry.addSmelting(itemLoader.bad_apple,new ItemStack(Items.APPLE), 5.0f);
+	    GameRegistry.addSmelting(blockLoader.salt_ore, new ItemStack(itemLoader.salt_wash), 1.0f);
 	}
 	//ÃÌº”»º¡œ
 	private static void registerFuel()

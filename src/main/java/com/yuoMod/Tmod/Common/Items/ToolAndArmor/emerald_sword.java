@@ -44,13 +44,19 @@ public class emerald_sword extends ItemSword
 		if(playerIn.getHealth() > 4 && playerIn.experienceLevel >= 15)
 		{
 			playerIn.experienceLevel-=15;
-			playerIn.setFire(60);
+			playerIn.setFire(10);
 			playerIn.addPotionEffect(new PotionEffect(Potion.getPotionById(5), 1200, 1));
 			playerIn.addPotionEffect(new PotionEffect(Potion.getPotionById(8), 1200, 1));
 			playerIn.addPotionEffect(new PotionEffect(Potion.getPotionById(1), 1200, 1));
 		}
-		else playerIn.sendMessage(new TextComponentTranslation("tmod.text.emeraldSword"));
-		return new ActionResult<ItemStack>(EnumActionResult.PASS, playerIn.getHeldItem(handIn));
+		else
+		{
+			if(!worldIn.isRemote)
+			{
+				playerIn.sendMessage(new TextComponentTranslation("tmod.text.emeraldSword"));
+			}
+		}
+		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, playerIn.getHeldItem(handIn));
 	}
 	//攻击实体(天火被动
 	@Override

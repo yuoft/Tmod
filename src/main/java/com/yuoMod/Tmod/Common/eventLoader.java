@@ -1,16 +1,28 @@
 package com.yuoMod.Tmod.Common;
 
+import com.yuoMod.Tmod.Common.Items.itemLoader;
 import com.yuoMod.Tmod.Enchantment.enchantmentLoader;
+import com.yuoMod.Tmod.Entity.EntityKiana;
+import com.yuoMod.Tmod.Gui.BossHealthHUD;
 import com.yuoMod.Tmod.Potion.potionLoader;
+
+import net.minecraft.client.Minecraft;
 import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
+import net.minecraft.world.World;
+import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.AnvilUpdateEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class eventLoader 
 {
@@ -21,6 +33,41 @@ public class eventLoader
     {
         MinecraftForge.EVENT_BUS.register(this);
     }
+	@SideOnly(value = Side.CLIENT)
+	@SubscribeEvent
+    public void renderGameOverlay(RenderGameOverlayEvent.Chat event) {
+		Minecraft mc=Minecraft.getMinecraft();
+		World world=mc.world;
+		for(Entity entity: world.loadedEntityList)
+		{
+			if(entity instanceof EntityKiana)
+			{
+				BossHealthHUD hud=new BossHealthHUD((EntityKiana) entity);
+		        hud.drawHud();
+			}
+		}
+        if (event.getType() == RenderGameOverlayEvent.ElementType.ALL) {
+        	return ;
+        }
+    }
+	//铁砧配方
+	@SubscribeEvent
+	public void NewRecipes(AnvilUpdateEvent event)
+	{
+		ItemStack stack=event.getLeft();
+		ItemStack stack2=event.getRight();
+		int count1=stack.getCount();
+		int count2=stack2.getCount();
+		if(stack.getItem().equals(Items.STRING) && stack2.getItem().equals(itemLoader.space_patch))
+		{
+			if(count1 <= count2)
+			{
+				event.setCost(5 * count1);
+				event.setMaterialCost(count1);
+				event.setOutput(new ItemStack(itemLoader.space_line, count1));
+			}
+		}
+	}
     //药水效果，摔落减免
 	@SubscribeEvent
     public void potionFall(LivingHurtEvent event)
@@ -95,41 +142,16 @@ public class eventLoader
     	}
     }
 	//燃料
-	/*
-	@SubscribeEvent
-	public static void getVanillaFurnaceFuelValue(FurnaceFuelBurnTimeEvent event) {
-	    if (event.getItemStack().getItem()==itemLoader.emerald_powder) {
-	        event.setBurnTime(-1);
-	        // 可以设定为 0。0 代表“这个物品不是燃料”，更准确地说是“这个物品燃烧时间是 0”。
-	        // 可以设定为 -1。-1 代表“由原版逻辑来决定”。
-	        // 可通过 event.getBurnTime() 获得当前决定的燃烧时间。
-	        // 这个事件可以取消。取消意味着后续的 Event listener 将不会收到这个事件，进而
-	        // 无法修改燃烧时间。
-	    }
-	    else
-	    {
-	    	event.setBurnTime(100);
-	    }
-	}
-	*/
-	//挖掘等级
 //	@SubscribeEvent
-//    public void emerald_ingot_block(HarvestCheck event)
-//    {
-//		event.setCanHarvest(false);
-//		IBlockState block=event.getTargetBlock();//得到挖掘方块
-//		EntityPlayer player=event.getEntityPlayer();//得到挖掘玩家
-//		ItemStack pickaxe=player.getHeldItemMainhand();//得到玩家主手物品
-//		ItemStack e_pickaxe=new ItemStack(itemLoader.emerald_pickaxe);
-//		if((block.equals(blockLoader.emerald_ingot_block))&&(!pickaxe.equals(e_pickaxe)))
-//		{
-//			event.setCanHarvest(false);//设置挖掘是否成功
-//			System.out.println("使用的镐子"+pickaxe.toString());
-//			System.out.println("挖掘的方块"+block.toString());
-//			FMLCommonHandler.instance().getMinecraftServerInstance();
-//			ITextComponent component;
-//			component.getFormattedText();
-//			player.sendMessage();
-//		}
-//    }
+//	public static void getVanillaFurnaceFuelValue(FurnaceFuelBurnTimeEvent event) {
+//	    if (event.getItemStack().getItem().equals(itemLoader.salt_wash)) 
+//	    {
+//	        event.setBurnTime(10000);
+//	        // 可以设定为 0。0 代表“这个物品不是燃料”，更准确地说是“这个物品燃烧时间是 0”。
+//	        // 可以设定为 -1。-1 代表“由原版逻辑来决定”。
+//	        // 可通过 event.getBurnTime() 获得当前决定的燃烧时间。
+//	        // 这个事件可以取消。取消意味着后续的 Event listener 将不会收到这个事件，进而
+//	        // 无法修改燃烧时间。
+//	    }
+//	}
 }

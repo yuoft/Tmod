@@ -54,43 +54,36 @@ public class ChestContainer extends Container
 	@Override
     public ItemStack transferStackInSlot(EntityPlayer playerIn, int index)
     {
-		Slot slot = inventorySlots.get(index);
-        if (slot == null || !slot.getHasStack())
-        {
-            return null;
-        }
-        ItemStack newStack = slot.getStack(), oldStack = newStack.copy();
-        boolean isMerged = false;
-        if (index >= 0 && index <=53)
-        {
-            isMerged = mergeItemStack(newStack, 54, 90, true);
-        }
-        else if (index >= 54 && index < 81)
-        {
-            isMerged = mergeItemStack(newStack, 0, 54, false)
-                    || mergeItemStack(newStack, 81, 90, false);
-        }
-        else if (index >= 81 && index < 90)
-        {
-            isMerged = mergeItemStack(newStack, 0, 54, false)
-                    || mergeItemStack(newStack, 54, 81, false);
-        }
-
-        if (!isMerged)
-        {
-            return null;
-        }
-        if (newStack.getMaxStackSize() == 0)
-        {
-            slot.putStack(null);
-        }
-        else
-        {
-            slot.onSlotChanged();
-        }
-        slot.onTake(playerIn, newStack);
-
-        return oldStack;
+        Slot slot = this.getSlot(index);
+		
+		if (slot == null || !slot.getHasStack()) 
+		{
+			return ItemStack.EMPTY;
+		}
+		
+		ItemStack stack = slot.getStack();
+		ItemStack newStack = stack.copy();
+		
+		if (index < 54)
+		{
+			if (!this.mergeItemStack(stack, 54, this.inventorySlots.size(), true))
+				return ItemStack.EMPTY;
+			slot.onSlotChanged();
+		}
+		else if (!this.mergeItemStack(stack, 0, 54, false))
+		{
+			return ItemStack.EMPTY;
+		}
+		if (stack.isEmpty())
+		{
+			slot.putStack(ItemStack.EMPTY);
+		}
+		else
+		{
+			slot.onSlotChanged();
+		}
+		
+		return slot.onTake(playerIn, newStack);
     }
 	@Override
     public void detectAndSendChanges()

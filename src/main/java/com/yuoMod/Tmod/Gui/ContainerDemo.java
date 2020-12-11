@@ -80,71 +80,42 @@ public class ContainerDemo extends Container
 		return playerIn.getDistanceSq(this.tileEntity.getPos()) <= 64;
 	}
 	//shift物品交换
+	/**
+	 * 代码来自等价交换模组
+	 */
 	@Override
     public ItemStack transferStackInSlot(EntityPlayer playerIn, int index)
     {
-		//获取对应的物品槽，然后判断对应的物品槽或者里面的物品是否存在，如果不存在，自然不需要放入其他的物品槽了：
-		Slot slot = inventorySlots.get(index);
-        if (slot == null || !slot.getHasStack())
-        {
-            return null;
-        }
-        //获取到对应的ItemStack，也就是newStack，等待进一步处理，同时为了作为返回值，我们需要复制一份，也就是oldStack。
-        ItemStack newStack = slot.getStack(), oldStack = newStack.copy();
-        // // TODO注释的部分就是真正尝试把物品的部分放入第一个可用的物品槽的部分，我们同时新添加了isMerged布尔值用于判定是否被放入其他物品槽。
-        boolean isMerged = false;
-
-        // TODO
-        /*
-         * 调用Container类的mergeItemStack方法，以试图把物品的部分放入第一个可用的物品槽：
-该方法的第一个参数传入想要更改的ItemStack
-该方法的第二个参数和第三个参数传入想要放入的物品槽的开始ID（包含）和结束ID（不包含），在这里也就是3-38，即玩家背包中的36个物品槽
-该方法的最后一个参数传入是正向查找第一个可用物品槽（3-38），还是反向查找（38-3），当然如果等放入的物品槽只有一个（后面会遇到）那么这两者是没有区别的
-对于正向还是反向查找，游戏有一个约定：通常情况下，如果从非玩家背包的GUI物品槽中试图将物品放入玩家物品槽，那么使用反向查找，如果从玩家背包中试图将物品放入玩家背包或非玩家背包物品槽，则使用正向查找。
-mergeItemStack方法的返回值用于标识是否成功把物品的部分放入了一个可用的物品槽，如果成功放入了，则返回真，否则返回假。
-         */
-        //从gui中放入玩家背包
-        if (index == 0 || index == 1 || index == 2)
-        {
-            isMerged = mergeItemStack(newStack, 3, 39, true);
-        }
-        /*
-         * 我们先试着把ID为3-29的27个物品槽中对应的物品槽中的物品放入绿宝石木头对应的ID为0的物品槽中，前提是该物品槽中没有物品，并且试图放入的不超过32个（!goldSlot.getHasStack() && newStack.stackSize <= 32）。
-         * 如果没有放入成功（执行||后的语句），则试图放入绿宝石槽，同理，如果还是没有放入成功，则试图放入9个剩下的物品槽。
-         */
-        //从背包放入gui
-        else if (index >= 3 && index < 30)
-        {
-            isMerged = mergeItemStack(newStack, 0, 1, false)
-            		|| mergeItemStack(newStack, 1, 2, false)
-                    || mergeItemStack(newStack, 30, 39, false);
-        }
-        else if (index >= 30 && index < 39)
-        {
-            isMerged = mergeItemStack(newStack, 0, 1, false)
-            		|| mergeItemStack(newStack, 1, 2, false)
-                    || mergeItemStack(newStack, 3, 30, false);
-        }
-
-        if (!isMerged)
-        {
-            return null;
-        }
-        //如果所有情况下都没有将物品放入其他的物品槽，那么就代表没有可用的物品槽用于放入了，此时我们返回null。
-
-        //如果成功尝试将物品放入了一个物品槽，那么我们就需要告知游戏，对应的物品槽产生了更新：
-        if (newStack.getMaxStackSize() == 0)
-        {
-            slot.putStack(null);
-        }
-        else
-        {
-            slot.onSlotChanged();
-        }
-        //Mojang独特的设计方式，有的物品槽还会覆写onTake方法进行处理，为了对其进行支持，我们同时调用了这个方法：
-        slot.onTake(playerIn, newStack);
-
-        return oldStack;
+        Slot slot = this.getSlot(index);
+		
+		if (slot == null || !slot.getHasStack()) 
+		{
+			return ItemStack.EMPTY;
+		}
+		
+		ItemStack stack = slot.getStack();
+		ItemStack newStack = stack.copy();
+		
+		if (index < 3)
+		{
+			if (!this.mergeItemStack(stack, 3, this.inventorySlots.size(), true))
+				return ItemStack.EMPTY;
+			slot.onSlotChanged();
+		}
+		else if (!this.mergeItemStack(stack, 0, 3, false))
+		{
+			return ItemStack.EMPTY;
+		}
+		if (stack.isEmpty())
+		{
+			slot.putStack(ItemStack.EMPTY);
+		}
+		else
+		{
+			slot.onSlotChanged();
+		}
+		
+		return slot.onTake(playerIn, newStack);
     }
 	//数据同步
 	@Override

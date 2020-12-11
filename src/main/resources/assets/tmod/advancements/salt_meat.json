@@ -1,0 +1,22 @@
+{
+    "display": {
+        "icon": { "item": "tmod:salt_meat"},
+        "title": { "translate": "advancement.tmod:salt_meat" },
+        "frame": "goal",
+        "description": { "translate": "advancement.tmod:salt_meat.desc" } 
+    },
+	"parent": "tmod:salt",
+    "criteria": {
+        "tmod_salt_meat": {
+            "trigger": "minecraft:consume_item",
+            "conditions": {
+			    "item":{
+				    "item":"tmod:salt_meat"					
+				}
+			}
+        }
+    },
+	"rewards": {
+        "experience": 20
+    }
+}

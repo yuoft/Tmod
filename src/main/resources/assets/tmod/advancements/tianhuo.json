@@ -5,7 +5,7 @@
         "frame": "task",
         "description": { "translate": "advancement.tmod:tianhuo.desc" } 
     },
-	"parent": "tmod:good_food",
+	"parent": "tmod:space_patch",
     "criteria": {
         "tmod_tianhuo": {
             "trigger": "minecraft:inventory_changed",

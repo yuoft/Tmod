@@ -1,0 +1,37 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "xyz",
+        " m ",
+        " n "
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "minecraft:golden_axe"
+        },
+		"y":
+        {
+            "item": "minecraft:golden_pickaxe"
+        },
+		"z":
+        {
+            "item": "minecraft:golden_shovel"
+        },
+		"m":
+        {
+            "item": "minecraft:golden_hoe"
+        },
+		"n":
+        {
+            "item": "minecraft:gold_block"
+        }
+    },
+    "result":
+    {
+        "item": "tmod:gold_tool",
+        "count": 1
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "display": {
+        "icon": { "item": "tmod:space_patch"},
+        "title": { "translate": "advancement.tmod:space_patch" },
+        "frame": "task",
+        "description": { "translate": "advancement.tmod:space_patch.desc" } 
+    },
+	"parent": "tmod:emerald_power",
+    "criteria": {
+        "tmod_space_patch": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+			    "items":[
+				    {
+				    "item":"tmod:space_patch"					
+				    }
+				]
+			}
+        }
+    },
+	"rewards": {
+        "experience": 20
+    }
+}

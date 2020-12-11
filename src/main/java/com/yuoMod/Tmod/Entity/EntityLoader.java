@@ -1,16 +1,18 @@
 package com.yuoMod.Tmod.Entity;
 
 import com.yuoMod.Tmod.tmod;
-import com.yuoMod.Tmod.Entity.render.RenderGoldenChicken;
-import com.yuoMod.Tmod.Entity.render.RenderGoldenTNT;
-import com.yuoMod.Tmod.Entity.render.RenderGreenCreeper;
-import com.yuoMod.Tmod.Entity.render.RenderGreenEnderman;
-import com.yuoMod.Tmod.Entity.render.RenderGreenSpider;
-import com.yuoMod.Tmod.Entity.render.RenderNewAlex;
-import com.yuoMod.Tmod.Entity.render.RenderNewSteve;
-import com.yuoMod.Tmod.Entity.render.RenderRedCreeper;
-import com.yuoMod.Tmod.Entity.render.RenderRedEnderman;
-import com.yuoMod.Tmod.Entity.render.RenderRedSpider;
+import com.yuoMod.Tmod.Entity.Render.RenderGoldenTNT;
+import com.yuoMod.Tmod.Entity.Render.RenderGreenCreeper;
+import com.yuoMod.Tmod.Entity.Render.RenderGreenEnderman;
+import com.yuoMod.Tmod.Entity.Render.RenderGreenSpider;
+import com.yuoMod.Tmod.Entity.Render.RenderKiana;
+import com.yuoMod.Tmod.Entity.Render.RenderLightningDiamond;
+import com.yuoMod.Tmod.Entity.Render.RenderNewAlex;
+import com.yuoMod.Tmod.Entity.Render.RenderNewSteve;
+import com.yuoMod.Tmod.Entity.Render.RenderRedCreeper;
+import com.yuoMod.Tmod.Entity.Render.RenderRedEnderman;
+import com.yuoMod.Tmod.Entity.Render.RenderRedSpider;
+
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -29,12 +31,9 @@ public class EntityLoader
 
     public EntityLoader()
     {
-    	//实体黄金鸡
-    	registerEntity(EntityGoldenChicken.class, "GoldenChicken", 64, 3, true);
-    	registerEntityEgg(new ResourceLocation("GoldenChicken"), 0xffff66, 0x660000);
-    	registerEntitySpawn(EntityGoldenChicken.class, 8, 2, 4, EnumCreatureType.CREATURE,Biomes.PLAINS,Biomes.DESERT);
     	//投掷物，黄金tnt
     	registerEntity(EntityGoldenTNT.class, "GoldenTNT", 64, 10, true);
+    	registerEntity(EntityLightningDiamond.class, "LightningDiamond", 64, 10, true);//闪电钻石
     	//新的僵尸:绿僵
     	registerEntity(EntityGreenZombies.class, "GreenZombies", 80, 3, true);
     	registerEntityEgg(new ResourceLocation("GreenZombies"), 0x006400, 0x00FF00);
@@ -95,13 +94,16 @@ public class EntityLoader
     	registerEntityEgg(new ResourceLocation("NewSteve"), 0x006400, 0xFF0000);
     	registerEntitySpawn(EntityNewSteve.class, 10, 1, 1, EnumCreatureType.MONSTER, Biomes.PLAINS,Biomes.DESERT,Biomes.FOREST
     			,Biomes.TAIGA,Biomes.SWAMPLAND,Biomes.RIVER,Biomes.JUNGLE);
+    	//琪亚娜--白练
+    	registerEntity(EntityKiana.class, "Kiana", 64, 3, true);
+    	registerEntityEgg(new ResourceLocation("Kiana"), 0x000000, 0xffffff);
     }
     
     @SideOnly(Side.CLIENT)
     public static void registerRenders()
     {
-    	registerEntityRender(EntityGoldenChicken.class, RenderGoldenChicken.class);
     	registerEntityRender(EntityGoldenTNT.class, RenderGoldenTNT.class);
+    	registerEntityRender(EntityLightningDiamond.class, RenderLightningDiamond.class);
     	
 //    	registerEntityRender(EntityGreenZombies.class, RenderGreenZombies.class);
 //    	registerEntityRender(EntityRedZombies.class, RenderRedZombies.class);
@@ -120,6 +122,8 @@ public class EntityLoader
     	
     	registerEntityRender(EntityNewAlex.class, RenderNewAlex.class);
     	registerEntityRender(EntityNewSteve.class, RenderNewSteve.class);
+    	
+    	registerEntityRender(EntityKiana.class, RenderKiana.class);
     }
     //注册实体
     private static void registerEntity(Class<? extends Entity> entityClass, String name, int trackingRange,

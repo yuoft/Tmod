@@ -20,6 +20,7 @@ public class StorageRing extends Item
 		this.setUnlocalizedName(name);
 		this.setCreativeTab(CreativeTabsLoader.TMOD);
 		this.setMaxStackSize(1);
+		this.setMaxDamage(0);
 	}
 	//ÓÒ¼ü´ò¿ªgui
 	@Override

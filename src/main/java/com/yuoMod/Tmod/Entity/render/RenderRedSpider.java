@@ -1,4 +1,4 @@
-package com.yuoMod.Tmod.Entity.render;
+package com.yuoMod.Tmod.Entity.Render;
 
 import com.yuoMod.Tmod.tmod;
 import com.yuoMod.Tmod.Entity.EntityRedSpider;

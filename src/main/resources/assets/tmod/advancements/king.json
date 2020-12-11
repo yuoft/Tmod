@@ -1,0 +1,118 @@
+{
+    "display": {
+        "icon": { "item": "minecraft:skull","data": 5},
+        "title": { "translate": "advancement.tmod:king" },
+        "frame": "challenge",
+        "description": { "translate": "advancement.tmod:king.desc" } 
+    },
+	"parent": "tmod:kiana",
+    "criteria": {
+        "kiana": {
+            "trigger": "minecraft:player_killed_entity",
+            "conditions": {
+                "entity": {
+                    "type": "kiana"
+                }
+            }
+        },
+		"green_zombies": {
+            "trigger": "minecraft:player_killed_entity",
+            "conditions": {
+                "entity": {
+                    "type": "greenzombies"
+                }
+            }
+        },
+		"red_zombies": {
+            "trigger": "minecraft:player_killed_entity",
+            "conditions": {
+                "entity": {
+                    "type": "redzombies"
+                }
+            }
+        },
+		"green_spider": {
+            "trigger": "minecraft:player_killed_entity",
+            "conditions": {
+                "entity": {
+                    "type": "greenspider"
+                }
+            }
+        },
+		"red_spider": {
+            "trigger": "minecraft:player_killed_entity",
+            "conditions": {
+                "entity": {
+                    "type": "redspider"
+                }
+            }
+        },
+		"green_skeleton": {
+            "trigger": "minecraft:player_killed_entity",
+            "conditions": {
+                "entity": {
+                    "type": "greenskeleton"
+                }
+            }
+        },
+		"red_skeleton": {
+            "trigger": "minecraft:player_killed_entity",
+            "conditions": {
+                "entity": {
+                    "type": "redskeleton"
+                }
+            }
+        },
+		"green_enderman": {
+            "trigger": "minecraft:player_killed_entity",
+            "conditions": {
+                "entity": {
+                    "type": "greenenderman"
+                }
+            }
+        },
+		"red_enderman": {
+            "trigger": "minecraft:player_killed_entity",
+            "conditions": {
+                "entity": {
+                    "type": "redenderman"
+                }
+            }
+        },
+		"green_creeper": {
+            "trigger": "minecraft:player_killed_entity",
+            "conditions": {
+                "entity": {
+                    "type": "greencreeper"
+                }
+            }
+        },
+		"red_creeper": {
+            "trigger": "minecraft:player_killed_entity",
+            "conditions": {
+                "entity": {
+                    "type": "redcreeper"
+                }
+            }
+        },
+		"new_alex": {
+            "trigger": "minecraft:player_killed_entity",
+            "conditions": {
+                "entity": {
+                    "type": "newalex"
+                }
+            }
+        },
+		"new_steve": {
+            "trigger": "minecraft:player_killed_entity",
+            "conditions": {
+                "entity": {
+                    "type": "newsteve"
+                }
+            }
+        }
+    },
+	"rewards": {
+        "experience": 20000
+    }
+}

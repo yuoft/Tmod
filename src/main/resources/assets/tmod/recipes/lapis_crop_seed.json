@@ -1,0 +1,27 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "xxx",
+        "xox",
+        "xxx"
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "minecraft:dye",
+			"data": 4
+			
+        },
+		"o":
+        {
+            "item": "minecraft:wheat_seeds"
+        }
+    },
+    "result":
+    {
+        "item": "tmod:lapis_crop_seed",
+        "count": 1
+    }
+}

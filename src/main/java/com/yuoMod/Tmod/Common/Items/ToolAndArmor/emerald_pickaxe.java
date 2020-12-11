@@ -1,23 +1,17 @@
 package com.yuoMod.Tmod.Common.Items.ToolAndArmor;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.List;
 import java.util.Random;
 
 import javax.annotation.Nullable;
-import javax.swing.Timer;
-
 import com.yuoMod.Tmod.Common.Items.itemLoader;
 import com.yuoMod.Tmod.Creativetab.CreativeTabsLoader;
 
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
@@ -26,7 +20,6 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -67,33 +60,42 @@ public class emerald_pickaxe extends ItemPickaxe
 			playerIn.addPotionEffect(new PotionEffect(Potion.getPotionById(26), 1200, 0));
 			playerIn.addPotionEffect(new PotionEffect(Potion.getPotionById(23), 1200, 0));
 		}
-		else playerIn.sendMessage(new TextComponentTranslation("tmod.text.emeraldSword"));
-		return new ActionResult<ItemStack>(EnumActionResult.PASS, playerIn.getHeldItem(handIn));
+		else 
+		{
+			if(!worldIn.isRemote)
+			{
+				playerIn.sendMessage(new TextComponentTranslation("tmod.text.emeraldSword"));
+			}
+		}
+		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, playerIn.getHeldItem(handIn));
 	}
 	//恒霜被动
 	@Override
     public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
 		Random random=new Random();
         if (random.nextInt(100) > 89 && stack.getItem().equals(itemLoader.emerald_pickaxe) && target instanceof IMob) {
-            target.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 60, 3));//设置怪物状态（缓慢4）
-            World world=attacker.world;
-            BlockPos pos=target.getPosition();
-			IBlockState state=Blocks.FROSTED_ICE.getDefaultState();//放置冰块
-            world.setBlockState(pos, state);
-            BlockPos pos2=new BlockPos(pos.getX(), pos.getY()+1, pos.getZ());
-            world.setBlockState(pos2, state);
-            int delay=2000;    //时间间隔，单位为毫秒
-            ActionListener taskPerformer=new ActionListener()//创建计时器
-            {
-				@Override
-				public void actionPerformed(ActionEvent e) {//触发事件
-					IBlockState blockState=Blocks.AIR.getDefaultState();
-					world.setBlockState(pos, blockState);
-					world.setBlockState(pos2, blockState);
-				}
-            };
-            Timer timer = new Timer(delay,taskPerformer);
-            timer.start();//计时开始
+            target.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 60, 4));//设置怪物状态（缓慢5）
+//            World world=attacker.world;
+//            Double speed=target.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).getBaseValue();
+//            target.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.0D);
+//            BlockPos pos=target.getPosition();
+//			IBlockState state=Blocks.FROSTED_ICE.getDefaultState();//放置冰块
+//            world.setBlockState(pos, state);
+//            BlockPos pos2=new BlockPos(pos.getX(), pos.getY()+1, pos.getZ());
+//            world.setBlockState(pos2, state);
+//            int delay=3000;    //时间间隔，单位为毫秒
+//            ActionListener taskPerformer=new ActionListener()//创建计时器
+//            {
+//				@Override
+//				public void actionPerformed(ActionEvent e) {//触发事件
+//					IBlockState blockState=Blocks.AIR.getDefaultState();
+//					world.setBlockState(pos, blockState);
+//					world.setBlockState(pos2, blockState);
+//					target.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(speed);
+//				}
+//            };
+//            Timer timer = new Timer(delay,taskPerformer);
+//            timer.start();//计时开始
         }
         return super.hitEntity(stack, target, attacker);
     }

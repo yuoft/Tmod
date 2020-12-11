@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "xxx",
+        " o ",
+        " o "
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "tmod:space_core"
+        },
+		"o":
+        {
+            "item": "tmod:space_ingot"
+        }
+    },
+    "result":
+    {
+        "item": "tmod:space_pickaxe",
+        "count": 1
+    }
+}

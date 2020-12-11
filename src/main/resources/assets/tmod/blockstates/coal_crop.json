@@ -1,0 +1,16 @@
+{
+    "variants": {
+        "age=0,facing=up": { "model": "tmod:crop/coal_crop0" },
+        "age=1,facing=up": { "model": "tmod:crop/coal_crop1" },
+        "age=2,facing=up": { "model": "tmod:crop/coal_crop2" },
+        "age=3,facing=up": { "model": "tmod:crop/coal_crop3" },
+        "age=4,facing=up": { "model": "tmod:crop/coal_crop4" },
+        "age=5,facing=up": { "model": "tmod:crop/coal_crop5" },
+		"age=6,facing=up": { "model": "tmod:crop/coal_crop6" },
+		"age=7,facing=up": { "model": "tmod:crop/coal_crop7" },
+        "age=7,facing=west": { "model": "tmod:crop/coal_stem" },
+        "age=7,facing=east": { "model": "tmod:crop/coal_stem", "y": 180 },
+        "age=7,facing=north": { "model": "tmod:crop/coal_stem", "y": 90 },
+        "age=7,facing=south": { "model": "tmod:crop/coal_stem", "y": 270 }
+    }
+}

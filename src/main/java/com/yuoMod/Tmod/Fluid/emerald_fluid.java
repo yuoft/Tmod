@@ -26,9 +26,9 @@ public class emerald_fluid  extends Fluid
     	 */
         super(name, emerald_fluid.still, emerald_fluid.flowing);
         this.setUnlocalizedName(name);
-        this.setDensity(10000);
+        this.setDensity(3000);
         this.setViscosity(1500);
-        this.setLuminosity(5);
-        this.setTemperature(3000);
+        this.setLuminosity(10);
+        this.setTemperature(3300);
     }
 }

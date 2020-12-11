@@ -6,7 +6,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
@@ -16,36 +15,10 @@ import net.minecraft.world.World;
 
 public class EntityGreenEnderman extends EntityEnderman
 {
-	private int tick=200;
+	private int tick=60;
 	public EntityGreenEnderman(World worldIn) {
 		super(worldIn);
-		int i=rand.nextInt(100);
-		if(i < 70 && i >= 30)
-		{
-			if(rand.nextInt(100) >50)//实体生成 物品槽物品			
-				this.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(Items.IRON_HELMET));
-			else this.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(Items.CHAINMAIL_HELMET));
-		}
-		else if(i < 85 && i>= 70)
-		{
-			if(rand.nextInt(100) > 50)
-				this.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(Items.IRON_CHESTPLATE));
-			else this.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(Items.CHAINMAIL_CHESTPLATE));
-		}
-		else if(i < 95 && i >= 85)
-		{
-			if(rand.nextInt(100) >50)
-				this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Items.STONE_SWORD));
-			else this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Items.IRON_SWORD));
-		}
-		else if(i >= 95)//极小概率生成全套铁装
-		{
-			this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Items.IRON_SWORD));
-			this.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(Items.IRON_HELMET));
-			this.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(Items.IRON_CHESTPLATE));
-			this.setItemStackToSlot(EntityEquipmentSlot.FEET, new ItemStack(Items.IRON_BOOTS));
-			this.setItemStackToSlot(EntityEquipmentSlot.LEGS, new ItemStack(Items.IRON_LEGGINGS));
-		}
+		this.SpwanMob();
 	}
 	// 实体更新
 	@Override
@@ -88,36 +61,52 @@ public class EntityGreenEnderman extends EntityEnderman
 	{
 		super.onUpdate();
 		this.tick++;
+		if(tick < 60)
+		{
+			return ;
+		}
 		EntityPlayer player=this.attackingPlayer;
-		if(player !=null && this.tick >= 200 && rand.nextInt(100) > 50)
+		if(player !=null && rand.nextInt(100) > 50)
 		{
 			BlockPos pos=player.getPosition();
 			BlockPos pos1=new BlockPos(pos.getX(), pos.getY()+2, pos.getZ());
-			BlockPos pos2=new BlockPos(pos.getX()+1, pos.getY()+2, pos.getZ());
-			BlockPos pos3=new BlockPos(pos.getX()-1, pos.getY()+2, pos.getZ());
-			BlockPos pos4=new BlockPos(pos.getX(), pos.getY()+2, pos.getZ()+1);
-			BlockPos pos5=new BlockPos(pos.getX(), pos.getY()+2, pos.getZ()-1);
-			IBlockState state=Blocks.AIR.getDefaultState();
-			if(world.getBlockState(pos1).getBlockHardness(world, pos1) < 5.0f)
+			IBlockState state=world.getBlockState(pos1);
+			if(state.getBlockHardness(world, pos1) < 5.0f)
 			{
-				world.setBlockState(pos1, state);
+				this.setHeldBlockState(state);
+				world.setBlockToAir(pos1);
 			}
-			if(world.getBlockState(pos2).getBlockHardness(world, pos1) < 5.0f)
-			{
-				world.setBlockState(pos2, state);
-			}
-			if(world.getBlockState(pos3).getBlockHardness(world, pos1) < 5.0f)
-			{
-				world.setBlockState(pos3, state);
-			}
-			if(world.getBlockState(pos4).getBlockHardness(world, pos1) < 5.0f)
-			{
-				world.setBlockState(pos4, state);
-			}
-			if(world.getBlockState(pos5).getBlockHardness(world, pos1) < 5.0f)
-			{
-				world.setBlockState(pos5, state);
-			}
+			tick=0;
+		}
+	}
+	private void SpwanMob()
+	{
+		int i=rand.nextInt(100);
+		if(i < 70 && i >= 30)
+		{
+			if(rand.nextInt(100) >50)//实体生成 物品槽物品			
+				this.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(Items.IRON_HELMET));
+			else this.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(Items.CHAINMAIL_HELMET));
+		}
+		else if(i < 85 && i>= 70)
+		{
+			if(rand.nextInt(100) > 50)
+				this.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(Items.IRON_CHESTPLATE));
+			else this.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(Items.CHAINMAIL_CHESTPLATE));
+		}
+		else if(i < 95 && i >= 85)
+		{
+			if(rand.nextInt(100) >50)
+				this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Items.STONE_SWORD));
+			else this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Items.IRON_SWORD));
+		}
+		else if(i >= 95)//极小概率生成全套铁装
+		{
+			this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Items.IRON_SWORD));
+			this.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(Items.IRON_HELMET));
+			this.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(Items.IRON_CHESTPLATE));
+			this.setItemStackToSlot(EntityEquipmentSlot.FEET, new ItemStack(Items.IRON_BOOTS));
+			this.setItemStackToSlot(EntityEquipmentSlot.LEGS, new ItemStack(Items.IRON_LEGGINGS));
 		}
 	}
 }

@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        " y ",
+        " o ",
+        " x "
+    ],
+    "key":
+    {
+        "y":
+        {
+            "item": "minecraft:diamond"
+        },
+		"x":
+        {
+            "item": "minecraft:stick"
+        },
+		"o":
+        {
+            "item": "minecraft:feather"
+        }
+    },
+    "result":
+    {
+        "item": "tmod:diamond_arrow",
+        "count": 9
+    }
+}

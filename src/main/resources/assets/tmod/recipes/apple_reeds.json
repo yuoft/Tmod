@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "xxx",
+        "xox",
+        "xxx"
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "minecraft:apple"
+        },
+		"o":
+        {
+            "item": "minecraft:reeds"
+        }
+    },
+    "result":
+    {
+        "item": "tmod:apple_reeds",
+        "count": 1
+    }
+}

@@ -20,7 +20,7 @@ public class AISetBlock extends EntityAIBase
 	//是否执行ai任务
 	@Override
 	public boolean shouldExecute() {
-		EntityLivingBase entityLivingBase=entity.getAttackingEntity();
+		EntityLivingBase entityLivingBase=entity.world.getNearestPlayerNotCreative(entity, 16.0D);//发现可攻击的非创造玩家
 		if(entityLivingBase == null)
 		{
 			return false;
@@ -36,7 +36,7 @@ public class AISetBlock extends EntityAIBase
 			int i= (int) Math.ceil(Math.sqrt((Math.pow(Math.abs(entityPos.getX()-playerPos.getX()),2) + Math.pow(Math.abs(entityPos.getZ()-playerPos.getZ()),2))));
 			if(playerPos.getY() > entityPos.getY()+3 && i < 10 )
 			{
-				return this.entity.world.getGameRules().getBoolean("mobGriefing");//实体可放置方块
+				return true;//this.entity.world.getGameRules().getBoolean("mobGriefing");//实体可放置方块
 			}
 			else return false;
 		}
@@ -49,7 +49,7 @@ public class AISetBlock extends EntityAIBase
 		{
 			return ;
 		}
-		EntityLivingBase entityLivingBase=this.entity.getAttackingEntity();
+		EntityLivingBase entityLivingBase=this.entity.world.getNearestPlayerNotCreative(entity, 16.0D);
 		BlockPos entityPos=entity.getPosition();
     	if(entityLivingBase instanceof EntityPlayer)
     	{
