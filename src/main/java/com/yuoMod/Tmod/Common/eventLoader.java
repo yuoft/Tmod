@@ -5,11 +5,15 @@ import com.yuoMod.Tmod.Enchantment.enchantmentLoader;
 import com.yuoMod.Tmod.Entity.EntityKiana;
 import com.yuoMod.Tmod.Gui.BossHealthHUD;
 import com.yuoMod.Tmod.Potion.potionLoader;
+import com.yuoMod.Tmod.Util.Helper;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.monster.IMob;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
@@ -19,6 +23,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.AnvilUpdateEvent;
+import net.minecraftforge.event.entity.ProjectileImpactEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
@@ -65,6 +70,35 @@ public class eventLoader
 				event.setCost(5 * count1);
 				event.setMaterialCost(count1);
 				event.setOutput(new ItemStack(itemLoader.space_line, count1));
+			}
+		}
+	}
+	//空间弓 攻击怪物造成10伤害并且产生爆炸 否则将目标实体传送
+	@SubscribeEvent
+	public void spaceBow(ProjectileImpactEvent.Arrow event)
+	{
+		EntityArrow arrow=event.getArrow();
+		if(!event.getArrow().getEntityWorld().isRemote)
+		{
+			if(arrow.shootingEntity instanceof EntityPlayer)
+			{
+				EntityPlayer player=(EntityPlayer) arrow.shootingEntity;
+				ItemStack itemStack=player.getHeldItemMainhand();
+				if(itemStack.getItem().equals(itemLoader.space_bow))
+				{
+					if(event.getRayTraceResult().entityHit instanceof IMob)
+					{
+						arrow.setDamage(10.0f);
+						arrow.world.createExplosion(player, arrow.posX, arrow.posY, arrow.posZ, 5.0f, false);
+					}
+					else 
+					{
+						if(event.getRayTraceResult().entityHit instanceof EntityLivingBase)
+						{
+							Helper.TP((EntityLivingBase) event.getRayTraceResult().entityHit, event.getArrow().getEntityWorld());
+						}
+					}
+				}
 			}
 		}
 	}

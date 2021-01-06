@@ -1,0 +1,27 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "xxx",
+        "xox",
+        "xxx"
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "minecraft:wheat"
+        },
+		"o":
+        {
+            "item": "minecraft:egg"
+        }
+    },
+    "result":
+    {
+        "item": "minecraft:spawn_egg",
+        "count": 1,
+		"data": 0,
+		"EntityTag":{"id":villager}
+    }
+}

@@ -97,6 +97,7 @@ public class EntityLoader
     	//ç÷ÑÇÄÈ--°×Á·
     	registerEntity(EntityKiana.class, "Kiana", 64, 3, true);
     	registerEntityEgg(new ResourceLocation("Kiana"), 0x000000, 0xffffff);
+    	
     }
     
     @SideOnly(Side.CLIENT)

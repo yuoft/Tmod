@@ -5,19 +5,22 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import com.yuoMod.Tmod.Creativetab.CreativeTabsLoader;
+import com.yuoMod.Tmod.Util.Helper;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.SoundEvents;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.monster.EntityIronGolem;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -42,31 +45,7 @@ public class SpaceBlock extends Block
 		{
 			//原版紫颂果效果
 			EntityLivingBase entityLiving=(EntityLivingBase) entityIn;
-			if (!worldIn.isRemote)
-	        {
-	            double d0 = entityLiving.posX;
-	            double d1 = entityLiving.posY;
-	            double d2 = entityLiving.posZ;
-
-	            for (int i = 0; i < 16; ++i)
-	            {
-	                double d3 = entityLiving.posX + (entityLiving.getRNG().nextDouble() - 0.5D) * 16.0D;
-	                double d4 = MathHelper.clamp(entityLiving.posY + (double)(entityLiving.getRNG().nextInt(16) - 8), 0.0D, (double)(worldIn.getActualHeight() - 1));
-	                double d5 = entityLiving.posZ + (entityLiving.getRNG().nextDouble() - 0.5D) * 16.0D;
-
-	                if (entityLiving.isRiding())
-	                {
-	                    entityLiving.dismountRidingEntity();
-	                }
-
-	                if (entityLiving.attemptTeleport(d3, d4, d5))
-	                {
-	                    worldIn.playSound((EntityPlayer)null, d0, d1, d2, SoundEvents.ITEM_CHORUS_FRUIT_TELEPORT, SoundCategory.PLAYERS, 1.0F, 1.0F);
-	                    entityLiving.playSound(SoundEvents.ITEM_CHORUS_FRUIT_TELEPORT, 1.0F, 1.0F);
-	                    break;
-	                }
-	            }
-	        }
+			Helper.TP(entityLiving, worldIn);
 		}
     }
 	@SideOnly(Side.CLIENT)
@@ -74,4 +53,38 @@ public class SpaceBlock extends Block
     {
        tooltip.add(I18n.format("tmod.block.space_block", ""));
     }
+	//方块被放置
+	public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer,
+			ItemStack stack) 
+	{
+		if(!worldIn.isRemote)
+		{
+			//检查方块结构
+			int x=pos.getX();
+			int y=pos.getY();
+			int z=pos.getZ();
+			BlockPos posCenter=new BlockPos(x, y-1, z);
+			IBlockState stateCenter=worldIn.getBlockState(posCenter);
+			if(stateCenter.getBlock().equals(blockLoader.emerald_ingot_block))
+			{
+				EntityIronGolem ironGolem=new EntityIronGolem(worldIn);
+				ironGolem.setPosition(x, y-1, z);
+				//设置实体属性
+				ironGolem.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(300.0D);//生命
+				ironGolem.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.27D);//速度
+				ironGolem.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(50.0D);//攻击伤害
+				ironGolem.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(20.0D);//盔甲防御
+				ironGolem.getEntityAttribute(SharedMonsterAttributes.ARMOR_TOUGHNESS).setBaseValue(10.0D);//盔甲韧性
+				ironGolem.setPlayerCreated(true);
+				ironGolem.setLocationAndAngles((double)pos.getX() + 0.5D, (double)pos.getY() + 0.05D, (double)pos.getZ() + 0.5D, 0.0F, 0.0F);
+				ironGolem.setHealth(300.0F);
+				worldIn.spawnEntity(ironGolem);
+				//删除方块
+				placer.sendMessage(new TextComponentTranslation("坐标："+pos.toString()+" " + posCenter.toString()));
+				worldIn.setBlockState(posCenter, Blocks.AIR.getDefaultState(), 2);
+				worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 2);
+			}
+			else placer.sendMessage(new TextComponentTranslation("error"));
+		}
+	}
 }

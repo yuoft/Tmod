@@ -48,6 +48,7 @@ item.coal_crop_seed.name=煤炭作物种子
 item.quartz_crop_seed.name=石英作物种子
 item.lapis_crop_seed.name=青金石作物种子
 item.redstone_crop_seed.name=红石作物种子
+item.space_villager_egg.name=§b生成村民
 #工具or装备
 item.emerald_pickaxe.name=绿宝石镐--§b恒霜
 item.emerald_axe.name=绿宝石斧
@@ -98,6 +99,8 @@ tile.coal_crop.name=煤炭作物
 tile.quartz_crop.name=石英作物
 tile.redstone_crop.name=红石作物
 tile.apple_reeds.name=苹果甘蔗
+tile.lucky_block.name=幸运方块
+tile.unlucky_block.name=霉运方块
 #流体
 fluid.emerald_fluid=熔融绿宝石
 tile.emerald_fluid.name=熔融绿宝石
@@ -165,6 +168,7 @@ entity.NewAlex.name=§c艾利克斯
 entity.NewSteve.name=§c史蒂夫
 entity.Kiana.name=Kiana
 entity.Villager.tmod.space=空间物资商
+entity.EmeraldPuppet.name=绿宝石傀儡
 #音效
 tmod.sounds.LTY1=测试音效:洛天依
 tmod.sounds.HY1=测试音效:狐妖
@@ -184,6 +188,7 @@ tmod.text.space_sword1=你触发了暴击!
 tmod.text.space_sword2=技能冷却中!
 tmod.text.change_powder1=转换失败
 tmod.text.change_powder2=转换成功
+tmod.text.unlucky=祝你好运！
 #物品信息
 tmod.item.golden_tnt1=使用造成10级爆炸,请谨慎使用
 tmod.item.golden_tnt2=不会伤害玩家,但会破坏地形

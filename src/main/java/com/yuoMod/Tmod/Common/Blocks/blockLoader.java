@@ -43,6 +43,8 @@ public class blockLoader
 	public static final Block quartz_crop=new StemCrop("coal_crop", Blocks.QUARTZ_ORE);// Ø”¢
 	public static final Block redstone_crop=new StemCrop("coal_crop", Blocks.REDSTONE_ORE);//∫Ï Ø
 	public static final Block apple_reeds=new AllReeds("apple_reeds");
+	public static final Block lucky_block=new LuckyBlock("lucky_block");
+	public static final Block unlucky_block=new UnLuckyBlock("unlucky_block");
 	
     public blockLoader(FMLPreInitializationEvent event)
     {
@@ -69,6 +71,8 @@ public class blockLoader
         register(quartz_crop, "quartz_crop");
         register(redstone_crop, "redstone_crop");
         register(apple_reeds, "apple_reeds");
+        register(lucky_block, "lucky_block");
+        register(unlucky_block, "unlucky_block");
     }
     private static void register(Block block, String name)
     {
@@ -105,6 +109,8 @@ public class blockLoader
         registerRender(quartz_crop,0);
         registerRender(redstone_crop,0);
         registerRender(apple_reeds,0);
+        registerRender(lucky_block,0);
+        registerRender(unlucky_block,0);
     }
     @SideOnly(Side.CLIENT)
     private static void registerRender(Block block,int meta)

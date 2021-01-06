@@ -4,20 +4,12 @@ import javax.annotation.Nullable;
 
 import com.yuoMod.Tmod.Creativetab.CreativeTabsLoader;
 
-import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntityArrow;
-import net.minecraft.init.Enchantments;
 import net.minecraft.init.Items;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.item.IItemPropertyGetter;
-import net.minecraft.item.ItemArrow;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
-import net.minecraft.stats.StatList;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -31,6 +23,7 @@ public class SpaceBow extends ItemBow
 		this.setMaxStackSize(1);
 		this.setCreativeTab(CreativeTabsLoader.TMOD);
 		this.setContainerItem(Items.ARROW);
+		this.setDamage(new ItemStack(this), 100);
 		this.addPropertyOverride(new ResourceLocation("pull"), new IItemPropertyGetter()
         {
             @SideOnly(Side.CLIENT)
@@ -55,13 +48,14 @@ public class SpaceBow extends ItemBow
             }
         });
 	}
+	/*
 	public void onPlayerStoppedUsing(ItemStack stack, World worldIn, EntityLivingBase entityLiving, int timeLeft)
     {
         if (entityLiving instanceof EntityPlayer)
         {
             EntityPlayer entityplayer = (EntityPlayer)entityLiving;
             boolean flag = entityplayer.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantments.INFINITY, stack) > 0;
-            ItemStack itemstack = this.findAmmo(entityplayer);
+            ItemStack itemstack = super.findAmmo(entityplayer);
 
             int i = this.getMaxItemUseDuration(stack) - timeLeft;
             i = net.minecraftforge.event.ForgeEventFactory.onArrowLoose(stack, worldIn, entityplayer, i, !itemstack.isEmpty() || flag);
@@ -93,7 +87,7 @@ public class SpaceBow extends ItemBow
                     		ItemArrow itemarrow = (ItemArrow)(itemstack.getItem() instanceof ItemArrow ? itemstack.getItem() : Items.ARROW);
                             EntityArrow entityarrow = itemarrow.createArrow(worldIn, itemstack, entityplayer);
                             entityarrow = this.customizeArrow(entityarrow);
-                            entityarrow.shoot(entityplayer, entityplayer.rotationPitch, entityplayer.rotationYaw, 0.0F, f * 3.0F, 0.8F + arrow * 0.1f);
+                            entityarrow.shoot(entityplayer, entityplayer.rotationPitch, entityplayer.rotationYaw, 0.0F, f * 3.0F, 0.8F + arrow * 0.2f);
 
                             if (f == 1.0F)
                             {
@@ -152,5 +146,5 @@ public class SpaceBow extends ItemBow
                 }
             }
         }
-    }
+    }*/
 }

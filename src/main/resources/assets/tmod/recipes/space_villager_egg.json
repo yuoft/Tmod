@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "xxx",
+        "xox",
+        "xxx"
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "tmod:space_patch"
+        },
+		"o":
+        {
+            "item": "minecraft:egg"
+        }
+    },
+    "result":
+    {
+        "item": "tmod:space_villager_egg",
+        "count": 1
+    }
+}

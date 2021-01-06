@@ -37,6 +37,7 @@ public class common
     	new enchantmentLoader();//¸½Ä§×¢²á
     	new eventLoader();//ÊÂ¼ş×¢²á
     	new EventCraft();
+    	new LuckyEvent();
     	new WorldOreLoader();//¿óÎïÉú³É×¢²á
     	new guiLoader();//gui×¢²á
     }

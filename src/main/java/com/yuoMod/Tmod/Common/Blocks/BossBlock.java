@@ -97,4 +97,13 @@ public class BossBlock extends Block
        tooltip.add(I18n.format("tmod.block.boss_block1", ""));
        tooltip.add(I18n.format("tmod.block.boss_block2", ""));
     }
+//	@Override
+//	public EnumBlockRenderType getRenderType(IBlockState state) {
+//		return EnumBlockRenderType.MODEL;
+//	}
+//	@SideOnly(Side.CLIENT)
+//    public BlockRenderLayer getBlockLayer()
+//    {
+//        return BlockRenderLayer.CUTOUT_MIPPED;
+//    }
 }
