@@ -31,6 +31,8 @@ import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -54,6 +56,7 @@ public class EntityKiana extends EntityMob implements IEntityMultiPart, IMob,IRa
     {
 		super.onLivingUpdate();
     }
+	//行为ai
 	protected void initEntityAI()
     {
         this.tasks.addTask(0, new EntityAISwimming(this));
@@ -65,6 +68,7 @@ public class EntityKiana extends EntityMob implements IEntityMultiPart, IMob,IRa
         this.tasks.addTask(8, new EntityAILookIdle(this));
         this.applyEntityAI();
     }
+	//攻击ai
     protected void applyEntityAI()
     {
         this.tasks.addTask(6, new EntityAIMoveThroughVillage(this, 1.0D, false));
@@ -82,7 +86,8 @@ public class EntityKiana extends EntityMob implements IEntityMultiPart, IMob,IRa
 		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(30.0D);//攻击伤害
 		this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(20.0D);//盔甲防御
 		this.getEntityAttribute(SharedMonsterAttributes.ARMOR_TOUGHNESS).setBaseValue(10.0D);//盔甲韧性
-		this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(0.5D);//击退抗性
+		this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.0D);//击退抗性
+		this.addPotionEffect(new PotionEffect(Potion.getPotionById(10), 100000, 0));
 	}
 	protected void dropLoot(boolean wasRecentlyHit, int lootingModifier, DamageSource source)
 	{
@@ -146,6 +151,27 @@ public class EntityKiana extends EntityMob implements IEntityMultiPart, IMob,IRa
         	}
 		}
         super.onUpdate();
+    }
+	//受到伤害不超过某个值（锁伤）
+	public boolean attackEntityFrom(DamageSource source, float amount) {
+		if (amount > 20) {
+			amount = 20;
+		}
+		return super.attackEntityFrom(source, amount);
+	}
+	//受什么伤害(只受玩家造成的伤害)
+	public boolean isEntityInvulnerable(DamageSource source)
+    {
+		if( !source.isCreativePlayer() || source.equals(DamageSource.IN_FIRE) || source.equals(DamageSource.LIGHTNING_BOLT)
+				|| source.equals(DamageSource.ON_FIRE) || source.equals(DamageSource.LAVA) || source.equals(DamageSource.HOT_FLOOR)
+				|| source.equals(DamageSource.IN_WALL) || source.equals(DamageSource.CRAMMING) || source.equals(DamageSource.DROWN)
+				|| source.equals(DamageSource.STARVE) || source.equals(DamageSource.CACTUS) || source.equals(DamageSource.FALL)
+				|| source.equals(DamageSource.MAGIC) || source.equals(DamageSource.WITHER) || source.equals(DamageSource.ANVIL)
+				|| source.equals(DamageSource.FALLING_BLOCK) || source.equals(DamageSource.DRAGON_BREATH) || source.equals(DamageSource.FIREWORKS)
+				|| source.isProjectile() || source.isExplosion()){
+			return false;
+		}
+		else return true;
     }
 	//远程攻击
 	@Override

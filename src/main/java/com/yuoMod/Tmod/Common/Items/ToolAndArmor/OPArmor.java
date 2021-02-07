@@ -53,8 +53,10 @@ equipmentSlotIn²ÎÊıºÍToolMaterialÒ»Ñù£¬ºÍ¶ÔÓ¦¿ø¼×µÄ¸½Ä§ÄÜÁ¦ÕıÏà¹Ø£¬Í¬Ñù£¬½ğ¿ø¼×µ
 		}
 		else
 		{
-			player.capabilities.allowFlying = false;
-			player.capabilities.isFlying = false;//È¡Ïû·ÉĞĞ
+			if(!player.isCreative()) {
+				player.capabilities.allowFlying = false;
+				player.capabilities.isFlying = false;//È¡Ïû·ÉĞĞ
+			}
 //			player.capabilities.setFlySpeed(0.01f);
 //			player.clearActivePotions();
 			player.removeActivePotionEffect(Potion.getPotionById(16));

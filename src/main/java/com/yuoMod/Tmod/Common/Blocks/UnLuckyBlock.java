@@ -13,7 +13,7 @@ import net.minecraft.item.Item;
 public class UnLuckyBlock extends Block
 {
 	public UnLuckyBlock(String name) {
-		super(Material.PLANTS);
+		super(Material.ROCK);
 		this.setUnlocalizedName(name);
         this.setSoundType(SoundType.STONE);
         this.setHardness(3);

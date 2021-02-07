@@ -10,6 +10,7 @@ import com.yuoMod.Tmod.Common.Items.Food.SaltMeat;
 import com.yuoMod.Tmod.Common.Items.Food.BuffApple;
 import com.yuoMod.Tmod.Common.Items.Food.item_food_Bad;
 import com.yuoMod.Tmod.Common.Items.Food.item_food_Good;
+import com.yuoMod.Tmod.Common.Items.ToolAndArmor.*;
 import com.yuoMod.Tmod.Common.Items.ToolAndArmor.ManyFunTool;
 import com.yuoMod.Tmod.Common.Items.ToolAndArmor.OPArmor;
 import com.yuoMod.Tmod.Common.Items.ToolAndArmor.OPSword;
@@ -95,6 +96,19 @@ public class itemLoader
 	public static final emerald_pickaxe emerald_pickaxe=new emerald_pickaxe("emerald_pickaxe",EMERALD_INGOT);
 	public static final emerald_shovel emerald_shovel=new emerald_shovel("emerald_shovel",EMERALD_INGOT);
 	public static final emerald_sword emerald_sword=new emerald_sword("emerald_sword",EMERALD_INGOT);
+	//ºì±¦Ê¯Ì××°
+	public static final ArmorMaterial RUBY=EnumHelper.addArmorMaterial("ruby", tmod.MODID+":ruby",25, new int[]{3, 6, 8, 3}, 10, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 2.0F);
+	public static final ToolMaterial RUBY_INGOT=EnumHelper.addToolMaterial(itemLoader.emerald_ingot.toString(), 3, 1000, 8.0f, 3.0f, 10);
+	public static final Item ruby=new item_emerald_ingot("ruby");
+	public static final RubyAxe ruby_axe=new RubyAxe("ruby_axe",RUBY_INGOT);
+	public static final RubyHoe ruby_hoe=new RubyHoe("ruby_hoe",RUBY_INGOT);
+	public static final RubyPickaxe ruby_pickaxe=new RubyPickaxe("ruby_pickaxe",RUBY_INGOT);
+	public static final RubyShovel ruby_shovel=new RubyShovel("ruby_shovel",RUBY_INGOT);
+	public static final RubySword ruby_sword=new RubySword("ruby_sword",RUBY_INGOT);
+	public static final ItemArmor ruby_helmet=new item_EmeraldArmor("ruby_helmet", RUBY, 3, EntityEquipmentSlot.HEAD);
+	public static final ItemArmor ruby_chestplate=new item_EmeraldArmor("ruby_chestplate", RUBY, 8, EntityEquipmentSlot.CHEST);
+	public static final ItemArmor ruby_leggings=new item_EmeraldArmor("ruby_leggings", RUBY, 6, EntityEquipmentSlot.LEGS);
+	public static final ItemArmor ruby_boots=new item_EmeraldArmor("ruby_boots", RUBY, 3, EntityEquipmentSlot.FEET);
 	//·½¿é
 	public static final item_block emerald_ingot_block=new item_block(blockLoader.emerald_ingot_block);
 	public static final item_block tallgrass_block = new item_block(blockLoader.tallgrass_block);
@@ -199,6 +213,17 @@ public class itemLoader
 		ForgeRegistries.ITEMS.register(emerald_shovel.setRegistryName("emerald_shovel"));
 		ForgeRegistries.ITEMS.register(emerald_sword.setRegistryName("emerald_sword"));
 		ForgeRegistries.ITEMS.register(change_powder.setRegistryName("change_powder"));
+		
+		ForgeRegistries.ITEMS.register(ruby.setRegistryName("ruby"));
+		ForgeRegistries.ITEMS.register(ruby_axe.setRegistryName("ruby_axe"));
+		ForgeRegistries.ITEMS.register(ruby_boots.setRegistryName("ruby_boots"));
+		ForgeRegistries.ITEMS.register(ruby_chestplate.setRegistryName("ruby_chestplate"));
+		ForgeRegistries.ITEMS.register(ruby_helmet.setRegistryName("ruby_helmet"));
+		ForgeRegistries.ITEMS.register(ruby_hoe.setRegistryName("ruby_hoe"));
+		ForgeRegistries.ITEMS.register(ruby_leggings.setRegistryName("ruby_leggings"));
+		ForgeRegistries.ITEMS.register(ruby_pickaxe.setRegistryName("ruby_pickaxe"));
+		ForgeRegistries.ITEMS.register(ruby_shovel.setRegistryName("ruby_shovel"));
+		ForgeRegistries.ITEMS.register(ruby_sword.setRegistryName("ruby_sword"));
 		
 		ForgeRegistries.ITEMS.register(emerald_ingot_block.setRegistryName("emerald_ingot_block"));
 		ForgeRegistries.ITEMS.register(tallgrass_block.setRegistryName("tallgrass_block"));
@@ -317,6 +342,17 @@ public class itemLoader
 		registerRender(emerald_shovel);
 		registerRender(emerald_sword);
 		registerRender(change_powder);
+		
+		registerRender(ruby);
+		registerRender(ruby_axe);
+		registerRender(ruby_boots);
+		registerRender(ruby_chestplate);
+		registerRender(ruby_helmet);
+		registerRender(ruby_hoe);
+		registerRender(ruby_leggings);
+		registerRender(ruby_pickaxe);
+		registerRender(ruby_shovel);
+		registerRender(ruby_sword);
 		
 		registerRender(emerald_ingot_block);
 		registerRender(tallgrass_block);

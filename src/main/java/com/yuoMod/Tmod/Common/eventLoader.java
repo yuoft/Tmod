@@ -38,6 +38,7 @@ public class eventLoader
     {
         MinecraftForge.EVENT_BUS.register(this);
     }
+	//bossÑªÌõHUDÏÔÊ¾
 	@SideOnly(value = Side.CLIENT)
 	@SubscribeEvent
     public void renderGameOverlay(RenderGameOverlayEvent.Chat event) {

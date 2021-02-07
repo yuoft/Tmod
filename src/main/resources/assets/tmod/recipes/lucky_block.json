@@ -10,16 +10,16 @@
     {
         "x":
         {
-            "item": "minecraft:dye",
-			"data": 4
+            "item": "minecraft:lapis_block"
         },
 		"y":
         {
-            "item": "minecraft:redstone"
+            "item": "minecraft:redstone_block"
         },
 		"o":
         {
-            "item": "minecraft:gold_block"
+            "item": "minecraft:golden_apple",
+			"data": 1
         }
     },
     "result":

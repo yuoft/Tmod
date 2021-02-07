@@ -14,7 +14,7 @@ import net.minecraft.item.Item;
 public class LuckyBlock extends Block
 {
 	public LuckyBlock(String name) {
-		super(Material.PLANTS);
+		super(Material.ROCK);
 		this.setUnlocalizedName(name);
         this.setSoundType(SoundType.STONE);
         this.setHardness(3);

@@ -45,3 +45,22 @@ class TradeTmodForm implements ITradeList //用绿宝石+物品换物品
 	}
 	
 }
+class TradeTmodItemToItem implements ITradeList //用物品+物品换物品
+{
+	private ItemStack item1;
+	private ItemStack item2;
+	private ItemStack item3;
+	public TradeTmodItemToItem(Item item1, int to, Item item2, int to2, Item item3, int to3) {
+		this.item1=new ItemStack(item1,to);
+		this.item2=new ItemStack(item2,to2);
+		this.item3=new ItemStack(item3, to3);
+	}
+	@Override
+	public void addMerchantRecipe(IMerchant merchant, MerchantRecipeList recipeList, Random random) {
+		ItemStack itemstack=this.item1;
+		ItemStack itemStack2=this.item2;
+        ItemStack itemstack1=this.item3;
+        recipeList.add(new MerchantRecipe(itemstack, itemStack2, itemstack1));
+	}
+	
+}

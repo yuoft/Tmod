@@ -83,5 +83,9 @@ public class NineContainer extends Container
 		}
 		return super.slotClick(slotId, dragType, clickTypeIn, player);
 	}
+	public InventoryStorageRingBag getBagSlot()
+    {
+        return this.inventorys;
+    }
 	
 }
