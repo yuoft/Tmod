@@ -132,8 +132,8 @@ public class eventLoader
     			(event.getSource()==DamageSource.LAVA) || (event.getSource()==DamageSource.HOT_FLOOR) ||
     			(event.getSource()==DamageSource.LIGHTNING_BOLT) || (event.getSource()==DamageSource.FIREWORKS))
     	{
-    		EntityLivingBase player= event.getEntityLiving();//获取玩家实体
-    		ItemStack Stack_chest = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);//获取玩家装备槽
+    		EntityLivingBase player = event.getEntityLiving();//获取实体
+    		ItemStack Stack_chest = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);//获取实体装备槽
     		ItemStack Stack_feet = player.getItemStackFromSlot(EntityEquipmentSlot.FEET);
     		ItemStack Stack_head = player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
     		ItemStack Stack_legs = player.getItemStackFromSlot(EntityEquipmentSlot.LEGS);

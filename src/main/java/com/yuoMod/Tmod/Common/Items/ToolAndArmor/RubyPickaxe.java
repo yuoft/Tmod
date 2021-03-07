@@ -12,6 +12,6 @@ public class RubyPickaxe extends ItemPickaxe
 		super(toolmaterial);
 		this.setUnlocalizedName(name);
         this.setCreativeTab(CreativeTabsLoader.TMOD);
-        this.setHarvestLevel("pickaxe", 3);
+        this.setHarvestLevel("pickaxe", 2);
 	}
 }

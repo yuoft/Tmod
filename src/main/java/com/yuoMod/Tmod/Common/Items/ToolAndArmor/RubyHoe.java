@@ -28,7 +28,7 @@ public class RubyHoe extends ItemTool
 	{
 		super(-3.0F, 0.0F, toolmaterial,EFFECTIVE_ON);
 		this.setUnlocalizedName(name);
-		this.setHarvestLevel("hoe", 3);
+		this.setHarvestLevel("hoe", 2);
         this.setCreativeTab(CreativeTabsLoader.TMOD);
 	}
 	//锄头右键方法（使用原版）

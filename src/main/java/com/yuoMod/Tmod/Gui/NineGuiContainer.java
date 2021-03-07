@@ -87,11 +87,7 @@ public class NineGuiContainer extends GuiContainer
 //	private void clearItems()
 //	{
 //		this.Slot.clear();
-//		for(int i = 0; i < this.Slot.getSizeInventory(); i++)
-//		{
-//			if(!Slot.getStackInSlot(i).isEmpty()) {
-//				this.Slot.setInventorySlotContents(i, ItemStack.EMPTY);
-//			}
-//		}
+//		this.updateScreen();
+//		
 //	}
 }

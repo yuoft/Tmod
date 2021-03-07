@@ -28,7 +28,7 @@ public class RubyShovel extends ItemTool
 	{
 		super(1.5F, -3.0F, toolmaterial,EFFECTIVE_ON);
 		this.setUnlocalizedName(name);
-		this.setHarvestLevel("shovel", 3);
+		this.setHarvestLevel("shovel", 2);
         this.setCreativeTab(CreativeTabsLoader.TMOD);
 	}
 	//铲子右键方法（使用原版）

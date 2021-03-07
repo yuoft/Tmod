@@ -124,6 +124,7 @@ public class itemLoader
 	public static final item_block salt_ore = new item_block(blockLoader.salt_ore);
 	public static final item_block lucky_block = new item_block(blockLoader.lucky_block);
 	public static final item_block unlucky_block = new item_block(blockLoader.unlucky_block);
+	public static final item_block ruby_ore = new item_block(blockLoader.ruby_ore);
 	//特殊物品
 	public static final GoldenTNT golden_tnt=new GoldenTNT("golden_tnt");
 	public static final PotionFallUse potion_fall_use=new PotionFallUse("potion_fall_use");
@@ -136,6 +137,7 @@ public class itemLoader
 	public static final Item storage_ring_in=new StorageRing("storage_ring_in");
 	public static final Item storage_ring_small=new StorageRing("storage_ring_small");
 	public static final Item space_villager_egg=new SpaceVillagerEgg("space_villager_egg");
+	public static final Item player_level=new PlayerLvSel("player_level");
 	//多功能工具
 	public static final ManyFunTool diamond_tool=new ManyFunTool("diamond_tool",-10.0f,-2.0f,EMERALD_INGOT,4);
 	public static final ManyFunTool gold_tool=new ManyFunTool("gold_tool",3.0f,-2.2f,ToolMaterial.IRON,2);
@@ -239,6 +241,7 @@ public class itemLoader
 		ForgeRegistries.ITEMS.register(salt_ore.setRegistryName("salt_ore"));
 		ForgeRegistries.ITEMS.register(lucky_block.setRegistryName("lucky_block"));
 		ForgeRegistries.ITEMS.register(unlucky_block.setRegistryName("unlucky_block"));
+		ForgeRegistries.ITEMS.register(ruby_ore.setRegistryName("ruby_ore"));
 		
 		ForgeRegistries.ITEMS.register(golden_tnt.setRegistryName("golden_tnt"));
 		ForgeRegistries.ITEMS.register(potion_fall_use.setRegistryName("potion_fall_use"));
@@ -251,6 +254,7 @@ public class itemLoader
 		ForgeRegistries.ITEMS.register(storage_ring_in.setRegistryName("storage_ring_in"));
 		ForgeRegistries.ITEMS.register(storage_ring_small.setRegistryName("storage_ring_small"));
 		ForgeRegistries.ITEMS.register(space_villager_egg.setRegistryName("space_villager_egg"));
+		ForgeRegistries.ITEMS.register(player_level.setRegistryName("player_level"));
 		
 		ForgeRegistries.ITEMS.register(diamond_tool.setRegistryName("diamond_tool"));
 		ForgeRegistries.ITEMS.register(gold_tool.setRegistryName("gold_tool"));
@@ -368,6 +372,7 @@ public class itemLoader
 		registerRender(salt_ore);
 		registerRender(lucky_block);
 		registerRender(unlucky_block);
+		registerRender(ruby_ore);
 		
 		registerRender(golden_tnt);
 		registerRender(potion_fall_use);
@@ -380,6 +385,7 @@ public class itemLoader
 		registerRender(storage_ring_in);
 		registerRender(storage_ring_small);
 		registerRender(space_villager_egg);
+		registerRender(player_level);
 		
 		registerRender(diamond_tool);
 		registerRender(gold_tool);

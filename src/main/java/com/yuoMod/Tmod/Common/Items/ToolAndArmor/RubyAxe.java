@@ -12,6 +12,6 @@ public class RubyAxe extends ItemAxe
 		super(toolmaterial, 8.0f, -3.0f);
 		this.setUnlocalizedName(name);
         this.setCreativeTab(CreativeTabsLoader.TMOD);
-        this.setHarvestLevel("axe", 3);
+        this.setHarvestLevel("axe", 2);
 	}
 }

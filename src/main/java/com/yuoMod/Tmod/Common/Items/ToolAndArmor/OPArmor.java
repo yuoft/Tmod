@@ -53,17 +53,21 @@ equipmentSlotIn²ÎÊýºÍToolMaterialÒ»Ñù£¬ºÍ¶ÔÓ¦¿ø¼×µÄ¸½Ä§ÄÜÁ¦ÕýÏà¹Ø£¬Í¬Ñù£¬½ð¿ø¼×µ
 		}
 		else
 		{
-			if(!player.isCreative()) {
-				player.capabilities.allowFlying = false;
-				player.capabilities.isFlying = false;//È¡Ïû·ÉÐÐ
+			if(!player.isCreative()) { //²»ÊÇ´´ÔìÄ£Ê½Ê±£¬ÔÊÐí·ÉÐÐ
+				player.capabilities.allowFlying = false;//ÄÜ·ñ·ÉÐÐ
+				player.capabilities.isFlying = false;//È¡Ïû·ÉÐÐ×´Ì¬
+				player.removeActivePotionEffect(Potion.getPotionById(16));
+				player.removeActivePotionEffect(Potion.getPotionById(26));
+				player.removeActivePotionEffect(Potion.getPotionById(11));
+				player.removeActivePotionEffect(Potion.getPotionById(8));
+				player.removeActivePotionEffect(Potion.getPotionById(1));
+			}else {
+				player.capabilities.allowFlying = true;
+				player.capabilities.isFlying = true;
 			}
 //			player.capabilities.setFlySpeed(0.01f);
 //			player.clearActivePotions();
-			player.removeActivePotionEffect(Potion.getPotionById(16));
-			player.removeActivePotionEffect(Potion.getPotionById(26));
-			player.removeActivePotionEffect(Potion.getPotionById(11));
-			player.removeActivePotionEffect(Potion.getPotionById(8));
-			player.removeActivePotionEffect(Potion.getPotionById(1));
+			
 		}
     }
 	//»¤¼×ÊôÐÔ(µÍÓÚ1000µÄÉËº¦±»ÃâÒß)

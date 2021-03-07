@@ -11,6 +11,7 @@ public class WorldOreLoader
 	private static WorldGenerator oreCreate = new WorldOreCreate();
 	private static WorldGenerator SpaceOre = new SpaceOreSpawn();
 	private static WorldGenerator SaltOre = new SaltOreSpawn();
+	private static WorldGenerator RubyOre = new RubyOreSpawn();
     private BlockPos pos;
     
     public WorldOreLoader()
@@ -27,6 +28,7 @@ public class WorldOreLoader
             oreCreate.generate(event.getWorld(), event.getRand(), event.getPos());
             SpaceOre.generate(event.getWorld(), event.getRand(), event.getPos());
             SaltOre.generate(event.getWorld(), event.getRand(), event.getPos());
+            RubyOre.generate(event.getWorld(), event.getRand(), event.getPos());
         }
     }
 
@@ -44,6 +46,7 @@ public class WorldOreLoader
             oreCreate.generate(event.getWorld(), event.getRand(), event.getPos());
             SpaceOre.generate(event.getWorld(), event.getRand(), event.getPos());
             SaltOre.generate(event.getWorld(), event.getRand(), event.getPos());
+            RubyOre.generate(event.getWorld(), event.getRand(), event.getPos());
         }
     }
 }

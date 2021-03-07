@@ -52,6 +52,7 @@ public class SpaceSword extends ItemSword
 			if(playerIn.isSneaking() && this.tick == 0)
 			{
 				float range=5.0f;
+				
 				attackAOE(playerIn, range, 10.0f, false);
 				this.tick=2400;
 			}
@@ -103,7 +104,7 @@ public class SpaceSword extends ItemSword
 		}
 		AxisAlignedBB aabb = player.getEntityBoundingBox().grow(range);//范围
 		List<Entity> toAttack = player.getEntityWorld().getEntitiesWithinAABBExcludingEntity(player, aabb);//生物列表
-		DamageSource src = DamageSource.GENERIC;//伤害类型
+		DamageSource src = DamageSource.causePlayerDamage(player);//伤害类型
 		for (Entity entity : toAttack)//循环遍历
 		{
 			if(type)

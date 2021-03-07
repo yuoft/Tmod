@@ -45,6 +45,7 @@ public class blockLoader
 	public static final Block apple_reeds=new AllReeds("apple_reeds");
 	public static final Block lucky_block=new LuckyBlock("lucky_block");
 	public static final Block unlucky_block=new UnLuckyBlock("unlucky_block");
+	public static final Block ruby_ore=new RubyOre("ruby_ore");
 	
     public blockLoader(FMLPreInitializationEvent event)
     {
@@ -73,6 +74,7 @@ public class blockLoader
         register(apple_reeds, "apple_reeds");
         register(lucky_block, "lucky_block");
         register(unlucky_block, "unlucky_block");
+        register(ruby_ore, "ruby_ore");
     }
     private static void register(Block block, String name)
     {
@@ -111,6 +113,7 @@ public class blockLoader
         registerRender(apple_reeds,0);
         registerRender(lucky_block,0);
         registerRender(unlucky_block,0);
+        registerRender(ruby_ore,0);
     }
     @SideOnly(Side.CLIENT)
     private static void registerRender(Block block,int meta)

@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        " x ",
+        " o ",
+        " o "
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "tmod:ruby"
+        },
+		"o":
+        {
+            "item": "minecraft:iron_ingot"
+        }
+    },
+    "result":
+    {
+        "item": "tmod:ruby_shovel",
+        "count": 1
+    }
+}

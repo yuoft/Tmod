@@ -37,6 +37,13 @@ public final class ConfigLoader {
     @Config.RequiresWorldRestart // meta 标记，代表需要重进存档才会生效
     public static int range = 25;
     
+    @Config.Comment("设置最高等级") // 有了这个就会多一个注释。
+    @Config.LangKey("config.tmod.general.level") // 供配置 GUI 界面使用的本地化键，参阅“可视化配置文件编辑界面”一节
+    @Config.Name("Level")
+    @Config.RangeInt(min = 10, max = 100) // 整数值支持限定范围。
+    @Config.RequiresWorldRestart // meta 标记，代表需要重进存档才会生效
+    public static int Level = 100;
+    
     //同步配置文件
     @Mod.EventBusSubscriber(modid =tmod.MODID)
     public static class ConfigSyncHandler {

@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "xxx",
+        "x x",
+        "x x"
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "tmod:ruby"
+        }
+    },
+    "result":
+    {
+        "item": "tmod:ruby_leggings",
+        "count": 1
+    }
+}

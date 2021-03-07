@@ -50,6 +50,7 @@ item.quartz_crop_seed.name=石英作物种子
 item.lapis_crop_seed.name=青金石作物种子
 item.redstone_crop_seed.name=红石作物种子
 item.space_villager_egg.name=§b生成村民
+item.player_level.name=玩家等级查看器
 #工具or装备
 item.emerald_pickaxe.name=绿宝石镐--§b恒霜
 item.emerald_axe.name=绿宝石斧
@@ -111,6 +112,7 @@ tile.redstone_crop.name=红石作物
 tile.apple_reeds.name=苹果甘蔗
 tile.lucky_block.name=幸运方块
 tile.unlucky_block.name=霉运方块
+tile.ruby_ore.name=红宝石矿
 #流体
 fluid.emerald_fluid=熔融绿宝石
 tile.emerald_fluid.name=熔融绿宝石
@@ -124,6 +126,7 @@ a.tmod.key_Z=武器技能
 config.tmod.general.enchID01=附魔ID
 config.tmod.general.OpSwordType=生物类型
 config.tmod.general.range=伤害范围
+config.tmod.general.level=等级上限
 #状态效果
 potionFall=摔落减免
 potion.effect.potionfall_type=摔落减免药水
@@ -200,6 +203,8 @@ tmod.text.change_powder1=转换失败
 tmod.text.change_powder2=转换成功
 tmod.text.unlucky=祝你好运！
 tmod.text.spuerIronGolem=你招募了更加强大的援军
+tmod.text.level=你的等级是:
+tmod.text.exp=你的经验是:
 #物品信息
 tmod.item.golden_tnt1=使用造成10级爆炸,请谨慎使用
 tmod.item.golden_tnt2=不会伤害玩家,但会破坏地形
@@ -224,7 +229,12 @@ tmod.item.space_line2=§c合成时请确保空间碎片数量大于线
 tmod.item.salt_meat=尝起来有点咸
 tmod.item.salt1=用煤块围住水,丢入杂质盐获得
 tmod.item.salt2=§c此效果来自更多实用设备2,如有侵权,联系删除
+tmod.item.player_level=右键查看玩家等级
+tmod.item.level=等级:
 #方块信息
 tmod.block.boss_block1=右键召唤全套绿宝石锭装备的僵尸
 tmod.block.boss_block2=潜行右键召唤Kiana
 tmod.block.space_block=在上面行走的实体会被随机传送
+#生物等级
+tmod.attribute.level=生物等级
+tmod.attribute.exp=玩家经验
