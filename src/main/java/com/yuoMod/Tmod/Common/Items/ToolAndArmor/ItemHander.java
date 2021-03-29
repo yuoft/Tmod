@@ -151,9 +151,10 @@ public class ItemHander
         Vec3d vec3d1 = vec3d.addVector((double) f6 * d3, (double) f5 * d3, (double) f7 * d3);
         return worldIn.rayTraceBlocks(vec3d, vec3d1, useLiquids, !useLiquids, false);
     }
-	public void onBlockStartBreak(ItemStack stack, World world, Block blockDestroyed, BlockPos pos, EntityPlayer owner) {
+	public void onBlockStartBreak(ItemStack stack, World world, Block blockDestroyed, BlockPos pos,
+			EntityPlayer owner, Integer length, Integer distance) {
         //≥§£¨øÌ£¨…Ó∂»£¨æ‡¿Î
-		ImmutableList<BlockPos> poses = calcAOEBlocks(stack, world, owner, pos, 3, 3, 3, 5);
+		ImmutableList<BlockPos> poses = calcAOEBlocks(stack, world, owner, pos, length, length, length, distance);
         for (BlockPos extraPos : poses) {
             breakExtraBlock(stack, owner.getEntityWorld(), owner, extraPos, pos);
         }

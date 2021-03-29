@@ -39,7 +39,7 @@ efficiency参数表示制作出的工具使用效率。
 damageVsEntity参数表示攻击伤害力度。
 enchantability参数与附魔等级相关
 	 */
-	private static final ToolMaterial OPSWORD=EnumHelper.addToolMaterial("op_sword", 9, -1, 99.0f, -3.0f, 0);
+	public static final ToolMaterial OPSWORD=EnumHelper.addToolMaterial("op_sword", 99, -1, 999.0f, -3.0f, 0);
 	public OPSword(String name) 
 	{
 		super(OPSWORD);

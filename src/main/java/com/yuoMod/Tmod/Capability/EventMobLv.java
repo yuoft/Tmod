@@ -5,6 +5,7 @@ import java.util.Random;
 import com.yuoMod.Tmod.tmod;
 import com.yuoMod.Tmod.Common.ConfigLoader;
 import com.yuoMod.Tmod.Common.Items.itemLoader;
+import com.yuoMod.Tmod.Entity.EntityKiana;
 import com.yuoMod.Tmod.Network.MessagePlayerLevel;
 import com.yuoMod.Tmod.Network.NetworkLoader;
 import net.minecraft.client.Minecraft;
@@ -15,6 +16,8 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.ai.attributes.RangedAttribute;
+import net.minecraft.entity.boss.EntityDragon;
+import net.minecraft.entity.boss.EntityWither;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.passive.EntityAnimal;
@@ -31,6 +34,7 @@ import net.minecraft.nbt.NBTTagInt;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.DimensionType;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.capabilities.Capability;
@@ -65,7 +69,7 @@ public class EventMobLv
 	// setShouldWatch(false) 会令逻辑客户端看不到该属性的变化。
 	// 如果你不希望客户端看到这个值，或者客户端不需要知道这个值，可以用它
 	// 来稍微节约一点点带宽。
-	public static final IAttribute LIVING_LEVEL = new RangedAttribute(null, "tmod.attribute.level", 0, 0, ConfigLoader.Level).setDescription("Level").setShouldWatch(true);
+	public static final IAttribute LIVING_LEVEL = new RangedAttribute(null, "tmod.attribute.level", 0, 0, ConfigLoader.level).setDescription("Level").setShouldWatch(true);
 	
 	/*
 	 * 怪物等级
@@ -88,10 +92,25 @@ public class EventMobLv
 				return ;
 //				System.out.println("错误：" + attr );
 			}else {
+				World world = event.getWorld();
+				if(living instanceof EntityKiana){
+					lv = ConfigLoader.level * 0.9; //模组boss等级固定为90级
+				}
+				if(living instanceof EntityDragon || living instanceof EntityWither) {
+					lv = ConfigLoader.level * 0.5; //原版boss等级固定为50级
+				}
+				if(world.provider.getDimensionType().equals(DimensionType.NETHER)) {
+					lv += 10 ; //地狱怪物比主世界高10级
+					lv = lv < ConfigLoader.level ? lv: ConfigLoader.level;
+				}
+				if(world.provider.getDimensionType().equals(DimensionType.THE_END)) {
+					lv += 20; //地狱怪物比主世界高20级
+					lv = lv < ConfigLoader.level ? lv: ConfigLoader.level;
+				}
 				setMobAttr(living, lv);
+				
 			}
 		}
-		else {}
     }
 	//为玩家添加Capaility
 	@SubscribeEvent
@@ -153,7 +172,8 @@ public class EventMobLv
 				IPlayerLevel playerCap = player.getCapability(CapabilityLoader.tmodLv, null);
 				Integer playerLv = playerCap.getPlayerLevel();
 				Random random = new Random();
-				int lv = random.nextInt(playerLv.intValue() + 1);
+				int lv = random.nextInt(playerLv.intValue() + 5);
+				lv = lv < ConfigLoader.level ? lv : ConfigLoader.level;
 				//设置等级信息nbt数据,等级为玩家等级以下
 				stack.setTagInfo("level", new NBTTagInt(lv));
 //				setItemAttr(lv, stack.getItem());
@@ -197,6 +217,10 @@ public class EventMobLv
 					}
 				}
 				target.attackEntityFrom(DamageSource.causePlayerDamage(player), amount);
+			}
+			//op剑直接杀死Kiana
+			if(stack.getItem().equals(itemLoader.op_sword) && living instanceof EntityKiana) {
+				living.setHealth(0.1f);
 			}
 		}
 	}
@@ -334,7 +358,7 @@ public class EventMobLv
 			lv = 1;
 		}
 //		player.sendMessage(new TextComponentTranslation("level:" + lv + " pos:" + pos.toString()));
-		return (double) (lv < ConfigLoader.Level ? lv : ConfigLoader.Level);
+		return (double) (lv < ConfigLoader.level ? lv : ConfigLoader.level);
 	}
 	//设置怪物属性
 	private void setMobAttr(EntityLiving entityLiving, Double lv) {

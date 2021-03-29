@@ -77,6 +77,7 @@ public class itemLoader
 	public static final ItemArmor op_leggings=new OPArmor("op_leggings", OP, 6, EntityEquipmentSlot.LEGS);
 	public static final ItemArmor op_boots=new OPArmor("op_boots", OP, 3, EntityEquipmentSlot.FEET);
 	public static final OPSword op_sword=new OPSword("op_sword");
+	public static final OPPickaxe op_pickaxe=new OPPickaxe("op_pickaxe");
 	//¿Õ¼äÌ××°
 	private static final ToolMaterial SPACE=EnumHelper.addToolMaterial("space", 4, 5000, 20.0f, 30.0f, 10);
 	public static final ArmorMaterial SPACE_ARMOR=EnumHelper.addArmorMaterial("space_armor", tmod.MODID+":space_armor",500, new int[]{15, 17, 20, 15}, 35, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 10.0F);
@@ -201,6 +202,7 @@ public class itemLoader
 		ForgeRegistries.ITEMS.register(op_leggings.setRegistryName("op_leggings"));
 		ForgeRegistries.ITEMS.register(op_boots.setRegistryName("op_boots"));
 		ForgeRegistries.ITEMS.register(op_sword.setRegistryName("op_sword"));
+		ForgeRegistries.ITEMS.register(op_pickaxe.setRegistryName("op_pickaxe"));
 		ForgeRegistries.ITEMS.register(space_helmet.setRegistryName("space_helmet"));
 		ForgeRegistries.ITEMS.register(space_chestplate.setRegistryName("space_chestplate"));
 		ForgeRegistries.ITEMS.register(space_leggings.setRegistryName("space_leggings"));
@@ -332,6 +334,7 @@ public class itemLoader
 		registerRender(op_leggings);
 		registerRender(op_boots);
 		registerRender(op_sword);
+		registerRender(op_pickaxe);
 		registerRender(space_helmet);
 		registerRender(space_chestplate);
 		registerRender(space_leggings);

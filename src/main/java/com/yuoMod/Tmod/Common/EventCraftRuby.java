@@ -44,7 +44,7 @@ public class EventCraftRuby
 		Entity entity = event.getEntity();
 		if (entity instanceof EntityItem) {
 			ItemStack entityItem = ((EntityItem) entity).getItem();
-			if (entityItem.isEmpty() || entityItem.getItem() == itemLoader.ruby_ore) {
+			if (!entityItem.isEmpty() && entityItem.getItem() == itemLoader.ruby_ore) {
 				List<EntityItem> entityItems;
 				if (event.getWorld().isRemote)
 					entityItems = rubyClient;

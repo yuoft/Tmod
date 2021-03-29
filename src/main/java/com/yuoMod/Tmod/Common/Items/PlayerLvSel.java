@@ -38,6 +38,8 @@ public class PlayerLvSel extends Item{
 			Integer lv = EventMobLv.setPlayerLv(playerIn);
 			playerIn.sendMessage(new TextComponentTranslation(I18n.format("tmod.text.level") + lv.intValue()));
 			playerIn.sendMessage(new TextComponentTranslation(I18n.format("tmod.text.exp") + exp.intValue())); 
+			int id = worldIn.provider.getDimension();
+			playerIn.sendMessage(new TextComponentTranslation(" ¿ΩÁŒ¨∂»£∫" + id)); 
 		}
         return new ActionResult<ItemStack>(EnumActionResult.PASS, playerIn.getHeldItem(handIn));
     }

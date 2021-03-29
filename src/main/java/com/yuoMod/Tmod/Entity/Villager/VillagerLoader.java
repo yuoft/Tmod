@@ -40,10 +40,11 @@ public class VillagerLoader
     	ForgeRegistries.VILLAGER_PROFESSIONS.register(LUCKY);
     	VillagerCareer newLucky = new VillagerCareer(LUCKY, tmod.MODID+".lucky");
     	newLucky.addTrade(1, new EntityVillager.EmeraldForItems(itemLoader.golden_tnt, new PriceInfo(9, 1)));
-    	newLucky.addTrade(1, new TradeTmodItemToItem(itemLoader.space_boots, 1, itemLoader.space_block, 4, itemLoader.op_boots, 1));
+    	newLucky.addTrade(2, new TradeTmodItemToItem(itemLoader.space_boots, 1, itemLoader.space_block, 4, itemLoader.op_boots, 1));
     	newLucky.addTrade(1, new TradeTmodItemToItem(itemLoader.space_chestplate, 1, itemLoader.space_block, 8, itemLoader.op_chestplate, 1));
-    	newLucky.addTrade(1, new TradeTmodItemToItem(itemLoader.space_helmet, 1, itemLoader.space_block, 5, itemLoader.op_helmet, 1));
+    	newLucky.addTrade(2, new TradeTmodItemToItem(itemLoader.space_helmet, 1, itemLoader.space_block, 5, itemLoader.op_helmet, 1));
     	newLucky.addTrade(1, new TradeTmodItemToItem(itemLoader.space_leggings, 1, itemLoader.space_block, 7, itemLoader.op_leggings, 1));
-    	newLucky.addTrade(1, new TradeTmodItemToItem(itemLoader.space_leggings, 1, itemLoader.space_block, 9, itemLoader.op_sword, 1));
+    	newLucky.addTrade(3, new TradeTmodItemToItem(itemLoader.space_sword, 1, itemLoader.space_block, 9, itemLoader.op_sword, 1));
+    	newLucky.addTrade(3, new TradeTmodItemToItem(itemLoader.space_pickaxe, 1, itemLoader.space_block, 9, itemLoader.op_pickaxe, 1));
 	}
 }

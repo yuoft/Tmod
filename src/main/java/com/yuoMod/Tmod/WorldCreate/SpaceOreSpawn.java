@@ -18,6 +18,7 @@ public class SpaceOreSpawn extends WorldGenerator implements IWorldGenerator
 {
 	private final WorldGenMinable SpaceGenerator = new WorldGenMinable(blockLoader.space_ore.getDefaultState(),3);
 	private final WorldGenMinable EndSapceGenerator = new WorldGenMinable(blockLoader.space_ore.getDefaultState(),8);
+	
 	@Override
 	public boolean generate(World world, Random rand, BlockPos pos) 
 	{
@@ -46,7 +47,7 @@ public class SpaceOreSpawn extends WorldGenerator implements IWorldGenerator
 	}
 	public void genHell(World world, Random rand, BlockPos pos)
 	{
-		if (TerrainGen.generateOre(world, rand, this, pos, OreGenEvent.GenerateMinable.EventType.CUSTOM))
+		if (TerrainGen.generateOre(world, rand, this, pos, OreGenEvent.GenerateMinable.EventType.QUARTZ))
         {
 			for (int i = 0; i < 5; ++i)
             {

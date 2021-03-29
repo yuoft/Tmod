@@ -154,8 +154,8 @@ public class EntityKiana extends EntityMob implements IEntityMultiPart, IMob,IRa
     }
 	//受到伤害不超过某个值（锁伤）
 	public boolean attackEntityFrom(DamageSource source, float amount) {
-		if (amount > 20) {
-			amount = 20;
+		if (amount > 30) {
+			amount = 30;
 		}
 		return super.attackEntityFrom(source, amount);
 	}

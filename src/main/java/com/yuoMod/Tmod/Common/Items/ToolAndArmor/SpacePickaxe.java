@@ -35,13 +35,14 @@ public class SpacePickaxe extends ItemPickaxe
        tooltip.add(I18n.format("tmod.item.space_pickaxe1", ""));
 //       tooltip.add(I18n.format("tmod.item.space_pickaxe2", ""));
     }
+	//ÆÆ»µ·½¿éÊ±
 	@Override
     public boolean onBlockStartBreak(ItemStack stack, BlockPos pos, EntityPlayer player)
     {
 		if(player.isSneaking())
 		{
 			Block blockDestroyed = player.getEntityWorld().getBlockState(pos).getBlock();
-	        this.hander.onBlockStartBreak(stack, player.world, blockDestroyed, pos, player);
+	        this.hander.onBlockStartBreak(stack, player.world, blockDestroyed, pos, player, 3, 6);
 		}
         return false;
     }

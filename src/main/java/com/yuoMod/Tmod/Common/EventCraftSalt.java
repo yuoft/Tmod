@@ -44,7 +44,7 @@ public class EventCraftSalt
 		Entity entity = event.getEntity();
 		if (entity instanceof EntityItem) {
 			ItemStack entityItem = ((EntityItem) entity).getItem();
-			if (entityItem.isEmpty() || entityItem.getItem() == itemLoader.salt_wash) {
+			if (!entityItem.isEmpty() && entityItem.getItem() == itemLoader.salt_wash) {
 				List<EntityItem> entityItems;
 				if (event.getWorld().isRemote)
 					entityItems = saltWashClient;
