@@ -51,6 +51,7 @@ item.lapis_crop_seed.name=青金石作物种子
 item.redstone_crop_seed.name=红石作物种子
 item.space_villager_egg.name=§b生成村民
 item.player_level.name=玩家等级查看器
+item.upgrade_gem.name=装备升级宝石
 #工具or装备
 item.emerald_pickaxe.name=绿宝石镐--§b恒霜
 item.emerald_axe.name=绿宝石斧
@@ -136,6 +137,7 @@ tipped_arrow.effect.potionfall_type=摔落减免药水箭
 lingering_potion.effect.potionfall_type=滞留型摔落减免药水
 #附魔
 enchantment.fireimmune=火焰免疫
+enchantment.wartowar=以战养战
 #进度
 advancement.tmod:good_food=更好的食物
 advancement.tmod:good_food.desc=吃下一个黄金钻石面包
@@ -206,6 +208,9 @@ tmod.text.unlucky=祝你好运！
 tmod.text.spuerIronGolem=你招募了更加强大的援军
 tmod.text.level=你的等级是:
 tmod.text.exp=你的经验是:
+tmod.text.upgrade_gem1=装备等级提升！目前等级为：
+tmod.text.upgrade_gem2=无需要提升等级的装备！
+tmod.text.upgrade_gem3=装备等级已达上限！
 #物品信息
 tmod.item.golden_tnt1=使用造成10级爆炸,请谨慎使用
 tmod.item.golden_tnt2=不会伤害玩家,但会破坏地形

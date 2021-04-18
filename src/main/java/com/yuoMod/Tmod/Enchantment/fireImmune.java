@@ -7,8 +7,11 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 
 public class fireImmune extends Enchantment
 {
-	public fireImmune(String name,Enchantment.Rarity rarity, EnumEnchantmentType type, EntityEquipmentSlot[] slots) {
-        super(rarity, type, slots);
+	private static final EntityEquipmentSlot[] SLOTS= {EntityEquipmentSlot.CHEST,EntityEquipmentSlot.FEET,EntityEquipmentSlot.HEAD,EntityEquipmentSlot.LEGS};//生效位置
+	private static final EnumEnchantmentType TYPE = EnumEnchantmentType.ARMOR; //装备位置
+	
+	public fireImmune(String name) {
+        super(Rarity.RARE, TYPE, SLOTS);
         this.setName(name);
         this.setRegistryName(tmod.MODID, name);
         // rarity 代表了这个附魔的稀有程度，可以是 COMMON、UNCOMMON、RARE 或 VERY_RARE。

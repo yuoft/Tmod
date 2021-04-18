@@ -39,7 +39,7 @@ public class ManyFunTool extends ItemTool
 			Blocks.STONE, Blocks.STONE_SLAB, Blocks.STONE_BUTTON, Blocks.STONE_PRESSURE_PLATE, Blocks.CLAY,
 			Blocks.DIRT, Blocks.FARMLAND, Blocks.GRASS, Blocks.GRAVEL, Blocks.MYCELIUM, Blocks.SAND,
 			Blocks.SNOW, Blocks.SNOW_LAYER, Blocks.SOUL_SAND, Blocks.GRASS_PATH, Blocks.WEB, Blocks.LEAVES, 
-			Blocks.WOOL, //Blocks, Blocks.SOUL_SAND, Blocks.GRASS_PATH, Blocks.WEB, Blocks.LEAVES, 
+			Blocks.WOOL, Blocks.COAL_BLOCK, Blocks.NETHER_BRICK, Blocks.ANVIL,
 			Blocks.LEAVES2, blockLoader.salt_ore, blockLoader.emerald_ingot_ore, blockLoader.space_ore,
 			blockLoader.boss_block, blockLoader.emerald_chest, blockLoader.emerald_ingot_block, blockLoader.emerald_leaf,
 			blockLoader.emerald_tree, blockLoader.power_extractor, blockLoader.space_block, blockLoader.tallgrass_block,
@@ -59,7 +59,7 @@ public class ManyFunTool extends ItemTool
     }
 	@Override
 	public Set<String> getToolClasses(ItemStack stack) {
-		return ImmutableSet.of("pickaxe", "spade", "axe");
+		return ImmutableSet.of("pickaxe", "shovel", "axe");
 	}
 	@Override
 	public boolean canHarvestBlock(IBlockState blockIn) {

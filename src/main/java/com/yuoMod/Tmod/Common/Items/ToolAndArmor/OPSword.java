@@ -1,6 +1,8 @@
 package com.yuoMod.Tmod.Common.Items.ToolAndArmor;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.annotation.Nullable;
 
 import com.yuoMod.Tmod.Common.ConfigLoader;
@@ -9,6 +11,9 @@ import com.yuoMod.Tmod.Entity.EntityLightningDiamond;
 
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.MultiPartEntityPart;
@@ -22,6 +27,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.text.TextComponentTranslation;
@@ -46,11 +52,25 @@ enchantability参数与附魔等级相关
 		this.setUnlocalizedName(name);
         this.setCreativeTab(CreativeTabsLoader.TMOD);
 	}
+	@Override
+	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
+		Map<Enchantment, Integer> map = new HashMap<Enchantment, Integer>();
+        map.put(Enchantment.getEnchantmentByID(21), 10);
+        ItemStack stack = new ItemStack(this);
+        EnchantmentHelper.setEnchantments(map, stack);
+        items.add(stack);
+	}
 	@SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn)
     {
 		 tooltip.add(I18n.format("tmod.item.op_sword1", ""));
 	     tooltip.add(I18n.format("tmod.item.op_sword2", ""));
+    }
+	//附魔光效
+	@SideOnly(Side.CLIENT)
+    public boolean hasEffect(ItemStack stack)
+    {
+        return true;
     }
 	//主动
 	@Override

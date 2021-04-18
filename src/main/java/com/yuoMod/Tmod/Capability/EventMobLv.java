@@ -306,33 +306,33 @@ public class EventMobLv
 	public static int setPlayerLv(EntityPlayer player) {
 		IPlayerLevel playerCap = player.getCapability(CapabilityLoader.tmodLv, null);
 		Integer exp = playerCap.getPlayerExp();
-		Integer lv = playerCap.getPlayerLevel();
+//		Integer lv = playerCap.getPlayerLevel();
 		int playerLv = 1;
-		if(lv > 90) {
+		if(exp > 25550) {
 			int exp0 = exp.intValue() - 25550;
 			playerLv = (exp0 / 2560) + 90;
-		}else if(lv > 80) {
+		}else if(exp > 12750) {
 			int exp0 = exp.intValue() - 12750;
 			playerLv = (exp0 / 1280) + 80;
-		}else if(lv > 70) {
+		}else if(exp > 6350) {
 			int exp0 = exp.intValue() - 6350;
 			playerLv = (exp0 / 640) + 70;
-		}else if(lv > 60) {
+		}else if(exp > 3150) {
 			int exp0 = exp.intValue() - 3150;
 			playerLv = (exp0 / 320) + 60;
-		}else if(lv > 50) {
+		}else if(exp > 1550) {
 			int exp0 = exp.intValue() - 1550;
 			playerLv = (exp0 / 160) + 50;
-		}else if(lv > 40) {
+		}else if(exp > 750) {
 			int exp0 = exp.intValue() - 750;
 			playerLv = (exp0 / 80) + 40;
-		}else if(lv > 30) {
+		}else if(exp > 350) {
 			int exp0 = exp.intValue() - 350;
 			playerLv = (exp0 / 40) + 30;
-		}else if(lv > 20) {
+		}else if(exp > 150) {
 			int exp0 = exp.intValue() - 150;
 			playerLv = (exp0 / 20) + 20;
-		}else if(lv > 10) {
+		}else if(exp > 50) {
 			int exp0 = exp.intValue() - 50;
 			playerLv = (exp0 / 10) + 10;
 		}else {

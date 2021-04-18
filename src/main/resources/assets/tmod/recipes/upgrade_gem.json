@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "ooo",
+        "oxo",
+        "ooo"
+    ],
+    "key":
+    {
+        "o":
+        {
+            "item": "tmod:exp_big",
+			"count": 9
+        },
+		"x":
+        {
+            "item": "minecraft:diamond_block"
+        }
+    },
+    "result":
+    {
+        "item": "tmod:upgrade",
+        "count": 1
+    }
+}

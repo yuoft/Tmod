@@ -1,6 +1,12 @@
 package com.yuoMod.Tmod.Common;
 
+import java.util.Random;
+
+import com.yuoMod.Tmod.Common.Items.UpGradeGem;
 import com.yuoMod.Tmod.Common.Items.itemLoader;
+import com.yuoMod.Tmod.Common.Items.ToolAndArmor.OPArmor;
+import com.yuoMod.Tmod.Common.Items.ToolAndArmor.OPPickaxe;
+import com.yuoMod.Tmod.Common.Items.ToolAndArmor.OPSword;
 import com.yuoMod.Tmod.Enchantment.enchantmentLoader;
 import com.yuoMod.Tmod.Entity.EntityKiana;
 import com.yuoMod.Tmod.Gui.BossHealthHUD;
@@ -20,17 +26,22 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.AnvilUpdateEvent;
 import net.minecraftforge.event.entity.ProjectileImpactEvent;
+import net.minecraftforge.event.entity.item.ItemEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
@@ -45,6 +56,17 @@ public class eventLoader
     {
         MinecraftForge.EVENT_BUS.register(this);
     }
+	//升级宝石和op套 不会被岩浆烧毁
+	@SideOnly(value = Side.CLIENT)
+	@SubscribeEvent
+	public void entityItemUnDeath(ItemEvent event) { //物品实体事件
+		EntityItem entityItem = event.getEntityItem();
+		Item item = entityItem.getItem().getItem();
+		if(item instanceof UpGradeGem || item instanceof OPArmor || item instanceof OPSword 
+				|| item instanceof OPPickaxe) {
+			entityItem.setEntityInvulnerable(true); // 设置物品实体不会死亡
+		}
+	}
 	//boss血条HUD显示
 	@SideOnly(value = Side.CLIENT)
 	@SubscribeEvent
@@ -195,6 +217,10 @@ public class eventLoader
     				}
     			}
     		}
+    		if(Stack_chest.getItem() instanceof OPArmor || Stack_feet.getItem() instanceof OPArmor
+    				|| Stack_head.getItem() instanceof OPArmor || Stack_legs.getItem() instanceof OPArmor) {
+    			player.addPotionEffect(new PotionEffect(Potion.getPotionById(12), 100, 0));
+    		}
 //    		else
 //    		{
 //    			PotionEffect potion=new PotionEffect(Potion.getPotionById(12),1000000 ,10);//无限时间状态
@@ -202,6 +228,39 @@ public class eventLoader
 //    		}
     	}
     }
+	//附魔，以战养战
+	@SubscribeEvent
+	public void warToWar(AttackEntityEvent event) {
+		EntityPlayer player = event.getEntityPlayer();
+		World world = player.world;
+		if(!world.isRemote) {
+			ItemStack stack = player.getHeldItemMainhand();
+			Integer i = EnchantmentHelper.getEnchantmentLevel(enchantmentLoader.wartowar, stack);
+			if( i != null && i > 0) { //有附魔
+				Random random = new Random();
+				player.sendMessage(new TextComponentTranslation("附魔:" + i));
+				switch(i) {  //回血效果和概率与等级相关
+				case 1: 
+					if(random.nextInt(100) > 80)
+						player.setHealth(player.getHealth() + i/2.0f);
+					break;
+				case 2: 
+					if(random.nextInt(100) > 60)
+						player.setHealth(player.getHealth() + i/2.0f);
+					break;
+				case 3: 
+					if(random.nextInt(100) > 40)
+						player.setHealth(player.getHealth() + i/2.0f);
+					break;
+				case 4: 
+					if(random.nextInt(100) > 10)
+						player.setHealth(player.getHealth() + i/2.0f);
+					break;
+				default : break;
+				}
+			}
+		}
+	}
 	//燃料
 //	@SubscribeEvent
 //	public static void getVanillaFurnaceFuelValue(FurnaceFuelBurnTimeEvent event) {

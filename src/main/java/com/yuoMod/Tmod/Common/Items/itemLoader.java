@@ -139,6 +139,7 @@ public class itemLoader
 	public static final Item storage_ring_small=new StorageRing("storage_ring_small");
 	public static final Item space_villager_egg=new SpaceVillagerEgg("space_villager_egg");
 	public static final Item player_level=new PlayerLvSel("player_level");
+	public static final Item upgrade_gem = new UpGradeGem("upgrade_gem");
 	//多功能工具
 	public static final ManyFunTool diamond_tool=new ManyFunTool("diamond_tool",-10.0f,-2.0f,EMERALD_INGOT,4);
 	public static final ManyFunTool gold_tool=new ManyFunTool("gold_tool",3.0f,-2.2f,ToolMaterial.IRON,2);
@@ -257,6 +258,7 @@ public class itemLoader
 		ForgeRegistries.ITEMS.register(storage_ring_small.setRegistryName("storage_ring_small"));
 		ForgeRegistries.ITEMS.register(space_villager_egg.setRegistryName("space_villager_egg"));
 		ForgeRegistries.ITEMS.register(player_level.setRegistryName("player_level"));
+		ForgeRegistries.ITEMS.register(upgrade_gem.setRegistryName("upgrade_gem"));
 		
 		ForgeRegistries.ITEMS.register(diamond_tool.setRegistryName("diamond_tool"));
 		ForgeRegistries.ITEMS.register(gold_tool.setRegistryName("gold_tool"));
@@ -389,6 +391,7 @@ public class itemLoader
 		registerRender(storage_ring_small);
 		registerRender(space_villager_egg);
 		registerRender(player_level);
+		registerRender(upgrade_gem);
 		
 		registerRender(diamond_tool);
 		registerRender(gold_tool);

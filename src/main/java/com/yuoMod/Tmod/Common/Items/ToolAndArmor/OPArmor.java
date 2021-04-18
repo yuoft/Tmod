@@ -13,6 +13,8 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ISpecialArmor;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class OPArmor extends ItemArmor implements ISpecialArmor
 {
@@ -69,6 +71,12 @@ equipmentSlotIn²ÎÊıºÍToolMaterialÒ»Ñù£¬ºÍ¶ÔÓ¦¿ø¼×µÄ¸½Ä§ÄÜÁ¦ÕıÏà¹Ø£¬Í¬Ñù£¬½ğ¿ø¼×µ
 //			player.clearActivePotions();
 			
 		}
+    }
+	//¸½Ä§¹âĞ§
+	@SideOnly(Side.CLIENT)
+    public boolean hasEffect(ItemStack stack)
+    {
+        return true;
     }
 	//»¤¼×ÊôĞÔ(µÍÓÚ1000µÄÉËº¦±»ÃâÒß)
 	@Override
