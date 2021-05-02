@@ -53,9 +53,8 @@ public class change_powder extends Item
 				ItemStack itemStack=player.getHeldItem(hand);
 				itemStack.setCount(itemStack.getCount()-1);
 			}
-			return EnumActionResult.PASS;
 		}
-		else return EnumActionResult.PASS;
+	    return EnumActionResult.PASS;
     }
 	@SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn)

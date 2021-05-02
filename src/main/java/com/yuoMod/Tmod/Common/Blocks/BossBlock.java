@@ -97,6 +97,15 @@ public class BossBlock extends Block
        tooltip.add(I18n.format("tmod.block.boss_block1", ""));
        tooltip.add(I18n.format("tmod.block.boss_block2", ""));
     }
+	//是不透明方块
+	@Override
+	public boolean isOpaqueCube(IBlockState state) {
+		return false;
+	}
+	@Override
+	public boolean isFullCube(IBlockState state) {
+		return false;
+	}
 //	@Override
 //	public EnumBlockRenderType getRenderType(IBlockState state) {
 //		return EnumBlockRenderType.MODEL;

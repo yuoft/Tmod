@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+		    "item": "minecraft:stick"
+		},
+		{
+            "item": "minecraft:redstone"
+        },
+		{
+			"item": "minecraft:obsidian"
+		}
+    ],
+    "result":
+    {
+        "item": "tmod:domb_remover",
+        "count": 1
+    }
+}

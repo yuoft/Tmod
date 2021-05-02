@@ -1,0 +1,54 @@
+{
+	"parent": "block/cube_all",
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "tmod:block/mine"
+	},
+	"elements": [
+		{
+			"name": "one",
+			"from": [6, 0, 6],
+			"to": [10, 1, 10],
+			"rotation": {"angle": 0, "axis": "y", "origin": [14, 8, 14]},
+			"faces": {
+				"north": {"uv": [4, 4, 8, 5], "texture": "#0"},
+				"east": {"uv": [0, 4, 4, 5], "texture": "#0"},
+				"south": {"uv": [12, 4, 16, 5], "texture": "#0"},
+				"west": {"uv": [8, 4, 12, 5], "texture": "#0"},
+				"up": {"uv": [8, 4, 4, 0], "texture": "#0"},
+				"down": {"uv": [12, 0, 8, 4], "texture": "#0"}
+			}
+		},
+		{
+			"name": "two",
+			"from": [7, 1, 7],
+			"to": [9, 2, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [15, 9, 15]},
+			"faces": {
+				"north": {"uv": [2, 7, 4, 8], "texture": "#0"},
+				"east": {"uv": [0, 7, 2, 8], "texture": "#0"},
+				"south": {"uv": [6, 7, 8, 8], "texture": "#0"},
+				"west": {"uv": [4, 7, 6, 8], "texture": "#0"},
+				"up": {"uv": [4, 7, 2, 5], "texture": "#0"},
+				"down": {"uv": [6, 5, 4, 7], "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [18.5, -0.25, 0.75],
+			"translation": [0, 6.75, 1]
+		},
+		"fixed": {
+			"rotation": [-87.75, 0, 0],
+			"translation": [0, 0, -8.5]
+		}
+	},
+	"groups": [
+		{
+			"name": "mime",
+			"origin": [8, 8, 8],
+			"children": [0, 1]
+		}
+	]
+}

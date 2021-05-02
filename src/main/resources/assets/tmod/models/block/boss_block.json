@@ -5,7 +5,8 @@
 		"1": "tmod:block/boss_block_facing",
 		"2": "tmod:block/boss_block2_top",
 		"3": "tmod:block/boss_block2_facing",
-		"4": "tmod:block/boss_block_top"
+		"4": "tmod:block/boss_block_top",
+		"particle": "tmod:block/boss_block_facing"
 	},
 	"elements": [
 		{

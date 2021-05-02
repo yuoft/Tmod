@@ -46,6 +46,9 @@ public class blockLoader
 	public static final Block lucky_block=new LuckyBlock("lucky_block");
 	public static final Block unlucky_block=new UnLuckyBlock("unlucky_block");
 	public static final Block ruby_ore=new RubyOre("ruby_ore");
+	public static final Block mine = new Mine("mine"); //地雷
+	public static final Block speed_torch = new SpeedTorch("speed_torch"); //加速火把
+	public static final Block elevator = new Elevator("elevator"); //电梯
 	
     public blockLoader(FMLPreInitializationEvent event)
     {
@@ -75,6 +78,9 @@ public class blockLoader
         register(lucky_block, "lucky_block");
         register(unlucky_block, "unlucky_block");
         register(ruby_ore, "ruby_ore");
+        register(mine, "mine");
+        register(speed_torch, "speed_torch");
+        register(elevator, "elevator");
     }
     private static void register(Block block, String name)
     {
@@ -114,6 +120,9 @@ public class blockLoader
         registerRender(lucky_block,0);
         registerRender(unlucky_block,0);
         registerRender(ruby_ore,0);
+        registerRender(mine,0);
+        registerRender(speed_torch,0);
+        registerRender(elevator,0);
     }
     @SideOnly(Side.CLIENT)
     private static void registerRender(Block block,int meta)
