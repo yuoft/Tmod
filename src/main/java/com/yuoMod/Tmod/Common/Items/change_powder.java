@@ -5,6 +5,7 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
+import com.yuoMod.Tmod.Common.Blocks.emerald_sapling;
 import com.yuoMod.Tmod.Creativetab.CreativeTabsLoader;
 
 import net.minecraft.block.Block;
@@ -37,7 +38,7 @@ public class change_powder extends Item
 		if(!worldIn.isRemote)
 		{
 			Block block=worldIn.getBlockState(pos).getBlock();
-			if (block.getUnlocalizedName().equals("tile.sapling")) {
+			if (block instanceof emerald_sapling) {
 				Random random=new Random();
 				if(random.nextInt(100) > 79)
 				{

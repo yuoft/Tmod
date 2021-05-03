@@ -11,6 +11,7 @@ import com.yuoMod.Tmod.Enchantment.enchantmentLoader;
 import com.yuoMod.Tmod.Entity.EntityKiana;
 import com.yuoMod.Tmod.Gui.BossHealthHUD;
 import com.yuoMod.Tmod.Potion.potionLoader;
+import com.yuoMod.Tmod.TileEntity.TileTorcherino;
 import com.yuoMod.Tmod.Util.Helper;
 
 import net.minecraft.block.state.IBlockState;
@@ -30,7 +31,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
@@ -43,6 +46,7 @@ import net.minecraftforge.event.entity.item.ItemEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBlock;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -56,6 +60,25 @@ public class eventLoader
     {
         MinecraftForge.EVENT_BUS.register(this);
     }
+	//加速火把
+	@SubscribeEvent
+	public void speedTorch(RightClickBlock event) {
+		if(event.getHand() == EnumHand.OFF_HAND) return;
+		EntityPlayer player = event.getEntityPlayer();
+		TileEntity tile = event.getWorld().getTileEntity(event.getPos());
+		if(tile == null || !(tile instanceof TileTorcherino)) return;
+		if(!event.getWorld().isRemote)
+		{
+			TileTorcherino torch = (TileTorcherino) tile;
+			if(player.isSneaking()) {
+				torch.changeMode(false); //潜行切换范围
+			}else {
+				torch.changeMode(true); //非潜行切换速度
+			}
+			player.sendStatusMessage(torch.getDescription(), true); //hud显示信息
+		}
+		event.setCanceled(true);
+	}
 	//升级宝石和op套 不会被岩浆烧毁
 	@SideOnly(value = Side.CLIENT)
 	@SubscribeEvent

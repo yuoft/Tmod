@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "ooo",
+        "oxo",
+        "ooo"
+    ],
+    "key":
+    {
+        "o":
+        {
+            "item": "minecraft:iron_ingot"
+        },
+		"x":
+        {
+            "item": "minecraft:redstone_block"
+        }
+    },
+    "result":
+    {
+        "item": "tmod:elevator",
+        "count": 1
+    }
+}

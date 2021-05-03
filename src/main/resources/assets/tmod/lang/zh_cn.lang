@@ -123,11 +123,11 @@ tile.elevator.name=电梯
 fluid.emerald_fluid=熔融绿宝石
 tile.emerald_fluid.name=熔融绿宝石
 #按键
-key.tmod.key_X=测试键
+key.tmod.key_UP=电梯上升
 key.categories.tmod=T MOD
-a.tmod.key_X=测试键
-key.tmod.key_Z=使用技能
-a.tmod.key_Z=武器技能
+a.tmod.key_UP=上
+key.tmod.key_DOWN=电梯下降
+a.tmod.key_DOWN=下
 #配置文件
 config.tmod.general.enchID01=附魔ID
 config.tmod.general.OpSwordType=生物类型

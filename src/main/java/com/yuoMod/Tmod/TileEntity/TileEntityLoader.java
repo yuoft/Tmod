@@ -13,13 +13,13 @@ public class TileEntityLoader
     {
         registerTileEntity(MyTileEntity.class, "MyTileEntity");
         registerTileEntity(NineTileEntity.class, "NineTileEntity");
+        registerTileEntity(TileTorcherino.class, "tileTorcherino");
     }
 
     public void registerTileEntity(Class<? extends TileEntity> tileEntityClass, String id)
     {
         // 第一个参数是你要注册的 TileEntity 对应的 class 对象。必须 extends TileEntity。
         // 第二个参数的要求和方块的注册名一致。
-        GameRegistry.registerTileEntity(tileEntityClass, new ResourceLocation(tmod.MODID, id));
         GameRegistry.registerTileEntity(tileEntityClass, new ResourceLocation(tmod.MODID, id));
     }
 }
