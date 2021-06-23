@@ -1,11 +1,6 @@
 package com.yuoMod.Tmod.TileEntity;
 
-import java.util.HashSet;
 import java.util.Random;
-import java.util.Set;
-
-import com.yuoMod.Tmod.Common.Blocks.blockLoader;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -44,14 +39,6 @@ public class TileTorcherino extends TileEntity implements ITickable {
 	public TileTorcherino() {
 		this.cachedMode = -1;
 		this.rand = new Random();
-		//初始化不会被加速方块
-		blacklistBlock(Blocks.AIR);
-		blacklistBlock(Blocks.WATER);
-		blacklistBlock(Blocks.FLOWING_WATER);
-		blacklistBlock(Blocks.LAVA);
-		blacklistBlock(Blocks.FLOWING_LAVA);
-		blacklistBlock(blockLoader.speed_torch);
-		blacklistTile(TileTorcherino.class);
 	}
 
 	protected int speed(int base) {
@@ -92,11 +79,11 @@ public class TileTorcherino extends TileEntity implements ITickable {
 		}
 	}
 
-	// 修改方块岁随机时间刻
+	// 修改方块随机时间刻
 	private void tickBlock(BlockPos pos) {
 		IBlockState blockState = this.world.getBlockState(pos);
 		Block block = blockState.getBlock();
-		if (block == null || block instanceof BlockFluidBase || isBlockBlacklisted(block)) {
+		if (block == null || block instanceof BlockFluidBase || block.equals(Blocks.AIR)) {
 			return;
 		}
 		if (block.getTickRandomly()) {
@@ -111,7 +98,7 @@ public class TileTorcherino extends TileEntity implements ITickable {
 			if (tile == null || tile.isInvalid()) {
 				return;
 			}
-			if (isTileBlacklisted(tile.getClass()))
+			if (tile instanceof TileTorcherino)
 				return;
 			for (int i = 0; i < this.speed(this.speed); i++) {
 				if (tile.isInvalid()) {
@@ -126,20 +113,6 @@ public class TileTorcherino extends TileEntity implements ITickable {
 	
 	public void setState(boolean state) {
 		this.state = state;
-	}
-
-	// 切换加速状态
-	public void changeState() {
-		if (this.state) {
-			this.state = false;
-		} else {
-			this.state = true;
-		}
-	}
-
-	// 获取加速状态
-	public boolean getState() {
-		return this.state;
 	}
 
 	// 改变加速模式(速度和范围)
@@ -203,22 +176,4 @@ public class TileTorcherino extends TileEntity implements ITickable {
 		return oldState.getBlock() != newState.getBlock();
 	}
 
-	public static void blacklistBlock(Block block) {
-		blacklistedBlocks.add(block);
-	}
-
-	public static void blacklistTile(Class<? extends TileEntity> tile) {
-		blacklistedTiles.add(tile);
-	}
-
-	public static boolean isBlockBlacklisted(Block block) {
-		return blacklistedBlocks.contains(block);
-	}
-
-	public static boolean isTileBlacklisted(Class<? extends TileEntity> tile) {
-		return blacklistedTiles.contains(tile);
-	}
-	//不会被加速的方块和方块实体
-	private static Set<Block> blacklistedBlocks = new HashSet<Block>();
-	private static Set<Class<? extends TileEntity>> blacklistedTiles = new HashSet<Class<? extends TileEntity>>();
 }

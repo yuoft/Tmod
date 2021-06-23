@@ -83,11 +83,13 @@ public class OPPickaxe extends ItemTool{
 	//添加附魔
 	@Override
 	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
-		Map<Enchantment, Integer> map = new HashMap<Enchantment, Integer>();
-        map.put(Enchantment.getEnchantmentByID(35), 10);
-        ItemStack stack = new ItemStack(this);
-        EnchantmentHelper.setEnchantments(map, stack);
-        items.add(stack);
+		if(this.isInCreativeTab(tab)) {
+			Map<Enchantment, Integer> map = new HashMap<Enchantment, Integer>();
+			map.put(Enchantment.getEnchantmentByID(35), 10);
+			ItemStack stack = new ItemStack(this);
+			EnchantmentHelper.setEnchantments(map, stack);
+			items.add(stack);
+		}
 	}
 	//设置挖掘等级
 	public int getHarvestLevel(ItemStack stack, String toolClass, @javax.annotation.Nullable net.minecraft.entity.player.EntityPlayer player, @javax.annotation.Nullable IBlockState blockState)

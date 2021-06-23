@@ -35,13 +35,13 @@ public class EntityLightningDiamond extends EntityThrowable
 				{
 					((EntityDragon) result.entityHit).attackEntityFromPart(((EntityDragon) result.entityHit).dragonPartBody, DamageSource.causePlayerDamage((EntityPlayer) this.thrower), 100.0f);
 				}
-				else result.entityHit.attackEntityFrom(DamageSource.GENERIC, 100.0f);
+				else result.entityHit.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) this.thrower), 100.0f);
 			};break;
 			case BLOCK: {
 				BlockPos pos = result.getBlockPos();
 				EntityLightningBolt lightningBolt=new EntityLightningBolt(this.world, pos.getX(), pos.getY(), pos.getZ(), false);
 				this.world.createExplosion(this, this.posX, this.posY, this.posZ, 5.0f, true);
-				this.world.spawnEntity(lightningBolt);
+				world.addWeatherEffect(lightningBolt);
 			};break;
 			default : break;
 			}

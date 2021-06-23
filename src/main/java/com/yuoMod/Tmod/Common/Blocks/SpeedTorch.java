@@ -22,16 +22,6 @@ public class SpeedTorch extends BlockTorch {
 		this.setCreativeTab(CreativeTabsLoader.TMOD);
 	}
 
-//	@Override
-//	public void onBlockClicked(World worldIn, BlockPos pos, EntityPlayer playerIn) {
-//		if(playerIn.isSneaking()) {
-//			playerIn.sendMessage(new TextComponentTranslation("ËÙ¶È"));
-//			Minecraft mc = Minecraft.getMinecraft();
-//			worldIn.updateBlockTick(pos, blockIn, delay, priority);
-//		}else {
-//			playerIn.sendMessage(new TextComponentTranslation("·¶Î§"));
-//		}
-//	}
 	@Override
 	public void onBlockAdded(World world, BlockPos pos, IBlockState state) {
 		if (!world.isRemote) {

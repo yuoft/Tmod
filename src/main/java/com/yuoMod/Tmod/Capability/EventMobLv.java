@@ -139,6 +139,8 @@ public class EventMobLv
                 MessagePlayerLevel message = new MessagePlayerLevel();
 
                 IPlayerLevel tmodLv = player.getCapability(CapabilityLoader.tmodLv, null);
+                int playerLv = setPlayerLv(player);
+                tmodLv.setPlayerLevel(playerLv);
                 IStorage<IPlayerLevel> storage = CapabilityLoader.tmodLv.getStorage();
 
                 message.nbt = new NBTTagCompound();
@@ -169,10 +171,11 @@ public class EventMobLv
 		if (stack.getItem() instanceof ItemSword || stack.getItem() instanceof ItemArmor) {
 			EntityPlayer player = event.getEntityPlayer();
 			if(player.hasCapability(CapabilityLoader.tmodLv, null) && stack.getTagCompound() == null) {
-				IPlayerLevel playerCap = player.getCapability(CapabilityLoader.tmodLv, null);
-				Integer playerLv = playerCap.getPlayerLevel();
+//				int playerLv = setPlayerLv(player); //根据经验获取玩家等级
+				IPlayerLevel capability = player.getCapability(CapabilityLoader.tmodLv, null);
+				Integer playerLevel = capability.getPlayerLevel();
 				Random random = new Random();
-				int lv = random.nextInt(playerLv.intValue() + 5);
+				int lv = random.nextInt(playerLevel.intValue() + 5);
 				lv = lv < ConfigLoader.level ? lv : ConfigLoader.level;
 				//设置等级信息nbt数据,等级为玩家等级以下
 				stack.setTagInfo("level", new NBTTagInt(lv));

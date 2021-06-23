@@ -54,11 +54,13 @@ enchantability参数与附魔等级相关
 	}
 	@Override
 	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
-		Map<Enchantment, Integer> map = new HashMap<Enchantment, Integer>();
-        map.put(Enchantment.getEnchantmentByID(21), 10);
-        ItemStack stack = new ItemStack(this);
-        EnchantmentHelper.setEnchantments(map, stack);
-        items.add(stack);
+		if (this.isInCreativeTab(tab)) {
+			Map<Enchantment, Integer> map = new HashMap<Enchantment, Integer>();
+			map.put(Enchantment.getEnchantmentByID(21), 10);
+			ItemStack stack = new ItemStack(this);
+			EnchantmentHelper.setEnchantments(map, stack);
+			items.add(stack);
+		}
 	}
 	@SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn)
@@ -118,7 +120,7 @@ enchantability参数与附魔等级相关
 				((EntityDragon) target).attackEntityFromPart(((EntityDragon) target).dragonPartBody, DamageSource.causePlayerDamage((EntityPlayer) attacker), 10000.0f);
 			}
 			else
-			target.attackEntityFrom(DamageSource.GENERIC, 10000.0f);
+			target.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) attacker), 10000.0f);
 		}
         return super.hitEntity(stack, target, attacker);
     }
@@ -131,7 +133,7 @@ enchantability参数与附魔等级相关
 		}
 		AxisAlignedBB aabb = player.getEntityBoundingBox().grow(range);//范围
 		List<Entity> toAttack = player.getEntityWorld().getEntitiesWithinAABBExcludingEntity(player, aabb);//生物列表
-		DamageSource src = DamageSource.GENERIC;//伤害类型
+		DamageSource src = DamageSource.causePlayerDamage(player);//伤害类型
 		for (Entity entity : toAttack)//循环遍历
 		{
 			if(type)
