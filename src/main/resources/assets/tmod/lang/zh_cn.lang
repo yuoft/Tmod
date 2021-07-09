@@ -242,6 +242,10 @@ tmod.item.salt_meat=尝起来有点咸
 tmod.item.salt1=用煤块围住水,丢入杂质盐获得
 tmod.item.salt2=§c此效果来自更多实用设备2,如有侵权,联系删除
 tmod.item.player_level=右键查看玩家等级
+tmod.item.op_head=能力：夜视，饱腹
+tmod.item.op_chest=能力：免疫负面状态，飞行
+tmod.item.op_legs=能力：免疫火焰，提高跳跃高度
+tmod.item.op_feet=能力：免疫摔落，提高行走速度
 tmod.item.level=等级:
 #方块信息
 tmod.block.boss_block1=右键召唤全套绿宝石锭装备的僵尸

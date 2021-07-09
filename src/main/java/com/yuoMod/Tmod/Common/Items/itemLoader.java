@@ -71,7 +71,7 @@ public class itemLoader
 	public static final ItemArmor emerald_leggings=new item_EmeraldArmor("emerald_leggings", EMERALD, 6, EntityEquipmentSlot.LEGS);
 	public static final ItemArmor emerald_shoes=new item_EmeraldArmor("emerald_shoes", EMERALD, 3, EntityEquipmentSlot.FEET);
 	//opÌ×
-	public static final ArmorMaterial OP=EnumHelper.addArmorMaterial("op", tmod.MODID+":op",-1, new int[]{0, 0, 0, 0}, 0, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 0.0F);
+	public static final ArmorMaterial OP=EnumHelper.addArmorMaterial("op", tmod.MODID+":op",-1, new int[]{3, 8, 6, 3}, 0, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 0.0F);
 	public static final ItemArmor op_helmet=new OPArmor("op_helmet", OP, 3, EntityEquipmentSlot.HEAD);
 	public static final ItemArmor op_chestplate=new OPArmor("op_chestplate", OP, 8, EntityEquipmentSlot.CHEST);
 	public static final ItemArmor op_leggings=new OPArmor("op_leggings", OP, 6, EntityEquipmentSlot.LEGS);

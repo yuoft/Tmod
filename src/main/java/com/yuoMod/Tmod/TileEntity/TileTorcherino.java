@@ -15,18 +15,18 @@ import net.minecraft.world.World;
 import net.minecraftforge.fluids.BlockFluidBase;
 
 /**
- * ²¿·ÖÔ´ÂëÀ´×Ôhttps://github.com/NinjaPhenix/Torcherino/tree/1.11.2-forge£¨¼ÓËÙ»ğ°Ñ£©
+ * éƒ¨åˆ†æºç æ¥è‡ªhttps://github.com/NinjaPhenix/Torcherino/tree/1.11.2-forgeï¼ˆåŠ é€Ÿç«æŠŠï¼‰
  * 
  * @author yuo
  *
  */
 public class TileTorcherino extends TileEntity implements ITickable {
-	private static final String[] MODES = new String[] { "Í£Ö¹", "·¶Î§: 3x3x3", "·¶Î§: 5x3x5", "·¶Î§: 7x3x7",
-			"·¶Î§: 9x3x9" };
+	private static final String[] MODES = new String[] { "åœæ­¢", "èŒƒå›´: 3x3x3", "èŒƒå›´: 5x3x5", "èŒƒå›´: 7x3x7",
+			"èŒƒå›´: 9x3x9" };
 	private static final int SPEEDS = 4;
 	private boolean state;
-	private byte speed; //ËÙ¶È
-	private byte mode; //·¶Î§
+	private byte speed; //é€Ÿåº¦
+	private byte mode; //èŒƒå›´
 	private byte cachedMode;
 	private Random rand;
 	private int xMin;
@@ -55,7 +55,7 @@ public class TileTorcherino extends TileEntity implements ITickable {
 		this.tickNeighbors();
 	}
 
-	// ÉèÖÃ¼ÓËÙ·¶Î§
+	// è®¾ç½®åŠ é€ŸèŒƒå›´
 	private void updateCachedModeIfNeeded() {
 		if (this.cachedMode != this.mode) {
 			this.xMin = this.pos.getX() - this.mode;
@@ -68,7 +68,7 @@ public class TileTorcherino extends TileEntity implements ITickable {
 		}
 	}
 
-	// ¼ÓËÙ·¶Î§
+	// åŠ é€ŸèŒƒå›´
 	private void tickNeighbors() {
 		for (int x = this.xMin; x <= this.xMax; x++) {
 			for (int y = this.yMin; y <= this.yMax; y++) {
@@ -79,7 +79,7 @@ public class TileTorcherino extends TileEntity implements ITickable {
 		}
 	}
 
-	// ĞŞ¸Ä·½¿éËæ»úÊ±¼ä¿Ì
+	// ä¿®æ”¹æ–¹å—éšæœºæ—¶é—´åˆ»
 	private void tickBlock(BlockPos pos) {
 		IBlockState blockState = this.world.getBlockState(pos);
 		Block block = blockState.getBlock();
@@ -115,7 +115,7 @@ public class TileTorcherino extends TileEntity implements ITickable {
 		this.state = state;
 	}
 
-	// ¸Ä±ä¼ÓËÙÄ£Ê½(ËÙ¶ÈºÍ·¶Î§)
+	// æ”¹å˜åŠ é€Ÿæ¨¡å¼(é€Ÿåº¦å’ŒèŒƒå›´)
 	public void changeMode(boolean modifier) {
 		if (modifier) {
 			if (this.speed < TileTorcherino.SPEEDS) {
@@ -134,7 +134,7 @@ public class TileTorcherino extends TileEntity implements ITickable {
 
 	public TextComponentString getDescription() {
 		return new TextComponentString(
-				TileTorcherino.MODES[this.mode] + " | ËÙ¶È: " + this.speed(this.speed) * 100 + "%");
+				TileTorcherino.MODES[this.mode] + " | é€Ÿåº¦: " + this.speed(this.speed) * 100 + "%");
 	}
 
 	public String getMode() {

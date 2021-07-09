@@ -13,7 +13,6 @@ import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
@@ -42,7 +41,6 @@ public class Elevator extends Block {
 			EntityPlayer player = (EntityPlayer) entityIn;
 //			if(!worldIn.isRemote){
 			if (KeyLoader.key_UP.isKeyDown()) {
-				player.sendMessage(new TextComponentTranslation("按下键"));
 				IBlockState state = worldIn.getBlockState(pos);
 				if (state.getBlock() instanceof Elevator) { // 玩家脚下是电梯方块
 					for (int i = 2; i < 10; i++) { // 在其上方2-10格内寻找电梯方块
@@ -59,7 +57,6 @@ public class Elevator extends Block {
 				}
 			}
 			if (KeyLoader.key_DOWN.isKeyDown()) {
-				player.sendMessage(new TextComponentTranslation("按键"));
 				IBlockState state = worldIn.getBlockState(pos);
 				if (state.getBlock() instanceof Elevator) {
 					for (int i = 2; i < 10; i++) {

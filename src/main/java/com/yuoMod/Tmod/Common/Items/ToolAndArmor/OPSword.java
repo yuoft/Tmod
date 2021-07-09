@@ -122,7 +122,7 @@ enchantability参数与附魔等级相关
 			else
 			target.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) attacker), 10000.0f);
 		}
-        return super.hitEntity(stack, target, attacker);
+        return true;
     }
 	//aoe伤害
 	protected void attackAOE(EntityPlayer player,float range, float damage,boolean type)

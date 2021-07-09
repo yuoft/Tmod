@@ -29,7 +29,6 @@ import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.DamageSource;
@@ -43,6 +42,9 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.AnvilUpdateEvent;
 import net.minecraftforge.event.entity.ProjectileImpactEvent;
 import net.minecraftforge.event.entity.item.ItemEvent;
+import net.minecraftforge.event.entity.living.LivingEvent.LivingJumpEvent;
+import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
+import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -174,6 +176,20 @@ public class eventLoader
 			}
 		}
 	}
+	//op鞋子 无摔落伤害
+	@SubscribeEvent
+	public void playerFall(LivingFallEvent event) {
+        EntityLivingBase living = event.getEntityLiving();
+        if (living instanceof EntityPlayer) {
+			EntityPlayer player = (EntityPlayer)living;
+			Iterable<ItemStack> list = player.getArmorInventoryList();
+			for(ItemStack stack : list) {
+				if (stack.getItem().equals(itemLoader.op_boots)) {
+					event.setCanceled(true);
+				}
+			}
+		}
+	}
     //药水效果，摔落减免
 	@SubscribeEvent
     public void potionFall(LivingHurtEvent event)
@@ -242,13 +258,8 @@ public class eventLoader
     		}
     		if(Stack_chest.getItem() instanceof OPArmor || Stack_feet.getItem() instanceof OPArmor
     				|| Stack_head.getItem() instanceof OPArmor || Stack_legs.getItem() instanceof OPArmor) {
-    			player.addPotionEffect(new PotionEffect(Potion.getPotionById(12), 100, 0));
+    			event.setCanceled(true);
     		}
-//    		else
-//    		{
-//    			PotionEffect potion=new PotionEffect(Potion.getPotionById(12),1000000 ,10);//无限时间状态
-//    			player.addPotionEffect(potion);//给实体添加状态
-//    		}
     	}
     }
 	//附魔，以战养战
@@ -280,6 +291,50 @@ public class eventLoader
 						player.setHealth(player.getHealth() + i/2.0f);
 					break;
 				default : break;
+				}
+			}
+		}
+	}
+	//op胸甲 飞行
+	@SubscribeEvent
+	public void updatePlayerAbilityStatus(LivingUpdateEvent event) {
+		EntityLivingBase living = event.getEntityLiving();
+		if (living instanceof EntityPlayer) {
+			EntityPlayer player = (EntityPlayer) living;
+			Iterable<ItemStack> list = player.getArmorInventoryList();
+			boolean flag = false;
+			boolean flag1 = false;
+			for(ItemStack stack : list) {
+				if (stack.getItem().equals(itemLoader.op_chestplate)) {
+					flag = true;
+				}
+				if (stack.getItem().equals(itemLoader.op_leggings)) {
+					flag1 = true;
+				}
+			}
+			if (flag) {
+				player.capabilities.allowFlying = true;
+			}else {
+				player.capabilities.allowFlying = false;
+				player.capabilities.isFlying = false;
+			}
+			if (flag1) {
+				player.capabilities.setPlayerWalkSpeed(0.3f); //行走速度
+			}else {
+				player.capabilities.setPlayerWalkSpeed(0.1f);
+			}
+		}
+	}
+	//op护腿 增加跳跃高度
+	@SubscribeEvent
+	public void jumpBoost(LivingJumpEvent event) {
+		EntityLivingBase living = event.getEntityLiving();
+		if (living instanceof EntityPlayer) {
+			EntityPlayer player = (EntityPlayer)living;
+			Iterable<ItemStack> list = player.getArmorInventoryList();
+			for(ItemStack stack : list) {
+				if (stack.getItem().equals(itemLoader.op_leggings)) {
+					player.motionY += 0.5f;
 				}
 			}
 		}

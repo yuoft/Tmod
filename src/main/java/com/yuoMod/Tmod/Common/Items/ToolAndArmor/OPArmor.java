@@ -1,11 +1,18 @@
 package com.yuoMod.Tmod.Common.Items.ToolAndArmor;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 import com.yuoMod.Tmod.Common.Items.itemLoader;
 import com.yuoMod.Tmod.Creativetab.CreativeTabsLoader;
 
+import net.minecraft.client.resources.I18n;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
@@ -33,45 +40,48 @@ equipmentSlotIn²ÎÊýºÍToolMaterialÒ»Ñù£¬ºÍ¶ÔÓ¦¿ø¼×µÄ¸½Ä§ÄÜÁ¦ÕýÏà¹Ø£¬Í¬Ñù£¬½ð¿ø¼×µ
 	//Ì××°Ð§¹û
 	@Override
     public void onArmorTick(World world, EntityPlayer player, ItemStack item) {
-		ItemStack stackHead=player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
-		ItemStack stackChest=player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
-		ItemStack stackLegs=player.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
-		ItemStack stackFeet=player.getItemStackFromSlot(EntityEquipmentSlot.FEET);
-		if(stackHead !=null && stackChest !=null && stackLegs !=null && stackFeet !=null
-			&& stackHead.getItem().equals(itemLoader.op_helmet) && stackChest.getItem().equals(itemLoader.op_chestplate)
-				&& stackLegs.getItem().equals(itemLoader.op_leggings) && stackFeet.getItem().equals(itemLoader.op_boots))
-		{
+		if (armorType == EntityEquipmentSlot.CHEST) { //ÐØ¼×
+			//Çå³ýËùÓÐ¸ºÃæÐ§¹û
+			Collection<PotionEffect> effects = player.getActivePotionEffects();
+	        if(effects.size() > 0){
+	            ArrayList<Potion> bad = new ArrayList<Potion>();
+	            for(Object effect : effects){
+	                if(effect instanceof PotionEffect){
+	                    PotionEffect potion = (PotionEffect)effect
+	                    if(potion.getPotion().isBadEffect())
+	                        bad.add(potion.getPotion());
+	                }
+	            }
+	            if(bad.size() > 0){
+	                for(Potion potion : bad){
+	                    player.removeActivePotionEffect(potion);
+	                }
+	            }
+	        }
+		}else if(armorType == EntityEquipmentSlot.LEGS) { //»¤ÍÈ
 			if(player.isBurning())
-	             player.extinguish();//×Å»ðÊ±Ï¨Ãð
-			 player.capabilities.allowFlying = true;//·ÉÐÐ
-//			 player.capabilities.setFlySpeed(0.1f);
-//			 player.capabilities.setPlayerWalkSpeed(0.3f);
-			 player.addPotionEffect(new PotionEffect(Potion.getPotionById(16), 100000, 0));
-			 player.addPotionEffect(new PotionEffect(Potion.getPotionById(26), 100000, 0));
-			 player.addPotionEffect(new PotionEffect(Potion.getPotionById(11), 100000, 10));
-			 player.addPotionEffect(new PotionEffect(Potion.getPotionById(8), 100000, 2));
-			 player.addPotionEffect(new PotionEffect(Potion.getPotionById(1), 100000, 2));
-			 player.attackEntityAsMob(player);
-		}
-		else
-		{
-			if(!player.isCreative()) { //²»ÊÇ´´ÔìÄ£Ê½Ê±£¬ÔÊÐí·ÉÐÐ
-				player.capabilities.allowFlying = false;//ÄÜ·ñ·ÉÐÐ
-				player.capabilities.isFlying = false;//È¡Ïû·ÉÐÐ×´Ì¬
-				player.removeActivePotionEffect(Potion.getPotionById(16));
-				player.removeActivePotionEffect(Potion.getPotionById(26));
-				player.removeActivePotionEffect(Potion.getPotionById(11));
-				player.removeActivePotionEffect(Potion.getPotionById(8));
-				player.removeActivePotionEffect(Potion.getPotionById(1));
-			}else {
-				player.capabilities.allowFlying = true;
-				player.capabilities.isFlying = true;
-			}
-//			player.capabilities.setFlySpeed(0.01f);
-//			player.clearActivePotions();
-			
+				player.extinguish();//×Å»ðÊ±Ï¨Ãð
+		}else if (armorType == EntityEquipmentSlot.HEAD) { //Í·¿ø 
+			player.getFoodStats().addStats(20, 20F); //±¥Ê³¶ÈÎªÂúµÄ
+			player.addPotionEffect(new PotionEffect(Potion.getPotionById(16), 300, 0)); //Ò¹ÊÓ
 		}
     }
+	@Override
+	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+		Item item = stack.getItem();
+		if (item.equals(itemLoader.op_helmet)) {
+			tooltip.add(I18n.format("tmod.item.op_head", ""));
+		}
+		if (item.equals(itemLoader.op_chestplate)) {
+			tooltip.add(I18n.format("tmod.item.op_chest", ""));
+		}
+		if (item.equals(itemLoader.op_leggings)) {
+			tooltip.add(I18n.format("tmod.item.op_legs", ""));
+		}
+		if (item.equals(itemLoader.op_boots)) {
+			tooltip.add(I18n.format("tmod.item.op_feet", ""));
+		}
+	}
 	//¸½Ä§¹âÐ§
 	@SideOnly(Side.CLIENT)
     public boolean hasEffect(ItemStack stack)
@@ -82,7 +92,7 @@ equipmentSlotIn²ÎÊýºÍToolMaterialÒ»Ñù£¬ºÍ¶ÔÓ¦¿ø¼×µÄ¸½Ä§ÄÜÁ¦ÕýÏà¹Ø£¬Í¬Ñù£¬½ð¿ø¼×µ
 	@Override
 	public ArmorProperties getProperties(EntityLivingBase player, ItemStack armor, DamageSource source, double damage,
 			int slot) {
-		return new ArmorProperties(0, 1.0, 1000);//ÓÅÏÈ¼¶£¬ÉËº¦ÎüÊÕ±È£¬ÎüÊÕÉÏÏÞ
+		return new ArmorProperties(1, 1.0, 1000);//ÓÅÏÈ¼¶£¬ÉËº¦ÎüÊÕ±È£¬ÎüÊÕÉÏÏÞ
 	}
 	//»ñÈ¡»¤¼×Öµ
 	@Override

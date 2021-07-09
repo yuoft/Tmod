@@ -5,10 +5,10 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
-import com.yuoMod.Tmod.Common.Blocks.emerald_sapling;
 import com.yuoMod.Tmod.Creativetab.CreativeTabsLoader;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockSapling;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
@@ -38,7 +38,7 @@ public class change_powder extends Item
 		if(!worldIn.isRemote)
 		{
 			Block block=worldIn.getBlockState(pos).getBlock();
-			if (block instanceof emerald_sapling) {
+			if (block instanceof BlockSapling) {
 				Random random=new Random();
 				if(random.nextInt(100) > 79)
 				{
