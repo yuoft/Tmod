@@ -37,7 +37,7 @@ public class MobInfoCommand extends CommandBase {
                 ConfigLoader.mobInfo = false;
                 ConfigManager.sync("tmod", Config.Type.INSTANCE); //±£¥Ê≈‰÷√–≈œ¢
                 notifyCommandListener(sender, this, "commands.tmod_mobInfo.success");
-            } else throw new CommandException("commands.tmod_mobInfo.bug");
+            } else throw new CommandException("commands.tmod.bug");
         }
     }
 

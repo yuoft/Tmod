@@ -10,12 +10,12 @@ public class CapabilityLoader {
     @CapabilityInject(IPlayerLevel.class)
     public static Capability<IPlayerLevel> tmodLv;
 
-    public CapabilityLoader(FMLPreInitializationEvent event) {
+    public CapabilityLoader() {
         /*
          * 第一个参数传入代表Capability的接口的class，第二个参数传入Capability.IStorage的实现，
          * 也就是用于Capability的序列化，最后一个参数传入默认实现的class，用于产生一个默认实现。
          */
         CapabilityManager.INSTANCE.register(IPlayerLevel.class, new CapabilityPlayerLevel.Storage(),
-                CapabilityPlayerLevel.Implementation.class);
+                CapabilityPlayerLevel.Implementation::new);
     }
 }

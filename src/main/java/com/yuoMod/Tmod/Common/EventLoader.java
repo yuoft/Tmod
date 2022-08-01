@@ -1,23 +1,17 @@
 package com.yuoMod.Tmod.Common;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
 import com.yuoMod.Tmod.Capability.EventMobLv;
 import com.yuoMod.Tmod.Common.Items.Armor.OPArmor;
 import com.yuoMod.Tmod.Common.Items.Armor.TotemArmor;
-import com.yuoMod.Tmod.Common.Items.Tool.*;
-import com.yuoMod.Tmod.Common.Items.UpGradeGem;
 import com.yuoMod.Tmod.Common.Items.ItemLoader;
+import com.yuoMod.Tmod.Common.Items.Tool.OPPickaxe;
+import com.yuoMod.Tmod.Common.Items.Tool.OPSword;
+import com.yuoMod.Tmod.Common.Items.UpGradeGem;
 import com.yuoMod.Tmod.Enchantment.EnchantLoader;
-import com.yuoMod.Tmod.Entity.EntityKiana;
 import com.yuoMod.Tmod.Potion.PotionLoader;
 import com.yuoMod.Tmod.TileEntity.TileTorcherino;
-
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.Minecraft;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -29,32 +23,43 @@ import net.minecraft.entity.monster.*;
 import net.minecraft.entity.passive.EntityLlama;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.init.*;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.init.MobEffects;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.stats.StatBase;
 import net.minecraft.stats.StatList;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.*;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.NonNullList;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
-import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.AnvilUpdateEvent;
 import net.minecraftforge.event.entity.item.ItemEvent;
-import net.minecraftforge.event.entity.living.*;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingJumpEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
+import net.minecraftforge.event.entity.living.LivingFallEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBlock;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class EventLoader {
     /*
@@ -70,7 +75,7 @@ public class EventLoader {
         if (event.getHand() == EnumHand.OFF_HAND) return;
         EntityPlayer player = event.getEntityPlayer();
         TileEntity tile = event.getWorld().getTileEntity(event.getPos());
-        if (tile == null || !(tile instanceof TileTorcherino)) return;
+        if (!(tile instanceof TileTorcherino)) return;
         if (!event.getWorld().isRemote) {
             TileTorcherino torch = (TileTorcherino) tile;
             //非潜行切换速度
@@ -90,22 +95,6 @@ public class EventLoader {
                 || item instanceof OPPickaxe) {
             entityItem.setEntityInvulnerable(true); // 设置物品实体不会死亡
         }
-    }
-
-    //boss血条HUD显示
-    @SideOnly(value = Side.CLIENT)
-//    @SubscribeEvent
-    public void renderGameOverlay(RenderGameOverlayEvent.Chat event) {
-        Minecraft mc = Minecraft.getMinecraft();
-        World world = mc.world;
-        for (Entity entity : world.loadedEntityList) {
-            if (entity instanceof EntityKiana) {
-//                BossHealthHUD hud = new BossHealthHUD((EntityKiana) entity);
-//                hud.drawHud();
-            }
-        }
-//        if (event.getType() == RenderGameOverlayEvent.ElementType.ALL) {
-//        }
     }
 
     //铁砧配方
@@ -182,7 +171,6 @@ public class EventLoader {
             ItemStack heldItemMainhand = player.getHeldItemMainhand();
             BlockPos pos = event.getPos();
             IBlockState state = world.getBlockState(pos);
-//			player.sendMessage(new TextComponentTranslation("其它 " +state.getBlock().getUnlocalizedName()+""+ event.getUseBlock() + " " + event.getUseItem()));
             if (heldItemMainhand.getItem().equals(ItemLoader.op_pickaxe) && state.getBlock().equals(Blocks.BEDROCK)) {
                 world.setBlockToAir(pos);
                 world.playSound(null, pos, SoundEvents.BLOCK_ANVIL_BREAK, SoundCategory.AMBIENT, 1.0f, 3.0f);
@@ -276,14 +264,14 @@ public class EventLoader {
                 }
                 player.setHealth(4); //血量
                 player.clearActivePotions(); //清除buff
-                player.addPotionEffect(new PotionEffect(Potion.getPotionById(12), 40 * 20, 0)); //防火
-                player.addPotionEffect(new PotionEffect(Potion.getPotionById(10), 45 * 20, 0)); //生命恢复
-                player.addPotionEffect(new PotionEffect(Potion.getPotionById(22), 5 * 20, 1)); //伤害吸收
+                player.addPotionEffect(new PotionEffect(MobEffects.FIRE_RESISTANCE, 40 * 20, 0)); //防火
+                player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 45 * 20, 0)); //生命恢复
+                player.addPotionEffect(new PotionEffect(MobEffects.ABSORPTION, 5 * 20, 1)); //伤害吸收
                 player.world.setEntityState(player, (byte) 35);
 
                 //随机消耗一件装备大量耐久
                 ItemStack stack = stacks.get(new Random().nextInt(4));
-                stack.damageItem((int) Math.ceil(stack.getMaxDamage() / 4), player);
+                stack.damageItem((int) Math.ceil(stack.getMaxDamage() / 4f), player);
             }
         }
     }
@@ -389,10 +377,10 @@ public class EventLoader {
         }
     }
 
-    public static List<String> playersWithHat = new ArrayList<String>();
-    public static List<String> playersWithChest = new ArrayList<String>();
-    public static List<String> playersWithLeg = new ArrayList<String>();
-    public static List<String> playersWithFoot = new ArrayList<String>();
+    public static List<String> playersWithHat = new ArrayList<>();
+    public static List<String> playersWithChest = new ArrayList<>();
+    public static List<String> playersWithLeg = new ArrayList<>();
+    public static List<String> playersWithFoot = new ArrayList<>();
 
     //op胸甲飞行 op鞋子增加行走速度
     @SubscribeEvent
@@ -400,10 +388,10 @@ public class EventLoader {
         EntityLivingBase living = event.getEntityLiving();
         if (living instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) living;
-            Boolean hasChest = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() == ItemLoader.op_chestplate;
-            Boolean hasLeg = player.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem() == ItemLoader.op_leggings;
-            Boolean hasHead = player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem() == ItemLoader.op_helmet;
-            Boolean hasFoot = player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem() == ItemLoader.op_boots;
+            boolean hasChest = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() == ItemLoader.op_chestplate;
+            boolean hasLeg = player.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem() == ItemLoader.op_leggings;
+            boolean hasHead = player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem() == ItemLoader.op_helmet;
+            boolean hasFoot = player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem() == ItemLoader.op_boots;
             //防止其它模组飞行装备无法使用
             String key = player.getGameProfile().getName() + ":" + player.world.isRemote;
             //head
@@ -466,17 +454,4 @@ public class EventLoader {
             }
         }
     }
-    //燃料
-//	@SubscribeEvent
-//	public static void getVanillaFurnaceFuelValue(FurnaceFuelBurnTimeEvent event) {
-//	    if (event.getItemStack().getItem().equals(itemLoader.salt_wash)) 
-//	    {
-//	        event.setBurnTime(10000);
-//	        // 可以设定为 0。0 代表“这个物品不是燃料”，更准确地说是“这个物品燃烧时间是 0”。
-//	        // 可以设定为 -1。-1 代表“由原版逻辑来决定”。
-//	        // 可通过 event.getBurnTime() 获得当前决定的燃烧时间。
-//	        // 这个事件可以取消。取消意味着后续的 Event listener 将不会收到这个事件，进而
-//	        // 无法修改燃烧时间。
-//	    }
-//	}
 }

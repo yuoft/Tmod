@@ -41,11 +41,11 @@ public class ModLevelCommand extends CommandBase {
                 if (args.length == 3) {
                     int level = parseInt(args[2], 0, ConfigLoader.level);
                     setItemLevel(player, level, sender);
-                } else throw new CommandException("commands.tmod_mobLv.bug");
+                } else throw new CommandException("commands.tmod.bug");
             } else if ("clearItem".equals(args[1])) {
                 if (args.length == 2) {
                     clearItemLevel(player, sender);
-                } else throw new CommandException("commands.tmod_mobLv.bug");
+                } else throw new CommandException("commands.tmod.bug");
             } else if ("setPlayer".equals(args[1])) {
                 if (player.hasCapability(CapabilityLoader.tmodLv, null)) {
                     IPlayerLevel capability = player.getCapability(CapabilityLoader.tmodLv, null);
@@ -54,8 +54,8 @@ public class ModLevelCommand extends CommandBase {
                         capability.setPlayerLevel(level);
                         capability.setPlayerExp(0);
                         notifyCommandListener(sender, this, "commands.tmod_level.success2", player.getName());
-                    } else throw new CommandException("commands.tmod_mobLv.bug");
-                } else throw new CommandException("commands.tmod_mobLv.bug");
+                    } else throw new CommandException("commands.tmod.bug");
+                } else throw new CommandException("commands.tmod.bug");
             } else if ("clearPlayer".equals(args[1])) {
                 if (player.hasCapability(CapabilityLoader.tmodLv, null)) {
                     IPlayerLevel capability = player.getCapability(CapabilityLoader.tmodLv, null);
@@ -63,9 +63,9 @@ public class ModLevelCommand extends CommandBase {
                         capability.setPlayerLevel(1);
                         capability.setPlayerExp(0);
                         notifyCommandListener(sender, this, "commands.tmod_level.success3", player.getName());
-                    } else throw new CommandException("commands.tmod_mobLv.bug");
-                } else throw new CommandException("commands.tmod_mobLv.bug");
-            } else throw new CommandException("commands.tmod_level.set.bug");
+                    } else throw new CommandException("commands.tmod.bug");
+                } else throw new CommandException("commands.tmod.bug");
+            } else throw new CommandException("commands.tmod.bug");
         }
     }
 

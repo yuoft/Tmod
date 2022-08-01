@@ -17,7 +17,7 @@ public class PlayerLevelInfoDataSave extends WorldSavedData {
 
     private final Map<String, LevelInfo> players = new HashMap<>();
 
-    public class LevelInfo {
+    public static class LevelInfo {
         private final int level;
         private final int exp;
 

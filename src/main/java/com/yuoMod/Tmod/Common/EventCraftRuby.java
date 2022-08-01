@@ -83,41 +83,23 @@ public class EventCraftRuby {
             }
             //检测方块结构
             World world = item.world;
-            AxisAlignedBB bb = item.getEntityBoundingBox().grow(0.1, 0.1, 0.1);
-
-            int x1 = MathHelper.floor(bb.minX);
-            int x2 = MathHelper.ceil(bb.maxX);
-            int y1 = MathHelper.floor(bb.minY);
-            int y2 = MathHelper.ceil(bb.maxY);
-            int z1 = MathHelper.floor(bb.minZ);
-            int z2 = MathHelper.ceil(bb.maxZ);
-            BlockPos.PooledMutableBlockPos mutPos = BlockPos.PooledMutableBlockPos.retain();
-
+            BlockPos pos = item.getPosition();
             boolean found = false;
-            mainLoop:
-            for (int x = x1; x < x2; ++x) {
-                for (int y = y1; y < y2; ++y) {
-                    for (int z = z1; z < z2; ++z) {
-                        //中间方块是岩浆
-                        if (world.getBlockState(mutPos.setPos(x, y, z)).getMaterial() == Material.LAVA) {
-                            found = true;
-                            for (EnumFacing dir : EnumFacing.HORIZONTALS) {
-                                //岩浆周围是地狱砖块
-                                if (!world.getBlockState(mutPos.offset(dir)).getBlock().equals(Blocks.NETHER_BRICK)) {
-                                    found = false;
-                                    break;
-                                }
-                            }
-                            if (found) {
-                                break mainLoop;
-                            }
 
-                        }
+            //中间方块为岩浆
+            if (world.getBlockState(pos).getMaterial() == Material.LAVA) {
+                for (EnumFacing dir : EnumFacing.values()) {
+                    if (dir == EnumFacing.UP) continue;
+                    //四周是地狱砖
+                    if (!world.getBlockState(pos.offset(dir)).getBlock().equals(Blocks.NETHER_BRICK)) {
+                        found = true;
+                        break;
                     }
                 }
             }
+
             //方块结构正确
-            if (!found) {
+            if (found) {
                 continue;
             }
             //生成盐物品栈

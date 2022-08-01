@@ -10,7 +10,7 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import com.yuoMod.Tmod.Common.Common;
+import com.yuoMod.Tmod.Common.CommonProxy;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 
 @Mod(modid = Tmod.MOD_ID, name = Tmod.NAME, version = Tmod.VERSION, useMetadata = true,
@@ -25,11 +25,11 @@ public class Tmod {
     @Mod.Instance(Tmod.MOD_ID)
     public static Tmod instance;//生成mod实例
 
-    public static final String client0 = "com.yuoMod.Tmod.Client.Client";//客户端
-    public static final String common0 = "com.yuoMod.Tmod.Common.Common";//sever
+    public static final String client = "com.yuoMod.Tmod.Client.ClientProxy";//客户端
+    public static final String common = "com.yuoMod.Tmod.Common.CommonProxy";//sever
 
-    @SidedProxy(serverSide = Tmod.common0, clientSide = Tmod.client0)//mod代理
-    public static Common proxy;
+    @SidedProxy(serverSide = Tmod.common, clientSide = Tmod.client)//mod代理
+    public static CommonProxy proxy;
 
     public Tmod() {
         FluidRegistry.enableUniversalBucket();

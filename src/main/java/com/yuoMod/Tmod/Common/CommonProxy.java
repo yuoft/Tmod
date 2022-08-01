@@ -20,7 +20,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-public class Common {
+public class CommonProxy {
     public void preInit(FMLPreInitializationEvent event) {
         new TmodGroup(event);//创造物品栏注册
         new FluidLoader(event);//流体注册
@@ -30,7 +30,7 @@ public class Common {
         new EntityLoader();//实体注册
         new TileEntityLoader(event);//TileEntity注册
         new VillagerLoader();//村民职业注册
-        new CapabilityLoader(event);//能力系统注册
+        new CapabilityLoader();//能力系统注册
         new NetworkLoader(event);//消息传递，数据同步
     }
 
