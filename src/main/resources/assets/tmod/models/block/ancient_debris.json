@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+		"end": "tmod:block/ancient_debris_top",
+        "side": "tmod:block/ancient_debris_side"
+    }
+}

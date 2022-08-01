@@ -1,0 +1,23 @@
+{
+    "display": {
+        "icon": {
+          "item": "tmod:debuff_apple",
+          "data": 0
+        },
+        "title": { "translate": "advancement.tmod:debuff_apple" },
+        "frame": "task",
+        "description": { "translate": "advancement.tmod:debuff_apple.desc" }
+    },
+	"parent": "tmod:good_food",
+    "criteria": {
+      "tmod_buff_apple": {
+        "trigger": "minecraft:consume_item",
+        "conditions": {
+          "item":{
+            "item":"tmod:debuff_apple",
+            "data": 0
+          }
+        }
+      }
+    }
+}

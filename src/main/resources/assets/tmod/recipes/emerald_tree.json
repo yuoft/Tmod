@@ -1,0 +1,14 @@
+{
+    "type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+		    "item": "tmod:emerald_tree"
+		}
+    ],
+    "result":
+    {
+        "item": "minecraft:planks",
+        "count": 6,
+		"data": 2
+    }
+}

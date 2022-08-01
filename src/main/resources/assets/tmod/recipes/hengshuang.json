@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "zxm",
+    " y ",
+    " o "
+  ],
+  "key": {
+    "x": {
+      "item": "tmod:emerald_ingot_block"
+    },
+    "z": {
+      "item": "minecraft:packed_ice"
+    },
+    "m": {
+      "item": "minecraft:snow"
+    },
+    "y": {
+      "item": "minecraft:ghast_tear"
+    },
+    "o": {
+      "item": "tmod:ruby_block"
+    }
+  },
+  "result": {
+    "item": "tmod:hengshuang",
+    "count": 1
+  }
+}

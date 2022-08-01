@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " zz",
+    " xz",
+    "o  "
+  ],
+  "key": {
+    "x": {
+      "item": "tmod:emerald_ingot_block"
+    },
+    "z": {
+      "item": "minecraft:blaze_rod"
+    },
+    "o": {
+      "item": "tmod:ruby_block"
+    }
+  },
+  "result": {
+    "item": "tmod:tianhuo",
+    "count": 1
+  }
+}

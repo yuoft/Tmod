@@ -1,0 +1,24 @@
+{
+    "display": {
+        "icon": { "item": "tmod:tianhuo"},
+        "title": { "translate": "advancement.tmod:tianhuo" },
+        "frame": "goal",
+        "description": { "translate": "advancement.tmod:tianhuo.desc" } 
+    },
+	"parent": "tmod:ruby",
+    "criteria": {
+        "tmod_tianhuo": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+			    "items":[
+				    {
+				    "item":"tmod:tianhuo"
+				    }
+				]
+			}
+        }
+    },
+	"rewards": {
+        "experience": 233
+    }
+}

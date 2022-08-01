@@ -1,0 +1,19 @@
+{
+    "display": {
+        "icon": { "item": "tmod:gold_diamond_bread"},
+        "title": { "translate": "advancement.tmod:good_food" },
+        "frame": "task",
+        "description": { "translate": "advancement.tmod:good_food.desc" } 
+    },
+	"parent": "tmod:ruby",
+    "criteria": {
+        "tmod_good_food": {
+            "trigger": "minecraft:consume_item",
+            "conditions": {
+			    "item":{
+				    "item":"tmod:gold_diamond_bread"					
+				}
+			}
+        }
+    }
+}

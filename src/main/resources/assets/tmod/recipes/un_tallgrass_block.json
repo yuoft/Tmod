@@ -1,0 +1,14 @@
+{
+    "type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+		    "item": "tmod:tallgrass_block"
+		}
+    ],
+    "result":
+    {
+        "item": "minecraft:tallgrass",
+        "data":1,
+        "count": 9
+    }
+}

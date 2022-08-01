@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "x x",
+        "xox",
+        "xxx"
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "minecraft:obsidian"
+        },
+		"o":
+        {
+            "item": "minecraft:diamond_chestplate"
+        }
+    },
+    "result":
+    {
+        "item": "tmod:obsidian_chest",
+        "count": 1
+    }
+}

@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xyz",
+    " m ",
+    " n "
+  ],
+  "key": {
+    "x": {
+      "item": "minecraft:wooden_axe"
+    },
+    "y": {
+      "item": "minecraft:wooden_pickaxe"
+    },
+    "z": {
+      "item": "minecraft:wooden_shovel"
+    },
+    "m": {
+      "item": "minecraft:wooden_hoe"
+    },
+    "n": {
+      "item": "minecraft:log",
+      "data": 32767
+    }
+  },
+  "result": {
+    "item": "tmod:wood_tool",
+    "count": 1
+  }
+}

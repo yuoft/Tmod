@@ -1,0 +1,9 @@
+{
+    "variants": {
+	    "normal": { "model": "tmod:emerald_tree" },
+	    "axis=y": { "model": "tmod:emerald_tree"},
+		"axis=none": { "model": "tmod:emerald_tree"},
+	    "axis=x": { "model": "tmod:emerald_tree","x":90,"y":90},
+		"axis=z": { "model": "tmod:emerald_tree","x":90}
+    }
+}

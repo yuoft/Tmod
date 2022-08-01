@@ -1,0 +1,21 @@
+{
+    "display": {
+        "icon": { "item": "tmod:space_core"},
+        "title": { "translate": "advancement.tmod:space_core" },
+        "frame": "task",
+        "description": { "translate": "advancement.tmod:space_core.desc" }
+    },
+	"parent": "tmod:space_patch",
+    "criteria": {
+        "tmod_space_core": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+			    "items":[
+				    {
+				    "item":"tmod:space_core"
+				    }
+				]
+			}
+        }
+    }
+}

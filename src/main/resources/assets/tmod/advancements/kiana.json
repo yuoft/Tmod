@@ -1,0 +1,25 @@
+{
+    "display": {
+        "icon": { "item": "minecraft:diamond_sword"},
+        "title": { "translate": "advancement.tmod:kiana" },
+        "frame": "challenge",
+        "description": { "translate": "advancement.tmod:kiana.desc" } 
+    },
+	"parent": "tmod:tianhuo",
+    "criteria": {
+        "tmod_kiana": {
+            "trigger": "minecraft:entity_killed_player",
+            "conditions": {
+                "entity": {
+                    "type": "kiana"
+                },
+                "killing_blow": {
+                    "mob_kiana": true
+                }
+            }
+        }
+    },
+	"rewards": {
+        "experience": 666
+    }
+}

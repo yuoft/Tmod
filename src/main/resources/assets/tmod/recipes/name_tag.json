@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "minecraft:writable_book"
+        },
+        {
+            "item": "minecraft:string"
+        },
+        {
+            "item": "tmod:yuanshi"
+        }
+    ],
+    "result":
+    {
+        "item": "minecraft:name_tag",
+        "count": 1
+    }
+}

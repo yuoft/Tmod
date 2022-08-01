@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "oxo",
+    "xyx",
+    "oxo"
+  ],
+  "key": {
+    "x": {
+      "item": "minecraft:emerald"
+    },
+    "o": {
+      "item": "tmod:emerald_powder"
+    },
+    "y": {
+      "item": "minecraft:gold_block"
+    }
+  },
+  "result": {
+    "item": "tmod:complex_powder",
+    "count": 4
+  }
+}

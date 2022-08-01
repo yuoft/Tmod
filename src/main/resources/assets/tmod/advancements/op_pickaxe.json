@@ -1,0 +1,24 @@
+{
+    "display": {
+        "icon": { "item": "tmod:op_pickaxe"},
+        "title": { "translate": "advancement.tmod:op_pickaxe" },
+        "frame": "challenge",
+        "description": { "translate": "advancement.tmod:op_pickaxe.desc" }
+    },
+	"parent": "tmod:space_core",
+    "criteria": {
+        "tmod_op_sword": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+			    "items":[
+				    {
+				    "item":"tmod:op_pickaxe"
+				    }
+				]
+			}
+        }
+    },
+    "rewards": {
+      "experience": 2233
+    }
+}

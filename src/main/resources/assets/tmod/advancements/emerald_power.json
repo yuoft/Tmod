@@ -1,0 +1,24 @@
+{
+    "display": {
+        "icon": { "item": "tmod:emerald_powder" },
+        "title": { "translate": "advancement.tmod:emerald_powder" },
+        "frame": "task",
+		"background": "tmod:textures/block/emerald_ingot_ore.png",
+        "description": { "translate": "advancement.tmod:emerald_powder.desc" },
+		"show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "tmod_emerald_power": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+			    "items":[
+				    {
+				        "item":"tmod:emerald_powder"
+				    }
+				]
+			}
+        }
+    }
+}

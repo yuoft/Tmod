@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "tmod:netherite_block"
+    }
+  ],
+  "result": {
+    "item": "tmod:netherite_ingot",
+    "count": 9
+  }
+}

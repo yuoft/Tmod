@@ -1,0 +1,21 @@
+{
+    "display": {
+        "icon": { "item": "tmod:ruby"},
+        "title": { "translate": "advancement.tmod:ruby" },
+        "frame": "task",
+        "description": { "translate": "advancement.tmod:ruby.desc" }
+    },
+	"parent": "tmod:emerald_power",
+    "criteria": {
+        "tmod_ruby": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+			    "items":[
+				    {
+				    "item":"tmod:ruby"
+				    }
+				]
+			}
+        }
+    }
+}

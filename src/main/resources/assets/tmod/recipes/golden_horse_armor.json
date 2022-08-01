@@ -1,0 +1,34 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "x x",
+        "yoz",
+        "x x"
+    ],
+    "key":
+    {
+        "o":
+        {
+            "item": "minecraft:wool",
+            "data": 32767
+        },
+		"x":
+        {
+            "item": "minecraft:gold_ingot"
+        },
+        "y":
+        {
+            "item": "minecraft:leather"
+        },
+        "z":
+        {
+            "item": "tmod:yuanshi"
+        }
+    },
+    "result":
+    {
+        "item": "minecraft:golden_horse_armor",
+        "count": 1
+    }
+}

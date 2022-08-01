@@ -1,0 +1,16 @@
+[
+{
+  "modid": "tmod",
+  "name": "T Mod",
+  "description": "My One MOD;Part of the material comes from the Internet, and the infringement is deleted",
+  "version": "1.12.2-1.6.8",
+  "mcversion": "${mcversion}",
+  "url": "https://space.bilibili.com/21854371",
+  "updateUrl": "",
+  "authorList": ["yuo"],
+  "credits": "The Forge and FML guys, for making this example",
+  "logoFile": "002.jpg",
+  "screenshots": [],
+  "dependencies": []
+}
+]

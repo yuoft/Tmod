@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "xx ",
+        "ox ",
+        "x  "
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "minecraft:feather"
+        },
+		"o":
+        {
+            "item": "minecraft:dragon_breath"
+        }
+    },
+    "result":
+    {
+        "item": "tmod:elytra_left",
+        "count": 1
+    }
+}

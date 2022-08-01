@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "x x",
+        "xox",
+        "xxx"
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "tmod:emerald_ingot"
+        },
+		"o":
+        {
+            "item": "minecraft:diamond_chestplate"
+        }
+    },
+    "result":
+    {
+        "item": "tmod:emerald_breastplate",
+        "count": 1
+    }
+}

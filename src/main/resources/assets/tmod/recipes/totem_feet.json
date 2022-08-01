@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "   ",
+        "x x",
+        "xox"
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "minecraft:totem_of_undying"
+        },
+		"o":
+        {
+            "item": "minecraft:diamond_boots"
+        }
+    },
+    "result":
+    {
+        "item": "tmod:totem_feet",
+        "count": 1
+    }
+}

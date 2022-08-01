@@ -1,0 +1,21 @@
+{
+    "display": {
+        "icon": { "item": "tmod:space_pickaxe"},
+        "title": { "translate": "advancement.tmod:pickaxe" },
+        "frame": "goal",
+        "description": { "translate": "advancement.tmod:pickaxe.desc" } 
+    },
+	"parent": "tmod:space_core",
+    "criteria": {
+        "tmod_space_pickaxe": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+			    "items":[
+				    {
+				    "item":"tmod:space_pickaxe"					
+				    }
+				]
+			}
+        }
+    }
+}

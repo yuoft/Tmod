@@ -1,0 +1,28 @@
+{
+    "type": "minecraft:crafting_shapeless",
+	"ingredients": [
+        {
+            "item": "tmod:salt_cattle_meat"
+        },
+        {
+            "item": "tmod:salt_chicken_meat"
+        },
+        {
+            "item": "tmod:salt_fish_meat"
+        },
+        {
+            "item": "tmod:salt_pig_meat"
+        },
+        {
+            "item": "tmod:salt_rotten_meat"
+        },
+        {
+            "item": "tmod:salt_sheep_meat"
+        }
+    ],
+    "result":
+    {
+        "item": "tmod:salt_meat",
+        "count": 2
+    }
+}

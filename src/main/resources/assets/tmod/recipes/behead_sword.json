@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " zy",
+    "zyx",
+    "ox "
+  ],
+  "key": {
+    "x": {
+      "item": "tmod:wither_bone"
+    },
+    "y": {
+      "item": "tmod:yuanshi"
+    },
+    "z": {
+      "item": "tmod:blaze_bone"
+    },
+    "o": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "result": {
+    "item": "tmod:behead_sword",
+    "count": 1
+  }
+}

@@ -1,0 +1,37 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "xyz",
+        " m ",
+        " n "
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "minecraft:diamond_axe"
+        },
+		"y":
+        {
+            "item": "minecraft:diamond_pickaxe"
+        },
+		"z":
+        {
+            "item": "minecraft:diamond_shovel"
+        },
+		"m":
+        {
+            "item": "minecraft:diamond_hoe"
+        },
+		"n":
+        {
+            "item": "minecraft:diamond_block"
+        }
+    },
+    "result":
+    {
+        "item": "tmod:diamond_tool",
+        "count": 1
+    }
+}

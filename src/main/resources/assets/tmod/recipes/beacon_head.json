@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "xxx",
+        "xox",
+        "   "
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "minecraft:beacon"
+        },
+		"o":
+        {
+            "item": "minecraft:diamond_helmet"
+        }
+    },
+    "result":
+    {
+        "item": "tmod:beacon_head",
+        "count": 1
+    }
+}

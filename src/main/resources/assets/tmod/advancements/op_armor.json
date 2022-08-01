@@ -1,0 +1,60 @@
+{
+    "display": {
+        "icon": {
+            "item": "tmod:op_chestplate"
+        },
+        "title": {
+            "translate": "advancement.tmod:op_armor"
+        },
+        "description": {
+            "translate": "advancement.tmod:op_armor.desc"
+        },
+        "frame": "challenge"
+    },
+    "parent": "tmod:space_core",
+    "criteria": {
+        "op_helmet": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "tmod:op_helmet"
+                    }
+                ]
+            }
+        },
+        "op_chestplate": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "tmod:op_chestplate"
+                    }
+                ]
+            }
+        },
+        "op_leggings": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "tmod:op_leggings"
+                    }
+                ]
+            }
+        },
+        "op_boots": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "tmod:op_boots"
+                    }
+                ]
+            }
+        }
+    },
+    "rewards": {
+        "experience": 2233
+    }
+}

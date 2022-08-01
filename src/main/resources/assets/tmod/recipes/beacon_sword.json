@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " x ",
+    " x ",
+    " o "
+  ],
+  "key": {
+    "x": {
+      "item": "minecraft:beacon"
+    },
+    "o": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "item": "tmod:beacon_sword",
+    "count": 1
+  }
+}

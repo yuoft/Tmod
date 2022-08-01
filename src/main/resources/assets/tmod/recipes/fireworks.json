@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+		    "item": "minecraft:firework_charge"
+		},
+		{
+            "item": "minecraft:paper"
+        },
+        {
+          "item": "minecraft:paper"
+        },
+        {
+          "item": "tmod:yuanshi"
+        }
+    ],
+    "result":
+    {
+        "item": "minecraft:fireworks",
+        "count": 1
+    }
+}

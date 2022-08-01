@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "   ",
+        "x x",
+        "xox"
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "minecraft:beacon"
+        },
+		"o":
+        {
+            "item": "minecraft:diamond_boots"
+        }
+    },
+    "result":
+    {
+        "item": "tmod:beacon_feet",
+        "count": 1
+    }
+}

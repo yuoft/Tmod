@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " x ",
+    " o ",
+    " o "
+  ],
+  "key": {
+    "x": {
+      "item": "tmod:netherite_ingot"
+    },
+    "o": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "result": {
+    "item": "tmod:netherite_shovel",
+    "count": 1
+  }
+}

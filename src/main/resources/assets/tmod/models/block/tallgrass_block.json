@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+		"end": "tmod:block/tallgrass_block_end",
+        "side": "tmod:block/tallgrass_block_side"
+    }
+}

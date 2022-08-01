@@ -1,0 +1,24 @@
+{
+    "display": {
+        "icon": { "item": "tmod:hengshuang"},
+        "title": { "translate": "advancement.tmod:hengshuang" },
+        "frame": "goal",
+        "description": { "translate": "advancement.tmod:hengshuang.desc" } 
+    },
+	"parent": "tmod:ruby",
+    "criteria": {
+        "tmod_hengshuang": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+			    "items":[
+				    {
+				    "item":"tmod:hengshuang"
+				    }
+				]
+			}
+        }
+    },
+	"rewards": {
+        "experience": 233
+    }
+}

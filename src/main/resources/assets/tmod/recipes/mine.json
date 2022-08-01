@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "yxy",
+        "xox",
+        "yxy"
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "minecraft:tnt"
+        },
+		"o":
+        {
+            "item": "minecraft:redstone_block"
+        },
+		"y":
+		{
+			"item": "minecraft:gold_ingot"
+		}
+    },
+    "result":
+    {
+        "item": "tmod:mine",
+        "count": 4
+    }
+}

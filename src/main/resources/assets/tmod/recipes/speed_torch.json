@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        " o ",
+        "oxo",
+        " o "
+    ],
+    "key":
+    {
+        "o":
+        {
+            "item": "minecraft:clock"
+        },
+		"x":
+        {
+            "item": "minecraft:torch"
+        }
+    },
+    "result":
+    {
+        "item": "tmod:speed_torch",
+        "count": 1
+    }
+}

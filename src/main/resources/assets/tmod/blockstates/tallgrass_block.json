@@ -1,0 +1,8 @@
+{
+    "variants": {
+	    "normal": { "model": "tmod:tallgrass_block" },
+        "axis=y": { "model": "tmod:tallgrass_block" },
+        "axis=z": { "model": "tmod:tallgrass_block", "x": 90 },
+        "axis=x": { "model": "tmod:tallgrass_block", "x": 90, "y": 90 }
+    }
+}

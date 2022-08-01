@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "ooo",
+        "oxo",
+        "ooo"
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "minecraft:egg"
+        },
+		"o":
+        {
+            "item": "minecraft:dragon_breath"
+        }
+    },
+    "result":
+    {
+        "item": "minecraft:dragon_egg",
+        "count": 1
+    }
+}

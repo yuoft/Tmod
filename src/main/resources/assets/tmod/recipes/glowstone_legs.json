@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "xxx",
+        "xox",
+        "x x"
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "minecraft:glowstone"
+        },
+		"o":
+        {
+            "item": "minecraft:golden_leggings"
+        }
+    },
+    "result":
+    {
+        "item": "tmod:glowstone_legs",
+        "count": 1
+    }
+}

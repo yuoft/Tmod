@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "tmod:dragon_block"
+    }
+  ],
+  "result": {
+    "item": "tmod:dragon_crystal",
+    "count": 9
+  }
+}

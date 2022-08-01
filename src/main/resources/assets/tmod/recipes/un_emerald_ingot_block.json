@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+		    "item": "tmod:emerald_ingot_block"
+		}
+    ],
+    "result":
+    {
+        "item": "tmod:emerald_ingot",
+        "count": 9
+    }
+}

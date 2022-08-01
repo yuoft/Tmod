@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xxx",
+    "xxx",
+    "xxx"
+  ],
+  "key": {
+    "x": {
+      "item": "tmod:netherite_ingot"
+    }
+  },
+  "result": {
+    "item": "tmod:netherite_block",
+    "count": 1
+  }
+}

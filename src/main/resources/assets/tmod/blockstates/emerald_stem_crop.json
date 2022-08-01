@@ -1,0 +1,16 @@
+{
+    "variants": {
+        "age=0,facing=up": { "model": "tmod:crop/emerald_stem_crop0" },
+        "age=1,facing=up": { "model": "tmod:crop/emerald_stem_crop1" },
+        "age=2,facing=up": { "model": "tmod:crop/emerald_stem_crop2" },
+        "age=3,facing=up": { "model": "tmod:crop/emerald_stem_crop3" },
+        "age=4,facing=up": { "model": "tmod:crop/emerald_stem_crop4" },
+        "age=5,facing=up": { "model": "tmod:crop/emerald_stem_crop5" },
+		"age=6,facing=up": { "model": "tmod:crop/emerald_stem_crop6" },
+		"age=7,facing=up": { "model": "tmod:crop/emerald_stem_crop7" },
+        "age=7,facing=west": { "model": "tmod:crop/emerald_stem_stem" },
+        "age=7,facing=east": { "model": "tmod:crop/emerald_stem_stem", "y": 180 },
+        "age=7,facing=north": { "model": "tmod:crop/emerald_stem_stem", "y": 90 },
+        "age=7,facing=south": { "model": "tmod:crop/emerald_stem_stem", "y": 270 }
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "display": {
+        "icon": {
+          "item": "tmod:debuff_apple",
+          "data": 1
+        },
+        "title": { "translate": "advancement.tmod:debuff_apple1" },
+        "frame": "challenge",
+        "description": { "translate": "advancement.tmod:debuff_apple1.desc" }
+    },
+	"parent": "tmod:buff_apple",
+    "criteria": {
+      "tmod_debuff_apple": {
+        "trigger": "minecraft:consume_item",
+        "conditions": {
+          "item":{
+            "item":"tmod:debuff_apple",
+            "data": 1
+          }
+        }
+      }
+    }
+}

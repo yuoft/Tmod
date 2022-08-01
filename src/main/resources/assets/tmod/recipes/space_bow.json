@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        " oy",
+        "x y",
+        " oy"
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "tmod:space_core"
+        },
+		"o":
+        {
+            "item": "tmod:space_ingot"
+        },
+		"y":
+        {
+            "item": "tmod:space_line"
+        }
+    },
+    "result":
+    {
+        "item": "tmod:space_bow",
+        "count": 1
+    }
+}

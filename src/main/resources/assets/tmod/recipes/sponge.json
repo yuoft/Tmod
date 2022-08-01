@@ -1,0 +1,36 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        " z ",
+        "xyx",
+        " o "
+    ],
+    "key":
+    {
+        "y":
+        {
+            "item": "minecraft:wool",
+            "data": 0
+        },
+		"x":
+        {
+            "item": "minecraft:water_bucket"
+        },
+        "o":
+        {
+            "item": "minecraft:dye",
+            "data": 11
+        },
+        "z":
+        {
+            "item": "tmod:yuanshi"
+        }
+    },
+    "result":
+    {
+        "item": "minecraft:sponge",
+        "data": 0,
+        "count": 1
+    }
+}

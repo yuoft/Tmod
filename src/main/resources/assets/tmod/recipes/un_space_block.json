@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "tmod:space_block"
+    }
+  ],
+  "result": {
+    "item": "tmod:space_ingot",
+    "count": 9
+  }
+}

@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "  z",
+        " x ",
+        "o  "
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "tmod:space_core"
+        },
+		"z":
+        {
+            "item": "tmod:space_block"
+        },
+		"o":
+        {
+            "item": "minecraft:diamond_block"
+        }
+    },
+    "result":
+    {
+        "item": "tmod:space_sword",
+        "count": 1
+    }
+}

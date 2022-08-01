@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "xxx",
+        "xox",
+        "   "
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "tmod:emerald_ingot"
+        },
+		"o":
+        {
+            "item": "minecraft:diamond_helmet"
+        }
+    },
+    "result":
+    {
+        "item": "tmod:emerald_helmet",
+        "count": 1
+    }
+}

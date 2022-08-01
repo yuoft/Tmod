@@ -1,0 +1,8 @@
+{
+    "variants": {
+	    "normal": { "model": "tmod:ancient_debris" },
+        "axis=y": { "model": "tmod:ancient_debris" },
+        "axis=z": { "model": "tmod:ancient_debris", "x": 90 },
+        "axis=x": { "model": "tmod:ancient_debris", "x": 90, "y": 90 }
+    }
+}

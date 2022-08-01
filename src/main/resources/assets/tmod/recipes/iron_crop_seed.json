@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "xxx",
+        "xox",
+        "xxx"
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "minecraft:iron_ingot"
+        },
+		"o":
+        {
+            "item": "minecraft:wheat_seeds"
+        }
+    },
+    "result":
+    {
+        "item": "tmod:iron_crop_seed",
+        "count": 1
+    }
+}

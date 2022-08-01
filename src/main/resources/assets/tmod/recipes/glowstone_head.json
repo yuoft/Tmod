@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "xxx",
+        "xox",
+        "   "
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "minecraft:glowstone"
+        },
+		"o":
+        {
+            "item": "minecraft:golden_helmet"
+        }
+    },
+    "result":
+    {
+        "item": "tmod:glowstone_head",
+        "count": 1
+    }
+}

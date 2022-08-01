@@ -1,0 +1,54 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "xyz",
+        "aom",
+        "bcn"
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "minecraft:rotten_flesh"
+        },
+		"y":
+        {
+            "item": "minecraft:spider_eye"
+        },
+		"z":
+        {
+            "item": "minecraft:gunpowder"
+        },
+		"a":
+        {
+            "item": "minecraft:ghast_tear"
+        },
+		"b":
+        {
+            "item": "minecraft:ender_pearl"
+        },
+		"c":
+        {
+            "item": "minecraft:blaze_rod"
+        },
+		"m":
+        {
+            "item": "minecraft:slime_ball"
+        },
+		"n":
+        {
+            "item": "minecraft:prismarine_shard"
+        },
+		"o":
+        {
+            "item": "tmod:bad_apple"
+        }
+    },
+    "result":
+    {
+        "item": "tmod:debuff_apple",
+        "count": 1,
+		"data": 0
+    }
+}

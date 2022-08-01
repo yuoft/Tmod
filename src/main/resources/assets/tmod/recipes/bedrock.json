@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "xxx",
+        "xox",
+        "xxx"
+    ],
+    "key":
+    {
+        "o":
+        {
+            "item": "minecraft:obsidian"
+        },
+		"x":
+        {
+            "item": "tmod:jiejing"
+        }
+    },
+    "result":
+    {
+        "item": "minecraft:bedrock",
+        "count": 1
+    }
+}

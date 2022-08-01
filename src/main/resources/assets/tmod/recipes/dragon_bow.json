@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        " xy",
+        "x y",
+        " xy"
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "tmod:dragon_crystal"
+        },
+		"y":
+        {
+            "item": "tmod:dragon_string"
+        }
+    },
+    "result":
+    {
+        "item": "tmod:dragon_bow",
+        "count": 1
+    }
+}

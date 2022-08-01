@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        " o ",
+        "oxo",
+        " o "
+    ],
+    "key":
+    {
+        "o":
+        {
+            "item": "tmod:emerald_ingot_block"
+        },
+		"x":
+        {
+            "item": "minecraft:diamond_block"
+        }
+    },
+    "result":
+    {
+        "item": "tmod:boss_block",
+        "count": 1
+    }
+}

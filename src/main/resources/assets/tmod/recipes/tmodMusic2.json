@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+		    "item": "minecraft:record_13"
+		},
+		{
+            "item": "minecraft:gold_ingot"
+        }
+    ],
+    "result":
+    {
+        "item": "tmod:tmod_music2",
+        "count": 1
+    }
+}

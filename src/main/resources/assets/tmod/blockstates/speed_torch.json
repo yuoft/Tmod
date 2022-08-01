@@ -1,0 +1,9 @@
+{
+    "variants": {
+        "facing=up": { "model": "tmod:speed_torch" },
+		"facing=east": { "model": "tmod:speed_torch_wall" },
+        "facing=south": { "model": "tmod:speed_torch_wall", "y": 90 },
+        "facing=west": { "model": "tmod:speed_torch_wall", "y": 180 },
+        "facing=north": { "model": "tmod:speed_torch_wall", "y": 270 }
+    }
+}

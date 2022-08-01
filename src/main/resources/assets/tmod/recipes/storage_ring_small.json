@@ -1,0 +1,30 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        " x ",
+        "yoy",
+        " y "
+    ],
+    "key":
+    {
+        "y":
+        {
+           "item": "tmod:space_ingot"
+        },
+		"x":
+        {
+            "item": "tmod:emerald_ingot_block"
+        },
+		"o":
+        {
+            "item": "minecraft:wool",
+			"data": 32767
+        }
+    },
+    "result":
+    {
+        "item": "tmod:storage_ring_small",
+        "count": 1
+    }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xxx",
+    "xyo",
+    "ooo"
+  ],
+  "key": {
+    "x": {
+      "item": "tmod:netherite_scrap"
+    },
+    "o": {
+      "item": "minecraft:gold_ingot"
+    },
+    "y": {
+      "item": "tmod:yuanshi"
+    }
+  },
+  "result": {
+    "item": "tmod:netherite_ingot",
+    "count": 1
+  }
+}

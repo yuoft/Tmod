@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "xxx",
+        "xox",
+        "   "
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "tmod:space_core"
+        },
+		"o":
+        {
+            "item": "tmod:space_block"
+        }
+    },
+    "result":
+    {
+        "item": "tmod:space_helmet",
+        "count": 1
+    }
+}

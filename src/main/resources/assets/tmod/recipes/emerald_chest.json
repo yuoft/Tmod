@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "ooo",
+        "oxo",
+        "ooo"
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "minecraft:chest"
+        },
+		"o":
+        {
+            "item": "tmod:emerald_ingot_block"
+        }
+    },
+    "result":
+    {
+        "item": "tmod:emerald_chest",
+        "count": 1
+    }
+}

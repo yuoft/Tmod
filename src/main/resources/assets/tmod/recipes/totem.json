@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        " x ",
+        "xox",
+        " x "
+    ],
+    "key":
+    {
+        "o":
+        {
+            "item": "tmod:yuanshi"
+        },
+		"x":
+        {
+            "item": "tmod:totem_small"
+        }
+    },
+    "result":
+    {
+        "item": "minecraft:totem_of_undying",
+        "count": 1
+    }
+}

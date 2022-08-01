@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "xxx",
+        "xox",
+        "xxx"
+    ],
+    "key":
+    {
+        "o":
+        {
+            "item": "tmod:yuanshi"
+        },
+		"x":
+        {
+            "item": "tmod:wither_bone"
+        }
+    },
+    "result":
+    {
+        "item": "minecraft:skull",
+        "data": 1,
+        "count": 1
+    }
+}

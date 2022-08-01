@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "x x",
+        "xxx",
+        "xxx"
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "tmod:ruby"
+        }
+    },
+    "result":
+    {
+        "item": "tmod:ruby_chestplate",
+        "count": 1
+    }
+}

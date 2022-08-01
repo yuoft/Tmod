@@ -1,0 +1,32 @@
+{
+    "tmod.LTY.JueTiJueMimg": {
+	    "category": "music", 
+		"subtitle": "tmod.sounds.LTY1",
+        "sounds": [
+		    {
+			 "name": "tmod:juetijueming", 
+			 "stream": true
+			 }
+		]
+    },
+	"tmod.HY.MingJi": {
+	    "category": "music", 
+		"subtitle": "tmod.sounds.HY1",
+		"sounds": [
+		     {
+			 "name": "tmod:mingji", 
+			 "stream": true
+			 }
+		]
+	},
+	"tmod.CD.Op": {
+	    "category": "music", 
+		"subtitle": "tmod.sounds.CD1",
+		"sounds": [
+		     {
+			 "name": "tmod:music/cd_op", 
+			 "stream": true
+			 }
+		]
+	}
+}

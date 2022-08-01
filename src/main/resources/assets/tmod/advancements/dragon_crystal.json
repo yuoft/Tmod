@@ -1,0 +1,21 @@
+{
+    "display": {
+        "icon": { "item": "tmod:dragon_crystal"},
+        "title": { "translate": "advancement.tmod:dragon_crystal" },
+        "frame": "task",
+        "description": { "translate": "advancement.tmod:dragon_crystal.desc" }
+    },
+	"parent": "tmod:ruby",
+    "criteria": {
+        "tmod_dragon_crystal": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+			    "items":[
+				    {
+				    "item":"tmod:dragon_crystal"
+				    }
+				]
+			}
+        }
+    }
+}

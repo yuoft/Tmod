@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+		    "item": "minecraft:porkchop"
+		},
+		{
+            "item": "tmod:salt"
+        }
+    ],
+    "result":
+    {
+        "item": "tmod:salt_pig_meat",
+        "count": 1
+    }
+}

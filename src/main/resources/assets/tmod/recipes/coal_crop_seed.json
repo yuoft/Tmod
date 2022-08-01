@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "xxx",
+        "xox",
+        "xxx"
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "minecraft:coal",
+			"data": 0
+        },
+		"o":
+        {
+            "item": "minecraft:wheat_seeds"
+        }
+    },
+    "result":
+    {
+        "item": "tmod:coal_crop_seed",
+        "count": 1
+    }
+}

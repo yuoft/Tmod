@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "axa",
+        "xox",
+        "axa"
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "minecraft:diamond"
+        },
+		"o":
+        {
+            "item": "minecraft:bread"
+        },
+        "a":
+        {
+            "item": "minecraft:gold_ingot"
+        }
+    },
+    "result":
+    {
+        "item": "tmod:gold_diamond_bread",
+        "count": 1
+    }
+}

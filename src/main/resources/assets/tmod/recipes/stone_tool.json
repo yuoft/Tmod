@@ -1,0 +1,38 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "xyz",
+        " m ",
+        " n "
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "minecraft:stone_axe"
+        },
+		"y":
+        {
+            "item": "minecraft:stone_pickaxe"
+        },
+		"z":
+        {
+            "item": "minecraft:stone_shovel"
+        },
+		"m":
+        {
+            "item": "minecraft:stone_hoe"
+        },
+		"n":
+        {
+            "item": "minecraft:stone",
+			"data": 32767
+        }
+    },
+    "result":
+    {
+        "item": "tmod:stone_tool",
+        "count": 1
+    }
+}

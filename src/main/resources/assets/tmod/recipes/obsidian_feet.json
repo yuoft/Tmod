@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "   ",
+        "x x",
+        "xox"
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "minecraft:obsidian"
+        },
+		"o":
+        {
+            "item": "minecraft:diamond_boots"
+        }
+    },
+    "result":
+    {
+        "item": "tmod:obsidian_feet",
+        "count": 1
+    }
+}
