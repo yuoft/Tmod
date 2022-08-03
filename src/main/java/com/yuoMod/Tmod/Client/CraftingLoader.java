@@ -32,17 +32,17 @@ public class CraftingLoader {
         //Input item ID, output item ID, get experience value
 //	    GameRegistry.addSmelting(itemLoader.emerald_powder,new ItemStack(itemLoader.emerald_ingot), 20.0f);
 //	    GameRegistry.addSmelting(Items.EMERALD,new ItemStack(itemLoader.emerald_ingot), 20.0f);
-        GameRegistry.addSmelting(ItemLoader.bad_apple, new ItemStack(Items.APPLE), 0.3f);
-        GameRegistry.addSmelting(ItemLoader.salt_meat, new ItemStack(ItemLoader.cooking_salt_meat), 0.8f);
-        GameRegistry.addSmelting(BlockLoader.salt_ore, new ItemStack(ItemLoader.salt_wash), 0.5f);
-        GameRegistry.addSmelting(ItemLoader.complexPowder, new ItemStack(ItemLoader.emerald_ingot), 1.0f);
+        GameRegistry.addSmelting(ItemLoader.badApple, new ItemStack(Items.APPLE), 0.3f);
+        GameRegistry.addSmelting(ItemLoader.saltMeat, new ItemStack(ItemLoader.cookingSaltMeat), 0.8f);
+        GameRegistry.addSmelting(BlockLoader.saltOre, new ItemStack(ItemLoader.saltWash), 0.5f);
+        GameRegistry.addSmelting(ItemLoader.complexPowder, new ItemStack(ItemLoader.emeraldIngot), 1.0f);
         GameRegistry.addSmelting(BlockLoader.ancientDebris, new ItemStack(ItemLoader.netheriteScrap), 2.0f);
     }
 
     //添加燃料
     private static void registerFuel() {
         GameRegistry.registerFuelHandler(fuel -> {
-            return ItemLoader.emerald_powder != fuel.getItem() ? 0 : 6400;//燃烧时间
+            return ItemLoader.emeraldPowder != fuel.getItem() ? 0 : 6400;//燃烧时间
         });
     }
 

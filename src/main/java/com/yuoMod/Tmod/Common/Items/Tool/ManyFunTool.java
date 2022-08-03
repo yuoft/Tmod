@@ -41,10 +41,10 @@ public class ManyFunTool extends ItemTool {
             Blocks.DIRT, Blocks.FARMLAND, Blocks.GRASS, Blocks.GRAVEL, Blocks.MYCELIUM, Blocks.SAND,
             Blocks.SNOW, Blocks.SNOW_LAYER, Blocks.SOUL_SAND, Blocks.GRASS_PATH, Blocks.WEB, Blocks.LEAVES,
             Blocks.WOOL, Blocks.COAL_BLOCK, Blocks.NETHER_BRICK, Blocks.ANVIL,
-            Blocks.LEAVES2, BlockLoader.salt_ore, BlockLoader.emerald_ingot_ore, BlockLoader.space_ore,
-            BlockLoader.boss_block, BlockLoader.emerald_chest, BlockLoader.emerald_ingot_block, BlockLoader.emerald_leaf,
-            BlockLoader.emerald_tree, BlockLoader.power_extractor, BlockLoader.space_block, BlockLoader.tallgrass_block,
-            BlockLoader.ruby_ore);
+            Blocks.LEAVES2, BlockLoader.saltOre, BlockLoader.emeraldIngotOre, BlockLoader.spaceOre,
+            BlockLoader.bossBlock, BlockLoader.emeraldChest, BlockLoader.emeraldIngotBlock, BlockLoader.emeraldLeaf,
+            BlockLoader.emeraldTree, BlockLoader.powerExtractor, BlockLoader.spaceBlock, BlockLoader.tallGrassBlock,
+            BlockLoader.rubyOre);
     private final int level;
 
     public ManyFunTool(String name, float attack, float speed, ToolMaterial material) {

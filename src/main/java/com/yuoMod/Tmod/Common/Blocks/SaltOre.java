@@ -34,7 +34,7 @@ public class SaltOre extends BlockOre {
     @Nonnull
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return ItemLoader.salt_ore;
+        return ItemLoader.saltOre;
     }
 
     @Override

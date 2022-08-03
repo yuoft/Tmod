@@ -10,16 +10,13 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.event.terraingen.TerrainGen;
 import net.minecraftforge.event.terraingen.OreGenEvent;
 
-public class RubyOreSpawn extends WorldGenerator {
-    private final WorldGenMinable SaltOreGenerator = new WorldGenMinable(BlockLoader.ruby_ore.getDefaultState(), 6);
+public class RubyOreGen extends WorldGenerator {
+    private final WorldGenMinable RubyOreGenerator = new WorldGenMinable(BlockLoader.rubyOre.getDefaultState(), 6);
 
     @Override
     public boolean generate(World world, Random rand, BlockPos pos) {
-        switch (world.provider.getDimension()) {
-            case 0:
-                genMain(world, rand, pos);
-                break;
-            default:
+        if (world.provider.getDimension() == 0) {
+            genMain(world, rand, pos);
         }
         return true;
     }
@@ -31,7 +28,7 @@ public class RubyOreSpawn extends WorldGenerator {
                 int posY = 16 + rand.nextInt(16);
                 int posZ = pos.getZ() + rand.nextInt(16);
                 BlockPos blockpos = new BlockPos(posX, posY, posZ);
-                SaltOreGenerator.generate(world, rand, blockpos);
+                RubyOreGenerator.generate(world, rand, blockpos);
             }
         }
     }

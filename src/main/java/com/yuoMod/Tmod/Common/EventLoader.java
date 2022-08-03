@@ -104,11 +104,11 @@ public class EventLoader {
         ItemStack stack2 = event.getRight();
         int count1 = stack.getCount();
         int count2 = stack2.getCount();
-        if (stack.getItem().equals(Items.STRING) && stack2.getItem().equals(ItemLoader.space_patch)) {
+        if (stack.getItem().equals(Items.STRING) && stack2.getItem().equals(ItemLoader.spacePatch)) {
             if (count1 <= count2) {
                 event.setCost(5 * count1);
                 event.setMaterialCost(count1);
-                event.setOutput(new ItemStack(ItemLoader.space_line, count1));
+                event.setOutput(new ItemStack(ItemLoader.spaceLine, count1));
             }
         }
         if (stack.getItem().equals(Items.STRING) && stack2.getItem().equals(ItemLoader.dragonCrystal)) {
@@ -171,7 +171,7 @@ public class EventLoader {
             ItemStack heldItemMainhand = player.getHeldItemMainhand();
             BlockPos pos = event.getPos();
             IBlockState state = world.getBlockState(pos);
-            if (heldItemMainhand.getItem().equals(ItemLoader.op_pickaxe) && state.getBlock().equals(Blocks.BEDROCK)) {
+            if (heldItemMainhand.getItem().equals(ItemLoader.opPickaxe) && state.getBlock().equals(Blocks.BEDROCK)) {
                 world.setBlockToAir(pos);
                 world.playSound(null, pos, SoundEvents.BLOCK_ANVIL_BREAK, SoundCategory.AMBIENT, 1.0f, 3.0f);
                 EntityItem entityItem = new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(Blocks.BEDROCK));
@@ -295,7 +295,7 @@ public class EventLoader {
             }
             if (entityLiving instanceof EntityWitherSkeleton) {
                 if (world.rand.nextInt(100) < 5 + 5 * looting) {
-                    drops.add(new EntityItem(world, posX, posY, posZ, new ItemStack(ItemLoader.nether_star_small, MathHelper.getInt(world.rand, 0, 2 + looting))));
+                    drops.add(new EntityItem(world, posX, posY, posZ, new ItemStack(ItemLoader.netherStarSmall, MathHelper.getInt(world.rand, 0, 2 + looting))));
                     drops.add(new EntityItem(world, posX, posY, posZ, new ItemStack(ItemLoader.witherBone, MathHelper.getInt(world.rand, 0, 2 + looting))));
                 }
                 ItemStack mainhand = player.getHeldItemMainhand();
@@ -315,7 +315,7 @@ public class EventLoader {
             }
             if (entityLiving instanceof EntityVindicator || entityLiving instanceof EntityEvoker) {
                 if (world.rand.nextInt(100) < 5 + 5 * looting) {
-                    drops.add(new EntityItem(world, posX, posY, posZ, new ItemStack(ItemLoader.totem_small, MathHelper.getInt(world.rand, 0, 2 + looting))));
+                    drops.add(new EntityItem(world, posX, posY, posZ, new ItemStack(ItemLoader.totemSmall, MathHelper.getInt(world.rand, 0, 2 + looting))));
                 }
             }
             drops.addAll(getMobDrop((EntityLiving) entityLiving, looting));
@@ -329,11 +329,11 @@ public class EventLoader {
         if (lv > 0) {
             World world = entityLiving.world;
             int i = (int) Math.ceil(lv / 4d);
-            ItemStack stack = new ItemStack(ItemLoader.exp_small, world.rand.nextInt(i + looting * 3) + looting);
+            ItemStack stack = new ItemStack(ItemLoader.expSmall, world.rand.nextInt(i + looting * 3) + looting);
             EntityItem entityItem = new EntityItem(world, entityLiving.posX, entityLiving.posY, entityLiving.posZ, stack);
             items.add(entityItem);
             if (!entityLiving.isNonBoss()) { //boss级生物额外掉落
-                ItemStack stack1 = new ItemStack(ItemLoader.exp_big, world.rand.nextInt(i + looting * 2) + 1 + looting);
+                ItemStack stack1 = new ItemStack(ItemLoader.expBig, world.rand.nextInt(i + looting * 2) + 1 + looting);
                 EntityItem entityItem1 = new EntityItem(world, entityLiving.posX, entityLiving.posY, entityLiving.posZ, stack1);
                 items.add(entityItem1);
             }
@@ -388,10 +388,10 @@ public class EventLoader {
         EntityLivingBase living = event.getEntityLiving();
         if (living instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) living;
-            boolean hasChest = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() == ItemLoader.op_chestplate;
-            boolean hasLeg = player.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem() == ItemLoader.op_leggings;
-            boolean hasHead = player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem() == ItemLoader.op_helmet;
-            boolean hasFoot = player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem() == ItemLoader.op_boots;
+            boolean hasChest = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() == ItemLoader.opChest;
+            boolean hasLeg = player.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem() == ItemLoader.opLegs;
+            boolean hasHead = player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem() == ItemLoader.opHelmet;
+            boolean hasFoot = player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem() == ItemLoader.opBoots;
             //防止其它模组飞行装备无法使用
             String key = player.getGameProfile().getName() + ":" + player.world.isRemote;
             //head

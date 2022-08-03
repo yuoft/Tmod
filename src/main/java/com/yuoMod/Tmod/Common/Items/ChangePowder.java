@@ -41,7 +41,7 @@ public class ChangePowder extends Item {
                     player.sendMessage(new TextComponentTranslation("tmod.text.change_powder1"));
                 } else {
                     worldIn.playEvent(2005, pos, 0);
-                    worldIn.setBlockState(pos, ItemLoader.emerald_sapling.getBlock().getDefaultState());
+                    worldIn.setBlockState(pos, ItemLoader.emeraldSapling.getBlock().getDefaultState());
                     // 构造器里把 Translation Key 放进去即可。
                     player.sendMessage(new TextComponentTranslation("tmod.text.change_powder2"));
                 }

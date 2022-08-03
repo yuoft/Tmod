@@ -14,9 +14,9 @@ import net.minecraftforge.event.terraingen.TerrainGen;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import net.minecraftforge.event.terraingen.OreGenEvent;
 
-public class SpaceOreSpawn extends WorldGenerator implements IWorldGenerator {
-    private final WorldGenMinable SpaceGenerator = new WorldGenMinable(BlockLoader.space_ore.getDefaultState(), 3);
-    private final WorldGenMinable EndSapceGenerator = new WorldGenMinable(BlockLoader.space_ore.getDefaultState(), 5);
+public class SpaceOreGen extends WorldGenerator implements IWorldGenerator {
+    private final WorldGenMinable SpaceGenerator = new WorldGenMinable(BlockLoader.spaceOre.getDefaultState(), 3);
+    private final WorldGenMinable EndSpaceGenerator = new WorldGenMinable(BlockLoader.spaceOre.getDefaultState(), 5);
 
     @Override
     public boolean generate(World world, Random rand, BlockPos pos) {
@@ -51,10 +51,10 @@ public class SpaceOreSpawn extends WorldGenerator implements IWorldGenerator {
         if (TerrainGen.generateOre(world, rand, this, pos, OreGenEvent.GenerateMinable.EventType.QUARTZ)) {
             for (int i = 0; i < 5; ++i) {
                 int posX = pos.getX() + rand.nextInt(16);
-                int posY = 32 + rand.nextInt(32);//生成高度区间32~64
+                int posY = 2 + rand.nextInt(6);
                 int posZ = pos.getZ() + rand.nextInt(16);
                 BlockPos blockpos = new BlockPos(posX, posY, posZ);
-                EndSapceGenerator.generate(world, rand, blockpos);
+                EndSpaceGenerator.generate(world, rand, blockpos);
             }
         }
     }
@@ -63,10 +63,10 @@ public class SpaceOreSpawn extends WorldGenerator implements IWorldGenerator {
         if (TerrainGen.generateOre(world, rand, this, pos, OreGenEvent.GenerateMinable.EventType.CUSTOM)) {
             for (int i = 0; i < 10; ++i) {
                 int posX = pos.getX() + rand.nextInt(16);
-                int posY = 32 + rand.nextInt(32);//生成高度区间32~64
+                int posY = 16 + rand.nextInt(32);
                 int posZ = pos.getZ() + rand.nextInt(16);
                 BlockPos blockpos = new BlockPos(posX, posY, posZ);
-                EndSapceGenerator.generate(world, rand, blockpos);
+                EndSpaceGenerator.generate(world, rand, blockpos);
             }
         }
     }

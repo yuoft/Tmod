@@ -14,7 +14,7 @@
                     "type": "kiana"
                 },
                 "killing_blow": {
-                    "mob_kiana": true
+                    "bypasses_invulnerability": true
                 }
             }
         }

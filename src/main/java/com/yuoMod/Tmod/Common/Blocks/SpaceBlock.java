@@ -70,8 +70,8 @@ public class SpaceBlock extends Block {
         BlockPos posBottom = new BlockPos(x, y - 2, z);
         IBlockState stateCenter = worldIn.getBlockState(posCenter);
         IBlockState stateBottom = worldIn.getBlockState(posBottom);
-        if (stateCenter.getBlock().equals(BlockLoader.emerald_ingot_block)
-                || stateBottom.getBlock().equals(BlockLoader.emerald_ingot_block)) {
+        if (stateCenter.getBlock().equals(BlockLoader.emeraldIngotBlock)
+                || stateBottom.getBlock().equals(BlockLoader.emeraldIngotBlock)) {
             EntityIronGolem ironGolem = new EntityIronGolem(worldIn);
             ironGolem.setPosition(x, y - 2, z);
             // 设置实体属性

@@ -20,7 +20,7 @@ public class ItemHandler extends ItemStackHandler implements IItemHandlerModifia
     public ItemStack insertItem(int slot, ItemStack stack, boolean simulate) {
         // 仅当对 0 ,1号槽位尝试输入物品时允许通过，否则拒绝输入
         if (slot == 0) {
-            if (stack.getItem().equals(ItemLoader.emerald_tree))
+            if (stack.getItem().equals(ItemLoader.emeraldTree))
                 return items.insertItem(slot, stack, simulate);
             else return stack;
         } else if (slot == 1) {
@@ -63,7 +63,7 @@ public class ItemHandler extends ItemStackHandler implements IItemHandlerModifia
         // 我们只允许 0 ,1号槽位输入物品。
         // 2 号槽位中的物品不能通过自动化手段输入，必须由我们自己控制。
         if (slot == 0) {
-            return stack.getItem().equals(ItemLoader.emerald_tree);
+            return stack.getItem().equals(ItemLoader.emeraldTree);
         } else if (slot == 1) {
             return stack.getItem().equals(Items.DIAMOND);
         } else return false;

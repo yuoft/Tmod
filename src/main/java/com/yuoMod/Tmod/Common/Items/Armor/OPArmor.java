@@ -71,16 +71,16 @@ equipmentSlotIn²ÎÊýºÍToolMaterialÒ»Ñù£¬ºÍ¶ÔÓ¦¿ø¼×µÄ¸½Ä§ÄÜÁ¦ÕýÏà¹Ø£¬Í¬Ñù£¬½ð¿ø¼×µ
     @Override
     public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         Item item = stack.getItem();
-        if (item.equals(ItemLoader.op_helmet)) {
+        if (item.equals(ItemLoader.opHelmet)) {
             tooltip.add(I18n.format("tmod.item.op_head", ""));
         }
-        if (item.equals(ItemLoader.op_chestplate)) {
+        if (item.equals(ItemLoader.opChest)) {
             tooltip.add(I18n.format("tmod.item.op_chest", ""));
         }
-        if (item.equals(ItemLoader.op_leggings)) {
+        if (item.equals(ItemLoader.opLegs)) {
             tooltip.add(I18n.format("tmod.item.op_legs", ""));
         }
-        if (item.equals(ItemLoader.op_boots)) {
+        if (item.equals(ItemLoader.opBoots)) {
             tooltip.add(I18n.format("tmod.item.op_feet", ""));
         }
     }

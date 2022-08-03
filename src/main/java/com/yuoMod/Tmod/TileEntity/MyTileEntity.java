@@ -22,6 +22,7 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidUtil;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -63,8 +64,10 @@ public class MyTileEntity extends TileEntityLockable implements ITickable, ISide
         ItemStack stack0 = this.stacks.get(0);
         ItemStack stack1 = this.stacks.get(1);
         ItemStack stack2 = this.stacks.get(2);
+        if (stack0.isEmpty() || stack1.isEmpty()) return;
+
         //物品正确 产物未满
-        if (stack0.getItem() == ItemLoader.emerald_tree && stack1.getItem() == Items.DIAMOND &&
+        if (stack0.getItem() == ItemLoader.emeraldTree && stack1.getItem() == Items.DIAMOND &&
                 (stack2.isEmpty() || (stack2.getItem() == Items.EMERALD && stack2.getCount() < 64))) {
             this.burnTime++;
             if (burnTime >= burnTotalTime) {
@@ -78,14 +81,17 @@ public class MyTileEntity extends TileEntityLockable implements ITickable, ISide
                 this.burnTime = 0;
             }
             this.markDirty();
-        } else if (stack0.getItem() == ItemLoader.emerald_ingot_block && stack1.getItem() == Items.LAVA_BUCKET && stack2.isEmpty()) {
+        } else if (stack0.getItem() == ItemLoader.emeraldIngotBlock && stack1.getItem() == Items.LAVA_BUCKET && stack2.isEmpty()) {
             this.burnTime++;
             if (burnTime >= burnTotalTime) {
                 stack0.shrink(1);
-                ItemStack bucket = FluidUtil.getFilledBucket(FluidRegistry.getFluidStack(FluidLoader.emerald_fluid.getName(), 0));
-                this.stacks.set(2, bucket);
-                stack1.shrink(1);
-                this.burnTime = 0;
+                FluidStack fluidStack = FluidRegistry.getFluidStack(FluidLoader.emerald_fluid.getName(), 0);
+                if (fluidStack != null){
+                    ItemStack bucket = FluidUtil.getFilledBucket(fluidStack);
+                    this.stacks.set(2, bucket);
+                    stack1.shrink(1);
+                    this.burnTime = 0;
+                }
             }
         } else burnTime = 0;
 

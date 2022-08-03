@@ -14,13 +14,12 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 
 //树苗生长
-public class WorldTreeCreate extends WorldGenAbstractTree {
-    public static final IBlockState tree = BlockLoader.emerald_tree.getDefaultState();
-    public static final IBlockState leaf = BlockLoader.emerald_leaf.getDefaultState()
+public class WorldTreeGen extends WorldGenAbstractTree {
+    public static final IBlockState tree = BlockLoader.emeraldTree.getDefaultState();
+    public static final IBlockState leaf = BlockLoader.emeraldLeaf.getDefaultState()
             .withProperty(BlockLeaves.CHECK_DECAY, false).withProperty(BlockLeaves.DECAYABLE, false);
-    private final int minHeigth = 4;
 
-    public WorldTreeCreate() {
+    public WorldTreeGen() {
         super(false);
     }
 
@@ -31,7 +30,8 @@ public class WorldTreeCreate extends WorldGenAbstractTree {
 //		trees.generate(world, rand, pos);
 //		return true;
 //	}
-        int height = rand.nextInt(3) + this.minHeigth;
+        int minHeigth = 4;
+        int height = rand.nextInt(3) + minHeigth;
         boolean isReplaceable = true;
         //坐标检查
         if (pos.getY() >= 1 && pos.getY() + height + 1 <= 256) {
@@ -68,7 +68,7 @@ public class WorldTreeCreate extends WorldGenAbstractTree {
                 Block downBlock = world.getBlockState(downPos).getBlock();
                 IBlockState state = world.getBlockState(downPos);
                 // 是可生成树的土壤
-                boolean isSoil = downBlock.canSustainPlant(state, world, downPos, EnumFacing.UP, (EmeraldSapling) BlockLoader.emerald_sapling);
+                boolean isSoil = downBlock.canSustainPlant(state, world, downPos, EnumFacing.UP, (EmeraldSapling) BlockLoader.emeraldSapling);
                 //空间是否足够
                 if (isSoil && pos.getY() < 256 - height - 1) {
                     downBlock.onPlantGrow(state, world, downPos, pos);

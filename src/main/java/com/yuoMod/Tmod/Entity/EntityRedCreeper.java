@@ -121,12 +121,12 @@ public class EntityRedCreeper extends EntityCreeper {
         } else {
             if (rand.nextInt(10000) == 0)//0.01%¸ÅÂÊÂÌ±¦Ê¯¶§Ì×
             {
-                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ItemLoader.emerald_sword));
+                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ItemLoader.emeraldSword));
                 this.setItemStackToSlot(EntityEquipmentSlot.OFFHAND, new ItemStack(Items.TOTEM_OF_UNDYING));
-                this.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(ItemLoader.emerald_helmet));
-                this.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(ItemLoader.emerald_breastplate));
-                this.setItemStackToSlot(EntityEquipmentSlot.FEET, new ItemStack(ItemLoader.emerald_shoes));
-                this.setItemStackToSlot(EntityEquipmentSlot.LEGS, new ItemStack(ItemLoader.emerald_leggings));
+                this.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(ItemLoader.emeraldHelmet));
+                this.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(ItemLoader.emeraldBreastplate));
+                this.setItemStackToSlot(EntityEquipmentSlot.FEET, new ItemStack(ItemLoader.emeraldShoes));
+                this.setItemStackToSlot(EntityEquipmentSlot.LEGS, new ItemStack(ItemLoader.emeraldLeggings));
             }
         }
     }

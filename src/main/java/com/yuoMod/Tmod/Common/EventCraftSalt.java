@@ -12,9 +12,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.common.MinecraftForge;
@@ -42,7 +40,7 @@ public class EventCraftSalt {
         Entity entity = event.getEntity();
         if (entity instanceof EntityItem) {
             ItemStack entityItem = ((EntityItem) entity).getItem();
-            if (!entityItem.isEmpty() && entityItem.getItem() == ItemLoader.salt_wash) {
+            if (!entityItem.isEmpty() && entityItem.getItem() == ItemLoader.saltWash) {
                 List<EntityItem> entityItems;
                 if (event.getWorld().isRemote)
                     entityItems = saltWashClient;
@@ -77,7 +75,7 @@ public class EventCraftSalt {
                 continue;
             }
             //物品是杂质盐
-            if (rawStack.getItem() != ItemLoader.salt_wash) {
+            if (rawStack.getItem() != ItemLoader.saltWash) {
                 iterator.remove();
                 continue;
             }

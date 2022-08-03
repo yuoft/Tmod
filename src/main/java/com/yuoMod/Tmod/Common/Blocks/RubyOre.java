@@ -31,7 +31,7 @@ public class RubyOre extends BlockOre {
     @Nonnull
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return ItemLoader.ruby_ore;
+        return ItemLoader.rubyOre;
     }
 
     @Override

@@ -45,7 +45,7 @@ public class EmeraldCrop extends BlockCrops implements IGrowable {
     @Nonnull
     @Override
     protected Item getSeed() {
-        return ItemLoader.emerald_crop_seeds;
+        return ItemLoader.emeraldCropSeeds;
     }
 
     //收获的物品

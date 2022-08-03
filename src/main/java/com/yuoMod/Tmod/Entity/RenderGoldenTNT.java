@@ -8,6 +8,6 @@ import net.minecraft.client.renderer.entity.RenderSnowball;
 
 public class RenderGoldenTNT extends RenderSnowball<EntityGoldenTNT> {
     public RenderGoldenTNT(RenderManager renderManagerIn) {
-        super(renderManagerIn, ItemLoader.golden_tnt, Minecraft.getMinecraft().getRenderItem());
+        super(renderManagerIn, ItemLoader.goldenTnt, Minecraft.getMinecraft().getRenderItem());
     }
 }

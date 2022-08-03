@@ -26,15 +26,15 @@ public class StorageRing extends Item {
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         ItemStack stack = playerIn.getHeldItemMainhand();
         if (!worldIn.isRemote) {//≈–∂œ «∑Ò «service
-            if (stack.getItem().equals(ItemLoader.storage_ring_big)) {
+            if (stack.getItem().equals(ItemLoader.storageRingBig)) {
                 BlockPos pos = playerIn.getPosition();
                 playerIn.openGui(Tmod.instance, GuiLoader.NINE_GUI, worldIn, pos.getX(), pos.getY(), pos.getZ());
             }
-            if (stack.getItem().equals(ItemLoader.storage_ring_in)) {
+            if (stack.getItem().equals(ItemLoader.storageRingIn)) {
                 BlockPos pos = playerIn.getPosition();
                 playerIn.openGui(Tmod.instance, GuiLoader.SIX_GUI, worldIn, pos.getX(), pos.getY(), pos.getZ());
             }
-            if (stack.getItem().equals(ItemLoader.storage_ring_small)) {
+            if (stack.getItem().equals(ItemLoader.storageRingSmall)) {
                 BlockPos pos = playerIn.getPosition();
                 playerIn.openGui(Tmod.instance, GuiLoader.THREE_GUI, worldIn, pos.getX(), pos.getY(), pos.getZ());
             }

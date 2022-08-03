@@ -12,22 +12,13 @@ import net.minecraftforge.event.terraingen.TerrainGen;
 
 import java.util.Random;
 
-public class NetheriteOreSpawn extends WorldGenerator {
+public class NetheriteOreGen extends WorldGenerator {
     private final WorldGenerator NetheriteOreGen = new WorldGenMinable(BlockLoader.ancientDebris.getDefaultState(), 3, BlockMatcher.forBlock(Blocks.NETHERRACK));
 
     @Override
     public boolean generate(World world, Random rand, BlockPos pos) {
-        switch (world.provider.getDimension()) {
-            case 0:
-                genNether(world, rand, pos);
-                break;
-            case 1:
-                genNether(world, rand, pos);
-                break;
-            case -1:
-                genNether(world, rand, pos);
-                break;
-            default:
+        if (world.provider.getDimension() == -1) {
+            genNether(world, rand, pos);
         }
         return true;
     }

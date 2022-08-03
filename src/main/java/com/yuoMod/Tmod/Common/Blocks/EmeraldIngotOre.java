@@ -44,7 +44,7 @@ public class EmeraldIngotOre extends BlockOre {
     @Nonnull
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return ItemLoader.emerald_powder;
+        return ItemLoader.emeraldPowder;
     }
 
     // SRG func_149745_a，用于决定掉落的物品数量

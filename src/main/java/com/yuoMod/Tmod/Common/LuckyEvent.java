@@ -51,7 +51,7 @@ public class LuckyEvent {
         EntityPlayer player = event.getPlayer();
         Block block = event.getState().getBlock();
         BlockPos pos = event.getPos();
-        if (block.equals(BlockLoader.unlucky_block))//霉运方块事件
+        if (block.equals(BlockLoader.unluckyBlock))//霉运方块事件
         {
             int num = RANDOM.nextInt(10) + 10;
             switch (num) {
@@ -107,7 +107,7 @@ public class LuckyEvent {
                     break;
             }
         }
-        if (block.equals(BlockLoader.lucky_block))//幸运方块事件
+        if (block.equals(BlockLoader.luckyBlock))//幸运方块事件
         {
             int num = RANDOM.nextInt(30);
             switch (num) {
@@ -378,15 +378,15 @@ public class LuckyEvent {
         if (j < 10) {
             int i = RANDOM.nextInt(1000);//概率很低
             if (i == 100)
-                spawnEntityItem(worldIn, pos, ItemLoader.op_boots, 1);// 掉落op套
+                spawnEntityItem(worldIn, pos, ItemLoader.opBoots, 1);// 掉落op套
             else if (i == 200)
-                spawnEntityItem(worldIn, pos, ItemLoader.op_chestplate, 1);
+                spawnEntityItem(worldIn, pos, ItemLoader.opChest, 1);
             else if (i == 300)
-                spawnEntityItem(worldIn, pos, ItemLoader.op_helmet, 1);
+                spawnEntityItem(worldIn, pos, ItemLoader.opHelmet, 1);
             else if (i == 400)
-                spawnEntityItem(worldIn, pos, ItemLoader.op_leggings, 1);
+                spawnEntityItem(worldIn, pos, ItemLoader.opLegs, 1);
             else if (i == 500)
-                spawnEntityItem(worldIn, pos, ItemLoader.op_sword, 1);
+                spawnEntityItem(worldIn, pos, ItemLoader.opSword, 1);
         } else if (j < 20) oreGiftBag(worldIn, pos);
         else spawnEntityItem(worldIn, pos, Items.POTATO, RANDOM.nextInt(16) + 1);// 掉落土豆
     }

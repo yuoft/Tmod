@@ -23,7 +23,7 @@ public class AllReeds extends BlockReed {
     }
 
     public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
-        return new ItemStack(ItemLoader.apple_reeds);
+        return new ItemStack(ItemLoader.appleReeds);
     }
 
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
@@ -32,7 +32,7 @@ public class AllReeds extends BlockReed {
 
     public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
         //检测下面一个是不是此作物，或是不是能种植块
-        if (worldIn.getBlockState(pos.down()).getBlock() == BlockLoader.apple_reeds || this.checkForDrop(worldIn, pos, state)) {
+        if (worldIn.getBlockState(pos.down()).getBlock() == BlockLoader.appleReeds || this.checkForDrop(worldIn, pos, state)) {
             if (worldIn.isAirBlock(pos.up())) {
                 int i;
 

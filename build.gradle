@@ -55,7 +55,7 @@ repositories {
 dependencies {
     minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2860'
 
-    runtimeOnly 'curse.maven:jei-238222:3043174'
+//    runtimeOnly 'curse.maven:jei-238222:3043174'
 }
 
 // Example for how to get properties into the manifest for reading by the runtime..

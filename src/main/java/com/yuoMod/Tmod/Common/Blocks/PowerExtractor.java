@@ -138,7 +138,7 @@ public class PowerExtractor extends BlockContainer {
 
     //掉落物
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return Item.getItemFromBlock(BlockLoader.power_extractor);
+        return Item.getItemFromBlock(BlockLoader.powerExtractor);
     }
 
     //燃烧时随机播放声音

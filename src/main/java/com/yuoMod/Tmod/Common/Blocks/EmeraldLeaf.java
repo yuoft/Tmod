@@ -35,10 +35,10 @@ public class EmeraldLeaf extends BlockLeaves {
         List<ItemStack> list = new ArrayList<ItemStack>();
         Random random = new Random();
         ItemStack stack = new ItemStack(this);
-        ItemStack stack2 = new ItemStack(ItemLoader.emerald_sapling, 1);
+        ItemStack stack2 = new ItemStack(ItemLoader.emeraldSapling, 1);
         if (fortune != 0) {
             int number = random.nextInt(fortune + 1);
-            ItemStack stack1 = new ItemStack(ItemLoader.emerald_sapling, number + 1);
+            ItemStack stack1 = new ItemStack(ItemLoader.emeraldSapling, number + 1);
             if (random.nextInt(10) > 4) {
                 list.add(0, stack);
                 list.add(1, stack1);

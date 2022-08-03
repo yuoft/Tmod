@@ -10,16 +10,13 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.event.terraingen.TerrainGen;
 import net.minecraftforge.event.terraingen.OreGenEvent;
 
-public class EmeraldOreCreate extends WorldGenerator {
-    private final WorldGenMinable EIOreGenerator = new WorldGenMinable(BlockLoader.emerald_ingot_ore.getDefaultState(), 6);
+public class EmeraldOreGen extends WorldGenerator {
+    private final WorldGenMinable EIOreGenerator = new WorldGenMinable(BlockLoader.emeraldIngotOre.getDefaultState(), 5);
 
     @Override
     public boolean generate(World world, Random rand, BlockPos pos) {
-        switch (world.provider.getDimension()) {
-            case 0:
-                genMain(world, rand, pos);
-                break;
-            default:
+        if (world.provider.getDimension() == 0) {
+            genMain(world, rand, pos);
         }
         return true;
     }

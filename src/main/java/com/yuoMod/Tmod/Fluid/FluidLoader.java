@@ -34,7 +34,7 @@ public class FluidLoader {
     //注册流体方块材质
     @SideOnly(Side.CLIENT)
     public static void registerRenders() {
-        registerFluidRender(BlockLoader.emerald_fluid, "emerald_fluid");
+        registerFluidRender(BlockLoader.emeraldFluid, "emerald_fluid");
     }
 
     @SideOnly(Side.CLIENT)

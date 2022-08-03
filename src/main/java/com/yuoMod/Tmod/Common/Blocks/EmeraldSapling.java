@@ -5,7 +5,7 @@ import java.util.Random;
 import javax.annotation.Nullable;
 
 import com.yuoMod.Tmod.Tab.TmodGroup;
-import com.yuoMod.Tmod.World.WorldTreeCreate;
+import com.yuoMod.Tmod.World.WorldTreeGen;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.IGrowable;
@@ -59,7 +59,7 @@ public class EmeraldSapling extends BlockBush implements IGrowable {
     @Override
     public void grow(World worldIn, Random rand, BlockPos pos, IBlockState state) {
         // TODO 自动生成的方法存根
-        WorldTreeCreate tree = new WorldTreeCreate();
+        WorldTreeGen tree = new WorldTreeGen();
         tree.generate(worldIn, rand, pos);
     }
 
@@ -76,7 +76,7 @@ public class EmeraldSapling extends BlockBush implements IGrowable {
 
     public static void worldGenTree(World world, Random random, int x, int z) {
         BlockPos pos = EmeraldSapling.getGroundPos(world, x, z);
-        WorldTreeCreate tree = new WorldTreeCreate();
+        WorldTreeGen tree = new WorldTreeGen();
         tree.generate(world, random, pos);//world.getHeight(new BlockPos(x, 0, z)));
     }
 

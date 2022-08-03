@@ -34,7 +34,7 @@ public class SaltMeat extends ItemFood {
 
     @Override
     protected void onFoodEaten(ItemStack stack, World worldIn, EntityPlayer player) {
-        if (!worldIn.isRemote && stack.getItem() == ItemLoader.cooking_salt_meat) {
+        if (!worldIn.isRemote && stack.getItem() == ItemLoader.cookingSaltMeat) {
             if (worldIn.rand.nextFloat() < 0.05f)
                 player.addPotionEffect(new PotionEffect(Potion.getPotionById(23), 600, 0));
             if (worldIn.rand.nextFloat() < 0.01f)

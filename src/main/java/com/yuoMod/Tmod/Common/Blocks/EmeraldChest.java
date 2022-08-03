@@ -77,7 +77,7 @@ public class EmeraldChest extends BlockContainer {
     }
 
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return Item.getItemFromBlock(BlockLoader.emerald_chest);
+        return Item.getItemFromBlock(BlockLoader.emeraldChest);
     }
 
     public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {

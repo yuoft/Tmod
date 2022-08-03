@@ -72,7 +72,7 @@ public class ContainerDemo extends Container {
                 }
                 slot.onSlotChange(itemstack1, itemstack);
             } else if (index != 1 && index != 0) {
-                if (itemstack1.getItem() == ItemLoader.emerald_tree || itemstack1.getItem() == ItemLoader.emerald_ingot_block) {
+                if (itemstack1.getItem() == ItemLoader.emeraldTree || itemstack1.getItem() == ItemLoader.emeraldIngotBlock) {
                     if (!this.mergeItemStack(itemstack1, 0, 1, false)) {
                         return ItemStack.EMPTY;
                     }

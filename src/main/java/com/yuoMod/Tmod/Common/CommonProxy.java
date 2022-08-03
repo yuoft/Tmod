@@ -14,7 +14,7 @@ import com.yuoMod.Tmod.Gui.GuiLoader;
 import com.yuoMod.Tmod.Network.NetworkLoader;
 import com.yuoMod.Tmod.Potion.PotionLoader;
 import com.yuoMod.Tmod.TileEntity.TileEntityLoader;
-import com.yuoMod.Tmod.World.WorldOreLoader;
+import com.yuoMod.Tmod.World.WorldGens;
 
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -42,7 +42,7 @@ public class CommonProxy {
         new EventCraftRuby();//红宝石矿烧炼
         new EventMobLv();//怪物等级
         new LuckyEvent();//幸运方块事件
-        new WorldOreLoader();//矿物生成注册
+        new WorldGens();//矿物生成注册
         new GuiLoader();//gui注册
     }
 

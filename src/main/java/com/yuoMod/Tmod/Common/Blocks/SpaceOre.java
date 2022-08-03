@@ -34,7 +34,7 @@ public class SpaceOre extends BlockOre {
     @Nonnull
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return ItemLoader.space_patch;
+        return ItemLoader.spacePatch;
     }
 
     // SRG func_149745_a，用于决定掉落的物品数量

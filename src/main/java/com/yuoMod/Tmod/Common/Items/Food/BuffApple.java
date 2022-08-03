@@ -40,7 +40,7 @@ public class BuffApple extends ItemFood {
     protected void onFoodEaten(ItemStack stack, World world, EntityPlayer player) {
         if (!world.isRemote) {
             Item item = stack.getItem();
-            if (item.equals(ItemLoader.diamond_apple)) {
+            if (item.equals(ItemLoader.diamondApple)) {
                 if (stack.getMetadata() > 0) {
                     player.addPotionEffect(new PotionEffect(Potion.getPotionById(10), 2000, 1));
                     player.addPotionEffect(new PotionEffect(Potion.getPotionById(11), 4000, 2));
@@ -49,7 +49,7 @@ public class BuffApple extends ItemFood {
                     player.addPotionEffect(new PotionEffect(Potion.getPotionById(11), 2000, 1));
                     player.addPotionEffect(new PotionEffect(Potion.getPotionById(5), 2000, 1));
                 }
-            } else if (item.equals(ItemLoader.emerald_apple)) {
+            } else if (item.equals(ItemLoader.emeraldApple)) {
                 if (stack.getMetadata() > 0) {
                     player.addPotionEffect(new PotionEffect(Potion.getPotionById(10), 4000, 2));
                     player.addPotionEffect(new PotionEffect(Potion.getPotionById(22), 4000, 2));
@@ -59,28 +59,28 @@ public class BuffApple extends ItemFood {
                     player.addPotionEffect(new PotionEffect(Potion.getPotionById(10), 2000, 1));
                     player.addPotionEffect(new PotionEffect(Potion.getPotionById(22), 2000, 1));
                 }
-            } else if (item.equals(ItemLoader.iron_apple)) {
+            } else if (item.equals(ItemLoader.ironApple)) {
                 if (stack.getMetadata() > 0) {
                     player.addPotionEffect(new PotionEffect(Potion.getPotionById(10), 4000, 2));
                     player.addPotionEffect(new PotionEffect(Potion.getPotionById(11), 4000, 1));
                 } else {
                     player.addPotionEffect(new PotionEffect(Potion.getPotionById(11), 2000, 0));
                 }
-            } else if (item.equals(ItemLoader.coal_apple)) {
+            } else if (item.equals(ItemLoader.coalApple)) {
                 if (stack.getMetadata() > 0) {
                     player.addPotionEffect(new PotionEffect(Potion.getPotionById(6), 2000, 0));
                     player.addPotionEffect(new PotionEffect(Potion.getPotionById(17), 3000, 0));
                 } else {
                     player.addPotionEffect(new PotionEffect(Potion.getPotionById(17), 2000, 0));
                 }
-            } else if (item.equals(ItemLoader.lapis_apple)) {
+            } else if (item.equals(ItemLoader.lapisApple)) {
                 if (stack.getMetadata() > 0) {
                     player.addPotionEffect(new PotionEffect(Potion.getPotionById(26), 2000, 0));
                     player.addPotionEffect(new PotionEffect(Potion.getPotionById(10), 4000, 1));
                 } else {
                     player.addPotionEffect(new PotionEffect(Potion.getPotionById(10), 2000, 0));
                 }
-            } else if (item.equals(ItemLoader.redstone_apple)) {
+            } else if (item.equals(ItemLoader.redstoneApple)) {
                 if (stack.getMetadata() > 0) {
                     player.addPotionEffect(new PotionEffect(Potion.getPotionById(8), 4000, 1));
                     player.addPotionEffect(new PotionEffect(Potion.getPotionById(1), 4000, 1));
@@ -88,20 +88,20 @@ public class BuffApple extends ItemFood {
                     player.addPotionEffect(new PotionEffect(Potion.getPotionById(1), 2000, 0));
                     player.addPotionEffect(new PotionEffect(Potion.getPotionById(8), 2000, 0));
                 }
-            } else if (item.equals(ItemLoader.quartz_apple)) {
+            } else if (item.equals(ItemLoader.quartzApple)) {
                 if (stack.getMetadata() > 0) {
                     player.addPotionEffect(new PotionEffect(Potion.getPotionById(12), 4000, 0));
                 } else {
                     player.addPotionEffect(new PotionEffect(Potion.getPotionById(12), 2000, 0));
                 }
-            } else if (item.equals(ItemLoader.glowstone_apple)) {
+            } else if (item.equals(ItemLoader.glowstoneApple)) {
                 if (stack.getMetadata() > 0) {
                     player.addPotionEffect(new PotionEffect(Potion.getPotionById(1), 2000, 0));
                     player.addPotionEffect(new PotionEffect(Potion.getPotionById(16), 4000, 0));
                 } else {
                     player.addPotionEffect(new PotionEffect(Potion.getPotionById(16), 2000, 0));
                 }
-            } else if (item.equals(ItemLoader.debuff_apple)) {
+            } else if (item.equals(ItemLoader.deBuffApple)) {
                 if (stack.getMetadata() > 0) {
                     player.addPotionEffect(new PotionEffect(Potion.getPotionById(2), 4000, 1));
                     player.addPotionEffect(new PotionEffect(Potion.getPotionById(4), 4000, 1));

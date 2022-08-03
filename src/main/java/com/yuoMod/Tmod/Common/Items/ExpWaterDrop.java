@@ -30,14 +30,14 @@ public class ExpWaterDrop extends Item {
         ItemStack stack = playerIn.getHeldItemMainhand();
         if (playerIn.isSneaking())//ÕÊº“ «∑Ò«±––
         {
-            if (stack.getItem().equals(ItemLoader.exp_small)) {
+            if (stack.getItem().equals(ItemLoader.expSmall)) {
                 playerIn.addExperience(10 * stack.getCount());
             } else {
                 playerIn.addExperience(100 * stack.getCount());
             }
             stack.setCount(0);
         } else {
-            if (stack.getItem().equals(ItemLoader.exp_small)) {
+            if (stack.getItem().equals(ItemLoader.expSmall)) {
                 playerIn.addExperience(10);
             } else {
                 playerIn.addExperience(100);

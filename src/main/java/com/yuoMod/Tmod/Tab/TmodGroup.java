@@ -20,7 +20,7 @@ public class TmodGroup {
 
         @Override
         public ItemStack getTabIconItem() {
-            return new ItemStack(ItemLoader.emerald_ingot);
+            return new ItemStack(ItemLoader.emeraldIngot);
         }
     }
 }

@@ -11,9 +11,9 @@ import net.minecraftforge.common.util.EnumHelper;
 
 //武器和工具材料
 public class TmodMaterial {
-    public static ItemArmor.ArmorMaterial EMERALD_ARMOR = addArmorMaterial("emerald", 35, new int[]{5, 8, 10, 5}, 12, 5.0F, ItemLoader.emerald_ingot);
+    public static ItemArmor.ArmorMaterial EMERALD_ARMOR = addArmorMaterial("emerald", 35, new int[]{5, 8, 10, 5}, 12, 5.0F, ItemLoader.emeraldIngot);
     public static ItemArmor.ArmorMaterial OP = addArmorMaterial("op", -1, new int[]{3, 8, 6, 3}, 0, 0, Item.getItemFromBlock(Blocks.BEDROCK));
-    public static ItemArmor.ArmorMaterial SPACE_ARMOR = addArmorMaterial("space", 100, new int[]{15, 17, 20, 15}, 30, 10, ItemLoader.space_ingot);
+    public static ItemArmor.ArmorMaterial SPACE_ARMOR = addArmorMaterial("space", 100, new int[]{15, 17, 20, 15}, 30, 10, ItemLoader.spaceIngot);
     public static ItemArmor.ArmorMaterial RUBY_ARMOR = addArmorMaterial("ruby", 30, new int[]{4, 7, 9, 4}, 10, 2.5f, ItemLoader.ruby);
     public static ItemArmor.ArmorMaterial DRAGON_ARMOR = addArmorMaterial("dragon", 55, new int[]{10, 12, 15, 10}, 20, 5, ItemLoader.dragonCrystal);
     public static ItemArmor.ArmorMaterial BEACON_ARMOR = addArmorMaterial("beacon", 29, new int[]{6, 8, 10, 6}, 13, 1.5f, Item.getItemFromBlock(Blocks.BEACON));
@@ -22,8 +22,8 @@ public class TmodMaterial {
     public static ItemArmor.ArmorMaterial NETHERITE_ARMOR = addArmorMaterial("netherite", 40, new int[]{9, 11, 14, 9}, 18, 3, ItemLoader.netheriteIngot);
     public static ItemArmor.ArmorMaterial TOTEM_ARMOR = addArmorMaterial("totem", 31, new int[]{6, 8, 10, 6}, 18, 0.5f, Items.TOTEM_OF_UNDYING);
 
-    public static Item.ToolMaterial SPACE_TOOL = addToolMaterial("space", 5, 3315, 20, 30, 20, ItemLoader.space_ingot);
-    public static Item.ToolMaterial EMERALD_TOOL = addToolMaterial("emerald", 3, 1634, 10.0f, 5.0f, 12, ItemLoader.emerald_ingot);
+    public static Item.ToolMaterial SPACE_TOOL = addToolMaterial("space", 5, 3315, 20, 30, 20, ItemLoader.spaceIngot);
+    public static Item.ToolMaterial EMERALD_TOOL = addToolMaterial("emerald", 3, 1634, 10.0f, 5.0f, 12, ItemLoader.emeraldIngot);
     public static Item.ToolMaterial BH3 = addToolMaterial("bh3", 4, 666, 15.0f, 20.0f, 15, Items.NETHER_STAR);
     public static Item.ToolMaterial RUBY_TOOL = addToolMaterial("ruby", 3, 1123, 8.0f, 3.0f, 10, ItemLoader.ruby);
     public static Item.ToolMaterial DRAGON_TOOL = addToolMaterial("dragon", 4, 2123, 15.0f, 20.0f, 20, ItemLoader.dragonCrystal);

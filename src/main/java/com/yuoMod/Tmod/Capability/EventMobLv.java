@@ -178,11 +178,11 @@ public class EventMobLv {
         ItemStack stack = event.getItem().getItem();
         if (player.world.isRemote) return;
         setItemLv(stack, player, false);
-        if (stack.getItem() == ItemLoader.op_sword) {
+        if (stack.getItem() == ItemLoader.opSword) {
             int level = EnchantmentHelper.getEnchantmentLevel(Enchantments.LOOTING, stack);
             if (level == 0) stack.addEnchantment(Enchantments.LOOTING, 10);
         }
-        if (stack.getItem() == ItemLoader.op_pickaxe) {
+        if (stack.getItem() == ItemLoader.opPickaxe) {
             int level = EnchantmentHelper.getEnchantmentLevel(Enchantments.FORTUNE, stack);
             if (level == 0) stack.addEnchantment(Enchantments.FORTUNE, 10);
         }
@@ -215,8 +215,8 @@ public class EventMobLv {
 
     //是否是op装备
     public static boolean isOpItem(Item item) {
-        return item == ItemLoader.op_sword || item == ItemLoader.op_pickaxe || item == ItemLoader.op_helmet ||
-                item == ItemLoader.op_chestplate || item == ItemLoader.op_leggings || item == ItemLoader.op_boots;
+        return item == ItemLoader.opSword || item == ItemLoader.opPickaxe || item == ItemLoader.opHelmet ||
+                item == ItemLoader.opChest || item == ItemLoader.opLegs || item == ItemLoader.opBoots;
     }
 
     //玩家无法使用高等级武器
@@ -285,7 +285,7 @@ public class EventMobLv {
             float newSpeed = originalSpeed * (1 + level / (float) ConfigLoader.level);
             event.setNewSpeed(newSpeed);
         }
-        if (mainhand.getItem() == ItemLoader.op_pickaxe) {
+        if (mainhand.getItem() == ItemLoader.opPickaxe) {
             if (!event.getEntityLiving().onGround || event.getEntityLiving().isInWater()) { //未站立状态,在水中 破坏速度加倍
                 event.setNewSpeed(event.getOriginalSpeed() * 2);
             }
@@ -371,10 +371,10 @@ public class EventMobLv {
 
     //获取玩家op装备件数
     public static int getOpNum(EntityPlayer player) {
-        boolean hasChest = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() == ItemLoader.op_chestplate;
-        boolean hasLeg = player.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem() == ItemLoader.op_leggings;
-        boolean hasHead = player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem() == ItemLoader.op_helmet;
-        boolean hasFeet = player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem() == ItemLoader.op_boots;
+        boolean hasChest = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() == ItemLoader.opChest;
+        boolean hasLeg = player.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem() == ItemLoader.opLegs;
+        boolean hasHead = player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem() == ItemLoader.opHelmet;
+        boolean hasFeet = player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem() == ItemLoader.opBoots;
         boolean[] bools = new boolean[]{hasHead, hasChest, hasLeg, hasFeet};
         int num = 0;
         for (int i = 0; i < 4; i++) {

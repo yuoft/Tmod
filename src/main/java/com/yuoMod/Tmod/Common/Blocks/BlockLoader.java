@@ -19,35 +19,35 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockLoader {
-    public static final Block emerald_ingot_block = new EmeraldIngotBlock("emerald_ingot_block");
-    public static final Block tallgrass_block = new TallgrassBlock("tallgrass_block");
-    public static final Block emerald_ingot_ore = new EmeraldIngotOre("emerald_ingot_ore");
-    public static final Block emerald_tree = new EmeraldTree("emerald_tree");
-    public static final Block emerald_leaf = new EmeraldLeaf("emerald_leaf");
-    public static final Block emerald_sapling = new EmeraldSapling("emerald_sapling");
-    public static final Block power_extractor = new PowerExtractor("power_extractor");
-    public static final BlockFluidClassic emerald_fluid = new EmeraldFluid("emerald_fluid");
-    public static final BlockCrops emerald_crop = new EmeraldCrop("emerald_crop");
-    public static final Block boss_block = new BossBlock("boss_block");
+    public static final Block emeraldIngotBlock = new EmeraldIngotBlock("emerald_ingot_block");
+    public static final Block tallGrassBlock = new TallgrassBlock("tallgrass_block");
+    public static final Block emeraldIngotOre = new EmeraldIngotOre("emerald_ingot_ore");
+    public static final Block emeraldTree = new EmeraldTree("emerald_tree");
+    public static final Block emeraldLeaf = new EmeraldLeaf("emerald_leaf");
+    public static final Block emeraldSapling = new EmeraldSapling("emerald_sapling");
+    public static final Block powerExtractor = new PowerExtractor("power_extractor");
+    public static final BlockFluidClassic emeraldFluid = new EmeraldFluid("emerald_fluid");
+    public static final BlockCrops emeraldCrop = new EmeraldCrop("emerald_crop");
+    public static final Block bossBlock = new BossBlock("boss_block");
     public static final Block bossBlock1 = new BossBlock("boss_block1");
-    public static final Block emerald_chest = new EmeraldChest("emerald_chest");
-    public static final Block space_ore = new SpaceOre("space_ore");
-    public static final Block space_block = new SpaceBlock("space_block");
-    public static final Block salt_ore = new SaltOre("salt_ore");
-    public static final Block diamond_crop = new StemCrop("diamond_crop", Blocks.DIAMOND_ORE);
-    public static final Block gold_crop = new StemCrop("gold_crop", Blocks.GOLD_ORE);
-    public static final Block iron_crop = new StemCrop("iron_crop", Blocks.IRON_ORE);
-    public static final Block emerald_stem_crop = new StemCrop("emerald_stem_crop", Blocks.EMERALD_ORE);
-    public static final Block coal_crop = new StemCrop("coal_crop", Blocks.COAL_ORE);//煤
-    public static final Block lapis_crop = new StemCrop("coal_crop", Blocks.LAPIS_ORE);//青金石
-    public static final Block quartz_crop = new StemCrop("coal_crop", Blocks.QUARTZ_ORE);//石英
-    public static final Block redstone_crop = new StemCrop("coal_crop", Blocks.REDSTONE_ORE);//红石
-    public static final Block apple_reeds = new AllReeds("apple_reeds");
-    public static final Block lucky_block = new LuckyBlock("lucky_block");
-    public static final Block unlucky_block = new UnLuckyBlock("unlucky_block");
-    public static final Block ruby_ore = new RubyOre("ruby_ore");
+    public static final Block emeraldChest = new EmeraldChest("emerald_chest");
+    public static final Block spaceOre = new SpaceOre("space_ore");
+    public static final Block spaceBlock = new SpaceBlock("space_block");
+    public static final Block saltOre = new SaltOre("salt_ore");
+    public static final Block diamondCrop = new StemCrop("diamond_crop", Blocks.DIAMOND_ORE);
+    public static final Block goldCrop = new StemCrop("gold_crop", Blocks.GOLD_ORE);
+    public static final Block ironCrop = new StemCrop("iron_crop", Blocks.IRON_ORE);
+    public static final Block emeraldStemCrop = new StemCrop("emerald_stem_crop", Blocks.EMERALD_ORE);
+    public static final Block coalCrop = new StemCrop("coal_crop", Blocks.COAL_ORE);//煤
+    public static final Block lapisCrop = new StemCrop("coal_crop", Blocks.LAPIS_ORE);//青金石
+    public static final Block quartzCrop = new StemCrop("coal_crop", Blocks.QUARTZ_ORE);//石英
+    public static final Block redstoneCrop = new StemCrop("coal_crop", Blocks.REDSTONE_ORE);//红石
+    public static final Block appleReeds = new AllReeds("apple_reeds");
+    public static final Block luckyBlock = new LuckyBlock("lucky_block");
+    public static final Block unluckyBlock = new UnLuckyBlock("unlucky_block");
+    public static final Block rubyOre = new RubyOre("ruby_ore");
     public static final Block mine = new Mine("mine"); //地雷
-    public static final Block speed_torch = new SpeedTorch("speed_torch"); //加速火把
+    public static final Block speedTorch = new SpeedTorch("speed_torch"); //加速火把
     public static final Block elevator = new Elevator("elevator"); //电梯
     public static final Block rubyBlock = new ModBlock("ruby_block", 15, 3);
     public static final Block dragonBlock = new ModBlock("dragon_block", 25, 4);
@@ -55,35 +55,35 @@ public class BlockLoader {
     public static final Block ancientDebris = new AncientDebris("ancient_debris");
 
     public BlockLoader(FMLPreInitializationEvent event) {
-        register(emerald_ingot_block, "emerald_ingot_block");
-        register(tallgrass_block, "tallgrass_block");
-        register(emerald_ingot_ore, "emerald_ingot_ore");
-        register(emerald_tree, "emerald_tree");
-        register(emerald_leaf, "emerald_leaf");
-        register(emerald_sapling, "emerald_sapling");
-        register(power_extractor, "power_extractor");
-        register(emerald_fluid, "emerald_fluid");
-        register(emerald_crop, "emerald_crop");
-        register(boss_block, "boss_block");
+        register(emeraldIngotBlock, "emerald_ingot_block");
+        register(tallGrassBlock, "tallgrass_block");
+        register(emeraldIngotOre, "emerald_ingot_ore");
+        register(emeraldTree, "emerald_tree");
+        register(emeraldLeaf, "emerald_leaf");
+        register(emeraldSapling, "emerald_sapling");
+        register(powerExtractor, "power_extractor");
+        register(emeraldFluid, "emerald_fluid");
+        register(emeraldCrop, "emerald_crop");
+        register(bossBlock, "boss_block");
         register(bossBlock1, "boss_block1");
-        register(emerald_chest, "emerald_chest");
-        register(space_ore, "space_ore");
-        register(space_block, "space_block");
-        register(salt_ore, "salt_ore");
-        register(diamond_crop, "diamond_crop");
-        register(gold_crop, "gold_crop");
-        register(iron_crop, "iron_crop");
-        register(emerald_stem_crop, "emerald_stem_crop");
-        register(lapis_crop, "lapis_crop");
-        register(coal_crop, "coal_crop");
-        register(quartz_crop, "quartz_crop");
-        register(redstone_crop, "redstone_crop");
-        register(apple_reeds, "apple_reeds");
-        register(lucky_block, "lucky_block");
-        register(unlucky_block, "unlucky_block");
-        register(ruby_ore, "ruby_ore");
+        register(emeraldChest, "emerald_chest");
+        register(spaceOre, "space_ore");
+        register(spaceBlock, "space_block");
+        register(saltOre, "salt_ore");
+        register(diamondCrop, "diamond_crop");
+        register(goldCrop, "gold_crop");
+        register(ironCrop, "iron_crop");
+        register(emeraldStemCrop, "emerald_stem_crop");
+        register(lapisCrop, "lapis_crop");
+        register(coalCrop, "coal_crop");
+        register(quartzCrop, "quartz_crop");
+        register(redstoneCrop, "redstone_crop");
+        register(appleReeds, "apple_reeds");
+        register(luckyBlock, "lucky_block");
+        register(unluckyBlock, "unlucky_block");
+        register(rubyOre, "ruby_ore");
         register(mine, "mine");
-        register(speed_torch, "speed_torch");
+        register(speedTorch, "speed_torch");
         register(elevator, "elevator");
         register(rubyBlock, "ruby_block");
         register(dragonBlock, "dragon_block");
@@ -98,39 +98,39 @@ public class BlockLoader {
     //材质
     @SideOnly(Side.CLIENT)
     public static void registerRenders() {
-        registerRender(emerald_ingot_block, 0);
-        registerRender(tallgrass_block, 0);
-        registerRender(emerald_ingot_ore, 0);
-        registerRender(emerald_tree, 0);
-        registerStateMapper(emerald_tree,
+        registerRender(emeraldIngotBlock, 0);
+        registerRender(tallGrassBlock, 0);
+        registerRender(emeraldIngotOre, 0);
+        registerRender(emeraldTree, 0);
+        registerStateMapper(emeraldTree,
                 new StateMap.Builder().build());
-        registerRender(emerald_leaf, 0);
-        registerStateMapper(emerald_leaf,//重定位模型资源
+        registerRender(emeraldLeaf, 0);
+        registerStateMapper(emeraldLeaf,//重定位模型资源
                 new StateMap.Builder().build());
-        registerRender(emerald_sapling, 0);
-        registerRender(power_extractor, 0);
-        registerStateMapper(power_extractor, new StateMap.Builder().build());
-        registerRender(emerald_crop, 0);
-        registerRender(boss_block, 0);
+        registerRender(emeraldSapling, 0);
+        registerRender(powerExtractor, 0);
+        registerStateMapper(powerExtractor, new StateMap.Builder().build());
+        registerRender(emeraldCrop, 0);
+        registerRender(bossBlock, 0);
         registerRender(bossBlock1, 0);
-        registerRender(emerald_chest, 0);
-        registerRender(space_ore, 0);
-        registerRender(space_block, 0);
-        registerRender(salt_ore, 0);
-        registerRender(diamond_crop, 0);
-        registerRender(gold_crop, 0);
-        registerRender(iron_crop, 0);
-        registerRender(emerald_stem_crop, 0);
-        registerRender(coal_crop, 0);
-        registerRender(lapis_crop, 0);
-        registerRender(quartz_crop, 0);
-        registerRender(redstone_crop, 0);
-        registerRender(apple_reeds, 0);
-        registerRender(lucky_block, 0);
-        registerRender(unlucky_block, 0);
-        registerRender(ruby_ore, 0);
+        registerRender(emeraldChest, 0);
+        registerRender(spaceOre, 0);
+        registerRender(spaceBlock, 0);
+        registerRender(saltOre, 0);
+        registerRender(diamondCrop, 0);
+        registerRender(goldCrop, 0);
+        registerRender(ironCrop, 0);
+        registerRender(emeraldStemCrop, 0);
+        registerRender(coalCrop, 0);
+        registerRender(lapisCrop, 0);
+        registerRender(quartzCrop, 0);
+        registerRender(redstoneCrop, 0);
+        registerRender(appleReeds, 0);
+        registerRender(luckyBlock, 0);
+        registerRender(unluckyBlock, 0);
+        registerRender(rubyOre, 0);
         registerRender(mine, 0);
-        registerRender(speed_torch, 0);
+        registerRender(speedTorch, 0);
         registerRender(elevator, 0);
         registerRender(rubyBlock, 0);
         registerRender(dragonBlock, 0);

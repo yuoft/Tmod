@@ -125,7 +125,7 @@ public class EntityKiana extends EntityMob implements IMob, IRangedAttackMob {
             int armor = livingBase.getTotalArmorValue();
             if (armor > 20) {
                 livingBase.sendMessage(new TextComponentTranslation("tmod.text.boss"));
-                livingBase.attackEntityFrom(DamageSource.causeMobDamage(this), 10000.0F);
+                livingBase.attackEntityFrom(DamageSource.causeMobDamage(this).setDamageAllowedInCreativeMode(), 10000.0F);
             }
         }
         super.onUpdate();
@@ -136,7 +136,7 @@ public class EntityKiana extends EntityMob implements IMob, IRangedAttackMob {
         if (source.getTrueSource() instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) source.getTrueSource();
             ItemStack mainhand = player.getHeldItemMainhand();
-            if (mainhand.getItem() == ItemLoader.op_sword) {
+            if (mainhand.getItem() == ItemLoader.opSword) {
                 return super.attackEntityFrom(source, amount);
             }
         }
