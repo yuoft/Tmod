@@ -8,9 +8,9 @@
         "age=5,facing=up": { "model": "tmod:crop/gold_crop5" },
 		"age=6,facing=up": { "model": "tmod:crop/gold_crop6" },
 		"age=7,facing=up": { "model": "tmod:crop/gold_crop7" },
-        "facing=west": { "model": "tmod:crop/gold_stem" },
-        "facing=east": { "model": "tmod:crop/gold_stem", "y": 180 },
-        "facing=north": { "model": "tmod:crop/gold_stem", "y": 90 },
-        "facing=south": { "model": "tmod:crop/gold_stem", "y": 270 }
+        "age=7,facing=west": { "model": "tmod:crop/gold_stem" },
+        "age=7,facing=east": { "model": "tmod:crop/gold_stem", "y": 180 },
+        "age=7,facing=north": { "model": "tmod:crop/gold_stem", "y": 90 },
+        "age=7,facing=south": { "model": "tmod:crop/gold_stem", "y": 270 }
     }
 }
