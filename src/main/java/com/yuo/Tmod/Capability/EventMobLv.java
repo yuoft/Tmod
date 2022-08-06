@@ -34,6 +34,7 @@ import net.minecraft.entity.projectile.EntityFireball;
 import net.minecraft.init.Enchantments;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.*;
+import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagInt;
 import net.minecraft.util.DamageSource;
@@ -128,9 +129,11 @@ public class EventMobLv {
 
                 IPlayerLevel tmodLv = player.getCapability(CapabilityLoader.tmodLv, null);
                 IStorage<IPlayerLevel> storage = CapabilityLoader.tmodLv.getStorage();
-
-                message.nbt = new NBTTagCompound();
-                message.nbt.setTag("tmod_level", storage.writeNBT(CapabilityLoader.tmodLv, tmodLv, null));
+                NBTBase nbt = storage.writeNBT(CapabilityLoader.tmodLv, tmodLv, null);
+                if (nbt != null){
+                    message.nbt = new NBTTagCompound();
+                    message.nbt.setTag("tmod_level", nbt);
+                }
 
                 NetworkLoader.instance.sendTo(message, player);
             }
@@ -160,8 +163,10 @@ public class EventMobLv {
             IPlayerLevel capability1 = event.getOriginal().getCapability(capability, null);
             EntityPlayer player = event.getEntityPlayer();
             IPlayerLevel capability2 = player.getCapability(capability, null);
-            capability2.setPlayerLevel(capability1.getPlayerLevel());
-            capability2.setPlayerExp(capability1.getPlayerExp());
+            if (capability2 != null && capability1 != null){
+                capability2.setPlayerLevel(capability1.getPlayerLevel());
+                capability2.setPlayerExp(capability1.getPlayerExp());
+            }
         }
     }
 
@@ -197,16 +202,19 @@ public class EventMobLv {
         Item item = stack.getItem();
         if (item instanceof ItemSword || item instanceof ItemArmor || item instanceof ItemTool || item instanceof ItemBow) {
             if (isOpItem(item)) return; //op装备不添加等级 没有等级
-            if (isPlayerHasLv(player) && (!stack.hasTagCompound() || !stack.getTagCompound().hasKey("tmod_level"))) {
+            if (isPlayerHasLv(player) && (!stack.hasTagCompound() || (stack.getTagCompound() != null && !stack.getTagCompound().hasKey("tmod_level")))) {
                 Random random = new Random();
-                int lv = 0;
+                int lv;
                 IPlayerLevel capability = player.getCapability(CapabilityLoader.tmodLv, null);
-                Integer playerLevel = capability.getPlayerLevel();
+                Integer playerLevel = 0;
+                if (capability != null) {
+                    playerLevel = capability.getPlayerLevel();
+                }
                 if (flag) {
-                    int i = playerLevel - 10 < 0 ? 0 : playerLevel - 10; // (lv - 10) ~ lv
+                    int i = Math.max(playerLevel - 10, 0); // (lv - 10) ~ lv
                     lv = random.nextInt(10) + i + 1;
                 } else {
-                    int i = playerLevel - 15 < 0 ? 0 : playerLevel - 15;
+                    int i = Math.max(playerLevel - 15, 0);
                     lv = random.nextInt(25) + i + 1; // (lv - 15) ~ (lv + 10)
                 }
                 lv = lv < ConfigLoader.level ? lv : ConfigLoader.level;
@@ -236,7 +244,7 @@ public class EventMobLv {
         if (trueSource instanceof EntityDragon) {
             EntityLivingBase entityLiving = event.getEntityLiving();
             int value = getAttrLevelValue((EntityLiving) trueSource);
-            entityLiving.attackEntityFrom(DamageSource.causeMobDamage((EntityDragon) trueSource), value / 2);
+            entityLiving.attackEntityFrom(DamageSource.causeMobDamage((EntityDragon) trueSource), value / 2f);
         }
     }
 
@@ -250,9 +258,12 @@ public class EventMobLv {
             ItemStack stack = player.getHeldItemMainhand();
             //玩家使用武器有等级和被攻击实体有等级
             if (isItemHasLv(stack) && getAttrLevelValue(living) > 0) {
-                Integer lv = stack.getTagCompound().getInteger("tmod_level");
+                int lv = 0;
+                if (stack.getTagCompound() != null) {
+                    lv = stack.getTagCompound().getInteger("tmod_level");
+                }
                 Item item = stack.getItem();
-                int amount = 0;
+                int amount;
                 if (item instanceof ItemSword) {
                     ItemSword sword = (ItemSword) item;
                     int damage = (int) Math.floor(sword.getAttackDamage() * 1.5);
@@ -267,12 +278,10 @@ public class EventMobLv {
             }
             if (stack.isEmpty() && isPlayerHasLv(player)) {
                 IPlayerLevel capability = player.getCapability(CapabilityLoader.tmodLv, null);
-                target.attackEntityFrom(DamageSource.causePlayerDamage(player), capability.getPlayerLevel() / 4);
+                if (capability != null) {
+                    target.attackEntityFrom(DamageSource.causePlayerDamage(player), capability.getPlayerLevel() / 4f);
+                }
             }
-            //op剑直接杀死Kiana
-//            if (stack.getItem().equals(itemLoader.op_sword) && living instanceof EntityKiana) {
-//                living.setHealth(0.1f);
-//            }
         }
     }
 
@@ -283,7 +292,10 @@ public class EventMobLv {
         ItemStack mainhand = player.getHeldItemMainhand();
         if (mainhand.isEmpty()) return;
         if (isItemHasLv(mainhand)) {
-            int level = mainhand.getTagCompound().getInteger("tmod_level");
+            int level = 0;
+            if (mainhand.getTagCompound() != null) {
+                level = mainhand.getTagCompound().getInteger("tmod_level");
+            }
             float originalSpeed = event.getOriginalSpeed();
             float newSpeed = originalSpeed * (1 + level / (float) ConfigLoader.level);
             event.setNewSpeed(newSpeed);
@@ -307,7 +319,7 @@ public class EventMobLv {
                 RayTraceResult result = event.getRayTraceResult();
                 Entity entityHit = result.entityHit;
                 if (entityHit instanceof EntityLiving) {
-                    entityHit.attackEntityFrom(DamageSource.causeMobDamage(living), (int) Math.ceil(lv / 2));
+                    entityHit.attackEntityFrom(DamageSource.causeMobDamage(living), (int) Math.ceil(lv / 2f));
                 }
             }
         }
@@ -404,8 +416,7 @@ public class EventMobLv {
         Integer feetLv = tagFeet.getInteger("tmod_level");
         Integer headLv = tagHead.getInteger("tmod_level");
         Integer legsLv = tagLegs.getInteger("tmod_level");
-        Integer allLv = chestLv + feetLv + headLv + legsLv;
-        return allLv;
+        return chestLv + feetLv + headLv + legsLv;
     }
 
     //玩家不能使用高等级物品
@@ -453,7 +464,10 @@ public class EventMobLv {
         IPlayerLevel capability = player.getCapability(CapabilityLoader.tmodLv, null);
         if (capability == null) return false;
         Integer playerLevel = capability.getPlayerLevel();
-        int level = stack.getTagCompound().getInteger("tmod_level");
+        int level = 0;
+        if (stack.getTagCompound() != null) {
+            level = stack.getTagCompound().getInteger("tmod_level");
+        }
         return level <= playerLevel;
     }
 
@@ -501,22 +515,16 @@ public class EventMobLv {
             wolf.setAttackTarget(null);
             wolf.getAISit().setSitting(true);
             wolf.setHealth(20.0F + getAttrLevelValue(wolf) * 5);
-            playTameEffect(wolf, true);
+            playTameEffect(wolf);
             wolf.world.setEntityState(wolf, (byte) 7);
             event.setCanceled(true);
         }
     }
 
     //驯服效果
-    private void playTameEffect(EntityWolf wolf, boolean play) {
-        EnumParticleTypes enumparticletypes = EnumParticleTypes.HEART;
-
+    private void playTameEffect(EntityWolf wolf) {
+        EnumParticleTypes enumparticletypes = EnumParticleTypes.SMOKE_NORMAL;
         Random rand = wolf.world.rand;
-
-        if (!play) {
-            enumparticletypes = EnumParticleTypes.SMOKE_NORMAL;
-        }
-
         for (int i = 0; i < 7; ++i) {
             double d0 = rand.nextGaussian() * 0.02D;
             double d1 = rand.nextGaussian() * 0.02D;
@@ -540,19 +548,21 @@ public class EventMobLv {
                 int mobLv = getAttrLevelValue(living);
                 //获取玩家能力系统
                 IPlayerLevel playerCap = player.getCapability(CapabilityLoader.tmodLv, null);
-                Integer exp = playerCap.getPlayerExp();//获取经验值
-                Integer lv = playerCap.getPlayerLevel();
-                playerCap.setPlayerExp(exp + mobLv);//设置经验值
-                playerCap.setPlayerLevel(setPlayerLv(playerCap, lv, playerCap.getPlayerExp(), player)); //设置等级
-
-                //同步玩家数据
-                MessagePlayerLevel msg = new MessagePlayerLevel();
-                msg.nbt = new NBTTagCompound();
-                msg.nbt.setInteger("player_exp", playerCap.getPlayerExp());
-                msg.nbt.setInteger("player_level", playerCap.getPlayerLevel());
-                if (player instanceof EntityPlayerMP) {
-                    NetworkLoader.instance.sendTo(msg, (EntityPlayerMP) player);
+                if (playerCap != null){
+                    Integer exp = playerCap.getPlayerExp();//获取经验值
+                    Integer lv = playerCap.getPlayerLevel();
+                    playerCap.setPlayerExp(exp + mobLv);//设置经验值
+                    playerCap.setPlayerLevel(setPlayerLv(playerCap, lv, playerCap.getPlayerExp(), player)); //设置等级
+                    //同步玩家数据
+                    MessagePlayerLevel msg = new MessagePlayerLevel();
+                    msg.nbt = new NBTTagCompound();
+                    msg.nbt.setInteger("player_exp", playerCap.getPlayerExp());
+                    msg.nbt.setInteger("player_level", playerCap.getPlayerLevel());
+                    if (player instanceof EntityPlayerMP) {
+                        NetworkLoader.instance.sendTo(msg, (EntityPlayerMP) player);
+                    }
                 }
+
             }
         }
     }
@@ -576,7 +586,9 @@ public class EventMobLv {
             Item item = stack.getItem();
             //有等级的 工具 盔甲 武器
             if (item instanceof ItemTool || item instanceof ItemArmor || item instanceof ItemSword || item instanceof ItemBow) {
-                tooltip.add(I18n.format("tmod.item.level") + stack.getTagCompound().getInteger("tmod_level")); //设置物品信息显示
+                if (stack.getTagCompound() != null) {
+                    tooltip.add(I18n.format("tmod.item.level") + stack.getTagCompound().getInteger("tmod_level")); //设置物品信息显示
+                }
             }
         }
     }
@@ -648,8 +660,10 @@ public class EventMobLv {
                 Integer exp = playerInfo.getExp();
                 if (player.hasCapability(CapabilityLoader.tmodLv, null)) {
                     IPlayerLevel capability = player.getCapability(CapabilityLoader.tmodLv, null);
-                    capability.setPlayerLevel(level);
-                    capability.setPlayerExp(exp);
+                    if (capability != null) {
+                        capability.setPlayerLevel(level);
+                        capability.setPlayerExp(exp);
+                    }
                 }
             }
         }
@@ -666,9 +680,11 @@ public class EventMobLv {
             String name = player.getName();
             if (player.hasCapability(CapabilityLoader.tmodLv, null)) {
                 IPlayerLevel capability = player.getCapability(CapabilityLoader.tmodLv, null);
+                if (capability != null) {
                 if (dataSave.isName(name))
                     dataSave.change(name, capability.getPlayerLevel(), capability.getPlayerExp());
                 else dataSave.add(name, capability.getPlayerLevel(), capability.getPlayerExp());
+                }
             }
         }
     }
@@ -681,7 +697,7 @@ public class EventMobLv {
         int posLv = mobPosAndZeroDistance(pos);
         if (posLv > 0) baseLv += posLv;
         //受时间影响
-        return mobLvRange(baseLv < 1 ? 1 : baseLv, world.rand);
+        return mobLvRange(Math.max(baseLv, 1), world.rand);
     }
 
     //返回玩家等级影响程度
@@ -696,7 +712,9 @@ public class EventMobLv {
         for (EntityPlayer player : players) {
             if (isPlayerHasLv(player)) {
                 IPlayerLevel capability = player.getCapability(CapabilityLoader.tmodLv, null);
-                lv += capability.getPlayerLevel();
+                if (capability != null) {
+                    lv += capability.getPlayerLevel();
+                }
             }
         }
         int avgLv = (int) Math.floor(lv / (players.size() * 1.0d));
@@ -709,7 +727,7 @@ public class EventMobLv {
 
     //根据基础等级返回随机等级
     private int mobLvRange(int level, Random random) {
-        int timeRange = level - 10 < 1 ? 1 : level - 10;
+        int timeRange = Math.max(level - 10, 1);
         int lv;
         if (level <= 10) {
             lv = random.nextInt(level) + 1;
@@ -759,7 +777,7 @@ public class EventMobLv {
         }
         if (entityLiving instanceof EntityIronGolem) {
             IAttributeInstance moveSpeed = entityLiving.getAttributeMap().getAttributeInstance(SharedMonsterAttributes.MOVEMENT_SPEED);
-            AttributeModifier modifier = ModAttributeModifier.getModifier(ModAttributeModifier.ATTR_TYPE.MOVE_SPEED, lv * 0.001 < 0.2 ? lv * 0.001 : 0.2);
+            AttributeModifier modifier = ModAttributeModifier.getModifier(ModAttributeModifier.ATTR_TYPE.MOVE_SPEED, Math.min(lv * 0.001, 0.2));
             moveSpeed.applyModifier(modifier);
         }
         entityLiving.addTag("Lv:" + lv);
@@ -775,7 +793,7 @@ public class EventMobLv {
             ResourceLocation profession = villager.getProfessionForge().getRegistryName();
             if (!entityLiving.getCustomNameTag().contains("Lv:")) { //不存在等级信息
                 entityLiving.setCustomNameTag(entityLiving.getCustomNameTag() + "Lv:" + lv + " " + entityLiving.getName() + ":" +
-                        I18n.format("entity.Villager." + getVillagerName(profession.toString())));
+                        I18n.format("entity.Villager." + getVillagerName(profession != null ? profession.toString() : "")));
             }
         } else {
             if (!entityLiving.getCustomNameTag().contains("Lv:")) {
@@ -800,11 +818,4 @@ public class EventMobLv {
         if (living == null) return 0;
         return (int) living.getAttributeMap().getAttributeInstance(LIVING_LEVEL).getAttributeValue();
     }
-    //设置武器和盔甲属性
-//	private void setItemAttr(int lv, Item item) {
-//		if(item instanceof ItemSword) {
-//			ItemSword sword = (ItemSword) item;
-//			sword.getAttackDamage();
-//		}
-//	}
 }

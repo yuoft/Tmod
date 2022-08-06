@@ -27,8 +27,8 @@ import net.minecraftforge.fml.common.gameevent.TickEvent;
  * 源码来自 更多实用设备2
  */
 public class EventCraftSalt {
-    List<EntityItem> saltWashServer = new ArrayList<EntityItem>();
-    List<EntityItem> saltWashClient = new ArrayList<EntityItem>();
+    List<EntityItem> saltWashServer = new ArrayList<>();
+    List<EntityItem> saltWashClient = new ArrayList<>();
 
     public EventCraftSalt() {
         MinecraftForge.EVENT_BUS.register(this);

@@ -49,6 +49,6 @@ public class KeyLoader {
             if (KeyLoader.key_DOWN.isPressed()) {
 //  				player.sendMessage(new TextComponentTranslation("下键"));
             }
-        } else Minecraft.getMinecraft().player.sendMessage(new TextComponentString("error"));
+        }
     }
 }

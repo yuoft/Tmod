@@ -27,8 +27,8 @@ import net.minecraftforge.fml.common.gameevent.TickEvent;
  * 源码来自 更多实用设备2
  */
 public class EventCraftRuby {
-    List<EntityItem> rubyServer = new ArrayList<EntityItem>();
-    List<EntityItem> rubyClient = new ArrayList<EntityItem>();
+    List<EntityItem> rubyServer = new ArrayList<>();
+    List<EntityItem> rubyClient = new ArrayList<>();
 
     public EventCraftRuby() {
         MinecraftForge.EVENT_BUS.register(this);

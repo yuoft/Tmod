@@ -62,37 +62,10 @@ public class PowerTileEntity extends TileEntityLockable implements ITickable, IS
         ItemStack stack0 = this.stacks.get(0);
         ItemStack stack1 = this.stacks.get(1);
         ItemStack stack2 = this.stacks.get(2);
-        if (stack0.isEmpty() || stack1.isEmpty()) return;
-
-        /*
-        //物品正确 产物未满
-        if (stack0.getItem() == ItemLoader.emeraldTree && stack1.getItem() == Items.DIAMOND &&
-                (stack2.isEmpty() || (stack2.getItem() == Items.EMERALD && stack2.getCount() < 64))) {
-            this.burnTime++;
-            if (burnTime >= burnTotalTime) {
-                stack0.shrink(1);
-                if (stack2.isEmpty()) {
-                    this.stacks.set(2, new ItemStack(Items.EMERALD));
-                } else stack2.grow(1);
-                if (world.rand.nextInt(100) > 70) { //30%概率消耗钻石
-                    stack1.shrink(1);
-                }
-                this.burnTime = 0;
-            }
-            this.markDirty();
-        } else if (stack0.getItem() == ItemLoader.emeraldIngotBlock && stack1.getItem() == Items.LAVA_BUCKET && stack2.isEmpty()) {
-            this.burnTime++;
-            if (burnTime >= burnTotalTime) {
-                stack0.shrink(1);
-                FluidStack fluidStack = FluidRegistry.getFluidStack(FluidLoader.emerald_fluid.getName(), 0);
-                if (fluidStack != null){
-                    ItemStack bucket = FluidUtil.getFilledBucket(fluidStack);
-                    this.stacks.set(2, bucket);
-                    stack1.shrink(1);
-                    this.burnTime = 0;
-                }
-            }
-        } else burnTime = 0;*/
+        if (stack0.isEmpty() || stack1.isEmpty()) {
+            this.burnTime = 0;
+            return;
+        }
 
         ItemStack recipe = PowerRecipeManager.getRecipe(stack0, stack1);
         if (!recipe.isEmpty() && (stack2.isEmpty() || stack2.isItemEqual(recipe))){ //配方有输出 产物为空或相同 才运行
@@ -105,6 +78,8 @@ public class PowerTileEntity extends TileEntityLockable implements ITickable, IS
                 this.burnTime++;
                 stack2.grow(recipe.getCount());
             }else this.stacks.set(2, recipe);
+            stack0.shrink(1);
+            stack1.shrink(1);
             this.burnTime = 0;
             this.markDirty();
         }

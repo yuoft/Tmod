@@ -8,8 +8,8 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-//        classpath 'net.minecraftforge.gradle:ForgeGradle:5.+'
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
+        classpath 'net.minecraftforge.gradle:ForgeGradle:3.+'
+//        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
     }
 }
         
@@ -22,29 +22,25 @@ group = 'com.github.yuoft' // http://maven.apache.org/guides/mini/guide-naming-c
 archivesBaseName = 'T Mod'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
-[compileJava, compileTestJava]*.options*.encoding = 'UTF-8' //解决含有中文无法编译
-tasks.withType(JavaCompile) {
-    options.encoding = 'UTF-8'
-}
 minecraft {
     mappings channel: 'snapshot', version: '20171003-1.12'
     runs {
         client {
             workingDirectory project.file('run')
-            // Recommended logging data for a userdev environment
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-            // Recommended logging level for the console
-            property 'forge.logging.console.level', 'debug'
+            property 'forge.logging.console.level', 'info'
         }
         server {
-            // Recommended logging data for a userdev environment
+            workingDirectory project.file('run')
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-            // Recommended logging level for the console
-            property 'forge.logging.console.level', 'debug'
+            property 'forge.logging.console.level', 'info'
         }
-
     }
 }
+
+//sourceSets {
+//    srcDir 'src/generated/resources'
+//}
 
 repositories {
     mavenCentral()
@@ -89,3 +85,6 @@ publishing {
     }
 }
 
+sourceSets {
+    main { output.resourcesDir = output.classesDir }
+}

@@ -14,30 +14,17 @@ import net.minecraftforge.fluids.FluidUtil;
 public class ModRecipeManager {
 
     public static void initRecipes(){
-        PowerRecipeManager.addRecipe(getIngredient(new ItemStack(ItemLoader.emeraldTree)),
-                getIngredient(new ItemStack(Items.DIAMOND)), new ItemStack(Items.EMERALD));
+        PowerRecipeManager.addRecipe(Ingredient.fromStacks(new ItemStack(ItemLoader.emeraldTree)),
+                Ingredient.fromStacks(new ItemStack(Items.DIAMOND)), new ItemStack(Items.EMERALD));
         FluidStack fluidStack = FluidRegistry.getFluidStack(FluidLoader.emerald_fluid.getName(), 0);
         if (fluidStack != null) {
             ItemStack bucket = new ItemStack(ForgeModContainer.getInstance().universalBucket);
             NBTTagCompound nbt = new NBTTagCompound();
             fluidStack.writeToNBT(nbt);
             bucket.setTagCompound(nbt);
-            PowerRecipeManager.addRecipe(getIngredient(new ItemStack(ItemLoader.emeraldIngotBlock)),
-                    getIngredient(new ItemStack(Items.LAVA_BUCKET)), bucket);
+            PowerRecipeManager.addRecipe(Ingredient.fromStacks(new ItemStack(ItemLoader.emeraldIngotBlock)),
+                    Ingredient.fromStacks(new ItemStack(Items.LAVA_BUCKET)), bucket);
         }
     }
 
-    /**
-     * 获取一个Ingredient
-     * @param stacks 物品
-     * @return Ingredient
-     */
-    public static Ingredient getIngredient(ItemStack... stacks){
-        Ingredient ingredient = Ingredient.EMPTY;
-        for (ItemStack stack : stacks) {
-            ingredient.apply(stack);
-        }
-
-        return ingredient;
-    }
 }
