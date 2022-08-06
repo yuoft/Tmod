@@ -16,6 +16,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
+import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.tileentity.TileEntityLockable;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
@@ -62,6 +63,8 @@ public class PowerTileEntity extends TileEntityLockable implements ITickable, IS
         ItemStack stack0 = this.stacks.get(0);
         ItemStack stack1 = this.stacks.get(1);
         ItemStack stack2 = this.stacks.get(2);
+        lightChange();
+
         if (stack0.isEmpty() || stack1.isEmpty()) {
             this.burnTime = 0;
             return;
@@ -83,12 +86,17 @@ public class PowerTileEntity extends TileEntityLockable implements ITickable, IS
             this.burnTime = 0;
             this.markDirty();
         }
+    }
 
+    /**
+     * 切换方块亮度
+     */
+    private void lightChange(){
         if (this.burnTime > 0) {
-            this.world.setBlockState(pos, world.getBlockState(this.pos).withProperty(PowerExtractor.BURNING, Boolean.TRUE));
+            this.world.setBlockState(pos, world.getBlockState(this.pos).withProperty(PowerExtractor.BURNING, Boolean.TRUE), 3);
             this.world.getBlockState(pos).getBlock().setLightLevel(12);
         } else {
-            this.world.setBlockState(pos, world.getBlockState(this.pos).withProperty(PowerExtractor.BURNING, Boolean.FALSE));
+            this.world.setBlockState(pos, world.getBlockState(this.pos).withProperty(PowerExtractor.BURNING, Boolean.FALSE), 3);
             this.world.getBlockState(pos).getBlock().setLightLevel(0);
         }
     }

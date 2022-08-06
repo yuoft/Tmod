@@ -34,7 +34,6 @@ public class CraftingLoader {
 //	    GameRegistry.addSmelting(Items.EMERALD,new ItemStack(itemLoader.emerald_ingot), 20.0f);
         GameRegistry.addSmelting(ItemLoader.badApple, new ItemStack(Items.APPLE), 0.3f);
         GameRegistry.addSmelting(ItemLoader.saltMeat, new ItemStack(ItemLoader.cookingSaltMeat), 0.8f);
-        GameRegistry.addSmelting(BlockLoader.saltOre, new ItemStack(ItemLoader.saltWash), 0.5f);
         GameRegistry.addSmelting(ItemLoader.complexPowder, new ItemStack(ItemLoader.emeraldIngot), 1.0f);
         GameRegistry.addSmelting(BlockLoader.ancientDebris, new ItemStack(ItemLoader.netheriteScrap), 2.0f);
     }

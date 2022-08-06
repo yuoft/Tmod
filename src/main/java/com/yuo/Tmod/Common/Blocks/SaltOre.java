@@ -34,12 +34,21 @@ public class SaltOre extends BlockOre {
     @Nonnull
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return ItemLoader.saltOre;
+        return ItemLoader.saltWash;
     }
 
     @Override
     public int quantityDropped(Random random) {
-        return 1;
+        return random.nextInt(2) + 1;
+    }
+
+    @Override
+    public int quantityDroppedWithBonus(int fortune, Random random) {
+        if (fortune > 0) {
+            return this.quantityDropped(random) + (fortune + random.nextInt(fortune));
+        } else {
+            return this.quantityDropped(random);
+        }
     }
 
     @Override

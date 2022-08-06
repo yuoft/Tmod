@@ -6,6 +6,8 @@ import com.yuo.Tmod.Common.Blocks.Crops.EmeraldCrop;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCrops;
+import net.minecraft.block.SoundType;
+import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.block.statemap.IStateMapper;
 import net.minecraft.client.renderer.block.statemap.StateMap;
@@ -19,21 +21,35 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockLoader {
-    public static final Block emeraldIngotBlock = new EmeraldIngotBlock("emerald_ingot_block");
-    public static final Block tallGrassBlock = new TallgrassBlock("tallgrass_block");
+    //矿物
     public static final Block emeraldIngotOre = new EmeraldIngotOre("emerald_ingot_ore");
-    public static final Block emeraldTree = new EmeraldTree("emerald_tree");
-    public static final Block emeraldLeaf = new EmeraldLeaf("emerald_leaf");
-    public static final Block emeraldSapling = new EmeraldSapling("emerald_sapling");
-    public static final Block powerExtractor = new PowerExtractor("power_extractor");
-    public static final BlockFluidClassic emeraldFluid = new EmeraldFluid("emerald_fluid");
-    public static final BlockCrops emeraldCrop = new EmeraldCrop("emerald_crop");
-    public static final Block bossBlock = new BossBlock("boss_block");
-    public static final Block bossBlock1 = new BossBlock("boss_block1");
-    public static final Block emeraldChest = new EmeraldChest("emerald_chest");
     public static final Block spaceOre = new SpaceOre("space_ore");
     public static final Block spaceBlock = new SpaceBlock("space_block");
     public static final Block saltOre = new SaltOre("salt_ore");
+    public static final Block rubyOre = new ModBlock("ruby_ore", 10, 2, Material.ROCK);
+    public static final Block ancientDebris = new ModBlock("ancient_debris", 22, 3, Material.IRON);
+    //树木
+    public static final Block emeraldTree = new EmeraldTree("emerald_tree");
+    public static final Block emeraldLeaf = new EmeraldLeaf("emerald_leaf");
+    public static final Block emeraldSapling = new EmeraldSapling("emerald_sapling");
+    //普通方块
+    public static final Block emeraldIngotBlock = new ModBlock("emerald_ingot_block", 10, 3, Material.ROCK);
+    public static final Block rubyBlock = new ModBlock("ruby_block", 15, 3, Material.IRON);
+    public static final Block dragonBlock = new ModBlock("dragon_block", 25, 4, Material.IRON);
+    public static final Block netheriteBlock = new ModBlock("netherite_block", 23, 4, Material.IRON);
+    //功能方块
+    public static final Block powerExtractor = new PowerExtractor("power_extractor");
+    public static final BlockFluidClassic emeraldFluid = new EmeraldFluid("emerald_fluid");
+    public static final Block bossBlock = new BossBlock("boss_block");
+    public static final Block bossBlock1 = new BossBlock("boss_block1");
+    public static final Block emeraldChest = new EmeraldChest("emerald_chest");
+    public static final Block luckyBlock = new LuckyBlock("lucky_block");
+    public static final Block unluckyBlock = new LuckyBlock("unlucky_block");
+    public static final Block mine = new Mine("mine"); //地雷
+    public static final Block speedTorch = new SpeedTorch("speed_torch"); //加速火把
+    public static final Block elevator = new Elevator("elevator"); //电梯
+    //作物
+    public static final BlockCrops emeraldCrop = new EmeraldCrop("emerald_crop");
     public static final Block diamondCrop = new StemCrop("diamond_crop", Blocks.DIAMOND_ORE);
     public static final Block goldCrop = new StemCrop("gold_crop", Blocks.GOLD_ORE);
     public static final Block ironCrop = new StemCrop("iron_crop", Blocks.IRON_ORE);
@@ -43,20 +59,9 @@ public class BlockLoader {
     public static final Block quartzCrop = new StemCrop("coal_crop", Blocks.QUARTZ_ORE);//石英
     public static final Block redstoneCrop = new StemCrop("coal_crop", Blocks.REDSTONE_ORE);//红石
     public static final Block appleReeds = new AllReeds("apple_reeds");
-    public static final Block luckyBlock = new LuckyBlock("lucky_block");
-    public static final Block unluckyBlock = new UnLuckyBlock("unlucky_block");
-    public static final Block rubyOre = new RubyOre("ruby_ore");
-    public static final Block mine = new Mine("mine"); //地雷
-    public static final Block speedTorch = new SpeedTorch("speed_torch"); //加速火把
-    public static final Block elevator = new Elevator("elevator"); //电梯
-    public static final Block rubyBlock = new ModBlock("ruby_block", 15, 3);
-    public static final Block dragonBlock = new ModBlock("dragon_block", 25, 4);
-    public static final Block netheriteBlock = new ModBlock("netherite_block", 23, 4);
-    public static final Block ancientDebris = new AncientDebris("ancient_debris");
 
     public BlockLoader(FMLPreInitializationEvent event) {
         register(emeraldIngotBlock, "emerald_ingot_block");
-        register(tallGrassBlock, "tallgrass_block");
         register(emeraldIngotOre, "emerald_ingot_ore");
         register(emeraldTree, "emerald_tree");
         register(emeraldLeaf, "emerald_leaf");
@@ -99,7 +104,6 @@ public class BlockLoader {
     @SideOnly(Side.CLIENT)
     public static void registerRenders() {
         registerRender(emeraldIngotBlock, 0);
-        registerRender(tallGrassBlock, 0);
         registerRender(emeraldIngotOre, 0);
         registerRender(emeraldTree, 0);
         registerStateMapper(emeraldTree,

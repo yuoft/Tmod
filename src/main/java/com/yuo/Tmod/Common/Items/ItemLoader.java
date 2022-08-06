@@ -144,7 +144,6 @@ public class ItemLoader {
     public static final ObsidianArmor obsidianFeet = new ObsidianArmor("obsidian_feet", TmodMaterial.OBSIDIAN_ARMOR, 3, EntityEquipmentSlot.FEET);
 
     public static final ModItemBlock emeraldIngotBlock = new ModItemBlock(BlockLoader.emeraldIngotBlock);
-    public static final ModItemBlock tallGrassBlock = new ModItemBlock(BlockLoader.tallGrassBlock);
     public static final ModItemBlock emeraldIngotOre = new ModItemBlock(BlockLoader.emeraldIngotOre);
     public static final ModItemBlock emeraldTree = new ModItemBlock(BlockLoader.emeraldTree);
     public static final ModItemBlock emeraldLeaf = new ModItemBlock(BlockLoader.emeraldLeaf);
@@ -168,9 +167,9 @@ public class ItemLoader {
     public static final ModItemBlock ancientDebris = new ModItemBlock(BlockLoader.ancientDebris);
     //特殊物品
     public static final GoldenTNT goldenTnt = new GoldenTNT("golden_tnt");
-    public static final tmodMusicRecord tmodMusic1 = new tmodMusicRecord("tmod_music1", SoundLoader.LTY_JueTiJueMimg);
-    public static final tmodMusicRecord tmodMusic2 = new tmodMusicRecord("tmod_music2", SoundLoader.HY_MingJi);
-    public static final tmodMusicRecord tmodMusic3 = new tmodMusicRecord("tmod_music3", SoundLoader.CD_Op);
+    public static final TmodMusicRecord tmodMusic1 = new TmodMusicRecord("tmod_music1", SoundLoader.LTY_JueTiJueMimg);
+    public static final TmodMusicRecord tmodMusic2 = new TmodMusicRecord("tmod_music2", SoundLoader.HY_MingJi);
+    public static final TmodMusicRecord tmodMusic3 = new TmodMusicRecord("tmod_music3", SoundLoader.CD_Op);
     public static final Item expSmall = new ExpWaterDrop("exp_small");
     public static final Item expBig = new ExpWaterDrop("exp_big");
     public static final Item storageRingBig = new StorageRing("storage_ring_big");
@@ -320,7 +319,6 @@ public class ItemLoader {
         ForgeRegistries.ITEMS.register(obsidianFeet.setRegistryName("obsidian_feet"));
 
         ForgeRegistries.ITEMS.register(emeraldIngotBlock.setRegistryName("emerald_ingot_block"));
-        ForgeRegistries.ITEMS.register(tallGrassBlock.setRegistryName("tallgrass_block"));
         ForgeRegistries.ITEMS.register(emeraldIngotOre.setRegistryName("emerald_ingot_ore"));
         ForgeRegistries.ITEMS.register(emeraldTree.setRegistryName("emerald_tree"));
         ForgeRegistries.ITEMS.register(emeraldLeaf.setRegistryName("emerald_leaf"));
@@ -511,7 +509,6 @@ public class ItemLoader {
         registerRender(obsidianFeet);
 
         registerRender(emeraldIngotBlock);
-        registerRender(tallGrassBlock);
         registerRender(emeraldIngotOre);
         registerRender(emeraldTree, 0);
         registerRender(emeraldLeaf, 0);

@@ -33,7 +33,6 @@ public class CommonProxy {
         new VillagerLoader();//村民职业注册
         new CapabilityLoader();//能力系统注册
         new NetworkLoader(event);//消息传递，数据同步
-        ModRecipeManager.initRecipes();
     }
 
     public void init(FMLInitializationEvent event) {
@@ -46,6 +45,7 @@ public class CommonProxy {
         new LuckyEvent();//幸运方块事件
         new WorldGens();//矿物生成注册
         new GuiLoader();//gui注册
+        ModRecipeManager.initRecipes();
     }
 
     public void postInit(FMLPostInitializationEvent event) {

@@ -33,7 +33,7 @@ public class SpaceBlock extends Block {
         super(Material.ROCK);// 放置音效
         this.setUnlocalizedName(name);
         this.setHardness(50);// 硬度
-        this.setHarvestLevel("pickaxe", 5);// 采集工具,等级
+        this.setHarvestLevel("pickaxe", 7);// 采集工具,等级
         this.setResistance(500);// 爆炸抗性
         this.setCreativeTab(TmodGroup.TMOD);
         this.setSoundType(SoundType.STONE);// 破坏音效
@@ -51,12 +51,6 @@ public class SpaceBlock extends Block {
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(I18n.format("tmod.block.space_block", ""));
-    }
-
-    public void onBlockClicked(World worldIn, BlockPos pos, EntityPlayer playerIn) {
-        //停止游戏服务器
-//		Minecraft mc = Minecraft.getMinecraft();
-//		mc.stopIntegratedServer();
     }
 
     // 方块被放置

@@ -27,7 +27,7 @@ public class SpaceOre extends BlockOre {
         this.setHardness(10);
         this.setResistance(500);
         this.setCreativeTab(TmodGroup.TMOD);
-        this.setHarvestLevel("pickaxe", 4);
+        this.setHarvestLevel("pickaxe", 6);
     }
 
     // SRG func_180660_a，用于决定掉落的物品种类

@@ -32,11 +32,11 @@ public class EmeraldLeaf extends BlockLeaves {
     //使用剪刀得到什么
     @Override
     public List<ItemStack> onSheared(ItemStack item, IBlockAccess world, BlockPos pos, int fortune) {
-        List<ItemStack> list = new ArrayList<ItemStack>();
+        List<ItemStack> list = new ArrayList<>();
         Random random = new Random();
         ItemStack stack = new ItemStack(this);
         ItemStack stack2 = new ItemStack(ItemLoader.emeraldSapling, 1);
-        if (fortune != 0) {
+        if (fortune != 0) { //有时运时
             int number = random.nextInt(fortune + 1);
             ItemStack stack1 = new ItemStack(ItemLoader.emeraldSapling, number + 1);
             if (random.nextInt(10) > 4) {
@@ -97,13 +97,4 @@ public class EmeraldLeaf extends BlockLeaves {
 
         return meta;
     }
-
-    public int getMetadata(int damage) {
-        return 4;
-    }
-
-//	@Override
-//	public int damageDropped(IBlockState state) {
-//		return 0; // only first 2 bits
-//	}
 }

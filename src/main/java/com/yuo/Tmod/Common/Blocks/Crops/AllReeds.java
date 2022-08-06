@@ -15,6 +15,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+//甘蔗
 public class AllReeds extends BlockReed {
     public AllReeds(String name) {
         this.setUnlocalizedName(name);

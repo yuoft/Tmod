@@ -140,7 +140,6 @@ item.obsidian_feet.name=黑曜石鞋子
 item.dragon_bow.name=§5龙晶弓
 #方块
 tile.emerald_ingot_block.name=绿宝石锭块
-tile.tallgrass_block.name=青草块
 tile.emerald_ingot_ore.name=绿宝石锭矿石
 tile.emerald_tree.name=绿宝石树木
 tile.emerald_leaf.name=绿宝石树叶

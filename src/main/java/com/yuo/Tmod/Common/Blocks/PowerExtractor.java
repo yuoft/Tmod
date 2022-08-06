@@ -44,6 +44,7 @@ public class PowerExtractor extends BlockContainer {
         this.setCreativeTab(TmodGroup.TMOD);
         this.setSoundType(SoundType.STONE);
         this.setHarvestLevel("pickaxe", 1);
+        this.setLightLevel(this.blockState.getBaseState().getValue(BURNING) ? 12 : 0);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(BURNING, false));
     }
 
@@ -56,8 +57,7 @@ public class PowerExtractor extends BlockContainer {
 
     //BlockState和Metadata的相互对应
     @Override
-    public IBlockState getStateFromMeta(int meta)//从值得到状态
-    {
+    public IBlockState getStateFromMeta(int meta) {//从值得到状态
         EnumFacing facing = EnumFacing.NORTH;
         boolean burning = false;
         switch (meta) {
@@ -92,8 +92,7 @@ public class PowerExtractor extends BlockContainer {
     }
 
     @Override
-    public int getMetaFromState(IBlockState state)//从状态得到值
-    {
+    public int getMetaFromState(IBlockState state) {//从状态得到值
         int meta = 0;
 //        if (state.getValue(FACING) == EnumFacing.NORTH && !state.getValue(BURNING)) {
 //        }
@@ -133,7 +132,7 @@ public class PowerExtractor extends BlockContainer {
         return Item.getItemFromBlock(BlockLoader.powerExtractor);
     }
 
-    //燃烧时随机播放声音
+    //燃烧时随机播放声音 粒子
     @SuppressWarnings("incomplete-switch")
     public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
         if (stateIn.getValue(BURNING)) {
@@ -149,20 +148,16 @@ public class PowerExtractor extends BlockContainer {
 
             switch (enumfacing) {
                 case WEST:
-                    worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0 - 0.52D, d1, d2 + d4, 0.0D, 0.0D, 0.0D);
-                    worldIn.spawnParticle(EnumParticleTypes.FLAME, d0 - 0.52D, d1, d2 + d4, 0.0D, 0.0D, 0.0D);
+                    worldIn.spawnParticle(EnumParticleTypes.REDSTONE, d0 - 0.52D, d1, d2 + d4, 0.0D, 0.0D, 0.0D);
                     break;
                 case EAST:
-                    worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0 + 0.52D, d1, d2 + d4, 0.0D, 0.0D, 0.0D);
-                    worldIn.spawnParticle(EnumParticleTypes.FLAME, d0 + 0.52D, d1, d2 + d4, 0.0D, 0.0D, 0.0D);
+                    worldIn.spawnParticle(EnumParticleTypes.REDSTONE, d0 + 0.52D, d1, d2 + d4, 0.0D, 0.0D, 0.0D);
                     break;
                 case NORTH:
-                    worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0 + d4, d1, d2 - 0.52D, 0.0D, 0.0D, 0.0D);
-                    worldIn.spawnParticle(EnumParticleTypes.FLAME, d0 + d4, d1, d2 - 0.52D, 0.0D, 0.0D, 0.0D);
+                    worldIn.spawnParticle(EnumParticleTypes.REDSTONE, d0 + d4, d1, d2 - 0.52D, 0.0D, 0.0D, 0.0D);
                     break;
                 case SOUTH:
-                    worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0 + d4, d1, d2 + 0.52D, 0.0D, 0.0D, 0.0D);
-                    worldIn.spawnParticle(EnumParticleTypes.FLAME, d0 + d4, d1, d2 + 0.52D, 0.0D, 0.0D, 0.0D);
+                    worldIn.spawnParticle(EnumParticleTypes.REDSTONE, d0 + d4, d1, d2 + 0.52D, 0.0D, 0.0D, 0.0D);
             }
         }
     }

@@ -13,15 +13,13 @@ import net.minecraftforge.fluids.FluidUtil;
 
 public class ModRecipeManager {
 
+    //加载配方
     public static void initRecipes(){
         PowerRecipeManager.addRecipe(Ingredient.fromStacks(new ItemStack(ItemLoader.emeraldTree)),
                 Ingredient.fromStacks(new ItemStack(Items.DIAMOND)), new ItemStack(Items.EMERALD));
         FluidStack fluidStack = FluidRegistry.getFluidStack(FluidLoader.emerald_fluid.getName(), 0);
         if (fluidStack != null) {
-            ItemStack bucket = new ItemStack(ForgeModContainer.getInstance().universalBucket);
-            NBTTagCompound nbt = new NBTTagCompound();
-            fluidStack.writeToNBT(nbt);
-            bucket.setTagCompound(nbt);
+            ItemStack bucket = FluidUtil.getFilledBucket(fluidStack);
             PowerRecipeManager.addRecipe(Ingredient.fromStacks(new ItemStack(ItemLoader.emeraldIngotBlock)),
                     Ingredient.fromStacks(new ItemStack(Items.LAVA_BUCKET)), bucket);
         }
