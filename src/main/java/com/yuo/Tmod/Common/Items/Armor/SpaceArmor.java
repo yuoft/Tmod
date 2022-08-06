@@ -1,10 +1,12 @@
 package com.yuo.Tmod.Common.Items.Armor;
 
+import com.yuo.Tmod.Common.Items.ItemLoader;
 import com.yuo.Tmod.Tab.TmodGroup;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
@@ -20,21 +22,17 @@ public class SpaceArmor extends ItemArmor {
     }
 
     // 穿在身上的时候的每时每刻都会调用的方法，可以用来追加药水效果什么的
-    //套装效果
+    //根据装备的盔甲数量给予玩家抗性buff，最高3级
     @Override
     public void onArmorTick(World world, EntityPlayer player, ItemStack item) {
-        NonNullList<ItemStack> stacks = player.inventory.armorInventory;
-        boolean flag = stacks.size() >= 4;
-        //未装备4件
-        for (ItemStack itemStack : stacks) {
-            if (itemStack.isEmpty() || !(itemStack.getItem() instanceof SpaceArmor)) //不是当前盔甲
-                flag = false;
+        int i = 0;
+        for (ItemStack stack : player.inventory.armorInventory) {
+            if (stack.getItem() instanceof SpaceArmor)
+                i++;
         }
-        if (flag) {
-            player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 0, 1)); //抗性
-            player.addPotionEffect(new PotionEffect(MobEffects.SPEED, 0, 0));
-            player.addPotionEffect(new PotionEffect(MobEffects.JUMP_BOOST, 0, 1));
-            player.addPotionEffect(new PotionEffect(MobEffects.STRENGTH, 0, 0)); //力量
-        }
+        PotionEffect effect = player.getActivePotionEffect(MobEffects.RESISTANCE);
+        if (effect != null){
+            player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, effect.getDuration(), Math.min(2, i - 1)));
+        }else player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 0, Math.min(2, i - 1))); //抗性
     }
 }

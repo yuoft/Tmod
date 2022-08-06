@@ -1,5 +1,6 @@
 package com.yuo.Tmod.Common.Items.Armor;
 
+import com.yuo.Tmod.Common.Items.ItemLoader;
 import com.yuo.Tmod.Tab.TmodGroup;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
@@ -28,8 +29,9 @@ public class GlowstoneArmor extends ItemArmor {
                 flag = false;
         }
         if (flag) {
-            player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 300, 0));
             player.addPotionEffect(new PotionEffect(MobEffects.GLOWING, 0, 0));
         }
+        if (item.getItem() == ItemLoader.glowstoneHead) //头盔提供夜视
+            player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 300, 0));
     }
 }

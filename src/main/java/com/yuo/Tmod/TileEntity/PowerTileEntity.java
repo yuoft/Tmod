@@ -30,7 +30,7 @@ import javax.annotation.Nullable;
 
 public class PowerTileEntity extends TileEntityLockable implements ITickable, ISidedInventory {
     private int burnTime = 0;
-    private final int burnTotalTime = 160;
+    private int totalTime = 0;
     private static final int[] SLOTS_TOP = new int[]{0};
     private static final int[] SLOTS_BOTTOM = new int[]{2, 1};
     private static final int[] SLOTS_SIDES = new int[]{1};
@@ -41,6 +41,7 @@ public class PowerTileEntity extends TileEntityLockable implements ITickable, IS
     public void readFromNBT(NBTTagCompound nbt) {
         super.readFromNBT(nbt);
         this.burnTime = nbt.getInteger("BurnTime");
+        this.totalTime = nbt.getInteger("TotalTime");
         this.stacks = NonNullList.withSize(this.getSizeInventory(), ItemStack.EMPTY);
         ItemStackHelper.loadAllItems(nbt, this.stacks);
     }
@@ -49,12 +50,9 @@ public class PowerTileEntity extends TileEntityLockable implements ITickable, IS
     public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
         super.writeToNBT(nbt);
         nbt.setInteger("BurnTime", this.burnTime);
+        nbt.setInteger("TotalTime", this.totalTime);
         ItemStackHelper.saveAllItems(nbt, stacks);
         return nbt;
-    }
-
-    public int getBurnTime() {
-        return this.burnTime;
     }
 
     @Override
@@ -63,8 +61,8 @@ public class PowerTileEntity extends TileEntityLockable implements ITickable, IS
         ItemStack stack0 = this.stacks.get(0);
         ItemStack stack1 = this.stacks.get(1);
         ItemStack stack2 = this.stacks.get(2);
-        lightChange();
 
+        lightChange();
         if (stack0.isEmpty() || stack1.isEmpty()) {
             this.burnTime = 0;
             return;
@@ -73,10 +71,13 @@ public class PowerTileEntity extends TileEntityLockable implements ITickable, IS
         ItemStack recipe = PowerRecipeManager.getRecipe(stack0, stack1);
         if (!recipe.isEmpty() && (stack2.isEmpty() || stack2.isItemEqual(recipe))){ //配方有输出 产物为空或相同 才运行
             this.burnTime++;
+            if (this.totalTime == 0){
+                this.totalTime = PowerRecipeManager.getTime(stack0, stack1);
+            }
             this.markDirty();
         }
 
-        if (this.burnTime >= this.burnTotalTime){ //合成时间到 输出产物
+        if (this.burnTime >= this.totalTime){ //合成时间到 输出产物
             if (stack2.isItemEqual(recipe)){
                 this.burnTime++;
                 stack2.grow(recipe.getCount());
@@ -89,7 +90,7 @@ public class PowerTileEntity extends TileEntityLockable implements ITickable, IS
     }
 
     /**
-     * 切换方块亮度
+     * 切换方块亮度 和状态
      */
     private void lightChange(){
         if (this.burnTime > 0) {
@@ -116,6 +117,7 @@ public class PowerTileEntity extends TileEntityLockable implements ITickable, IS
     public NBTTagCompound getUpdateTag() {
         NBTTagCompound compound = super.getUpdateTag();
         compound.setInteger("BurnTime", this.burnTime);
+        compound.setInteger("TotalTime", this.totalTime);
         ItemStackHelper.saveAllItems(compound, this.stacks);
         return compound;
     }
@@ -124,6 +126,7 @@ public class PowerTileEntity extends TileEntityLockable implements ITickable, IS
     public void handleUpdateTag(NBTTagCompound tag) {
         ItemStackHelper.loadAllItems(tag, this.stacks);
         this.burnTime = tag.getInteger("BurnTime");
+        this.totalTime = tag.getInteger("TotalTime");
     }
 
     //在世界更新TileEntity所在位置的方块状态时调用，默认的判定是oldState和newState不相等时替换，然而这里我们需要更新方块状态以表示炉子是否工作，所以这里只判定方块是否相同。
@@ -148,11 +151,7 @@ public class PowerTileEntity extends TileEntityLockable implements ITickable, IS
 
     @Override
     public boolean canExtractItem(int index, ItemStack stack, EnumFacing direction) {
-        if (direction == EnumFacing.DOWN && index == 1) {
-            Item item = stack.getItem();
-            return item == Items.DIAMOND;
-        }
-        return true;
+        return direction == EnumFacing.DOWN && index == 2;
     }
 
     @Override
@@ -225,30 +224,27 @@ public class PowerTileEntity extends TileEntityLockable implements ITickable, IS
 
     @Override
     public boolean isItemValidForSlot(int index, ItemStack stack) {
-        if (index == 2) {
-            return false;
-        } else if (index != 1) {
-            return true;
-        } else {
-            ItemStack itemstack = this.stacks.get(1);
-            return itemstack.getItem() == Items.DIAMOND;
-        }
+        return index != 2;
     }
 
     @Override
     public int getField(int id) {
-        return this.burnTime;
+        return id == 0 ? this.burnTime : this.totalTime;
     }
 
     @Override
     public void setField(int id, int value) {
-        this.burnTime = value;
+        if (id == 0) this.burnTime = value;
+        else this.totalTime = value;
     }
 
     @SideOnly(Side.CLIENT)
     public static int getBurnTime(IInventory inventory) {
         return inventory.getField(0);
     }
+
+    @SideOnly(Side.CLIENT)
+    public static int getTotalTime(IInventory inventory) { return inventory.getField(1);}
 
     @Override
     public int getFieldCount() {

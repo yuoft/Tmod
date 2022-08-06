@@ -1,9 +1,11 @@
 package com.yuo.Tmod.Common.Items.Armor;
 
+import com.yuo.Tmod.Common.Items.ItemLoader;
 import com.yuo.Tmod.Tab.TmodGroup;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
@@ -28,10 +30,17 @@ public class BeaconArmor extends ItemArmor {
                 flag = false;
         }
         if (flag) {
+            player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 0, 0)); //抗性
+        }
+
+        Item armor = item.getItem();
+        if (armor == ItemLoader.beaconHead){
             player.addPotionEffect(new PotionEffect(MobEffects.SPEED, 0, 0));
+        }else if (armor == ItemLoader.beaconChest){
             player.addPotionEffect(new PotionEffect(MobEffects.HASTE, 0, 0)); //急迫
+        }else if (armor == ItemLoader.beaconLegs){
             player.addPotionEffect(new PotionEffect(MobEffects.JUMP_BOOST, 0, 0));
-            player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 0, 0));
+        }else {
             player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 0, 0));
         }
     }

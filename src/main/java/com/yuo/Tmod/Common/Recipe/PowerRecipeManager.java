@@ -13,20 +13,20 @@ public class PowerRecipeManager {
 
     /**
      * 添加配方
-     * @param inputUp
-     * @param inputDown
-     * @param output
+     * @param inputUp 输入上
+     * @param inputDown 输入下
+     * @param output 输出
      */
-    public static void addRecipe(Ingredient inputUp, Ingredient inputDown, ItemStack output){
-        PowerRecipe recipe = new PowerRecipe(output.getItem().getRegistryName(), inputUp, inputDown, output);
+    public static void addRecipe(Ingredient inputUp, Ingredient inputDown, ItemStack output, int time){
+        PowerRecipe recipe = new PowerRecipe(output.getItem().getRegistryName(), inputUp, inputDown, output, time);
         powerRecipes.add(recipe);
     }
 
     /**
      * 获取配方输出
-     * @param inputUp
-     * @param inputDown
-     * @return
+     * @param inputUp 输入1
+     * @param inputDown 输入2
+     * @return 输出
      */
     public static ItemStack getRecipe(ItemStack inputUp, ItemStack inputDown){
         for (PowerRecipe powerRecipe : powerRecipes) {
@@ -37,6 +37,21 @@ public class PowerRecipeManager {
         return ItemStack.EMPTY;
     }
 
+    /**
+     * 获取时间
+     * @param inputUp 输入1
+     * @param inputDown 输入2
+     * @return 输出
+     */
+    public static int getTime(ItemStack inputUp, ItemStack inputDown){
+        for (PowerRecipe powerRecipe : powerRecipes) {
+            if (powerRecipe.matches(inputUp, inputDown))
+                return powerRecipe.getTime();
+        }
+
+        return 160;
+    }
+
     public static List<PowerRecipe> getPowerRecipes(){
         return powerRecipes;
     }
@@ -44,15 +59,17 @@ public class PowerRecipeManager {
 
     //配方
     static class PowerRecipe {
-        public final Ingredient inputUp; //输入 上
-        public final Ingredient inputDown; //输入 下
+        private final Ingredient inputUp; //输入 上
+        private final Ingredient inputDown; //输入 下
         private final ItemStack recipeOutput; // 输出
+        private final int time; //配方时间
         private final ResourceLocation id; //配方id
 
-        public PowerRecipe(ResourceLocation idIn, Ingredient inputUp, Ingredient inputDown, ItemStack recipeOutput) {
+        public PowerRecipe(ResourceLocation idIn, Ingredient inputUp, Ingredient inputDown, ItemStack recipeOutput, int timeIn) {
             this.inputUp = inputUp;
             this.inputDown = inputDown;
             this.recipeOutput = recipeOutput;
+            this.time = timeIn;
             this.id = idIn;
         }
 
@@ -76,6 +93,10 @@ public class PowerRecipeManager {
         //配方返回
         public ItemStack getCraftingResult() {
             return this.recipeOutput.copy();
+        }
+
+        public int getTime() {
+            return time;
         }
 
         //配方输出

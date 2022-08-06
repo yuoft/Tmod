@@ -18,6 +18,7 @@ public class ContainerDemo extends Container {
     private final IInventory inventory;
 
     private int burnTime;
+    private int totalTime;
 
     public ContainerDemo(InventoryPlayer inventory, IInventory tileEntity) {
         super();
@@ -27,15 +28,13 @@ public class ContainerDemo extends Container {
         this.addSlotToContainer(new SlotDiamond(tileEntity, 1, 56, 53));
         this.addSlotToContainer(new SlotOut(tileEntity, 2, 116, 35));
         //把36个玩家背包中的物品槽加入了GUI
-        for (int i = 0; i < 3; ++i)//9-36
-        {
-            for (int j = 0; j < 9; ++j) {
-                //slot第一个参数代表相关联的IInventory，第二个参数代表物品槽在IInventory中的ID，最后两个参数代表它在GUI中的坐标。
+        for (int i = 0; i < 3; ++i) {//9-36
+            for (int j = 0; j < 9; ++j) {//slot第一个参数代表相关联的IInventory，第二个参数代表物品槽在IInventory中的ID，最后两个参数代表它在GUI中的坐标。
+
                 this.addSlotToContainer(new Slot(inventory, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
             }
         }
-        for (int i = 0; i < 9; ++i)//0-8
-        {
+        for (int i = 0; i < 9; ++i) {//0-9
             this.addSlotToContainer(new Slot(inventory, i, 8 + i * 18, 142));
         }
     }
@@ -44,10 +43,6 @@ public class ContainerDemo extends Container {
     public void addListener(IContainerListener listener) {
         super.addListener(listener);
         listener.sendAllWindowProperties(this, this.inventory);
-    }
-
-    public int getBurnTime() {
-        return this.burnTime;
     }
 
     //玩家距离《64
@@ -80,11 +75,11 @@ public class ContainerDemo extends Container {
                     if (!this.mergeItemStack(itemstack1, 1, 2, false)) {
                         return ItemStack.EMPTY;
                     }
-                } else if (index >= 3 && index < 30) {
+                } else if (index < 30) {
                     if (!this.mergeItemStack(itemstack1, 30, 39, false)) {
                         return ItemStack.EMPTY;
                     }
-                } else if (index >= 30 && index < 39 && !this.mergeItemStack(itemstack1, 3, 30, false)) {
+                } else if (index < 39 && !this.mergeItemStack(itemstack1, 3, 30, false)) {
                     return ItemStack.EMPTY;
                 }
             } else if (!this.mergeItemStack(itemstack1, 3, 39, false)) {
@@ -112,14 +107,16 @@ public class ContainerDemo extends Container {
     public void detectAndSendChanges() {
         super.detectAndSendChanges();
 
-        for (int i = 0; i < this.listeners.size(); ++i) {
-            IContainerListener icontainerlistener = this.listeners.get(i);
-
+        for (IContainerListener icontainerlistener : this.listeners) {
             if (this.burnTime != this.inventory.getField(0)) {
                 icontainerlistener.sendWindowProperty(this, 0, this.inventory.getField(0));
             }
+            if (this.totalTime != this.inventory.getField(1)) {
+                icontainerlistener.sendWindowProperty(this, 1, this.inventory.getField(1));
+            }
         }
         this.burnTime = inventory.getField(0);
+        this.totalTime = inventory.getField(1);
     }
 
     //更新数据

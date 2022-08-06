@@ -22,16 +22,14 @@ public class DragonArmor extends ItemArmor {
     //套装效果
     @Override
     public void onArmorTick(World world, EntityPlayer player, ItemStack item) {
-        NonNullList<ItemStack> stacks = player.inventory.armorInventory;
-        boolean flag = stacks.size() >= 4;
-        //未装备4件
-        for (ItemStack itemStack : stacks) {
-            if (itemStack.isEmpty() || !(itemStack.getItem() instanceof DragonArmor)) //不是当前盔甲
-                flag = false;
+        int i = 0;
+        for (ItemStack stack : player.inventory.armorInventory) {
+            if (stack.getItem() instanceof DragonArmor)
+                i++;
         }
-        if (flag) {
-            player.addPotionEffect(new PotionEffect(MobEffects.HASTE, 0, 0));
-            player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 0, 0));
-        }
+        PotionEffect effect = player.getActivePotionEffect(MobEffects.HASTE);
+        if (effect != null){
+            player.addPotionEffect(new PotionEffect(MobEffects.HASTE, effect.getDuration(), Math.min(2, i - 1)));
+        }else player.addPotionEffect(new PotionEffect(MobEffects.HASTE, 0, Math.min(2, i - 1))); //急迫
     }
 }

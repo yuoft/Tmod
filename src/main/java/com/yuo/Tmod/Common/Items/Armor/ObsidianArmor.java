@@ -20,14 +20,7 @@ public class ObsidianArmor extends ItemArmor {
 
     @Override
     public void onArmorTick(World world, EntityPlayer player, ItemStack item) {
-        NonNullList<ItemStack> stacks = player.inventory.armorInventory;
-        boolean flag = stacks.size() >= 4;
-        //未装备4件
-        for (ItemStack itemStack : stacks) {
-            if (itemStack.isEmpty() || !(itemStack.getItem() instanceof ObsidianArmor)) //不是当前盔甲
-                flag = false;
-        }
-        if (flag) {
+        if (item.getItem() instanceof ObsidianArmor) {
             player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 0, 0)); //抗性
         }
     }
