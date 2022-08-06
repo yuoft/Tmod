@@ -4,8 +4,10 @@
         "model": "orientable",
         "textures": {
             "top": "tmod:block/power_extractor_top",
+            "bottom": "tmod:block/power_extractor_down",
             "front": "tmod:block/power_extractor_off",
-            "side": "tmod:block/power_extractor_side"
+            "south": "tmod:block/power_extractor_side",
+            "side": "tmod:block/power_extractor_side_off"
         }
     },
 	"variants": {
@@ -13,8 +15,14 @@
              "textures": { "front": "tmod:block/power_extractor_off" }
         }],
         "burning": {
-            "true": { "textures": { "front": "tmod:block/power_extractor_on" } },
-            "false": { "textures": { "front": "tmod:block/power_extractor_off" } }
+            "true": { "textures": {
+                "front": "tmod:block/power_extractor_on",
+                "side": "tmod:block/power_extractor_side_on"
+            }},
+            "false": { "textures": {
+                "front": "tmod:block/power_extractor_off",
+                "side": "tmod:block/power_extractor_side_off"
+            }}
         },
 		"facing": {
             "east": { "y": 90 },

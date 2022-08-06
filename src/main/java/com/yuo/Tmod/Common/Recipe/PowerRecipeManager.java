@@ -1,20 +1,12 @@
 package com.yuo.Tmod.Common.Recipe;
 
-import com.yuo.Tmod.TileEntity.PowerTileEntity;
-import com.yuo.Tmod.Tmod;
 import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.World;
-import net.minecraftforge.registries.IForgeRegistryEntry;
 
-import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class PowerRecipeManager {
     private static final List<PowerRecipe> powerRecipes = new ArrayList<>();
@@ -38,8 +30,8 @@ public class PowerRecipeManager {
      */
     public static ItemStack getRecipe(ItemStack inputUp, ItemStack inputDown){
         for (PowerRecipe powerRecipe : powerRecipes) {
-            if (powerRecipe.inputUp.test(inputUp) && powerRecipe.inputDown.test(inputDown))
-                return powerRecipe.recipeOutput;
+            if (powerRecipe.matches(inputUp, inputDown))
+                return powerRecipe.getCraftingResult();
         }
 
         return ItemStack.EMPTY;
@@ -76,8 +68,13 @@ public class PowerRecipeManager {
             return inputUp.test(stackUp) && inputDown.test(stackDown);
         }
 
+        //根据物品判断是否有配方
+        public boolean matches(ItemStack stack, ItemStack itemStack){
+            return inputUp.test(stack) && inputDown.test(itemStack);
+        }
+
         //配方返回
-        public ItemStack getCraftingResult(InventoryCrafting inv) {
+        public ItemStack getCraftingResult() {
             return this.recipeOutput.copy();
         }
 

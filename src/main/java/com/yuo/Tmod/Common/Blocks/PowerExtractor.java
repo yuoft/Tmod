@@ -59,26 +59,20 @@ public class PowerExtractor extends BlockContainer {
     public IBlockState getStateFromMeta(int meta)//从值得到状态
     {
         EnumFacing facing = EnumFacing.NORTH;
-        Boolean burning = false;
+        boolean burning = false;
         switch (meta) {
             case 0:
-                facing = EnumFacing.NORTH;
-                burning = false;
                 break;
             case 1:
                 facing = EnumFacing.SOUTH;
-                burning = false;
                 break;
             case 2:
                 facing = EnumFacing.EAST;
-                burning = false;
                 break;
             case 3:
                 facing = EnumFacing.WEST;
-                burning = false;
                 break;
             case 4:
-                facing = EnumFacing.NORTH;
                 burning = true;
                 break;
             case 5:
@@ -101,21 +95,21 @@ public class PowerExtractor extends BlockContainer {
     public int getMetaFromState(IBlockState state)//从状态得到值
     {
         int meta = 0;
-        if (state.getValue(FACING) == EnumFacing.NORTH && state.getValue(BURNING) == false)
-            meta = 0;
-        if (state.getValue(FACING) == EnumFacing.SOUTH && state.getValue(BURNING) == false)
+//        if (state.getValue(FACING) == EnumFacing.NORTH && !state.getValue(BURNING)) {
+//        }
+        if (state.getValue(FACING) == EnumFacing.SOUTH && !state.getValue(BURNING))
             meta = 1;
-        if (state.getValue(FACING) == EnumFacing.EAST && state.getValue(BURNING) == false)
+        if (state.getValue(FACING) == EnumFacing.EAST && !state.getValue(BURNING))
             meta = 2;
-        if (state.getValue(FACING) == EnumFacing.WEST && state.getValue(BURNING) == false)
+        if (state.getValue(FACING) == EnumFacing.WEST && !state.getValue(BURNING))
             meta = 3;
-        if (state.getValue(FACING) == EnumFacing.NORTH && state.getValue(BURNING) == true)
+        if (state.getValue(FACING) == EnumFacing.NORTH && state.getValue(BURNING))
             meta = 4;
-        if (state.getValue(FACING) == EnumFacing.SOUTH && state.getValue(BURNING) == true)
+        if (state.getValue(FACING) == EnumFacing.SOUTH && state.getValue(BURNING))
             meta = 5;
-        if (state.getValue(FACING) == EnumFacing.EAST && state.getValue(BURNING) == true)
+        if (state.getValue(FACING) == EnumFacing.EAST && state.getValue(BURNING))
             meta = 6;
-        if (state.getValue(FACING) == EnumFacing.WEST && state.getValue(BURNING) == true)
+        if (state.getValue(FACING) == EnumFacing.WEST && state.getValue(BURNING))
             meta = 7;
         return meta;
     }
@@ -131,9 +125,7 @@ public class PowerExtractor extends BlockContainer {
 
     //放置方块时设置方块状态
     public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
-        if (placer != null) {
-            worldIn.setBlockState(pos, state.withProperty(FACING, placer.getHorizontalFacing().getOpposite()), 2);
-        }
+        worldIn.setBlockState(pos, state.withProperty(FACING, placer.getHorizontalFacing().getOpposite()), 2);
     }
 
     //掉落物
