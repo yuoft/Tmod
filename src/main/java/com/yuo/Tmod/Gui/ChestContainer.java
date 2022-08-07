@@ -1,5 +1,6 @@
 package com.yuo.Tmod.Gui;
 
+import com.yuo.Tmod.Common.Blocks.EmeraldBarrel;
 import com.yuo.Tmod.TileEntity.NineTileEntity;
 
 import net.minecraft.block.BlockChest;
@@ -22,11 +23,12 @@ import net.minecraftforge.items.SlotItemHandler;
 public class ChestContainer extends Container {
     private final NineTileEntity tileEntity;
     //    private ItemStackHandler items = new ItemStackHandler(54);
-    private BlockPos pos;
+    private final BlockPos pos;
 
     public ChestContainer(EntityPlayer player, NineTileEntity tileEntity) {
         super();
         this.tileEntity = tileEntity;
+        this.pos = tileEntity.getPos();
         IItemHandler inv = this.tileEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
         for (int i = 0; i < 6; i++)//54
         {
@@ -55,7 +57,7 @@ public class ChestContainer extends Container {
     public ItemStack transferStackInSlot(EntityPlayer playerIn, int index) {
         Slot slot = this.getSlot(index);
 
-        if (slot == null || !slot.getHasStack()) {
+        if (!slot.getHasStack()) {
             return ItemStack.EMPTY;
         }
 
@@ -87,18 +89,13 @@ public class ChestContainer extends Container {
     @Override
     public void updateProgressBar(int id, int data) {
         super.updateProgressBar(id, data);
-
-        switch (id) {
-            case 0:
-                break;
-            default:
-                break;
-        }
     }
 
+    @Override
     public void onContainerClosed(EntityPlayer playerIn) {
-//        playerIn.world.playSound(playerIn, this.pos, SoundEvents.BLOCK_CHEST_CLOSE, SoundCategory.BLOCKS, 20.0f, 1.0f);
         super.onContainerClosed(playerIn);
+        playerIn.world.setBlockState(pos, playerIn.world.getBlockState(pos).withProperty(EmeraldBarrel.OPEN, false));
+        playerIn.world.playSound(playerIn, pos, SoundEvents.BLOCK_CHEST_CLOSE, SoundCategory.BLOCKS, 3.0f, 1.0f);
     }
 
 }

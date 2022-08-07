@@ -148,7 +148,7 @@ tile.power_extractor.name=能量转变机
 tile.emerald_crop.name=绿宝石作物
 tile.boss_block.name=§aBoss方块·一
 tile.boss_block1.name=§cBoss方块·二
-tile.emerald_chest.name=绿宝石箱
+tile.emerald_barrel.name=绿宝石桶
 tile.ruby_chest.name=红宝石箱
 tile.space_ore.name=§b空间矿石
 tile.space_block.name=§b空间方块
@@ -244,7 +244,7 @@ container.tmod.emerald_extractor=能量转变机
 container.tmod.NineGui=储物戒指·大
 container.tmod.SixGui=储物戒指·中
 container.tmod.ThreeGui=储物戒指·小
-container.tmod.ChestGui=绿宝石箱子
+container.tmod.BarrelGui=绿宝石桶
 #实体
 entity.GreenZombies.name=§a僵尸
 entity.RedZombies.name=§c僵尸

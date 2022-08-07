@@ -24,7 +24,7 @@ import javax.annotation.Nonnull;
 public class NineTileEntity extends TileEntityLockableLoot implements ITickable {
     //    private final ItemStackHandler inventory = new ItemStackHandler(54);
     public NonNullList<ItemStack> items = NonNullList.withSize(54, ItemStack.EMPTY);
-    private final String name = "emerald_chest";
+    private final String name = "emerald_barrel";
 
     @Override
     public boolean hasCapability(@Nonnull Capability<?> cap, EnumFacing side) {

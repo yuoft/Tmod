@@ -151,7 +151,7 @@ public class ItemLoader {
     public static final ModItemBlock powerExtractor = new ModItemBlock(BlockLoader.powerExtractor);
     public static final ModItemBlock bossBlock = new ModItemBlock(BlockLoader.bossBlock);
     public static final ModItemBlock bossBlock1 = new ModItemBlock(BlockLoader.bossBlock1);
-    public static final ModItemBlock emeraldChest = new ModItemBlock(BlockLoader.emeraldChest);
+    public static final ModItemBlock emeraldBarrel = new ModItemBlock(BlockLoader.emeraldBarrel);
     public static final ModItemBlock spaceOre = new ModItemBlock(BlockLoader.spaceOre);
     public static final ModItemBlock spaceBlock = new ModItemBlock(BlockLoader.spaceBlock);
     public static final ModItemBlock saltOre = new ModItemBlock(BlockLoader.saltOre);
@@ -326,7 +326,7 @@ public class ItemLoader {
         ForgeRegistries.ITEMS.register(powerExtractor.setRegistryName("power_extractor"));
         ForgeRegistries.ITEMS.register(bossBlock.setRegistryName("boss_block"));
         ForgeRegistries.ITEMS.register(bossBlock1.setRegistryName("boss_block1"));
-        ForgeRegistries.ITEMS.register(emeraldChest.setRegistryName("emerald_chest"));
+        ForgeRegistries.ITEMS.register(emeraldBarrel.setRegistryName("emerald_barrel"));
         ForgeRegistries.ITEMS.register(spaceOre.setRegistryName("space_ore"));
         ForgeRegistries.ITEMS.register(spaceBlock.setRegistryName("space_block"));
         ForgeRegistries.ITEMS.register(saltOre.setRegistryName("salt_ore"));
@@ -516,7 +516,7 @@ public class ItemLoader {
         registerRender(powerExtractor, 0);
         registerRender(bossBlock);
         registerRender(bossBlock1);
-        registerRender(emeraldChest);
+        registerRender(emeraldBarrel);
         registerRender(spaceOre);
         registerRender(spaceBlock);
         registerRender(saltOre);

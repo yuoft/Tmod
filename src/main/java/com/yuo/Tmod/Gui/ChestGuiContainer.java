@@ -38,7 +38,7 @@ public class ChestGuiContainer extends GuiContainer {
     @Override
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
         //gui界面名称
-        String title = I18n.format("container.tmod.ChestGui");
+        String title = I18n.format("container.tmod.BarrelGui");
         this.fontRenderer.drawString(title, 7, 6, 0x404040);
     }
 }

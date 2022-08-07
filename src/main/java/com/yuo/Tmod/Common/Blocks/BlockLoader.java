@@ -6,7 +6,6 @@ import com.yuo.Tmod.Common.Blocks.Crops.EmeraldCrop;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCrops;
-import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.block.statemap.IStateMapper;
@@ -42,7 +41,7 @@ public class BlockLoader {
     public static final BlockFluidClassic emeraldFluid = new EmeraldFluid("emerald_fluid");
     public static final Block bossBlock = new BossBlock("boss_block");
     public static final Block bossBlock1 = new BossBlock("boss_block1");
-    public static final Block emeraldChest = new EmeraldChest("emerald_chest");
+    public static final Block emeraldBarrel = new EmeraldBarrel("emerald_barrel");
     public static final Block luckyBlock = new LuckyBlock("lucky_block");
     public static final Block unluckyBlock = new LuckyBlock("unlucky_block");
     public static final Block mine = new Mine("mine"); //地雷
@@ -71,7 +70,7 @@ public class BlockLoader {
         register(emeraldCrop, "emerald_crop");
         register(bossBlock, "boss_block");
         register(bossBlock1, "boss_block1");
-        register(emeraldChest, "emerald_chest");
+        register(emeraldBarrel, "emerald_barrel");
         register(spaceOre, "space_ore");
         register(spaceBlock, "space_block");
         register(saltOre, "salt_ore");
@@ -117,7 +116,7 @@ public class BlockLoader {
         registerRender(emeraldCrop, 0);
         registerRender(bossBlock, 0);
         registerRender(bossBlock1, 0);
-        registerRender(emeraldChest, 0);
+        registerRender(emeraldBarrel, 0);
         registerRender(spaceOre, 0);
         registerRender(spaceBlock, 0);
         registerRender(saltOre, 0);

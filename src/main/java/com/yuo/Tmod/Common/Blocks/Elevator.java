@@ -50,7 +50,8 @@ public class Elevator extends Block {
                             player.setPositionAndUpdate(pos.getX() + 0.5, pos.getY() + i + 1, pos.getZ() + 0.5);
                             worldIn.playSound(null, pos.getX() + 0.5, pos.getY() + i + 1, pos.getZ() + 0.5, SoundEvents.ITEM_CHORUS_FRUIT_TELEPORT, SoundCategory.PLAYERS, 1.0F, 1.0F);
                             player.playSound(SoundEvents.ITEM_CHORUS_FRUIT_TELEPORT, 1.0F, 1.0F);
-                            worldIn.spawnParticle(EnumParticleTypes.END_ROD, pos.getX() + 0.5, pos.getY() + i + 1, pos.getZ() + 0.5, 0.0d, 0.0d, 0.0d);
+                            for (int j = 0; j < 20; j++)
+                                worldIn.spawnParticle(EnumParticleTypes.PORTAL, pos.getX() + 0.5, pos.getY() + i + 1, pos.getZ() + 0.5, 0.05d, 0.05d, 0.05d);
                             break; // 退出
                         }
                     }
@@ -66,7 +67,8 @@ public class Elevator extends Block {
                             player.setPositionAndUpdate(pos.getX() + 0.5, pos.getY() - i + 1, pos.getZ() + 0.5);
                             worldIn.playSound(null, pos.getX() + 0.5, pos.getY() - i + 1, pos.getZ() + 0.5, SoundEvents.ITEM_CHORUS_FRUIT_TELEPORT, SoundCategory.PLAYERS, 1.0F, 1.0F);
                             player.playSound(SoundEvents.ITEM_CHORUS_FRUIT_TELEPORT, 1.0F, 1.0F);
-                            worldIn.spawnParticle(EnumParticleTypes.END_ROD, pos.getX() + 0.5, pos.getY() - i + 1, pos.getZ() + 0.5, 0.0d, 0.0d, 0.0d);
+                            for (int j = 0; j < 20; j++)
+                                worldIn.spawnParticle(EnumParticleTypes.END_ROD, pos.getX() + 0.5, pos.getY() - i + 1, pos.getZ() + 0.5, 0.05d, 0.05d, 0.05d);
                             break;
                         }
                     }

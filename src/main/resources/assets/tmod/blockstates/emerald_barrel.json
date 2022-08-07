@@ -1,0 +1,44 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "orientable",
+    "textures": {
+      "top": "tmod:block/emerald_barrel_top",
+      "bottom": "tmod:block/emerald_barrel_bottom",
+      "front": "tmod:block/emerald_barrel_side",
+      "side": "tmod:block/emerald_barrel_side"
+    }
+  },
+  "variants": {
+    "inventory": [
+      {
+        "textures": {
+          "top": "tmod:block/emerald_barrel_top"
+        }
+      }
+    ],
+    "open": {
+      "true": {
+        "textures": {
+          "top": "tmod:block/emerald_barrel_top_open"
+        }
+      },
+      "false": {
+        "textures": {
+          "top": "tmod:block/emerald_barrel_top"
+        }
+      }
+    },
+    "axis": {
+      "x": {
+        "x": 90,
+        "y": 90
+      },
+      "y": {},
+      "z": {
+        "x": 90
+      },
+      "none": {}
+    }
+  }
+}

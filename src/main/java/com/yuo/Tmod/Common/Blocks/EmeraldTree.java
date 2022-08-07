@@ -73,6 +73,7 @@ public class EmeraldTree extends Block {
         return meta;
     }
 
+    @Override
     public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
         return this.getDefaultState().withProperty(LOG_AXIS, BlockLog.EnumAxis.fromFacingAxis(facing.getAxis()));
     }
@@ -101,27 +102,4 @@ public class EmeraldTree extends Block {
             } else drops.add(0, stack);
         }
     }
-//    public boolean canHarvestBlock(IBlockAccess world, BlockPos pos, EntityPlayer player)
-//    {
-//    	ItemStack pickaxe=player.getHeldItemMainhand();//获取玩家主手物品
-//    	//获取物品本地化名称判断
-//    	if(pickaxe.getUnlocalizedName().toString().equals("item.emerald_axe") ||
-//    			pickaxe.getUnlocalizedName().toString().equals("item.hatchetDiamond"))
-//    	{
-//    		return true;
-//    	}
-//    	else 
-//    	{
-//    		return false;
-//    	}
-//    }
-//    @Override
-//	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
-//    {
-//		worldIn.setBlockState(pos, state.cycleProperty(LOG_AXIS));
-//		Block block=worldIn.getBlockState(pos).getBlock();
-//		playerIn.sendMessage(new TextComponentTranslation(block.getMetaFromState(state)+" "
-//				+state.getValue(LOG_AXIS).toString()));
-//        return true;
-//    }
 }

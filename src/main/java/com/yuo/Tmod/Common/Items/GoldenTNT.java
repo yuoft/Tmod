@@ -29,8 +29,7 @@ public class GoldenTNT extends Item {
 
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
-        if (!worldIn.isRemote)//判断是否是service
-        {
+        if (!worldIn.isRemote) {//判断是否是service
             ItemStack itemStack = playerIn.getHeldItem(handIn);
             if (!playerIn.capabilities.isCreativeMode) {
                 itemStack.setCount(itemStack.getCount() - 1);
@@ -39,8 +38,8 @@ public class GoldenTNT extends Item {
             //确定投掷物的初速度方向rotationYaw:实体围绕Y轴旋转程度；rotationPitch：实体围绕X轴旋转的程度;render:渲染偏移
             egg.shoot(playerIn, playerIn.rotationPitch, playerIn.rotationYawHead, 0f, 2.0f, 0.1f);
             worldIn.spawnEntity(egg);
-            return new ActionResult<ItemStack>(EnumActionResult.PASS, playerIn.getHeldItem(handIn));
-        } else return new ActionResult<ItemStack>(EnumActionResult.PASS, playerIn.getHeldItem(handIn));
+            return new ActionResult<>(EnumActionResult.PASS, playerIn.getHeldItem(handIn));
+        } else return new ActionResult<>(EnumActionResult.PASS, playerIn.getHeldItem(handIn));
     }
 
     //物品介绍信息
