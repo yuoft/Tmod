@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "tmod:item/debuff_apple"
+        "layer0": "tmod:item/food/debuff_apple"
     }
 }

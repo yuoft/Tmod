@@ -2,6 +2,7 @@ package com.yuo.Tmod.Gui;
 
 import com.yuo.Tmod.Common.Items.ItemLoader;
 
+import com.yuo.Tmod.Common.Recipe.PowerRecipeManager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Items;
@@ -25,7 +26,7 @@ public class ContainerDemo extends Container {
         this.inventory = tileEntity;
         //把这3个物品槽加入了GUI
         this.addSlotToContainer(new Slot(tileEntity, 0, 56, 17));
-        this.addSlotToContainer(new SlotDiamond(tileEntity, 1, 56, 53));
+        this.addSlotToContainer(new Slot(tileEntity, 1, 56, 53));
         this.addSlotToContainer(new SlotOut(tileEntity, 2, 116, 35));
         //把36个玩家背包中的物品槽加入了GUI
         for (int i = 0; i < 3; ++i) {//9-36
@@ -67,11 +68,11 @@ public class ContainerDemo extends Container {
                 }
                 slot.onSlotChange(itemstack1, itemstack);
             } else if (index != 1 && index != 0) {
-                if (itemstack1.getItem() == ItemLoader.emeraldTree || itemstack1.getItem() == ItemLoader.emeraldIngotBlock) {
+                if (PowerRecipeManager.hasStack(itemstack1, true)) {
                     if (!this.mergeItemStack(itemstack1, 0, 1, false)) {
                         return ItemStack.EMPTY;
                     }
-                } else if (itemstack1.getItem() == Items.DIAMOND || itemstack1.getItem() == Items.LAVA_BUCKET) {
+                } else if (PowerRecipeManager.hasStack(itemstack1, false)) {
                     if (!this.mergeItemStack(itemstack1, 1, 2, false)) {
                         return ItemStack.EMPTY;
                     }

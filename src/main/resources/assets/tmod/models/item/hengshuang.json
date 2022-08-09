@@ -1,7 +1,7 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "tmod:item/hengshuang"
+        "layer0": "tmod:item/tool/hengshuang"
     },
 	 "display": {
         "thirdperson_righthand": {

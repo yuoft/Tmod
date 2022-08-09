@@ -52,6 +52,18 @@ public class PowerRecipeManager {
         return 160;
     }
 
+    /**
+     * 判断物品是否在配方中
+     * @param stack 物品
+     * @return 是 true
+     */
+    public static boolean hasStack(ItemStack stack, boolean flag){
+        for (PowerRecipe powerRecipe : powerRecipes) {
+            if (powerRecipe.hasStack(stack, flag)) return true;
+        }
+        return false;
+    }
+
     public static List<PowerRecipe> getPowerRecipes(){
         return powerRecipes;
     }
@@ -83,6 +95,11 @@ public class PowerRecipeManager {
             ItemStack stackUp = inv.getStackInSlot(0);
             ItemStack stackDown = inv.getStackInSlot(1);
             return inputUp.test(stackUp) && inputDown.test(stackDown);
+        }
+
+        //是否在配方中
+        public boolean hasStack(ItemStack stack, boolean flag){
+            return flag ? inputUp.test(stack) : inputDown.test(stack);
         }
 
         //根据物品判断是否有配方

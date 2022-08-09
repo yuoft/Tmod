@@ -1,6 +1,6 @@
 {
     "parent": "item/handheld",
     "textures": {
-        "layer0": "tmod:item/glowstone_sword"
+        "layer0": "tmod:item/tool/glowstone_sword"
     }
 }

@@ -1,6 +1,6 @@
 {
     "parent": "block/cross",
     "textures": {
-        "cross": "tmod:block/emerald_sapling"
+        "cross": "tmod:block/tree/emerald_sapling"
     }
 }

@@ -1,6 +1,6 @@
 {
     "parent": "item/handheld",
     "textures": {
-        "layer0": "tmod:item/emerald_hoe"
+        "layer0": "tmod:item/tool/emerald_hoe"
     }
 }

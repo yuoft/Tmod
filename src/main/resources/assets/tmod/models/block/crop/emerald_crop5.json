@@ -1,6 +1,6 @@
 {
     "parent": "block/crop",
     "textures": {
-		"crop": "tmod:block/emerald_crop_5"
+		"crop": "tmod:block/crop/emerald_crop_5"
     }
 }

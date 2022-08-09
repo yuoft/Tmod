@@ -1,6 +1,6 @@
 {
     "parent": "block/stem_growth5",
     "textures": {
-		"stem": "tmod:block/lapis_crop"
+		"stem": "tmod:block/crop/lapis_crop"
     }
 }

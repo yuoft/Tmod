@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "tmod:item/salt_chicken_meat"
+        "layer0": "tmod:item/food/salt_chicken_meat"
     }
 }

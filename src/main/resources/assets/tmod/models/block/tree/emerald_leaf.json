@@ -1,6 +1,6 @@
 {
     "parent": "block/cube_all",
     "textures": {
-        "all": "tmod:block/emerald_leaf"
+        "all": "tmod:block/tree/emerald_leaf"
     }
 }

@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "tmod:item/obsidian_legs"
+        "layer0": "tmod:item/armor/obsidian_legs"
     }
 }

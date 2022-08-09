@@ -1,7 +1,7 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "tmod:item/space_bow_standby"
+        "layer0": "tmod:item/tool/space_bow_standby"
     },
     "display": {
         "thirdperson_righthand": {

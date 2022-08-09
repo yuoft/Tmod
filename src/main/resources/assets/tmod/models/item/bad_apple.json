@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "tmod:item/bad_apple"
+        "layer0": "tmod:item/food/bad_apple"
     }
 }

@@ -1,7 +1,7 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "tmod:item/tianhuo"
+        "layer0": "tmod:item/tool/tianhuo"
     },
 	 "display": {
         "thirdperson_righthand": {

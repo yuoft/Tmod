@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "tmod:item/beacon_legs"
+        "layer0": "tmod:item/armor/beacon_legs"
     }
 }

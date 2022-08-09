@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "tmod:item/space_bow_pulling_0"
+        "layer0": "tmod:item/tool/space_bow_pulling_0"
     }
 }

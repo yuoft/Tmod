@@ -1,6 +1,6 @@
 {
     "parent": "item/handheld",
     "textures": {
-        "layer0": "tmod:item/obsidian_sword"
+        "layer0": "tmod:item/tool/obsidian_sword"
     }
 }

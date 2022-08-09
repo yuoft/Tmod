@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "tmod:item/lapis_apple"
+        "layer0": "tmod:item/food/lapis_apple"
     }
 }

@@ -1,7 +1,7 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "tmod:item/behead_sword"
+    "layer0": "tmod:item/tool/behead_sword"
   },
   "display": {
     "thirdperson_righthand": {

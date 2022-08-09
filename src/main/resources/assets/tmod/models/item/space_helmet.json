@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "tmod:item/space_helmet"
+        "layer0": "tmod:item/armor/space_helmet"
     }
 }

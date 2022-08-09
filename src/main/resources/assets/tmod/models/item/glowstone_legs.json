@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "tmod:item/glowstone_legs"
+        "layer0": "tmod:item/armor/glowstone_legs"
     }
 }

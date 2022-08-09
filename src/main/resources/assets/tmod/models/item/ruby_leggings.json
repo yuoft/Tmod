@@ -1,6 +1,6 @@
 {
     "parent": "item/handheld",
     "textures": {
-        "layer0": "tmod:item/ruby_leggings"
+        "layer0": "tmod:item/armor/ruby_leggings"
     }
 }

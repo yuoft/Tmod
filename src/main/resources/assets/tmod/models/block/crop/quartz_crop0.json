@@ -1,6 +1,6 @@
 {
     "parent": "block/stem_growth0",
     "textures": {
-		"stem": "tmod:block/quartz_crop"
+		"stem": "tmod:block/crop/quartz_crop"
     }
 }

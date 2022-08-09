@@ -1,6 +1,6 @@
 {
     "parent": "item/handheld",
     "textures": {
-        "layer0": "tmod:item/beacon_sword"
+        "layer0": "tmod:item/tool/beacon_sword"
     }
 }

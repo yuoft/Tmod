@@ -1,6 +1,6 @@
 {
     "parent": "item/handheld",
     "textures": {
-        "layer0": "tmod:item/stone_tool"
+        "layer0": "tmod:item/tool/stone_tool"
     }
 }

@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "tmod:item/totem_legs"
+        "layer0": "tmod:item/armor/totem_legs"
     }
 }

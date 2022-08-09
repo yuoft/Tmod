@@ -1,7 +1,7 @@
 {
     "parent": "block/stem_fruit",
     "textures": {
-        "stem": "tmod:block/emerald_stem_crop",
-        "upperstem": "tmod:block/emerald_stem_crop_stem"
+        "stem": "tmod:block/crop/emerald_stem_crop",
+        "upperstem": "tmod:block/crop/emerald_stem_crop_stem"
     }
 }

@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "tmod:item/totem_chest"
+        "layer0": "tmod:item/armor/totem_chest"
     }
 }
