@@ -390,8 +390,8 @@ public class EventLoader {
             EntityPlayer player = (EntityPlayer) living;
             boolean hasChest = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() == ItemLoader.opChest;
             boolean hasLeg = player.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem() == ItemLoader.opLegs;
-            boolean hasHead = player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem() == ItemLoader.opHelmet;
-            boolean hasFoot = player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem() == ItemLoader.opBoots;
+            boolean hasHead = player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem() == ItemLoader.opHead;
+            boolean hasFoot = player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem() == ItemLoader.opFeet;
             //防止其它模组飞行装备无法使用
             String key = player.getGameProfile().getName() + ":" + player.world.isRemote;
             //head

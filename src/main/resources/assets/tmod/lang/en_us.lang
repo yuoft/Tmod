@@ -151,6 +151,7 @@ tile.boss_block1.name=§cBoss方块·二
 tile.emerald_barrel.name=绿宝石桶
 tile.ruby_chest.name=红宝石箱
 tile.space_ore.name=§b空间矿石
+tile.end_space_ore.name=§b末地空间矿石
 tile.space_block.name=§b空间方块
 tile.salt_ore.name=盐矿
 tile.diamond_crop.name=钻石作物

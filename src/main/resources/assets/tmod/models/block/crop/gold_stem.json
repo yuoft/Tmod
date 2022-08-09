@@ -1,7 +1,7 @@
 {
     "parent": "block/stem_fruit",
     "textures": {
-        "stem": "tmod:block/gold_crop",
+        "stem": "tmod:block/crop/gold_crop",
         "upperstem": "tmod:block/crop/gold_crop_stem"
     }
 }

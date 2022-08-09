@@ -23,6 +23,7 @@ public class BlockLoader {
     //矿物
     public static final Block emeraldIngotOre = new EmeraldIngotOre("emerald_ingot_ore");
     public static final Block spaceOre = new SpaceOre("space_ore");
+    public static final Block endSpaceOre = new SpaceOre("end_space_ore");
     public static final Block spaceBlock = new SpaceBlock("space_block");
     public static final Block saltOre = new SaltOre("salt_ore");
     public static final Block rubyOre = new ModBlock("ruby_ore", 10, 2, Material.ROCK);
@@ -72,6 +73,7 @@ public class BlockLoader {
         register(bossBlock1, "boss_block1");
         register(emeraldBarrel, "emerald_barrel");
         register(spaceOre, "space_ore");
+        register(endSpaceOre, "end_space_ore");
         register(spaceBlock, "space_block");
         register(saltOre, "salt_ore");
         register(diamondCrop, "diamond_crop");
@@ -118,6 +120,7 @@ public class BlockLoader {
         registerRender(bossBlock1, 0);
         registerRender(emeraldBarrel, 0);
         registerRender(spaceOre, 0);
+        registerRender(endSpaceOre, 0);
         registerRender(spaceBlock, 0);
         registerRender(saltOre, 0);
         registerRender(diamondCrop, 0);

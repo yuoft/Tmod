@@ -53,22 +53,22 @@ public class ItemLoader {
     public static final Item ruby = new ModItem("ruby");
     public static final Item dragonCrystal = new ModItem("dragon_crystal");
     public static final Item spaceIngot = new ModItem("space_ingot");
-    public static final ItemArmor emeraldHelmet = new ModArmor("emerald_helmet", TmodMaterial.EMERALD_ARMOR, 3, EntityEquipmentSlot.HEAD);
-    public static final ItemArmor emeraldBreastplate = new ModArmor("emerald_breastplate", TmodMaterial.EMERALD_ARMOR, 8, EntityEquipmentSlot.CHEST);
-    public static final ItemArmor emeraldLeggings = new ModArmor("emerald_leggings", TmodMaterial.EMERALD_ARMOR, 6, EntityEquipmentSlot.LEGS);
-    public static final ItemArmor emeraldShoes = new ModArmor("emerald_shoes", TmodMaterial.EMERALD_ARMOR, 3, EntityEquipmentSlot.FEET);
+    public static final ItemArmor emeraldHead = new ModArmor("emerald_helmet", TmodMaterial.EMERALD_ARMOR, 3, EntityEquipmentSlot.HEAD);
+    public static final ItemArmor emeraldChest = new ModArmor("emerald_breastplate", TmodMaterial.EMERALD_ARMOR, 8, EntityEquipmentSlot.CHEST);
+    public static final ItemArmor emeraldLegs = new ModArmor("emerald_leggings", TmodMaterial.EMERALD_ARMOR, 6, EntityEquipmentSlot.LEGS);
+    public static final ItemArmor emeraldFeet = new ModArmor("emerald_shoes", TmodMaterial.EMERALD_ARMOR, 3, EntityEquipmentSlot.FEET);
     //op套
-    public static final ItemArmor opHelmet = new OPArmor("op_helmet", TmodMaterial.OP, 3, EntityEquipmentSlot.HEAD);
+    public static final ItemArmor opHead = new OPArmor("op_helmet", TmodMaterial.OP, 3, EntityEquipmentSlot.HEAD);
     public static final ItemArmor opChest = new OPArmor("op_chestplate", TmodMaterial.OP, 8, EntityEquipmentSlot.CHEST);
     public static final ItemArmor opLegs = new OPArmor("op_leggings", TmodMaterial.OP, 6, EntityEquipmentSlot.LEGS);
-    public static final ItemArmor opBoots = new OPArmor("op_boots", TmodMaterial.OP, 3, EntityEquipmentSlot.FEET);
+    public static final ItemArmor opFeet = new OPArmor("op_boots", TmodMaterial.OP, 3, EntityEquipmentSlot.FEET);
     public static final OPSword opSword = new OPSword("op_sword");
     public static final OPPickaxe opPickaxe = new OPPickaxe("op_pickaxe");
     //空间套装
-    public static final ItemArmor spaceHelmet = new SpaceArmor("space_helmet", TmodMaterial.SPACE_ARMOR, 3, EntityEquipmentSlot.HEAD);
+    public static final ItemArmor spaceHead = new SpaceArmor("space_helmet", TmodMaterial.SPACE_ARMOR, 3, EntityEquipmentSlot.HEAD);
     public static final ItemArmor spaceChest = new SpaceArmor("space_chestplate", TmodMaterial.SPACE_ARMOR, 8, EntityEquipmentSlot.CHEST);
-    public static final ItemArmor spaceLeggings = new SpaceArmor("space_leggings", TmodMaterial.SPACE_ARMOR, 6, EntityEquipmentSlot.LEGS);
-    public static final ItemArmor spaceBoots = new SpaceArmor("space_boots", TmodMaterial.SPACE_ARMOR, 3, EntityEquipmentSlot.FEET);
+    public static final ItemArmor spaceLegs = new SpaceArmor("space_leggings", TmodMaterial.SPACE_ARMOR, 6, EntityEquipmentSlot.LEGS);
+    public static final ItemArmor spaceFeet = new SpaceArmor("space_boots", TmodMaterial.SPACE_ARMOR, 3, EntityEquipmentSlot.FEET);
     public static final SpaceSword spaceSword = new SpaceSword("space_sword", TmodMaterial.SPACE_TOOL);
     public static final SpaceBow spaceBow = new SpaceBow("space_bow");
     public static final DragonBow dragonBow = new DragonBow("dragon_bow");
@@ -90,10 +90,10 @@ public class ItemLoader {
     public static final ToolPickaxe rubyPickaxe = new ToolPickaxe("ruby_pickaxe", TmodMaterial.RUBY_TOOL);
     public static final ToolShovel rubyShovel = new ToolShovel("ruby_shovel", TmodMaterial.RUBY_TOOL);
     public static final ToolSword rubySword = new ToolSword("ruby_sword", TmodMaterial.RUBY_TOOL);
-    public static final ItemArmor rubyHelmet = new ModArmor("ruby_helmet", TmodMaterial.RUBY_ARMOR, 3, EntityEquipmentSlot.HEAD);
+    public static final ItemArmor rubyHead = new ModArmor("ruby_helmet", TmodMaterial.RUBY_ARMOR, 3, EntityEquipmentSlot.HEAD);
     public static final ItemArmor rubyChest = new ModArmor("ruby_chestplate", TmodMaterial.RUBY_ARMOR, 8, EntityEquipmentSlot.CHEST);
-    public static final ItemArmor rubyLeggings = new ModArmor("ruby_leggings", TmodMaterial.RUBY_ARMOR, 6, EntityEquipmentSlot.LEGS);
-    public static final ItemArmor rubyBoots = new ModArmor("ruby_boots", TmodMaterial.RUBY_ARMOR, 3, EntityEquipmentSlot.FEET);
+    public static final ItemArmor rubyLegs = new ModArmor("ruby_leggings", TmodMaterial.RUBY_ARMOR, 6, EntityEquipmentSlot.LEGS);
+    public static final ItemArmor rubyFeet = new ModArmor("ruby_boots", TmodMaterial.RUBY_ARMOR, 3, EntityEquipmentSlot.FEET);
     //龙晶套装
     public static final ToolPickaxe dragonPickaxe = new ToolPickaxe("dragon_pickaxe", TmodMaterial.DRAGON_TOOL);
     public static final ToolSword dragonSword = new ToolSword("dragon_sword", TmodMaterial.DRAGON_TOOL);
@@ -153,6 +153,7 @@ public class ItemLoader {
     public static final ModItemBlock bossBlock1 = new ModItemBlock(BlockLoader.bossBlock1);
     public static final ModItemBlock emeraldBarrel = new ModItemBlock(BlockLoader.emeraldBarrel);
     public static final ModItemBlock spaceOre = new ModItemBlock(BlockLoader.spaceOre);
+    public static final ModItemBlock endSpaceOre = new ModItemBlock(BlockLoader.endSpaceOre);
     public static final ModItemBlock spaceBlock = new ModItemBlock(BlockLoader.spaceBlock);
     public static final ModItemBlock saltOre = new ModItemBlock(BlockLoader.saltOre);
     public static final ModItemBlock luckyBlock = new ModItemBlock(BlockLoader.luckyBlock);
@@ -233,15 +234,15 @@ public class ItemLoader {
         ForgeRegistries.ITEMS.register(saltRottenMeat.setRegistryName("salt_rotten_meat"));
         ForgeRegistries.ITEMS.register(saltSheepMeat.setRegistryName("salt_sheep_meat"));
 
-        ForgeRegistries.ITEMS.register(emeraldHelmet.setRegistryName("emerald_helmet"));
-        ForgeRegistries.ITEMS.register(emeraldBreastplate.setRegistryName("emerald_breastplate"));
-        ForgeRegistries.ITEMS.register(emeraldLeggings.setRegistryName("emerald_leggings"));
-        ForgeRegistries.ITEMS.register(emeraldShoes.setRegistryName("emerald_shoes"));
+        ForgeRegistries.ITEMS.register(emeraldHead.setRegistryName("emerald_helmet"));
+        ForgeRegistries.ITEMS.register(emeraldChest.setRegistryName("emerald_breastplate"));
+        ForgeRegistries.ITEMS.register(emeraldLegs.setRegistryName("emerald_leggings"));
+        ForgeRegistries.ITEMS.register(emeraldFeet.setRegistryName("emerald_shoes"));
         ForgeRegistries.ITEMS.register(emeraldIngot.setRegistryName("emerald_ingot"));
-        ForgeRegistries.ITEMS.register(opHelmet.setRegistryName("op_helmet"));
+        ForgeRegistries.ITEMS.register(opHead.setRegistryName("op_helmet"));
         ForgeRegistries.ITEMS.register(opChest.setRegistryName("op_chestplate"));
         ForgeRegistries.ITEMS.register(opLegs.setRegistryName("op_leggings"));
-        ForgeRegistries.ITEMS.register(opBoots.setRegistryName("op_boots"));
+        ForgeRegistries.ITEMS.register(opFeet.setRegistryName("op_boots"));
         ForgeRegistries.ITEMS.register(opSword.setRegistryName("op_sword"));
         ForgeRegistries.ITEMS.register(opPickaxe.setRegistryName("op_pickaxe"));
         ForgeRegistries.ITEMS.register(dragonCrystal.setRegistryName("dragon_crystal"));
@@ -252,10 +253,10 @@ public class ItemLoader {
         ForgeRegistries.ITEMS.register(dragonSword.setRegistryName("dragon_sword"));
         ForgeRegistries.ITEMS.register(dragonBow.setRegistryName("dragon_bow"));
         ForgeRegistries.ITEMS.register(dragonPickaxe.setRegistryName("dragon_pickaxe"));
-        ForgeRegistries.ITEMS.register(spaceHelmet.setRegistryName("space_helmet"));
+        ForgeRegistries.ITEMS.register(spaceHead.setRegistryName("space_helmet"));
         ForgeRegistries.ITEMS.register(spaceChest.setRegistryName("space_chestplate"));
-        ForgeRegistries.ITEMS.register(spaceLeggings.setRegistryName("space_leggings"));
-        ForgeRegistries.ITEMS.register(spaceBoots.setRegistryName("space_boots"));
+        ForgeRegistries.ITEMS.register(spaceLegs.setRegistryName("space_leggings"));
+        ForgeRegistries.ITEMS.register(spaceFeet.setRegistryName("space_boots"));
         ForgeRegistries.ITEMS.register(spaceSword.setRegistryName("space_sword"));
         ForgeRegistries.ITEMS.register(spaceBow.setRegistryName("space_bow"));
         ForgeRegistries.ITEMS.register(spacePickaxe.setRegistryName("space_pickaxe"));
@@ -272,11 +273,11 @@ public class ItemLoader {
 
         ForgeRegistries.ITEMS.register(ruby.setRegistryName("ruby"));
         ForgeRegistries.ITEMS.register(rubyAxe.setRegistryName("ruby_axe"));
-        ForgeRegistries.ITEMS.register(rubyBoots.setRegistryName("ruby_boots"));
+        ForgeRegistries.ITEMS.register(rubyFeet.setRegistryName("ruby_boots"));
         ForgeRegistries.ITEMS.register(rubyChest.setRegistryName("ruby_chestplate"));
-        ForgeRegistries.ITEMS.register(rubyHelmet.setRegistryName("ruby_helmet"));
+        ForgeRegistries.ITEMS.register(rubyHead.setRegistryName("ruby_helmet"));
         ForgeRegistries.ITEMS.register(rubyHoe.setRegistryName("ruby_hoe"));
-        ForgeRegistries.ITEMS.register(rubyLeggings.setRegistryName("ruby_leggings"));
+        ForgeRegistries.ITEMS.register(rubyLegs.setRegistryName("ruby_leggings"));
         ForgeRegistries.ITEMS.register(rubyPickaxe.setRegistryName("ruby_pickaxe"));
         ForgeRegistries.ITEMS.register(rubyShovel.setRegistryName("ruby_shovel"));
         ForgeRegistries.ITEMS.register(rubySword.setRegistryName("ruby_sword"));
@@ -328,6 +329,7 @@ public class ItemLoader {
         ForgeRegistries.ITEMS.register(bossBlock1.setRegistryName("boss_block1"));
         ForgeRegistries.ITEMS.register(emeraldBarrel.setRegistryName("emerald_barrel"));
         ForgeRegistries.ITEMS.register(spaceOre.setRegistryName("space_ore"));
+        ForgeRegistries.ITEMS.register(endSpaceOre.setRegistryName("end_space_ore"));
         ForgeRegistries.ITEMS.register(spaceBlock.setRegistryName("space_block"));
         ForgeRegistries.ITEMS.register(saltOre.setRegistryName("salt_ore"));
         ForgeRegistries.ITEMS.register(luckyBlock.setRegistryName("lucky_block"));
@@ -423,15 +425,15 @@ public class ItemLoader {
         registerRender(saltRottenMeat);
         registerRender(saltSheepMeat);
 
-        registerRender(emeraldHelmet);
-        registerRender(emeraldBreastplate);
-        registerRender(emeraldLeggings);
-        registerRender(emeraldShoes);
+        registerRender(emeraldHead);
+        registerRender(emeraldChest);
+        registerRender(emeraldLegs);
+        registerRender(emeraldFeet);
         registerRender(emeraldIngot);
-        registerRender(opHelmet);
+        registerRender(opHead);
         registerRender(opChest);
         registerRender(opLegs);
-        registerRender(opBoots);
+        registerRender(opFeet);
         registerRender(opSword);
         registerRender(opPickaxe);
         registerRender(dragonCrystal);
@@ -442,10 +444,10 @@ public class ItemLoader {
         registerRender(dragonSword);
         registerRender(dragonPickaxe);
         registerRender(dragonBow);
-        registerRender(spaceHelmet);
+        registerRender(spaceHead);
         registerRender(spaceChest);
-        registerRender(spaceLeggings);
-        registerRender(spaceBoots);
+        registerRender(spaceLegs);
+        registerRender(spaceFeet);
         registerRender(spaceSword);
         registerRender(spaceBow);
         registerRender(spacePickaxe);
@@ -462,11 +464,11 @@ public class ItemLoader {
 
         registerRender(ruby);
         registerRender(rubyAxe);
-        registerRender(rubyBoots);
+        registerRender(rubyFeet);
         registerRender(rubyChest);
-        registerRender(rubyHelmet);
+        registerRender(rubyHead);
         registerRender(rubyHoe);
-        registerRender(rubyLeggings);
+        registerRender(rubyLegs);
         registerRender(rubyPickaxe);
         registerRender(rubyShovel);
         registerRender(rubySword);
@@ -518,6 +520,7 @@ public class ItemLoader {
         registerRender(bossBlock1);
         registerRender(emeraldBarrel);
         registerRender(spaceOre);
+        registerRender(endSpaceOre);
         registerRender(spaceBlock);
         registerRender(saltOre);
         registerRender(luckyBlock);

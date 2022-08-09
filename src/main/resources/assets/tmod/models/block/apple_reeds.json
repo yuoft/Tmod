@@ -1,6 +1,6 @@
 {
     "parent": "block/tinted_cross",
     "textures": {
-        "cross": "tmod:block/apple_reeds"
+        "cross": "tmod:block/crop/apple_reeds"
     }
 }

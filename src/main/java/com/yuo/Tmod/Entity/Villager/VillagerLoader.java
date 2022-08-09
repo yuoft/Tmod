@@ -8,7 +8,6 @@ import net.minecraft.entity.passive.EntityVillager.PriceInfo;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
-import net.minecraftforge.fml.common.registry.VillagerRegistry;
 import net.minecraftforge.fml.common.registry.VillagerRegistry.VillagerCareer;
 import net.minecraftforge.fml.common.registry.VillagerRegistry.VillagerProfession;
 
@@ -39,10 +38,10 @@ public class VillagerLoader {
         ForgeRegistries.VILLAGER_PROFESSIONS.register(LUCKY);
         VillagerCareer newLucky = new VillagerCareer(LUCKY, Tmod.MOD_ID + ".lucky");
         newLucky.addTrade(1, new EntityVillager.EmeraldForItems(ItemLoader.goldenTnt, new PriceInfo(9, 1)));
-        newLucky.addTrade(1, new TradeTmodItemToItem(ItemLoader.spaceBoots, 1, ItemLoader.spaceBlock, 4, ItemLoader.opBoots, 1));
+        newLucky.addTrade(1, new TradeTmodItemToItem(ItemLoader.spaceFeet, 1, ItemLoader.spaceBlock, 4, ItemLoader.opFeet, 1));
         newLucky.addTrade(2, new TradeTmodItemToItem(ItemLoader.spaceChest, 1, ItemLoader.spaceBlock, 8, ItemLoader.opChest, 1));
-        newLucky.addTrade(1, new TradeTmodItemToItem(ItemLoader.spaceHelmet, 1, ItemLoader.spaceBlock, 5, ItemLoader.opHelmet, 1));
-        newLucky.addTrade(2, new TradeTmodItemToItem(ItemLoader.spaceLeggings, 1, ItemLoader.spaceBlock, 7, ItemLoader.opLegs, 1));
+        newLucky.addTrade(1, new TradeTmodItemToItem(ItemLoader.spaceHead, 1, ItemLoader.spaceBlock, 5, ItemLoader.opHead, 1));
+        newLucky.addTrade(2, new TradeTmodItemToItem(ItemLoader.spaceLegs, 1, ItemLoader.spaceBlock, 7, ItemLoader.opLegs, 1));
         newLucky.addTrade(3, new TradeTmodItemToItem(ItemLoader.spaceSword, 1, ItemLoader.spaceBlock, 9, ItemLoader.opSword, 1));
         newLucky.addTrade(3, new TradeTmodItemToItem(ItemLoader.spacePickaxe, 1, ItemLoader.spaceBlock, 9, ItemLoader.opPickaxe, 1));
     }

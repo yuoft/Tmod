@@ -378,11 +378,11 @@ public class LuckyEvent {
         if (j < 10) {
             int i = RANDOM.nextInt(1000);//概率很低
             if (i == 100)
-                spawnEntityItem(worldIn, pos, ItemLoader.opBoots, 1);// 掉落op套
+                spawnEntityItem(worldIn, pos, ItemLoader.opFeet, 1);// 掉落op套
             else if (i == 200)
                 spawnEntityItem(worldIn, pos, ItemLoader.opChest, 1);
             else if (i == 300)
-                spawnEntityItem(worldIn, pos, ItemLoader.opHelmet, 1);
+                spawnEntityItem(worldIn, pos, ItemLoader.opHead, 1);
             else if (i == 400)
                 spawnEntityItem(worldIn, pos, ItemLoader.opLegs, 1);
             else if (i == 500)

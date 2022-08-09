@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "tmod:block/emerald_sapling"
+        "layer0": "tmod:block/tree/emerald_sapling"
     }
 }

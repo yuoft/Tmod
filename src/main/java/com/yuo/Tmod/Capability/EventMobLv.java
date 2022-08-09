@@ -12,10 +12,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.ai.attributes.IAttributeInstance;
@@ -29,8 +26,7 @@ import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.entity.projectile.EntityArrow;
-import net.minecraft.entity.projectile.EntityFireball;
+import net.minecraft.entity.projectile.*;
 import net.minecraft.init.Enchantments;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.*;
@@ -226,8 +222,8 @@ public class EventMobLv {
 
     //是否是op装备
     public static boolean isOpItem(Item item) {
-        return item == ItemLoader.opSword || item == ItemLoader.opPickaxe || item == ItemLoader.opHelmet ||
-                item == ItemLoader.opChest || item == ItemLoader.opLegs || item == ItemLoader.opBoots;
+        return item == ItemLoader.opSword || item == ItemLoader.opPickaxe || item == ItemLoader.opHead ||
+                item == ItemLoader.opChest || item == ItemLoader.opLegs || item == ItemLoader.opFeet;
     }
 
     //玩家无法使用高等级武器
@@ -240,11 +236,6 @@ public class EventMobLv {
             if (!canPlayerUseItem(player, stack)) {
                 tellPlayer(player, event);
             }
-        }
-        if (trueSource instanceof EntityDragon) {
-            EntityLivingBase entityLiving = event.getEntityLiving();
-            int value = getAttrLevelValue((EntityLiving) trueSource);
-            entityLiving.attackEntityFrom(DamageSource.causeMobDamage((EntityDragon) trueSource), value / 2f);
         }
     }
 
@@ -319,7 +310,23 @@ public class EventMobLv {
                 RayTraceResult result = event.getRayTraceResult();
                 Entity entityHit = result.entityHit;
                 if (entityHit instanceof EntityLiving) {
-                    entityHit.attackEntityFrom(DamageSource.causeMobDamage(living), (int) Math.ceil(lv / 2f));
+                    entityHit.attackEntityFrom(DamageSource.causeFireballDamage(fireball, living), (int) Math.ceil(lv / 2f));
+                }
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public void dragonBall(ProjectileImpactEvent.Throwable event) {
+        EntityThrowable throwable = event.getThrowable();
+        EntityLivingBase thrower = throwable.getThrower();
+        if (thrower instanceof EntityLiving && !throwable.world.isRemote) {
+            EntityLiving living = (EntityLiving) thrower;
+            int lv = getAttrLevelValue(living);
+            if (lv > 0) {
+                Entity entityHit = event.getRayTraceResult().entityHit;
+                if (entityHit instanceof EntityLiving) {
+                    entityHit.attackEntityFrom(DamageSource.causeThrownDamage(throwable, living), (int) Math.ceil(lv / 2f));
                 }
             }
         }
@@ -366,6 +373,24 @@ public class EventMobLv {
     @SubscribeEvent
     public void attackPlayer(LivingDamageEvent event) {
         Entity entity = event.getEntity();
+        DamageSource source = event.getSource();
+        Entity trueSource = source.getTrueSource();
+        if (trueSource instanceof EntityAreaEffectCloud){
+            EntityAreaEffectCloud cloud = (EntityAreaEffectCloud) trueSource;
+            EntityLivingBase owner = cloud.getOwner();
+            if (owner instanceof EntityLiving){
+                int value = getAttrLevelValue((EntityLiving) owner);
+                event.setAmount(event.getAmount() + value / 2f);
+            }
+        }
+        if (trueSource instanceof EntityEvokerFangs){
+            EntityEvokerFangs evokerFangs = (EntityEvokerFangs) trueSource;
+            EntityLivingBase caster = evokerFangs.getCaster();
+            if (caster instanceof EntityLiving){
+                int value = getAttrLevelValue((EntityLiving) caster);
+                event.setAmount(event.getAmount() + value / 4f);
+            }
+        }
         if (entity instanceof EntityPlayer && entity.hasCapability(CapabilityLoader.tmodLv, null)) {
             EntityPlayer player = (EntityPlayer) entity;
             int opNum = getOpNum(player); //如果有op装备则不计算等级减伤
@@ -388,8 +413,8 @@ public class EventMobLv {
     public static int getOpNum(EntityPlayer player) {
         boolean hasChest = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() == ItemLoader.opChest;
         boolean hasLeg = player.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem() == ItemLoader.opLegs;
-        boolean hasHead = player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem() == ItemLoader.opHelmet;
-        boolean hasFeet = player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem() == ItemLoader.opBoots;
+        boolean hasHead = player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem() == ItemLoader.opHead;
+        boolean hasFeet = player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem() == ItemLoader.opFeet;
         boolean[] bools = new boolean[]{hasHead, hasChest, hasLeg, hasFeet};
         int num = 0;
         for (int i = 0; i < 4; i++) {

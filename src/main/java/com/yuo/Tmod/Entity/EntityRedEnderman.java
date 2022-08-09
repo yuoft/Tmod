@@ -95,10 +95,10 @@ public class EntityRedEnderman extends EntityEnderman {
             {
                 this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ItemLoader.emeraldSword));
                 this.setItemStackToSlot(EntityEquipmentSlot.OFFHAND, new ItemStack(Items.TOTEM_OF_UNDYING));
-                this.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(ItemLoader.emeraldHelmet));
-                this.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(ItemLoader.emeraldBreastplate));
-                this.setItemStackToSlot(EntityEquipmentSlot.FEET, new ItemStack(ItemLoader.emeraldShoes));
-                this.setItemStackToSlot(EntityEquipmentSlot.LEGS, new ItemStack(ItemLoader.emeraldLeggings));
+                this.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(ItemLoader.emeraldHead));
+                this.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(ItemLoader.emeraldChest));
+                this.setItemStackToSlot(EntityEquipmentSlot.FEET, new ItemStack(ItemLoader.emeraldFeet));
+                this.setItemStackToSlot(EntityEquipmentSlot.LEGS, new ItemStack(ItemLoader.emeraldLegs));
             }
         }
     }

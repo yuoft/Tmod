@@ -1,15 +1,14 @@
 buildscript {
     repositories {
+        mavenCentral()
         maven {
             url 'https://maven.aliyun.com/repository/public/' //阿里云仓库
         }
         maven { url 'https://maven.aliyun.com/repository/central'}
         maven { url = 'https://maven.minecraftforge.net/' }
-        mavenCentral()
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:3.+'
-//        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
     }
 }
 

@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "tmod:block/apple_reeds"
+        "layer0": "tmod:item/apple_reeds"
     }
 }

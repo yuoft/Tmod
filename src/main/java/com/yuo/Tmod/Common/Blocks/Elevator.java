@@ -48,10 +48,7 @@ public class Elevator extends Block {
                         IBlockState state2 = worldIn.getBlockState(posUp);
                         if (state2.getBlock() instanceof Elevator) { // 找到后传送玩家
                             player.setPositionAndUpdate(pos.getX() + 0.5, pos.getY() + i + 1, pos.getZ() + 0.5);
-                            worldIn.playSound(null, pos.getX() + 0.5, pos.getY() + i + 1, pos.getZ() + 0.5, SoundEvents.ITEM_CHORUS_FRUIT_TELEPORT, SoundCategory.PLAYERS, 1.0F, 1.0F);
-                            player.playSound(SoundEvents.ITEM_CHORUS_FRUIT_TELEPORT, 1.0F, 1.0F);
-                            for (int j = 0; j < 20; j++)
-                                worldIn.spawnParticle(EnumParticleTypes.PORTAL, pos.getX() + 0.5 + RANDOM.nextGaussian() / 2, pos.getY() + i + 1, pos.getZ() + 0.5 + RANDOM.nextGaussian() / 2, 0.1d, 0.1d, 0.1d);
+                            playSoundAndSpawnParticle(player, worldIn, pos, -i);
                             break; // 退出
                         }
                     }
@@ -65,10 +62,7 @@ public class Elevator extends Block {
                         IBlockState state2 = worldIn.getBlockState(posUp);
                         if (state2.getBlock() instanceof Elevator) {
                             player.setPositionAndUpdate(pos.getX() + 0.5, pos.getY() - i + 1, pos.getZ() + 0.5);
-                            worldIn.playSound(null, pos.getX() + 0.5, pos.getY() - i + 1, pos.getZ() + 0.5, SoundEvents.ITEM_CHORUS_FRUIT_TELEPORT, SoundCategory.PLAYERS, 1.0F, 1.0F);
-                            player.playSound(SoundEvents.ITEM_CHORUS_FRUIT_TELEPORT, 1.0F, 1.0F);
-                            for (int j = 0; j < 20; j++)
-                                worldIn.spawnParticle(EnumParticleTypes.END_ROD, pos.getX() + 0.5 + RANDOM.nextGaussian() / 2, pos.getY() - i + 1, pos.getZ() + 0.5 + RANDOM.nextGaussian() / 2, 0.1d, 0.1d, 0.1d);
+                            playSoundAndSpawnParticle(player, worldIn, pos, i);
                             break;
                         }
                     }
@@ -76,6 +70,22 @@ public class Elevator extends Block {
             }
         }
 //		}
+    }
+
+    /**
+     * 播放声音和生成粒子
+     * @param player 玩家
+     * @param worldIn 世界
+     * @param pos 坐标
+     * @param i 传送高度
+     */
+    private void playSoundAndSpawnParticle(EntityPlayer player, World worldIn, BlockPos pos, int i){
+        worldIn.playSound(null, pos.getX() + 0.5, pos.getY() - i + 1, pos.getZ() + 0.5, SoundEvents.ITEM_CHORUS_FRUIT_TELEPORT, SoundCategory.PLAYERS, 1.0F, 1.0F);
+        player.playSound(SoundEvents.ITEM_CHORUS_FRUIT_TELEPORT, 1.0F, 1.0F);
+        for (int j = 0; j < 20; j++)
+            worldIn.spawnParticle(EnumParticleTypes.PORTAL, pos.getX() + 0.5 + RANDOM.nextGaussian() / 2, pos.getY() - i + 1, pos.getZ() + 0.5 + RANDOM.nextGaussian() / 2, 0.1d, 0.1d, 0.1d);
+        for (int j = 0; j < 20; j++)
+            worldIn.spawnParticle(EnumParticleTypes.PORTAL, pos.getX() + 0.5 + RANDOM.nextGaussian() / 2, pos.getY() + 1, pos.getZ() + 0.5 + RANDOM.nextGaussian() / 2, 0.1d, 0.1d, 0.1d);
     }
 
     // 是不透明方块

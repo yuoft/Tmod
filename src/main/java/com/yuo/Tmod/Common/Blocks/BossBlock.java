@@ -68,19 +68,19 @@ public class BossBlock extends Block {
                     heldItem.shrink(1);
                     steve.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ItemLoader.spaceSword));
                     steve.setItemStackToSlot(EntityEquipmentSlot.OFFHAND, new ItemStack(Items.TOTEM_OF_UNDYING));
-                    steve.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(ItemLoader.spaceHelmet));
+                    steve.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(ItemLoader.spaceHead));
                     steve.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(ItemLoader.spaceChest));
-                    steve.setItemStackToSlot(EntityEquipmentSlot.FEET, new ItemStack(ItemLoader.spaceBoots));
-                    steve.setItemStackToSlot(EntityEquipmentSlot.LEGS, new ItemStack(ItemLoader.spaceLeggings));
+                    steve.setItemStackToSlot(EntityEquipmentSlot.FEET, new ItemStack(ItemLoader.spaceFeet));
+                    steve.setItemStackToSlot(EntityEquipmentSlot.LEGS, new ItemStack(ItemLoader.spaceLegs));
                     steve.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(300.0D);
                     steve.setHealth(300.0f);
                 } else {
                     steve.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ItemLoader.emeraldSword));
                     steve.setItemStackToSlot(EntityEquipmentSlot.OFFHAND, new ItemStack(Items.TOTEM_OF_UNDYING));
-                    steve.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(ItemLoader.emeraldHelmet));
-                    steve.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(ItemLoader.emeraldBreastplate));
-                    steve.setItemStackToSlot(EntityEquipmentSlot.FEET, new ItemStack(ItemLoader.emeraldShoes));
-                    steve.setItemStackToSlot(EntityEquipmentSlot.LEGS, new ItemStack(ItemLoader.emeraldLeggings));
+                    steve.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(ItemLoader.emeraldHead));
+                    steve.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(ItemLoader.emeraldChest));
+                    steve.setItemStackToSlot(EntityEquipmentSlot.FEET, new ItemStack(ItemLoader.emeraldFeet));
+                    steve.setItemStackToSlot(EntityEquipmentSlot.LEGS, new ItemStack(ItemLoader.emeraldLegs));
                     steve.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(200.0D);
                     steve.setHealth(200.0f);
                 }
@@ -98,10 +98,10 @@ public class BossBlock extends Block {
                     health += 100f;
                     kiana.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ItemLoader.emeraldSword));
                     kiana.setItemStackToSlot(EntityEquipmentSlot.OFFHAND, new ItemStack(Items.TOTEM_OF_UNDYING));
-                    kiana.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(ItemLoader.emeraldHelmet));
-                    kiana.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(ItemLoader.emeraldBreastplate));
-                    kiana.setItemStackToSlot(EntityEquipmentSlot.FEET, new ItemStack(ItemLoader.emeraldShoes));
-                    kiana.setItemStackToSlot(EntityEquipmentSlot.LEGS, new ItemStack(ItemLoader.emeraldLeggings));
+                    kiana.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(ItemLoader.emeraldHead));
+                    kiana.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(ItemLoader.emeraldChest));
+                    kiana.setItemStackToSlot(EntityEquipmentSlot.FEET, new ItemStack(ItemLoader.emeraldFeet));
+                    kiana.setItemStackToSlot(EntityEquipmentSlot.LEGS, new ItemStack(ItemLoader.emeraldLegs));
                 } else if (!heldItem.isEmpty() && heldItem.getItem() == ItemLoader.spaceIngot) {
                     heldItem.shrink(1);
                     health += 300f;
@@ -119,10 +119,10 @@ public class BossBlock extends Block {
                     kiana.setHealth(health);
                     kiana.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ItemLoader.spaceSword));
                     kiana.setItemStackToSlot(EntityEquipmentSlot.OFFHAND, new ItemStack(Items.TOTEM_OF_UNDYING));
-                    kiana.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(ItemLoader.spaceHelmet));
+                    kiana.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(ItemLoader.spaceHead));
                     kiana.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(ItemLoader.spaceChest));
-                    kiana.setItemStackToSlot(EntityEquipmentSlot.FEET, new ItemStack(ItemLoader.spaceBoots));
-                    kiana.setItemStackToSlot(EntityEquipmentSlot.LEGS, new ItemStack(ItemLoader.spaceLeggings));
+                    kiana.setItemStackToSlot(EntityEquipmentSlot.FEET, new ItemStack(ItemLoader.spaceFeet));
+                    kiana.setItemStackToSlot(EntityEquipmentSlot.LEGS, new ItemStack(ItemLoader.spaceLegs));
                     kiana.addPotionEffect(new PotionEffect(Potion.getPotionById(10), 100000, 4));
                     kiana.entityDropItem(new ItemStack(Items.NETHER_STAR), 0);
                 } else {

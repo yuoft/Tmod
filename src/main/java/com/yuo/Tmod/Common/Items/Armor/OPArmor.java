@@ -72,7 +72,7 @@ equipmentSlotIn参数和ToolMaterial一样，和对应盔甲的附魔能力正�
     @Override
     public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         Item item = stack.getItem();
-        if (item.equals(ItemLoader.opHelmet)) {
+        if (item.equals(ItemLoader.opHead)) {
             tooltip.add(I18n.format("tmod.item.op_head", ""));
         }
         if (item.equals(ItemLoader.opChest)) {
@@ -81,7 +81,7 @@ equipmentSlotIn参数和ToolMaterial一样，和对应盔甲的附魔能力正�
         if (item.equals(ItemLoader.opLegs)) {
             tooltip.add(I18n.format("tmod.item.op_legs", ""));
         }
-        if (item.equals(ItemLoader.opBoots)) {
+        if (item.equals(ItemLoader.opFeet)) {
             tooltip.add(I18n.format("tmod.item.op_feet", ""));
         }
     }
