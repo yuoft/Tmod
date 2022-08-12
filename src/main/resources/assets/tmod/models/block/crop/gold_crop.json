@@ -1,6 +1,6 @@
 {
-    "parent": "tmod:crop/cross",
+    "parent": "block/cross",
     "textures": {
-		"cross": "tmod:crop/gold_crop"
+		"cross": "tmod:block/crop/gold_crop"
     }
 }

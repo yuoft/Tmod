@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:block/cross",
-  "textures": {
-    "cross": "tmod:block/tree/coal_sapling"
-  }
+    "parent": "block/cross",
+    "textures": {
+      "cross": "tmod:block/tree/coal_sapling"
+    }
 }

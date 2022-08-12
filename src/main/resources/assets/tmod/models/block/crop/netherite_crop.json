@@ -1,6 +1,6 @@
 {
-    "parent": "tmod:crop/cross",
+    "parent": "block/cross",
     "textures": {
-		"cross": "tmod:crop/netherite_crop"
+		"cross": "tmod:block/crop/netherite_crop"
     }
 }

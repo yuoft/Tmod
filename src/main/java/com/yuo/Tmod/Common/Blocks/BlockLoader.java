@@ -24,7 +24,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BlockLoader {
-    public static final List<Block> BLOCKS = new ArrayList<>();
     //矿物
     public static final Block emeraldIngotOre = new EmeraldIngotOre("emerald_ingot_ore");
     public static final Block spaceOre = new SpaceOre("space_ore");

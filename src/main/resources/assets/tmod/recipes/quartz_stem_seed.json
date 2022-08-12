@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "xxx",
+        "xox",
+        "xxx"
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "minecraft:quartz"
+        },
+		"o":
+        {
+            "item": "minecraft:wheat_seeds"
+        }
+    },
+    "result":
+    {
+        "item": "tmod:quartz_stem_seed",
+        "count": 1
+    }
+}

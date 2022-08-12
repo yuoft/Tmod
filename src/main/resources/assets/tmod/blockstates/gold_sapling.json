@@ -1,5 +1,5 @@
 {
   "variants": {
-    "": { "model": "orecrop:block/tree/gold_sapling" }
+    "normal": { "model": "tmod:tree/gold_sapling" }
   }
 }

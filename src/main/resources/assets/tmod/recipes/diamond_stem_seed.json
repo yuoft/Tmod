@@ -10,8 +10,7 @@
     {
         "x":
         {
-            "item": "minecraft:coal",
-			"data": 0
+            "item": "minecraft:diamond"
         },
 		"o":
         {
@@ -20,7 +19,7 @@
     },
     "result":
     {
-        "item": "tmod:coal_crop_seed",
+        "item": "tmod:diamond_stem_seed",
         "count": 1
     }
 }

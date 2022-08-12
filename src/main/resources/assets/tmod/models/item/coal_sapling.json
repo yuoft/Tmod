@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "tmod:item/crop/coal_sapling"
+    "layer0": "tmod:block/tree/coal_sapling"
   }
 }

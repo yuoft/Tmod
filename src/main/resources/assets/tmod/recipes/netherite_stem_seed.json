@@ -10,8 +10,7 @@
     {
         "x":
         {
-            "item": "minecraft:dye",
-			"data": 4
+            "item": "tmod:netherite_ingot"
 			
         },
 		"o":
@@ -21,7 +20,7 @@
     },
     "result":
     {
-        "item": "tmod:lapis_crop_seed",
+        "item": "tmod:netherite_stem_seed",
         "count": 1
     }
 }

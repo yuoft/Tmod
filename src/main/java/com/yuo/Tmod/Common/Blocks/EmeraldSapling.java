@@ -20,7 +20,7 @@ public class EmeraldSapling extends BlockBush implements IGrowable {
 
     //绿宝石树苗
     public EmeraldSapling(String name) {
-        super(Material.LEAVES);
+        super(Material.PLANTS);
         this.setUnlocalizedName(name);
         this.setHardness(0.01f);
         this.setResistance(0.3f);

@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:block/leaves",
+  "parent": "block/leaves",
   "textures": {
     "all": "tmod:block/tree/iron_leaf"
   }

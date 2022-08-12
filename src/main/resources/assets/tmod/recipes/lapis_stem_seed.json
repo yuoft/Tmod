@@ -10,7 +10,9 @@
     {
         "x":
         {
-            "item": "minecraft:diamond"
+            "item": "minecraft:dye",
+			"data": 4
+			
         },
 		"o":
         {
@@ -19,7 +21,7 @@
     },
     "result":
     {
-        "item": "tmod:diamond_crop_seed",
+        "item": "tmod:lapis_stem_seed",
         "count": 1
     }
 }

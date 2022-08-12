@@ -14,9 +14,12 @@ import net.minecraft.block.BlockPlanks.EnumType;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EmeraldLeaf extends BlockLeaves {
     //绿宝石树叶
@@ -25,8 +28,14 @@ public class EmeraldLeaf extends BlockLeaves {
         this.setUnlocalizedName(name);
         this.setHardness(0.5f);
         this.setCreativeTab(TmodGroup.CROP_TAB);
+        this.setLightOpacity(1);
         //默认状态
         this.setDefaultState(this.blockState.getBaseState().withProperty(CHECK_DECAY, false).withProperty(DECAYABLE, true));
+    }
+
+    @SideOnly(Side.CLIENT)
+    public BlockRenderLayer getBlockLayer() {
+        return this.leavesFancy ? BlockRenderLayer.CUTOUT_MIPPED : BlockRenderLayer.SOLID;
     }
 
     //使用剪刀得到什么
@@ -55,21 +64,6 @@ public class EmeraldLeaf extends BlockLeaves {
     @Override
     public EnumType getWoodType(int meta) {
         return EnumType.BIRCH;
-    }
-
-    @Override
-    public void updateTick(World worldIn, @Nonnull BlockPos pos, @Nonnull IBlockState state, Random rand) {
-        super.updateTick(worldIn, pos, state, rand);
-    }
-
-    @Override
-    protected int getSaplingDropChance(IBlockState state) {
-        return 20;
-    }
-
-    @Override
-    public boolean isLeaves(IBlockState state, IBlockAccess world, BlockPos pos) {
-        return true;
     }
 
     @Nonnull

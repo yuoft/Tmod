@@ -10,7 +10,8 @@
     {
         "x":
         {
-            "item": "minecraft:gold_ingot"
+            "item": "minecraft:coal",
+			"data": 0
         },
 		"o":
         {
@@ -19,7 +20,7 @@
     },
     "result":
     {
-        "item": "tmod:gold_crop_seed",
+        "item": "tmod:coal_stem_seed",
         "count": 1
     }
 }

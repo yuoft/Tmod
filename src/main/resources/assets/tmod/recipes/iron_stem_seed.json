@@ -10,7 +10,7 @@
     {
         "x":
         {
-            "item": "minecraft:quartz"
+            "item": "minecraft:iron_ingot"
         },
 		"o":
         {
@@ -19,7 +19,7 @@
     },
     "result":
     {
-        "item": "tmod:quartz_crop_seed",
+        "item": "tmod:iron_stem_seed",
         "count": 1
     }
 }

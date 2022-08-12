@@ -1,5 +1,5 @@
 {
   "variants": {
-    "": { "model": "orecrop:block/tree/coal_sapling" }
+    "normal": { "model": "tmod:tree/coal_sapling" }
   }
 }

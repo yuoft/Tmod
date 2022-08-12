@@ -30,7 +30,7 @@ public class EmeraldCropSeeds extends Item implements IPlantable {
 
     @Override
     public IBlockState getPlant(IBlockAccess world, BlockPos pos) {
-        return BlockLoader.emeraldCrop.getDefaultState();
+        return BlockLoader.emeraldCrops.getDefaultState();
     }
 
     //种植
@@ -39,7 +39,7 @@ public class EmeraldCropSeeds extends Item implements IPlantable {
         ItemStack stack = player.getHeldItem(hand);
         IBlockState state = worldIn.getBlockState(pos);
         if (facing == EnumFacing.UP && player.canPlayerEdit(pos.offset(facing), facing, stack) && state.getBlock().canSustainPlant(state, worldIn, pos, EnumFacing.UP, this) && worldIn.isAirBlock(pos.up())) {
-            worldIn.setBlockState(pos.up(), BlockLoader.emeraldCrop.getDefaultState());
+            worldIn.setBlockState(pos.up(), BlockLoader.emeraldCrops.getDefaultState());
             if (!player.capabilities.isCreativeMode && !worldIn.isRemote) {
                 stack.shrink(1);
             }

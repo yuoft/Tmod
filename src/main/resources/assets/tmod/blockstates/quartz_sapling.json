@@ -1,5 +1,5 @@
 {
   "variants": {
-    "": { "model": "orecrop:block/tree/quartz_sapling" }
+    "normal": { "model": "tmod:tree/quartz_sapling" }
   }
 }

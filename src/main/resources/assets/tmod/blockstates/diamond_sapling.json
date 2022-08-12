@@ -1,5 +1,5 @@
 {
   "variants": {
-    "": { "model": "orecrop:block/tree/diamond_sapling" }
+    "normal": { "model": "tmod:tree/diamond_sapling" }
   }
 }

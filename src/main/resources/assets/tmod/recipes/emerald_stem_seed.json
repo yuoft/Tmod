@@ -10,7 +10,7 @@
     {
         "x":
         {
-            "item": "minecraft:iron_ingot"
+            "item": "minecraft:emerald"
         },
 		"o":
         {
@@ -19,7 +19,7 @@
     },
     "result":
     {
-        "item": "tmod:iron_crop_seed",
+        "item": "tmod:emerald_stem_seed",
         "count": 1
     }
 }

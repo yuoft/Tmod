@@ -21,7 +21,6 @@ import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.client.model.obj.OBJLoader;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -208,8 +207,8 @@ public class ItemLoader {
     public static final ModItemBlock quartzSapling = new ModItemBlock(BlockLoader.quartzSapling);
     public static final ModItemBlock redstoneLeaf = new ModItemBlock(BlockLoader.redstoneLeaf);
     public static final ModItemBlock redstoneSapling = new ModItemBlock(BlockLoader.redstoneSapling);
-    public static final ModItemBlock neteriteLeaf = new ModItemBlock(BlockLoader.netheriteLeaf);
-    public static final ModItemBlock neteriteSapling = new ModItemBlock(BlockLoader.netheriteSapling);
+    public static final ModItemBlock netheriteLeaf = new ModItemBlock(BlockLoader.netheriteLeaf);
+    public static final ModItemBlock netheriteSapling = new ModItemBlock(BlockLoader.netheriteSapling);
     //作物 茎
     public static final AllStemCropSeed coalStemSeed = new AllStemCropSeed("coal_stem_seed", BlockLoader.coalStem);
     public static final AllStemCropSeed diamondStemSeed = new AllStemCropSeed("diamond_stem_seed", BlockLoader.diamondStem);
@@ -219,7 +218,7 @@ public class ItemLoader {
     public static final AllStemCropSeed lapisStemSeed = new AllStemCropSeed("lapis_stem_seed", BlockLoader.lapisStem);
     public static final AllStemCropSeed quartzStemSeed = new AllStemCropSeed("quartz_stem_seed", BlockLoader.quartzStem);
     public static final AllStemCropSeed redstoneStemSeed = new AllStemCropSeed("redstone_stem_seed", BlockLoader.redstoneStem);
-    public static final AllStemCropSeed netheriteStemSeed = new AllStemCropSeed("netherite_stem_seed", BlockLoader.netheriteStem);
+    public static final Item netheriteStemSeed = new AllStemCropSeed("netherite_stem_seed", BlockLoader.netheriteStem);
     //作物 x型
     public static final Item coalCropSeed = new ModXCropSeed("coal_crop_seed", BlockLoader.coalCrop);
     public static final Item diamondCropSeed = new ModXCropSeed("diamond_crop_seed", BlockLoader.diamondCrop);
@@ -466,8 +465,8 @@ public class ItemLoader {
         ForgeRegistries.ITEMS.register(quartzSapling.setRegistryName("quartz_sapling"));
         ForgeRegistries.ITEMS.register(redstoneLeaf.setRegistryName("redstone_leaf"));
         ForgeRegistries.ITEMS.register(redstoneSapling.setRegistryName("redstone_sapling"));
-        ForgeRegistries.ITEMS.register(neteriteLeaf.setRegistryName("netherite_leaf"));
-        ForgeRegistries.ITEMS.register(neteriteSapling.setRegistryName("netherite_sapling"));
+        ForgeRegistries.ITEMS.register(netheriteLeaf.setRegistryName("netherite_leaf"));
+        ForgeRegistries.ITEMS.register(netheriteSapling.setRegistryName("netherite_sapling"));
 
         ForgeRegistries.ITEMS.register(coalCropSeed.setRegistryName("coal_crop_seed"));
         ForgeRegistries.ITEMS.register(diamondCropSeed.setRegistryName("diamond_crop_seed"));
@@ -670,6 +669,7 @@ public class ItemLoader {
         registerRender(coalStemSeed);
         registerRender(lapisStemSeed);
         registerRender(redstoneStemSeed);
+        registerRender(netheriteStemSeed);
 
         registerRender(emeraldPowder);
         registerRender(elytraLeft);
@@ -705,8 +705,8 @@ public class ItemLoader {
         registerRender(quartzSapling);
         registerRender(redstoneLeaf);
         registerRender(redstoneSapling);
-        registerRender(neteriteLeaf);
-        registerRender(neteriteSapling);
+        registerRender(netheriteLeaf);
+        registerRender(netheriteSapling);
 
         registerRender(coalCropSeed);
         registerRender(diamondCropSeed);
