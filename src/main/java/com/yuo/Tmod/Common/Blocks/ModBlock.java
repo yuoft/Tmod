@@ -4,12 +4,6 @@ import com.yuo.Tmod.Tab.TmodGroup;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 
 public class ModBlock extends Block {
     //绿宝石锭块
@@ -19,7 +13,7 @@ public class ModBlock extends Block {
         this.setHardness(hardness);//硬度
         this.setHarvestLevel("pickaxe", level);//采集工具,等级
         this.setResistance(hardness * 2);//爆炸抗性
-        this.setCreativeTab(TmodGroup.TMOD);
+        this.setCreativeTab(TmodGroup.OTHER_TAB);
         this.setSoundType(SoundType.SNOW);//破坏音效
     }
 }

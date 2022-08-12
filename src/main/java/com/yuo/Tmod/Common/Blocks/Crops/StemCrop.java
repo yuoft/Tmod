@@ -14,7 +14,7 @@ public class StemCrop extends BlockStem {
     public StemCrop(String name, Block block) {
         super(block);//传入方块“果实”
         this.setUnlocalizedName(name);
-        this.setCreativeTab(TmodGroup.TMOD);
+        this.setCreativeTab(TmodGroup.OTHER_TAB);
         this.setTickRandomly(true);
     }
 
@@ -23,9 +23,9 @@ public class StemCrop extends BlockStem {
     public void growStem(World worldIn, BlockPos pos, IBlockState state) {
         int i = state.getValue(AGE);
         Block block = state.getBlock();
-        if (block == BlockLoader.diamondCrop || block == BlockLoader.emeraldStemCrop){
+        if (block == BlockLoader.diamondStem || block == BlockLoader.emeraldStem){
             i += MathHelper.getInt(worldIn.rand, 1, 3);
-        }else if (block == BlockLoader.lapisCrop || block == BlockLoader.redstoneCrop || block == BlockLoader.goldCrop){
+        }else if (block == BlockLoader.lapisStem || block == BlockLoader.redstoneStem || block == BlockLoader.goldStem){
             i += MathHelper.getInt(worldIn.rand, 2, 4);
         }else i += MathHelper.getInt(worldIn.rand, 2, 5);;
         worldIn.setBlockState(pos, state.withProperty(AGE, Math.min(7, i)), 2);

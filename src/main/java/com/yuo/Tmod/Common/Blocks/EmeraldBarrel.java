@@ -9,7 +9,6 @@ import com.yuo.Tmod.Tab.TmodGroup;
 import com.yuo.Tmod.Gui.GuiLoader;
 import com.yuo.Tmod.TileEntity.NineTileEntity;
 
-import net.minecraft.block.BlockChest;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.BlockLog;
 import net.minecraft.block.SoundType;
@@ -44,7 +43,7 @@ public class EmeraldBarrel extends BlockContainer {
     public EmeraldBarrel(String name) {
         super(Material.WOOD);
         this.setUnlocalizedName(name);
-        this.setCreativeTab(TmodGroup.TMOD);
+        this.setCreativeTab(TmodGroup.OTHER_TAB);
         this.setSoundType(SoundType.WOOD);
         this.setHardness(5);
         this.setResistance(50);

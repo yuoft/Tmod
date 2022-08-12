@@ -40,7 +40,7 @@ public class BH3Sword extends ItemPickaxe {
     public BH3Sword(String name, ToolMaterial toolmaterial) {
         super(toolmaterial);
         this.setUnlocalizedName(name);
-        this.setCreativeTab(TmodGroup.TMOD);
+        this.setCreativeTab(TmodGroup.TOOL_TAB);
         this.setHarvestLevel("pickaxe", 4);
     }
 

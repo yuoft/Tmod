@@ -21,30 +21,18 @@ public class ExpWaterDrop extends Item {
     public ExpWaterDrop(String name) {
         super();
         this.setUnlocalizedName(name);
-        this.setCreativeTab(TmodGroup.TMOD);
+        this.setCreativeTab(TmodGroup.OTHER_TAB);
         this.setMaxStackSize(64);
     }
 
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         ItemStack stack = playerIn.getHeldItemMainhand();
-        if (playerIn.isSneaking())//玩家是否潜行
-        {
-            if (stack.getItem().equals(ItemLoader.expSmall)) {
-                playerIn.addExperience(10 * stack.getCount());
-            } else {
-                playerIn.addExperience(100 * stack.getCount());
-            }
-            stack.setCount(0);
-        } else {
-            if (stack.getItem().equals(ItemLoader.expSmall)) {
-                playerIn.addExperience(10);
-            } else {
-                playerIn.addExperience(100);
-            }
-            stack.setCount(stack.getCount() - 1);
-        }
-        return new ActionResult<ItemStack>(EnumActionResult.PASS, playerIn.getHeldItem(handIn));
+        int count = playerIn.isSneaking() ? stack.getCount() : 1;
+        int exp = stack.getItem() == ItemLoader.expSmall ? 10 : 100;
+        playerIn.addExperience(exp * count);
+        stack.shrink(count);
+        return new ActionResult<>(EnumActionResult.PASS, playerIn.getHeldItem(handIn));
     }
 
     //物品介绍信息

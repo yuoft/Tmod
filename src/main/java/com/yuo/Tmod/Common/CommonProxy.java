@@ -23,10 +23,10 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class CommonProxy {
     public void preInit(FMLPreInitializationEvent event) {
-        new TmodGroup(event);//创造物品栏注册
+        new TmodGroup();//创造物品栏注册
         new FluidLoader(event);//流体注册
         new BlockLoader(event);//方块注册
-        ItemLoader.init(event);//注册物品
+        ItemLoader.init();//注册物品
         new PotionLoader(event);//药水状态注册
         new EntityLoader();//实体注册
         new TileEntityLoader(event);//TileEntity注册

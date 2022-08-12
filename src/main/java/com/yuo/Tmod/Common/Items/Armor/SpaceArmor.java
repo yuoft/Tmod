@@ -1,24 +1,20 @@
 package com.yuo.Tmod.Common.Items.Armor;
 
-import com.yuo.Tmod.Common.Items.ItemLoader;
 import com.yuo.Tmod.Tab.TmodGroup;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
 
 public class SpaceArmor extends ItemArmor {
     public SpaceArmor(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
         super(materialIn, renderIndexIn, equipmentSlotIn);
         this.setUnlocalizedName(name);
-        this.setCreativeTab(TmodGroup.TMOD);//创造模式物品栏
+        this.setCreativeTab(TmodGroup.TOOL_TAB);//创造模式物品栏
     }
 
     // 穿在身上的时候的每时每刻都会调用的方法，可以用来追加药水效果什么的

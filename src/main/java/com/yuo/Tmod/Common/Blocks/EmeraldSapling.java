@@ -6,10 +6,7 @@ import javax.annotation.Nullable;
 
 import com.yuo.Tmod.Tab.TmodGroup;
 import com.yuo.Tmod.World.WorldTreeGen;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockBush;
-import net.minecraft.block.IGrowable;
-import net.minecraft.block.SoundType;
+import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.EnumFacing;
@@ -21,17 +18,13 @@ import net.minecraft.world.World;
 public class EmeraldSapling extends BlockBush implements IGrowable {
     protected static final AxisAlignedBB SAPLING_AABB = new AxisAlignedBB(0.30000001192092896D, 0.0D, 0.30000001192092896D, 0.699999988079071D, 0.6000000238418579D, 0.699999988079071D);
 
-    public EmeraldSapling() {
-
-    }
-
     //绿宝石树苗
     public EmeraldSapling(String name) {
         super(Material.LEAVES);
         this.setUnlocalizedName(name);
         this.setHardness(0.01f);
         this.setResistance(0.3f);
-        this.setCreativeTab(TmodGroup.TMOD);
+        this.setCreativeTab(TmodGroup.CROP_TAB);
         this.setSoundType(SoundType.PLANT);
         this.setTickRandomly(true);
     }
@@ -51,14 +44,12 @@ public class EmeraldSapling extends BlockBush implements IGrowable {
     //是否可以使用骨粉
     @Override
     public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, IBlockState state) {
-        // TODO 自动生成的方法存根
         return true;
     }
 
     //生长
     @Override
     public void grow(World worldIn, Random rand, BlockPos pos, IBlockState state) {
-        // TODO 自动生成的方法存根
         WorldTreeGen tree = new WorldTreeGen();
         tree.generate(worldIn, rand, pos);
     }

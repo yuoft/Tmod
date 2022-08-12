@@ -8,7 +8,7 @@ import net.minecraft.util.SoundEvent;
 public class TmodMusicRecord extends ItemRecord {
     protected TmodMusicRecord(String name, SoundEvent soundIn) {
         super(name, soundIn);
-        this.setCreativeTab(TmodGroup.TMOD);
+        this.setCreativeTab(TmodGroup.OTHER_TAB);
         this.setUnlocalizedName(name);
     }
 

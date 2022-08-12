@@ -29,7 +29,7 @@ public class SpaceSword extends ItemSword {
     public SpaceSword(String name, ToolMaterial material) {
         super(material);
         this.setUnlocalizedName(name);
-        this.setCreativeTab(TmodGroup.TMOD);
+        this.setCreativeTab(TmodGroup.TOOL_TAB);
     }
 
     @SideOnly(Side.CLIENT)

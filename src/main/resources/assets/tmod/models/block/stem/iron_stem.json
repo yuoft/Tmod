@@ -1,0 +1,7 @@
+{
+    "parent": "block/stem_fruit",
+    "textures": {
+        "stem": "tmod:block/crop/iron_stem0",
+        "upperstem": "tmod:block/crop/iron_stem"
+    }
+}

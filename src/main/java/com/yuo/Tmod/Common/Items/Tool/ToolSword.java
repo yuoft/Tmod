@@ -10,13 +10,12 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
-import net.minecraftforge.common.ForgeHooks;
 
 public class ToolSword extends ItemSword {
     public ToolSword(String name, ToolMaterial toolmaterial) {
         super(toolmaterial);
         this.setUnlocalizedName(name);
-        this.setCreativeTab(TmodGroup.TMOD);
+        this.setCreativeTab(TmodGroup.TOOL_TAB);
     }
 
     @Override

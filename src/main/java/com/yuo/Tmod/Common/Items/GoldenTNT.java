@@ -23,7 +23,7 @@ public class GoldenTNT extends Item {
     public GoldenTNT(String name) {
         super();
         this.setUnlocalizedName(name);
-        this.setCreativeTab(TmodGroup.TMOD);
+        this.setCreativeTab(TmodGroup.TOOL_TAB);
         this.setMaxStackSize(16);
     }
 

@@ -27,7 +27,7 @@ public class ToolHoe extends ItemTool {
         super(-3.0F, 0.0F, toolmaterial, EFFECTIVE_ON);
         this.setUnlocalizedName(name);
         this.setHarvestLevel("hoe", toolmaterial.getHarvestLevel());
-        this.setCreativeTab(TmodGroup.TMOD);
+        this.setCreativeTab(TmodGroup.TOOL_TAB);
     }
 
     //锄头右键方法（使用原版）

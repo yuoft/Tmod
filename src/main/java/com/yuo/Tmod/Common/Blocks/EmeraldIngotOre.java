@@ -30,7 +30,7 @@ public class EmeraldIngotOre extends BlockOre {
         this.setHardness(10);
         this.setResistance(5);
         this.setLightLevel(1.0f);
-        this.setCreativeTab(TmodGroup.TMOD);
+        this.setCreativeTab(TmodGroup.OTHER_TAB);
         // Forge 的采掘等级机制，幻数 2 代表与钻石矿同级，magic string "pickaxe" 代表镐
         this.setHarvestLevel("pickaxe", 3);
     }

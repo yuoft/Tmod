@@ -17,7 +17,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityIronGolem;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
@@ -35,7 +34,7 @@ public class SpaceBlock extends Block {
         this.setHardness(50);// 硬度
         this.setHarvestLevel("pickaxe", 7);// 采集工具,等级
         this.setResistance(500);// 爆炸抗性
-        this.setCreativeTab(TmodGroup.TMOD);
+        this.setCreativeTab(TmodGroup.OTHER_TAB);
         this.setSoundType(SoundType.STONE);// 破坏音效
     }
 

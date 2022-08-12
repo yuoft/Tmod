@@ -18,9 +18,9 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
+import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
@@ -39,7 +39,7 @@ public class BossBlock extends Block {
     public BossBlock(String name) {
         super(Material.ROCK);
         this.setUnlocalizedName(name);
-        this.setCreativeTab(TmodGroup.TMOD);
+        this.setCreativeTab(TmodGroup.OTHER_TAB);
         this.setHardness(10);
         this.setHarvestLevel("pickaxe", 3);
         this.setResistance(60);
@@ -112,7 +112,7 @@ public class BossBlock extends Block {
                     kiana.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(ItemLoader.dragonChest));
                     kiana.setItemStackToSlot(EntityEquipmentSlot.FEET, new ItemStack(ItemLoader.dragonFeet));
                     kiana.setItemStackToSlot(EntityEquipmentSlot.LEGS, new ItemStack(ItemLoader.dragonLegs));
-                    kiana.addPotionEffect(new PotionEffect(Potion.getPotionById(10), 100000, 3));
+                    kiana.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 100000, 3));
                 } else if (!heldItem.isEmpty() && heldItem.getItem() == Items.NETHER_STAR) {
                     heldItem.shrink(1);
                     health += 500f;
@@ -123,7 +123,7 @@ public class BossBlock extends Block {
                     kiana.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(ItemLoader.spaceChest));
                     kiana.setItemStackToSlot(EntityEquipmentSlot.FEET, new ItemStack(ItemLoader.spaceFeet));
                     kiana.setItemStackToSlot(EntityEquipmentSlot.LEGS, new ItemStack(ItemLoader.spaceLegs));
-                    kiana.addPotionEffect(new PotionEffect(Potion.getPotionById(10), 100000, 4));
+                    kiana.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 100000, 4));
                     kiana.entityDropItem(new ItemStack(Items.NETHER_STAR), 0);
                 } else {
                     kiana.setItemStackToSlot(EntityEquipmentSlot.OFFHAND, new ItemStack(Items.TOTEM_OF_UNDYING));

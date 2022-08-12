@@ -20,7 +20,7 @@ public class DragonBow extends ItemBow {
         this.setUnlocalizedName(name);
         this.setMaxDamage(786);
         this.setMaxStackSize(1);
-        this.setCreativeTab(TmodGroup.TMOD);
+        this.setCreativeTab(TmodGroup.TOOL_TAB);
         this.setContainerItem(Items.ARROW);
         this.addPropertyOverride(new ResourceLocation("pull"), new IItemPropertyGetter() {
             @SideOnly(Side.CLIENT)

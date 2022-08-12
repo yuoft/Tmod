@@ -21,7 +21,7 @@ public class DombRemover extends Item {
         super();
         this.setUnlocalizedName(name);
         this.setMaxStackSize(1);
-        this.setCreativeTab(TmodGroup.TMOD);
+        this.setCreativeTab(TmodGroup.OTHER_TAB);
     }
 
     //物品使用

@@ -50,7 +50,7 @@ enchantability参数与附魔等级相关
     public OPSword(String name) {
         super(OPSWORD);
         this.setUnlocalizedName(name);
-        this.setCreativeTab(TmodGroup.TMOD);
+        this.setCreativeTab(TmodGroup.TOOL_TAB);
     }
 
     @Override

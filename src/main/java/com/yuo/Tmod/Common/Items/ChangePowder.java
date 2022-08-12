@@ -27,12 +27,13 @@ public class ChangePowder extends Item {
     public ChangePowder(String name) {
         super();
         this.setUnlocalizedName(name);
-        this.setCreativeTab(TmodGroup.TMOD);
+        this.setCreativeTab(TmodGroup.OTHER_TAB);
         this.setMaxStackSize(64);
     }
 
     //物品使用
     public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+        ItemStack heldItem = player.getHeldItem(hand);
         if (!worldIn.isRemote) {
             Block block = worldIn.getBlockState(pos).getBlock();
             if (block instanceof BlockSapling) {
@@ -45,8 +46,7 @@ public class ChangePowder extends Item {
                     // 构造器里把 Translation Key 放进去即可。
                     player.sendMessage(new TextComponentTranslation("tmod.text.change_powder2"));
                 }
-                ItemStack itemStack = player.getHeldItem(hand);
-                itemStack.setCount(itemStack.getCount() - 1);
+                heldItem.shrink(1);
             }
         }
         return EnumActionResult.PASS;

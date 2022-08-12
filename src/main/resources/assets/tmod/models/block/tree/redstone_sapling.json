@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "tmod:block/tree/redstone_sapling"
+  }
+}

@@ -5,11 +5,11 @@ import com.yuo.Tmod.Tab.TmodGroup;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.MobEffects;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
@@ -20,7 +20,7 @@ public class BuffApple extends ItemFood {
     public BuffApple(String name, int hungerHeal, float saturation, boolean isWolfFood) {
         super(hungerHeal, saturation, isWolfFood);
         this.setUnlocalizedName(name);
-        this.setCreativeTab(TmodGroup.TMOD);
+        this.setCreativeTab(TmodGroup.FOOD_TAB);
         this.setMaxStackSize(64);
         this.setAlwaysEdible();
         this.setHasSubtypes(true);
@@ -42,85 +42,84 @@ public class BuffApple extends ItemFood {
             Item item = stack.getItem();
             if (item.equals(ItemLoader.diamondApple)) {
                 if (stack.getMetadata() > 0) {
-                    player.addPotionEffect(new PotionEffect(Potion.getPotionById(10), 2000, 1));
-                    player.addPotionEffect(new PotionEffect(Potion.getPotionById(11), 4000, 2));
-                    player.addPotionEffect(new PotionEffect(Potion.getPotionById(5), 4000, 2));
+                    player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 2000, 1));
+                    player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 4000, 2));
+                    player.addPotionEffect(new PotionEffect(MobEffects.STRENGTH, 4000, 2));
                 } else {
-                    player.addPotionEffect(new PotionEffect(Potion.getPotionById(11), 2000, 1));
-                    player.addPotionEffect(new PotionEffect(Potion.getPotionById(5), 2000, 1));
+                    player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 2000, 1));
+                    player.addPotionEffect(new PotionEffect(MobEffects.STRENGTH, 2000, 1));
                 }
             } else if (item.equals(ItemLoader.emeraldApple)) {
                 if (stack.getMetadata() > 0) {
-                    player.addPotionEffect(new PotionEffect(Potion.getPotionById(10), 4000, 2));
-                    player.addPotionEffect(new PotionEffect(Potion.getPotionById(22), 4000, 2));
-                    player.addPotionEffect(new PotionEffect(Potion.getPotionById(11), 2000, 1));
-                    player.addPotionEffect(new PotionEffect(Potion.getPotionById(5), 2000, 1));
+                    player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 4000, 2));
+                    player.addPotionEffect(new PotionEffect(MobEffects.ABSORPTION, 4000, 2));
+                    player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 2000, 1));
+                    player.addPotionEffect(new PotionEffect(MobEffects.STRENGTH, 2000, 1));
                 } else {
-                    player.addPotionEffect(new PotionEffect(Potion.getPotionById(10), 2000, 1));
-                    player.addPotionEffect(new PotionEffect(Potion.getPotionById(22), 2000, 1));
+                    player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 2000, 1));
+                    player.addPotionEffect(new PotionEffect(MobEffects.ABSORPTION, 2000, 1));
                 }
             } else if (item.equals(ItemLoader.ironApple)) {
                 if (stack.getMetadata() > 0) {
-                    player.addPotionEffect(new PotionEffect(Potion.getPotionById(10), 4000, 2));
-                    player.addPotionEffect(new PotionEffect(Potion.getPotionById(11), 4000, 1));
+                    player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 4000, 2));
+                    player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 4000, 1));
                 } else {
-                    player.addPotionEffect(new PotionEffect(Potion.getPotionById(11), 2000, 0));
+                    player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 2000, 0));
                 }
             } else if (item.equals(ItemLoader.coalApple)) {
                 if (stack.getMetadata() > 0) {
-                    player.addPotionEffect(new PotionEffect(Potion.getPotionById(6), 2000, 0));
-                    player.addPotionEffect(new PotionEffect(Potion.getPotionById(17), 3000, 0));
+                    player.addPotionEffect(new PotionEffect(MobEffects.INSTANT_HEALTH, 2000, 0));
+                    player.addPotionEffect(new PotionEffect(MobEffects.HUNGER, 3000, 0));
                 } else {
-                    player.addPotionEffect(new PotionEffect(Potion.getPotionById(17), 2000, 0));
+                    player.addPotionEffect(new PotionEffect(MobEffects.HUNGER, 2000, 0));
                 }
             } else if (item.equals(ItemLoader.lapisApple)) {
                 if (stack.getMetadata() > 0) {
-                    player.addPotionEffect(new PotionEffect(Potion.getPotionById(26), 2000, 0));
-                    player.addPotionEffect(new PotionEffect(Potion.getPotionById(10), 4000, 1));
+                    player.addPotionEffect(new PotionEffect(MobEffects.LUCK, 2000, 0));
+                    player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 4000, 1));
                 } else {
-                    player.addPotionEffect(new PotionEffect(Potion.getPotionById(10), 2000, 0));
+                    player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 2000, 0));
                 }
             } else if (item.equals(ItemLoader.redstoneApple)) {
                 if (stack.getMetadata() > 0) {
-                    player.addPotionEffect(new PotionEffect(Potion.getPotionById(8), 4000, 1));
-                    player.addPotionEffect(new PotionEffect(Potion.getPotionById(1), 4000, 1));
+                    player.addPotionEffect(new PotionEffect(MobEffects.JUMP_BOOST, 4000, 1));
+                    player.addPotionEffect(new PotionEffect(MobEffects.SPEED, 4000, 1));
                 } else {
-                    player.addPotionEffect(new PotionEffect(Potion.getPotionById(1), 2000, 0));
-                    player.addPotionEffect(new PotionEffect(Potion.getPotionById(8), 2000, 0));
+                    player.addPotionEffect(new PotionEffect(MobEffects.SPEED, 2000, 0));
+                    player.addPotionEffect(new PotionEffect(MobEffects.JUMP_BOOST, 2000, 0));
                 }
             } else if (item.equals(ItemLoader.quartzApple)) {
                 if (stack.getMetadata() > 0) {
-                    player.addPotionEffect(new PotionEffect(Potion.getPotionById(12), 4000, 0));
+                    player.addPotionEffect(new PotionEffect(MobEffects.FIRE_RESISTANCE, 4000, 0));
                 } else {
-                    player.addPotionEffect(new PotionEffect(Potion.getPotionById(12), 2000, 0));
+                    player.addPotionEffect(new PotionEffect(MobEffects.FIRE_RESISTANCE, 2000, 0));
                 }
             } else if (item.equals(ItemLoader.glowstoneApple)) {
                 if (stack.getMetadata() > 0) {
-                    player.addPotionEffect(new PotionEffect(Potion.getPotionById(1), 2000, 0));
-                    player.addPotionEffect(new PotionEffect(Potion.getPotionById(16), 4000, 0));
+                    player.addPotionEffect(new PotionEffect(MobEffects.SPEED, 2000, 0));
+                    player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 4000, 0));
                 } else {
-                    player.addPotionEffect(new PotionEffect(Potion.getPotionById(16), 2000, 0));
+                    player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 2000, 0));
                 }
             } else if (item.equals(ItemLoader.deBuffApple)) {
                 if (stack.getMetadata() > 0) {
-                    player.addPotionEffect(new PotionEffect(Potion.getPotionById(2), 4000, 1));
-                    player.addPotionEffect(new PotionEffect(Potion.getPotionById(4), 4000, 1));
-                    player.addPotionEffect(new PotionEffect(Potion.getPotionById(7), 1000, 0));
-                    player.addPotionEffect(new PotionEffect(Potion.getPotionById(9), 4000, 1));
-                    player.addPotionEffect(new PotionEffect(Potion.getPotionById(15), 4000, 1));
-                    player.addPotionEffect(new PotionEffect(Potion.getPotionById(17), 4000, 1));
-                    player.addPotionEffect(new PotionEffect(Potion.getPotionById(18), 2000, 0));
-                    player.addPotionEffect(new PotionEffect(Potion.getPotionById(19), 4000, 0));
-                    player.addPotionEffect(new PotionEffect(Potion.getPotionById(20), 2000, 0));
-                    player.addPotionEffect(new PotionEffect(Potion.getPotionById(10), 2000, 5));
+                    player.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 4000, 1));
+                    player.addPotionEffect(new PotionEffect(MobEffects.MINING_FATIGUE, 4000, 1));
+                    player.addPotionEffect(new PotionEffect(MobEffects.INSTANT_DAMAGE, 1000, 0));
+                    player.addPotionEffect(new PotionEffect(MobEffects.NAUSEA, 4000, 1));
+                    player.addPotionEffect(new PotionEffect(MobEffects.BLINDNESS, 4000, 1));
+                    player.addPotionEffect(new PotionEffect(MobEffects.HUNGER, 4000, 1));
+                    player.addPotionEffect(new PotionEffect(MobEffects.WEAKNESS, 2000, 0));
+                    player.addPotionEffect(new PotionEffect(MobEffects.POISON, 4000, 0));
+                    player.addPotionEffect(new PotionEffect(MobEffects.WITHER, 2000, 0));
+                    player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 2000, 5));
                 } else {
-                    player.addPotionEffect(new PotionEffect(Potion.getPotionById(2), 2000, 0));
-                    player.addPotionEffect(new PotionEffect(Potion.getPotionById(4), 2000, 0));
-                    player.addPotionEffect(new PotionEffect(Potion.getPotionById(9), 2000, 0));
-                    player.addPotionEffect(new PotionEffect(Potion.getPotionById(15), 2000, 0));
-                    player.addPotionEffect(new PotionEffect(Potion.getPotionById(17), 2000, 0));
+                    player.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 2000, 0));
+                    player.addPotionEffect(new PotionEffect(MobEffects.MINING_FATIGUE, 2000, 0));
+                    player.addPotionEffect(new PotionEffect(MobEffects.NAUSEA, 2000, 0));
+                    player.addPotionEffect(new PotionEffect(MobEffects.BLINDNESS, 2000, 0));
+                    player.addPotionEffect(new PotionEffect(MobEffects.HUNGER, 2000, 0));
                 }
-            } else {
             }
         }
         super.onFoodEaten(stack, world, player);

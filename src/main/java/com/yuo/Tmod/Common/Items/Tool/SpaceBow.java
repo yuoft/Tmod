@@ -21,7 +21,7 @@ public class SpaceBow extends ItemBow {
         this.setUnlocalizedName(name);
         this.setMaxDamage(1000);
         this.setMaxStackSize(1);
-        this.setCreativeTab(TmodGroup.TMOD);
+        this.setCreativeTab(TmodGroup.TOOL_TAB);
         this.setContainerItem(Items.ARROW);
         this.setDamage(new ItemStack(this), 100);
         this.addPropertyOverride(new ResourceLocation("pull"), new IItemPropertyGetter() {

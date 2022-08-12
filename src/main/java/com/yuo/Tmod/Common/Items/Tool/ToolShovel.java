@@ -27,7 +27,7 @@ public class ToolShovel extends ItemTool {
         super(1.5F, -3.0F, toolmaterial, EFFECTIVE_ON);
         this.setUnlocalizedName(name);
         this.setHarvestLevel("shovel", toolmaterial.getHarvestLevel());
-        this.setCreativeTab(TmodGroup.TMOD);
+        this.setCreativeTab(TmodGroup.TOOL_TAB);
     }
 
     //铲子右键方法（使用原版）

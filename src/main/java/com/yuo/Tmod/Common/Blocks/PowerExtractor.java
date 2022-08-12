@@ -41,7 +41,7 @@ public class PowerExtractor extends BlockContainer {
         this.setUnlocalizedName(name);
         this.setHardness(5);
         this.setResistance(50);
-        this.setCreativeTab(TmodGroup.TMOD);
+        this.setCreativeTab(TmodGroup.OTHER_TAB);
         this.setSoundType(SoundType.STONE);
         this.setHarvestLevel("pickaxe", 1);
         this.setLightLevel(this.blockState.getBaseState().getValue(BURNING) ? 12 : 0);

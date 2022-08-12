@@ -27,7 +27,7 @@ public class LevelViewer extends Item {
         super();
         this.setUnlocalizedName(name);
         this.setMaxStackSize(1);
-        this.setCreativeTab(TmodGroup.TMOD);
+        this.setCreativeTab(TmodGroup.OTHER_TAB);
     }
 
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {

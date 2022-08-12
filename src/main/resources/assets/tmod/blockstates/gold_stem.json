@@ -1,0 +1,16 @@
+{
+    "variants": {
+        "age=0,facing=up": { "model": "tmod:stem/gold_crop0" },
+        "age=1,facing=up": { "model": "tmod:stem/gold_crop1" },
+        "age=2,facing=up": { "model": "tmod:stem/gold_crop2" },
+        "age=3,facing=up": { "model": "tmod:stem/gold_crop3" },
+        "age=4,facing=up": { "model": "tmod:stem/gold_crop4" },
+        "age=5,facing=up": { "model": "tmod:stem/gold_crop5" },
+		"age=6,facing=up": { "model": "tmod:stem/gold_crop6" },
+		"age=7,facing=up": { "model": "tmod:stem/gold_crop7" },
+        "age=7,facing=west": { "model": "tmod:stem/gold_stem" },
+        "age=7,facing=east": { "model": "tmod:stem/gold_stem", "y": 180 },
+        "age=7,facing=north": { "model": "tmod:stem/gold_stem", "y": 90 },
+        "age=7,facing=south": { "model": "tmod:stem/gold_stem", "y": 270 }
+    }
+}

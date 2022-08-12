@@ -22,7 +22,7 @@ public class EmeraldCrop extends BlockCrops implements IGrowable {
         // TODO 自动生成的构造函数存根
         this.setUnlocalizedName(name);//绿宝石作物
         this.setTickRandomly(true);//随机时间刻
-        this.setCreativeTab(TmodGroup.TMOD);
+        this.setCreativeTab(TmodGroup.OTHER_TAB);
         this.setHardness(0.0F);
         this.setSoundType(SoundType.PLANT);
         this.disableStats();

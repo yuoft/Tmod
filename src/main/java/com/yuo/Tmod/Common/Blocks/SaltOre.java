@@ -27,7 +27,7 @@ public class SaltOre extends BlockOre {
         this.setSoundType(SoundType.STONE);
         this.setHardness(8);
         this.setResistance(15);
-        this.setCreativeTab(TmodGroup.TMOD);
+        this.setCreativeTab(TmodGroup.OTHER_TAB);
         this.setHarvestLevel("pickaxe", 1);
     }
 

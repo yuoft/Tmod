@@ -34,7 +34,7 @@ public class OPPickaxe extends ItemTool {
     public OPPickaxe(String name) {
         super(1.0f, -2.5f, OPPICKAXE, null);
         this.setUnlocalizedName(name);
-        this.setCreativeTab(TmodGroup.TMOD);
+        this.setCreativeTab(TmodGroup.TOOL_TAB);
         this.hander = new ItemHander(this);
     }
 

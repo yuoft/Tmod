@@ -19,7 +19,7 @@ import net.minecraft.world.World;
 public class AllReeds extends BlockReed {
     public AllReeds(String name) {
         this.setUnlocalizedName(name);
-        this.setCreativeTab(TmodGroup.TMOD);
+        this.setCreativeTab(TmodGroup.CROP_TAB);
         this.setSoundType(SoundType.PLANT);
     }
 

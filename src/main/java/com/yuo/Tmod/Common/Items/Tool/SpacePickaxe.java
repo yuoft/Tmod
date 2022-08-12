@@ -23,7 +23,7 @@ public class SpacePickaxe extends ItemPickaxe {
     public SpacePickaxe(String name, ToolMaterial material) {
         super(material);
         this.setUnlocalizedName(name);
-        this.setCreativeTab(TmodGroup.TMOD);
+        this.setCreativeTab(TmodGroup.TOOL_TAB);
         this.setHarvestLevel("pickaxe", 5);
         this.attackDamage = 15.0f;//设置攻击伤害
         this.hander = new ItemHander(this);

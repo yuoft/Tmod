@@ -34,7 +34,7 @@ equipmentSlotIn参数和ToolMaterial一样，和对应盔甲的附魔能力正�
     public OPArmor(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
         super(materialIn, renderIndexIn, equipmentSlotIn);
         this.setUnlocalizedName(name);
-        this.setCreativeTab(TmodGroup.TMOD);//创造模式物品栏
+        this.setCreativeTab(TmodGroup.TOOL_TAB);//创造模式物品栏
         this.setNoRepair();
     }
 

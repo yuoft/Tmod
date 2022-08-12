@@ -17,14 +17,15 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
+import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 
-//杂质盐洗净
+//红宝石矿石结构烧炼
 
 /**
  * @author https://github.com/rwtema/Extra-Utilities-2-Source
- * 源码来自 更多实用设备2
+ * 部分源码来自 更多实用设备2
  */
 public class EventCraftRuby {
     List<EntityItem> rubyServer = new ArrayList<>();
@@ -36,7 +37,6 @@ public class EventCraftRuby {
 
     @SubscribeEvent
     public void onJoin(EntityJoinWorldEvent event) {
-
         Entity entity = event.getEntity();
         if (entity instanceof EntityItem) {
             ItemStack entityItem = ((EntityItem) entity).getItem();
@@ -81,35 +81,34 @@ public class EventCraftRuby {
             }
             //检测方块结构
             World world = item.world;
-            BlockPos pos = item.getPosition();
-            boolean found = false;
+            BlockPos pos = item.getPosition().down();
 
-            //中间方块为岩浆
-            if (world.getBlockState(pos).getMaterial() == Material.LAVA) {
-                for (EnumFacing dir : EnumFacing.values()) {
-                    if (dir == EnumFacing.UP) continue;
-                    //四周是地狱砖
-                    if (!world.getBlockState(pos.offset(dir)).getBlock().equals(Blocks.NETHER_BRICK)) {
-                        found = true;
-                        break;
-                    }
-                }
-            }
-
-            //方块结构正确
-            if (found) {
-                continue;
-            }
-            //生成盐物品栈
-            if (!world.isRemote && world instanceof WorldServer) {
+            if (isLava(pos, world) && !world.isRemote && world instanceof WorldServer) {
                 WorldServer worldServer = (WorldServer) world;
-                worldServer.spawnParticle(EnumParticleTypes.LAVA, false, item.posX, item.posY, item.posZ, 100, 0.0, 0D, 0D, 0.0);
+                worldServer.spawnParticle(EnumParticleTypes.LAVA, false, item.posX, item.posY, item.posZ, 5, 0.0, 0.0D, 0D, 0d);
                 item.setDead();
-                EntityItem demonicIngotItem = new EntityItem(world, item.posX, item.posY, item.posZ, new ItemStack(ItemLoader.ruby, rawStack.getCount()));
-                world.spawnEntity(demonicIngotItem);
+                EntityItem entityItem = new EntityItem(world, item.posX, item.posY, item.posZ, new ItemStack(ItemLoader.ruby, rawStack.getCount()));
+                world.spawnEntity(entityItem);
                 iterator.remove();
             }
-
         }
+    }
+
+    /**
+     * 判断结构是否正确 地狱砖围岩浆
+     * @param pos 坐标
+     * @param world 世界
+     * @return 正确 true
+     */
+    private static boolean isLava(BlockPos pos, World world){
+        if (world.getBlockState(pos).getMaterial() != Material.LAVA)
+            return false;
+        for (EnumFacing dir : EnumFacing.values()) {
+            if (dir == EnumFacing.UP) continue;
+            if (world.getBlockState(pos.offset(dir)).getBlock() != Blocks.NETHER_BRICK) {
+                return false;
+            }
+        }
+        return true;
     }
 }

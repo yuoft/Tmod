@@ -23,7 +23,7 @@ public class SaltMeat extends ItemFood {
     public SaltMeat(String name, int hungerHeal, float saturation, boolean isWolfFood) {
         super(hungerHeal, saturation, isWolfFood);
         this.setUnlocalizedName(name);
-        this.setCreativeTab(TmodGroup.TMOD);
+        this.setCreativeTab(TmodGroup.FOOD_TAB);
         this.setMaxStackSize(32);
     }
 

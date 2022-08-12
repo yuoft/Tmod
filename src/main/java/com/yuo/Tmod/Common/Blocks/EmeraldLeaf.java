@@ -24,7 +24,7 @@ public class EmeraldLeaf extends BlockLeaves {
         super();
         this.setUnlocalizedName(name);
         this.setHardness(0.5f);
-        this.setCreativeTab(TmodGroup.TMOD);
+        this.setCreativeTab(TmodGroup.CROP_TAB);
         //默认状态
         this.setDefaultState(this.blockState.getBaseState().withProperty(CHECK_DECAY, false).withProperty(DECAYABLE, true));
     }

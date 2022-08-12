@@ -6,6 +6,7 @@ import javax.annotation.Nonnull;
 
 import com.yuo.Tmod.Tab.TmodGroup;
 
+import com.yuo.Tmod.Tmod;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLog;
 import net.minecraft.block.SoundType;
@@ -32,7 +33,7 @@ public class EmeraldTree extends Block {
         this.setUnlocalizedName(name);
         this.setHardness(5.0f);
         this.setResistance(5.0f);
-        this.setCreativeTab(TmodGroup.TMOD);
+        this.setCreativeTab(TmodGroup.CROP_TAB);
         this.setSoundType(SoundType.WOOD);
         this.setHarvestLevel("axe", 2);
         this.setDefaultState(this.blockState.getBaseState().withProperty(LOG_AXIS, BlockLog.EnumAxis.Y));

@@ -4,6 +4,8 @@ import java.util.Random;
 
 import com.yuo.Tmod.Common.Blocks.BlockLoader;
 
+import net.minecraft.block.state.pattern.BlockMatcher;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
@@ -14,9 +16,9 @@ import net.minecraftforge.event.terraingen.TerrainGen;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import net.minecraftforge.event.terraingen.OreGenEvent;
 
-public class SpaceOreGen extends WorldGenerator implements IWorldGenerator {
+public class SpaceOreGen extends WorldGenerator {
     private final WorldGenMinable SpaceGenerator = new WorldGenMinable(BlockLoader.spaceOre.getDefaultState(), 3);
-    private final WorldGenMinable EndSpaceGenerator = new WorldGenMinable(BlockLoader.spaceOre.getDefaultState(), 5);
+    private final WorldGenMinable EndSpaceGenerator = new WorldGenMinable(BlockLoader.endSpaceOre.getDefaultState(), 5, BlockMatcher.forBlock(Blocks.END_STONE));
 
     @Override
     public boolean generate(World world, Random rand, BlockPos pos) {
@@ -26,9 +28,6 @@ public class SpaceOreGen extends WorldGenerator implements IWorldGenerator {
                 break;
             case 1:
                 genEnd(world, rand, pos);
-                break;
-            case -1:
-                genHell(world, rand, pos);
                 break;
             default:
         }
@@ -47,34 +46,15 @@ public class SpaceOreGen extends WorldGenerator implements IWorldGenerator {
         }
     }
 
-    public void genHell(World world, Random rand, BlockPos pos) {
-        if (TerrainGen.generateOre(world, rand, this, pos, OreGenEvent.GenerateMinable.EventType.QUARTZ)) {
-            for (int i = 0; i < 5; ++i) {
-                int posX = pos.getX() + rand.nextInt(16);
-                int posY = 2 + rand.nextInt(6);
-                int posZ = pos.getZ() + rand.nextInt(16);
-                BlockPos blockpos = new BlockPos(posX, posY, posZ);
-                EndSpaceGenerator.generate(world, rand, blockpos);
-            }
-        }
-    }
-
     public void genEnd(World world, Random rand, BlockPos pos) {
         if (TerrainGen.generateOre(world, rand, this, pos, OreGenEvent.GenerateMinable.EventType.CUSTOM)) {
-            for (int i = 0; i < 10; ++i) {
+            for (int i = 0; i < 8; ++i) {
                 int posX = pos.getX() + rand.nextInt(16);
-                int posY = 16 + rand.nextInt(32);
+                int posY = 10 + rand.nextInt(22);
                 int posZ = pos.getZ() + rand.nextInt(16);
                 BlockPos blockpos = new BlockPos(posX, posY, posZ);
                 EndSpaceGenerator.generate(world, rand, blockpos);
             }
         }
-    }
-
-    @Override
-    public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator,
-                         IChunkProvider chunkProvider) {
-        generate(world, random, new BlockPos(chunkX, 0, chunkZ));
-
     }
 }

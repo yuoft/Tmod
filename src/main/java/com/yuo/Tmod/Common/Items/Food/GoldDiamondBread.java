@@ -13,7 +13,7 @@ public class GoldDiamondBread extends ItemFood {
     public GoldDiamondBread(String name, int hungerHeal, float saturation, boolean isWolfFood) {
         super(hungerHeal, saturation, isWolfFood);
         this.setUnlocalizedName(name);//item本地化名称
-        this.setCreativeTab(TmodGroup.TMOD);
+        this.setCreativeTab(TmodGroup.FOOD_TAB);
         this.setMaxStackSize(64);
         this.setAlwaysEdible();
     }

@@ -1,16 +1,12 @@
 {
     "variants": {
-        "age=0,facing=up": { "model": "tmod:crop/lapis_crop0" },
-        "age=1,facing=up": { "model": "tmod:crop/lapis_crop1" },
-        "age=2,facing=up": { "model": "tmod:crop/lapis_crop2" },
-        "age=3,facing=up": { "model": "tmod:crop/lapis_crop3" },
-        "age=4,facing=up": { "model": "tmod:crop/lapis_crop4" },
-        "age=5,facing=up": { "model": "tmod:crop/lapis_crop5" },
-		"age=6,facing=up": { "model": "tmod:crop/lapis_crop6" },
-		"age=7,facing=up": { "model": "tmod:crop/lapis_crop7" },
-        "age=7,facing=west": { "model": "tmod:crop/lapis_stem" },
-        "age=7,facing=east": { "model": "tmod:crop/lapis_stem", "y": 180 },
-        "age=7,facing=north": { "model": "tmod:crop/lapis_stem", "y": 90 },
-        "age=7,facing=south": { "model": "tmod:crop/lapis_stem", "y": 270 }
+        "age=0": { "model": "tmod:crop/crop0" },
+        "age=1": { "model": "tmod:crop/crop1" },
+        "age=2": { "model": "tmod:crop/crop2" },
+        "age=3": { "model": "tmod:crop/crop3" },
+        "age=4": { "model": "tmod:crop/crop4" },
+        "age=5": { "model": "tmod:crop/crop5" },
+		"age=6": { "model": "tmod:crop/crop6" },
+		"age=7": { "model": "tmod:crop/lapis_crop" }
     }
 }

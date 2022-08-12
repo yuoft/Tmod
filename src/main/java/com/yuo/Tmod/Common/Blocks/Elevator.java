@@ -27,7 +27,7 @@ public class Elevator extends Block {
         this.setHarvestLevel("pickaxe", 1);
         this.setHardness(10);
         this.setResistance(20);
-        this.setCreativeTab(TmodGroup.TMOD);
+        this.setCreativeTab(TmodGroup.OTHER_TAB);
     }
 
     @Override

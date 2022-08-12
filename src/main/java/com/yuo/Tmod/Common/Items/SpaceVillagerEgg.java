@@ -16,21 +16,11 @@ public class SpaceVillagerEgg extends Item {
     public SpaceVillagerEgg(String name) {
         super();
         this.setUnlocalizedName(name);
-        this.setCreativeTab(TmodGroup.TMOD);
+        this.setCreativeTab(TmodGroup.OTHER_TAB);
         this.setMaxStackSize(16);
     }
 
-    //	@Override
-//	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
-//		if(!worldIn.isRemote)
-//		{
-//			EntityVillager villager=new EntityVillager(worldIn);
-//			villager.setPosition(playerIn.posX, playerIn.posY, playerIn.posZ);
-//			villager.setProfession(VillagerLoader.SPACE);
-//			worldIn.spawnEntity(villager);
-//		}
-//		return new ActionResult<ItemStack>(EnumActionResult.PASS, playerIn.getHeldItem(handIn));
-//	}
+    @Override
     public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!worldIn.isRemote) {
             EntityVillager villager = new EntityVillager(worldIn);
@@ -38,7 +28,7 @@ public class SpaceVillagerEgg extends Item {
             villager.setProfession(VillagerLoader.SPACE);
             worldIn.spawnEntity(villager);
             //用完后消失
-            player.getHeldItem(hand).setCount(player.getHeldItem(hand).getCount() - 1);
+            player.getHeldItem(hand).shrink(1);
         }
         return EnumActionResult.PASS;
     }

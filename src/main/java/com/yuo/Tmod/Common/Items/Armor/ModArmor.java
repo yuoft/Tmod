@@ -10,7 +10,7 @@ public class ModArmor extends ItemArmor {
     public ModArmor(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
         super(materialIn, renderIndexIn, equipmentSlotIn);
         this.setUnlocalizedName(name);
-        this.setCreativeTab(TmodGroup.TMOD);//创造模式物品栏
+        this.setCreativeTab(TmodGroup.TOOL_TAB);//创造模式物品栏
     }
 
 }

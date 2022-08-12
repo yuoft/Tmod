@@ -6,6 +6,7 @@ import com.yuo.Tmod.Common.Blocks.ModItemBlock;
 import com.yuo.Tmod.Common.Items.Armor.*;
 import com.yuo.Tmod.Common.Items.Crops.AllStemCropSeed;
 import com.yuo.Tmod.Common.Items.Crops.EmeraldCropSeeds;
+import com.yuo.Tmod.Common.Items.Crops.ModXCropSeed;
 import com.yuo.Tmod.Common.Items.Food.BadApple;
 import com.yuo.Tmod.Common.Items.Food.BuffApple;
 import com.yuo.Tmod.Common.Items.Food.GoldDiamondBread;
@@ -145,20 +146,19 @@ public class ItemLoader {
 
     public static final ModItemBlock emeraldIngotBlock = new ModItemBlock(BlockLoader.emeraldIngotBlock);
     public static final ModItemBlock emeraldIngotOre = new ModItemBlock(BlockLoader.emeraldIngotOre);
-    public static final ModItemBlock emeraldTree = new ModItemBlock(BlockLoader.emeraldTree);
-    public static final ModItemBlock emeraldLeaf = new ModItemBlock(BlockLoader.emeraldLeaf);
-    public static final ModItemBlock emeraldSapling = new ModItemBlock(BlockLoader.emeraldSapling);
     public static final ModItemBlock powerExtractor = new ModItemBlock(BlockLoader.powerExtractor);
     public static final ModItemBlock bossBlock = new ModItemBlock(BlockLoader.bossBlock);
     public static final ModItemBlock bossBlock1 = new ModItemBlock(BlockLoader.bossBlock1);
     public static final ModItemBlock emeraldBarrel = new ModItemBlock(BlockLoader.emeraldBarrel);
     public static final ModItemBlock spaceOre = new ModItemBlock(BlockLoader.spaceOre);
+    public static final ModItemBlock dragonOre = new ModItemBlock(BlockLoader.dragonOre);
     public static final ModItemBlock endSpaceOre = new ModItemBlock(BlockLoader.endSpaceOre);
     public static final ModItemBlock spaceBlock = new ModItemBlock(BlockLoader.spaceBlock);
     public static final ModItemBlock saltOre = new ModItemBlock(BlockLoader.saltOre);
     public static final ModItemBlock luckyBlock = new ModItemBlock(BlockLoader.luckyBlock);
     public static final ModItemBlock unluckyBlock = new ModItemBlock(BlockLoader.unluckyBlock);
     public static final ModItemBlock rubyOre = new ModItemBlock(BlockLoader.rubyOre);
+    public static final ModItemBlock netherRubyOre = new ModItemBlock(BlockLoader.netherRubyOre);
     public static final ModItemBlock mine = new ModItemBlock(BlockLoader.mine);
     public static final ModItemBlock speedTorch = new ModItemBlock(BlockLoader.speedTorch);
     public static final ModItemBlock elevator = new ModItemBlock(BlockLoader.elevator);
@@ -190,15 +190,63 @@ public class ItemLoader {
     public static final EmeraldCropSeeds emeraldCropSeeds = new EmeraldCropSeeds("emerald_crop_seeds");
     //作物 甘蔗
     public static final ModItemBlock appleReeds = new ModItemBlock(BlockLoader.appleReeds);
+    //树
+    public static final ModItemBlock emeraldTree = new ModItemBlock(BlockLoader.emeraldTree);
+    public static final ModItemBlock emeraldLeaf = new ModItemBlock(BlockLoader.emeraldLeaf);
+    public static final ModItemBlock emeraldSapling = new ModItemBlock(BlockLoader.emeraldSapling);
+    public static final ModItemBlock coalLeaf = new ModItemBlock(BlockLoader.coalLeaf);
+    public static final ModItemBlock coalSapling = new ModItemBlock(BlockLoader.coalSapling);
+    public static final ModItemBlock diamondLeaf = new ModItemBlock(BlockLoader.diamondLeaf);
+    public static final ModItemBlock diamondSapling = new ModItemBlock(BlockLoader.diamondSapling);
+    public static final ModItemBlock goldLeaf = new ModItemBlock(BlockLoader.goldLeaf);
+    public static final ModItemBlock goldSapling = new ModItemBlock(BlockLoader.goldSapling);
+    public static final ModItemBlock ironLeaf = new ModItemBlock(BlockLoader.ironLeaf);
+    public static final ModItemBlock ironSapling = new ModItemBlock(BlockLoader.ironSapling);
+    public static final ModItemBlock lapisLeaf = new ModItemBlock(BlockLoader.lapisLeaf);
+    public static final ModItemBlock lapisSapling = new ModItemBlock(BlockLoader.lapisSapling);
+    public static final ModItemBlock quartzLeaf = new ModItemBlock(BlockLoader.quartzLeaf);
+    public static final ModItemBlock quartzSapling = new ModItemBlock(BlockLoader.quartzSapling);
+    public static final ModItemBlock redstoneLeaf = new ModItemBlock(BlockLoader.redstoneLeaf);
+    public static final ModItemBlock redstoneSapling = new ModItemBlock(BlockLoader.redstoneSapling);
+    public static final ModItemBlock neteriteLeaf = new ModItemBlock(BlockLoader.netheriteLeaf);
+    public static final ModItemBlock neteriteSapling = new ModItemBlock(BlockLoader.netheriteSapling);
     //作物 茎
-    public static final AllStemCropSeed diamondCropSeed = new AllStemCropSeed("diamond_crop_seed", BlockLoader.diamondCrop);
-    public static final AllStemCropSeed goldCropSeed = new AllStemCropSeed("gold_crop_seed", BlockLoader.goldCrop);
-    public static final AllStemCropSeed ironCropSeed = new AllStemCropSeed("iron_crop_seed", BlockLoader.ironCrop);
-    public static final AllStemCropSeed emeraldStemCropSeed = new AllStemCropSeed("emerald_stem_crop_seed", BlockLoader.emeraldStemCrop);
-    public static final AllStemCropSeed coalCropSeed = new AllStemCropSeed("coal_crop_seed", BlockLoader.coalCrop);
-    public static final AllStemCropSeed quartzCropSeed = new AllStemCropSeed("quartz_crop_seed", BlockLoader.quartzCrop);
-    public static final AllStemCropSeed lapisCropSeed = new AllStemCropSeed("lapis_crop_seed", BlockLoader.lapisCrop);
-    public static final AllStemCropSeed redstoneCropSeed = new AllStemCropSeed("redstone_crop_seed", BlockLoader.redstoneCrop);
+    public static final AllStemCropSeed coalStemSeed = new AllStemCropSeed("coal_stem_seed", BlockLoader.coalStem);
+    public static final AllStemCropSeed diamondStemSeed = new AllStemCropSeed("diamond_stem_seed", BlockLoader.diamondStem);
+    public static final AllStemCropSeed emeraldStemSeed = new AllStemCropSeed("emerald_stem_seed", BlockLoader.emeraldStem);
+    public static final AllStemCropSeed goldStemSeed = new AllStemCropSeed("gold_stem_seed", BlockLoader.goldStem);
+    public static final AllStemCropSeed ironStemSeed = new AllStemCropSeed("iron_stem_seed", BlockLoader.ironStem);
+    public static final AllStemCropSeed lapisStemSeed = new AllStemCropSeed("lapis_stem_seed", BlockLoader.lapisStem);
+    public static final AllStemCropSeed quartzStemSeed = new AllStemCropSeed("quartz_stem_seed", BlockLoader.quartzStem);
+    public static final AllStemCropSeed redstoneStemSeed = new AllStemCropSeed("redstone_stem_seed", BlockLoader.redstoneStem);
+    public static final AllStemCropSeed netheriteStemSeed = new AllStemCropSeed("netherite_stem_seed", BlockLoader.netheriteStem);
+    //作物 x型
+    public static final Item coalCropSeed = new ModXCropSeed("coal_crop_seed", BlockLoader.coalCrop);
+    public static final Item diamondCropSeed = new ModXCropSeed("diamond_crop_seed", BlockLoader.diamondCrop);
+    public static final Item emeraldCropSeed = new ModXCropSeed("emerald_crop_seed", BlockLoader.emeraldCrop);
+    public static final Item goldCropSeed = new ModXCropSeed("gold_crop_seed", BlockLoader.goldCrop);
+    public static final Item ironCropSeed = new ModXCropSeed("iron_crop_seed", BlockLoader.ironCrop);
+    public static final Item lapisCropSeed = new ModXCropSeed("lapis_crop_seed", BlockLoader.lapisCrop);
+    public static final Item netheriteCropSeed = new ModXCropSeed("netherite_crop_seed", BlockLoader.netheriteCrop);
+    public static final Item quartzCropSeed = new ModXCropSeed("quartz_crop_seed", BlockLoader.quartzCrop);
+    public static final Item redstoneCropSeed = new ModXCropSeed("redstone_crop_seed", BlockLoader.redstoneCrop);
+    public static final Item coalFruit = new ModCropItem("coal_fruit");
+    public static final Item coalNugget = new ModCropItem("coal_nugget");
+    public static final Item diamondFruit = new ModCropItem("diamond_fruit");
+    public static final Item diamondNugget = new ModCropItem("diamond_nugget");
+    public static final Item emeraldFruit = new ModCropItem("emerald_fruit");
+    public static final Item emeraldNugget = new ModCropItem("emerald_nugget");
+    public static final Item goldFruit = new ModCropItem("gold_fruit");
+    public static final Item ironFruit = new ModCropItem("iron_fruit");
+    public static final Item lapisFruit = new ModCropItem("lapis_fruit");
+    public static final Item lapisNugget = new ModCropItem("lapis_nugget");
+    public static final Item netheriteFruit = new ModCropItem("netherite_fruit");
+    public static final Item netheriteNugget = new ModCropItem("netherite_nugget");
+    public static final Item quartzFruit = new ModCropItem("quartz_fruit");
+    public static final Item quartzNugget = new ModCropItem("quartz_nugget");
+    public static final Item redstoneFruit = new ModCropItem("redstone_fruit");
+    public static final Item redstoneNugget = new ModCropItem("redstone_nugget");
+//    public static final Item dragonString = new ModCropItem("xray_crop_seed");
     //碎片物品 or 通用物品注册
     public static final Item emeraldPowder = new ModItem("emerald_powder");
     public static final Item elytraLeft = new ModItem("elytra_left");
@@ -211,9 +259,16 @@ public class ItemLoader {
     public static final Item salt = new ModItem("salt");
     public static final Item saltWash = new ModItem("salt_wash");
     public static final Item dragonString = new ModItem("dragon_string");
+    public static final Item bedrockIngot = new ModItem("bedrock_ingot");
+    public static final Item bedrockNugget = new ModItem("bedrock_nugget");
+    public static final Item bedrockPowder = new ModItem("bedrock_powder");
+    public static final Item diamondStick = new ModItem("diamond_stick");
+    public static final Item goldStick = new ModItem("gold_stick");
+    public static final Item ironStick = new ModItem("iron_stick");
+    public static final Item netheriteStick = new ModItem("netherite_stick");
 
     //注册item的id
-    public static void init(FMLPreInitializationEvent event) {
+    public static void init() {
         ForgeRegistries.ITEMS.register(badApple.setRegistryName("bad_apple"));
         ForgeRegistries.ITEMS.register(goldDiamondBread.setRegistryName("gold_diamond_bread"));
         ForgeRegistries.ITEMS.register(emeraldApple.setRegistryName("emerald_apple"));
@@ -329,12 +384,14 @@ public class ItemLoader {
         ForgeRegistries.ITEMS.register(bossBlock1.setRegistryName("boss_block1"));
         ForgeRegistries.ITEMS.register(emeraldBarrel.setRegistryName("emerald_barrel"));
         ForgeRegistries.ITEMS.register(spaceOre.setRegistryName("space_ore"));
+        ForgeRegistries.ITEMS.register(dragonOre.setRegistryName("dragon_ore"));
         ForgeRegistries.ITEMS.register(endSpaceOre.setRegistryName("end_space_ore"));
         ForgeRegistries.ITEMS.register(spaceBlock.setRegistryName("space_block"));
         ForgeRegistries.ITEMS.register(saltOre.setRegistryName("salt_ore"));
         ForgeRegistries.ITEMS.register(luckyBlock.setRegistryName("lucky_block"));
         ForgeRegistries.ITEMS.register(unluckyBlock.setRegistryName("unlucky_block"));
         ForgeRegistries.ITEMS.register(rubyOre.setRegistryName("ruby_ore"));
+        ForgeRegistries.ITEMS.register(netherRubyOre.setRegistryName("nether_ruby_ore"));
         ForgeRegistries.ITEMS.register(mine.setRegistryName("mine"));
         ForgeRegistries.ITEMS.register(speedTorch.setRegistryName("speed_torch"));
         ForgeRegistries.ITEMS.register(elevator.setRegistryName("elevator"));
@@ -365,14 +422,15 @@ public class ItemLoader {
 
         ForgeRegistries.ITEMS.register(emeraldCropSeeds.setRegistryName("emerald_crop_seeds"));
         ForgeRegistries.ITEMS.register(appleReeds.setRegistryName("apple_reeds"));
-        ForgeRegistries.ITEMS.register(diamondCropSeed.setRegistryName("diamond_crop_seed"));
-        ForgeRegistries.ITEMS.register(goldCropSeed.setRegistryName("gold_crop_seed"));
-        ForgeRegistries.ITEMS.register(ironCropSeed.setRegistryName("iron_crop_seed"));
-        ForgeRegistries.ITEMS.register(emeraldStemCropSeed.setRegistryName("emerald_stem_crop_seed"));
-        ForgeRegistries.ITEMS.register(coalCropSeed.setRegistryName("coal_crop_seed"));
-        ForgeRegistries.ITEMS.register(quartzCropSeed.setRegistryName("quartz_crop_seed"));
-        ForgeRegistries.ITEMS.register(lapisCropSeed.setRegistryName("lapis_crop_seed"));
-        ForgeRegistries.ITEMS.register(redstoneCropSeed.setRegistryName("redstone_crop_seed"));
+        ForgeRegistries.ITEMS.register(diamondStemSeed.setRegistryName("diamond_stem_seed"));
+        ForgeRegistries.ITEMS.register(goldStemSeed.setRegistryName("gold_stem_seed"));
+        ForgeRegistries.ITEMS.register(ironStemSeed.setRegistryName("iron_stem_seed"));
+        ForgeRegistries.ITEMS.register(emeraldStemSeed.setRegistryName("emerald_stem_seed"));
+        ForgeRegistries.ITEMS.register(coalStemSeed.setRegistryName("coal_stem_seed"));
+        ForgeRegistries.ITEMS.register(quartzStemSeed.setRegistryName("quartz_stem_seed"));
+        ForgeRegistries.ITEMS.register(lapisStemSeed.setRegistryName("lapis_stem_seed"));
+        ForgeRegistries.ITEMS.register(redstoneStemSeed.setRegistryName("redstone_stem_seed"));
+        ForgeRegistries.ITEMS.register(netheriteStemSeed.setRegistryName("netherite_stem_seed"));
 
         ForgeRegistries.ITEMS.register(emeraldPowder.setRegistryName("emerald_powder"));
         ForgeRegistries.ITEMS.register(elytraLeft.setRegistryName("elytra_left"));
@@ -386,11 +444,59 @@ public class ItemLoader {
         ForgeRegistries.ITEMS.register(salt.setRegistryName("salt"));
         ForgeRegistries.ITEMS.register(saltWash.setRegistryName("salt_wash"));
         ForgeRegistries.ITEMS.register(dragonString.setRegistryName("dragon_string"));
+        ForgeRegistries.ITEMS.register(bedrockIngot.setRegistryName("bedrock_ingot"));
+        ForgeRegistries.ITEMS.register(bedrockNugget.setRegistryName("bedrock_nugget"));
+        ForgeRegistries.ITEMS.register(bedrockPowder.setRegistryName("bedrock_powder"));
+        ForgeRegistries.ITEMS.register(diamondStick.setRegistryName("diamond_stick"));
+        ForgeRegistries.ITEMS.register(goldStick.setRegistryName("gold_stick"));
+        ForgeRegistries.ITEMS.register(ironStick.setRegistryName("iron_stick"));
+        ForgeRegistries.ITEMS.register(netheriteStick.setRegistryName("netherite_stick"));
+
+        ForgeRegistries.ITEMS.register(coalLeaf.setRegistryName("coal_leaf"));
+        ForgeRegistries.ITEMS.register(coalSapling.setRegistryName("coal_sapling"));
+        ForgeRegistries.ITEMS.register(diamondLeaf.setRegistryName("diamond_leaf"));
+        ForgeRegistries.ITEMS.register(diamondSapling.setRegistryName("diamond_sapling"));
+        ForgeRegistries.ITEMS.register(goldLeaf.setRegistryName("gold_leaf"));
+        ForgeRegistries.ITEMS.register(goldSapling.setRegistryName("gold_sapling"));
+        ForgeRegistries.ITEMS.register(ironLeaf.setRegistryName("iron_leaf"));
+        ForgeRegistries.ITEMS.register(ironSapling.setRegistryName("iron_sapling"));
+        ForgeRegistries.ITEMS.register(lapisLeaf.setRegistryName("lapis_leaf"));
+        ForgeRegistries.ITEMS.register(lapisSapling.setRegistryName("lapis_sapling"));
+        ForgeRegistries.ITEMS.register(quartzLeaf.setRegistryName("quartz_leaf"));
+        ForgeRegistries.ITEMS.register(quartzSapling.setRegistryName("quartz_sapling"));
+        ForgeRegistries.ITEMS.register(redstoneLeaf.setRegistryName("redstone_leaf"));
+        ForgeRegistries.ITEMS.register(redstoneSapling.setRegistryName("redstone_sapling"));
+        ForgeRegistries.ITEMS.register(neteriteLeaf.setRegistryName("netherite_leaf"));
+        ForgeRegistries.ITEMS.register(neteriteSapling.setRegistryName("netherite_sapling"));
+
+        ForgeRegistries.ITEMS.register(coalCropSeed.setRegistryName("coal_crop_seed"));
+        ForgeRegistries.ITEMS.register(diamondCropSeed.setRegistryName("diamond_crop_seed"));
+        ForgeRegistries.ITEMS.register(emeraldCropSeed.setRegistryName("emerald_crop_seed"));
+        ForgeRegistries.ITEMS.register(goldCropSeed.setRegistryName("gold_crop_seed"));
+        ForgeRegistries.ITEMS.register(ironCropSeed.setRegistryName("iron_crop_seed"));
+        ForgeRegistries.ITEMS.register(lapisCropSeed.setRegistryName("lapis_crop_seed"));
+        ForgeRegistries.ITEMS.register(quartzCropSeed.setRegistryName("quartz_crop_seed"));
+        ForgeRegistries.ITEMS.register(redstoneCropSeed.setRegistryName("redstone_crop_seed"));
+        ForgeRegistries.ITEMS.register(netheriteCropSeed.setRegistryName("netherite_crop_seed"));
+
+        ForgeRegistries.ITEMS.register(coalFruit.setRegistryName("coal_fruit"));
+        ForgeRegistries.ITEMS.register(coalNugget.setRegistryName("coal_nugget"));
+        ForgeRegistries.ITEMS.register(diamondFruit.setRegistryName("diamond_fruit"));
+        ForgeRegistries.ITEMS.register(diamondNugget.setRegistryName("diamond_nugget"));
+        ForgeRegistries.ITEMS.register(emeraldFruit.setRegistryName("emerald_fruit"));
+        ForgeRegistries.ITEMS.register(emeraldNugget.setRegistryName("emerald_nugget"));
+        ForgeRegistries.ITEMS.register(goldFruit.setRegistryName("gold_fruit"));
+        ForgeRegistries.ITEMS.register(ironFruit.setRegistryName("iron_fruit"));
+        ForgeRegistries.ITEMS.register(lapisFruit.setRegistryName("lapis_fruit"));
+        ForgeRegistries.ITEMS.register(lapisNugget.setRegistryName("lapis_nugget"));
+        ForgeRegistries.ITEMS.register(quartzFruit.setRegistryName("quartz_fruit"));
+        ForgeRegistries.ITEMS.register(quartzNugget.setRegistryName("quartz_nugget"));
+        ForgeRegistries.ITEMS.register(redstoneFruit.setRegistryName("redstone_fruit"));
+        ForgeRegistries.ITEMS.register(redstoneNugget.setRegistryName("redstone_nugget"));
+        ForgeRegistries.ITEMS.register(netheriteFruit.setRegistryName("netherite_fruit"));
+        ForgeRegistries.ITEMS.register(netheriteNugget.setRegistryName("netherite_nugget"));
     }
 
-    //	private static void registerRegistryName(Item items) {
-//	    ForgeRegistries.ITEMS.register(items.setRegistryName(items.getUnlocalizedName()));
-//	}
     @SideOnly(Side.CLIENT)
     public static void registerRenders()//zhucecaizhi
     {
@@ -520,12 +626,14 @@ public class ItemLoader {
         registerRender(bossBlock1);
         registerRender(emeraldBarrel);
         registerRender(spaceOre);
+        registerRender(dragonOre);
         registerRender(endSpaceOre);
         registerRender(spaceBlock);
         registerRender(saltOre);
         registerRender(luckyBlock);
         registerRender(unluckyBlock);
         registerRender(rubyOre);
+        registerRender(netherRubyOre);
         registerRender(mine);
         registerRender(speedTorch);
         registerRender(elevator);
@@ -554,14 +662,14 @@ public class ItemLoader {
 
         registerRender(emeraldCropSeeds);
         registerRender(appleReeds);
-        registerRender(diamondCropSeed);
-        registerRender(goldCropSeed);
-        registerRender(ironCropSeed);
-        registerRender(emeraldStemCropSeed);
-        registerRender(quartzCropSeed);
-        registerRender(coalCropSeed);
-        registerRender(lapisCropSeed);
-        registerRender(redstoneCropSeed);
+        registerRender(diamondStemSeed);
+        registerRender(goldStemSeed);
+        registerRender(ironStemSeed);
+        registerRender(emeraldStemSeed);
+        registerRender(quartzStemSeed);
+        registerRender(coalStemSeed);
+        registerRender(lapisStemSeed);
+        registerRender(redstoneStemSeed);
 
         registerRender(emeraldPowder);
         registerRender(elytraLeft);
@@ -575,6 +683,57 @@ public class ItemLoader {
         registerRender(salt);
         registerRender(saltWash);
         registerRender(dragonString);
+        registerRender(bedrockIngot);
+        registerRender(bedrockNugget);
+        registerRender(bedrockPowder);
+        registerRender(diamondStick);
+        registerRender(goldStick);
+        registerRender(ironStick);
+        registerRender(netheriteStick);
+
+        registerRender(coalLeaf);
+        registerRender(coalSapling);
+        registerRender(diamondLeaf);
+        registerRender(diamondSapling);
+        registerRender(goldLeaf);
+        registerRender(goldSapling);
+        registerRender(ironLeaf);
+        registerRender(ironSapling);
+        registerRender(lapisLeaf);
+        registerRender(lapisSapling);
+        registerRender(quartzLeaf);
+        registerRender(quartzSapling);
+        registerRender(redstoneLeaf);
+        registerRender(redstoneSapling);
+        registerRender(neteriteLeaf);
+        registerRender(neteriteSapling);
+
+        registerRender(coalCropSeed);
+        registerRender(diamondCropSeed);
+        registerRender(emeraldCropSeed);
+        registerRender(goldCropSeed);
+        registerRender(ironCropSeed);
+        registerRender(lapisCropSeed);
+        registerRender(quartzCropSeed);
+        registerRender(redstoneCropSeed);
+        registerRender(netheriteCropSeed);
+
+        registerRender(coalFruit);
+        registerRender(coalNugget);
+        registerRender(diamondFruit);
+        registerRender(diamondNugget);
+        registerRender(emeraldFruit);
+        registerRender(emeraldNugget);
+        registerRender(goldFruit);
+        registerRender(ironFruit);
+        registerRender(lapisFruit);
+        registerRender(lapisNugget);
+        registerRender(quartzFruit);
+        registerRender(quartzNugget);
+        registerRender(redstoneFruit);
+        registerRender(redstoneNugget);
+        registerRender(netheriteFruit);
+        registerRender(netheriteNugget);
     }
 
     @SideOnly(Side.CLIENT)

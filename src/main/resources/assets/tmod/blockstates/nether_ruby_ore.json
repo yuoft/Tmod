@@ -1,0 +1,5 @@
+{
+    "variants": {
+        "normal": { "model": "tmod:nether_ruby_ore" }
+    }
+}

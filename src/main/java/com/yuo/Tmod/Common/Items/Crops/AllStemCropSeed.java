@@ -22,7 +22,7 @@ public class AllStemCropSeed extends Item implements IPlantable {
     public AllStemCropSeed(String name, Block stem) {
         super();
         this.setUnlocalizedName(name);
-        this.setCreativeTab(TmodGroup.TMOD);
+        this.setCreativeTab(TmodGroup.CROP_TAB);
         this.setMaxStackSize(64);
         this.stem = stem;
     }

@@ -18,6 +18,7 @@ public class RenderRedCreeper extends RenderLiving<EntityRedCreeper> {
     //mc的渲染管理器，实体模型，阴影大小
     public RenderRedCreeper(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelCreeper(), 0.5f);
+        this.addLayer(new LayerRedCreeperEyes(this));
     }
 
     //这里我们可以加一些我们想要的变换操作

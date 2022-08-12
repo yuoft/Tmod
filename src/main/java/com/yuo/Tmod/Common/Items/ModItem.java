@@ -18,7 +18,7 @@ public class ModItem extends Item {
     public ModItem(String name) {
         super();
         this.setUnlocalizedName(name);
-        this.setCreativeTab(TmodGroup.TMOD);
+        this.setCreativeTab(TmodGroup.OTHER_TAB);
         this.setMaxStackSize(64);
     }
 

@@ -18,7 +18,7 @@ public class LuckyBlock extends Block {
         this.setSoundType(SoundType.STONE);
         this.setHardness(3);
         this.setResistance(50);
-        this.setCreativeTab(TmodGroup.TMOD);
+        this.setCreativeTab(TmodGroup.OTHER_TAB);
         this.setHarvestLevel("pickaxe", 1);
     }
 

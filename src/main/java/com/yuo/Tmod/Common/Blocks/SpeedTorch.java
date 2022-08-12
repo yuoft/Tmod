@@ -19,7 +19,7 @@ public class SpeedTorch extends BlockTorch {
         this.setUnlocalizedName(name);
         this.setSoundType(SoundType.WOOD);
         this.setLightLevel(10);
-        this.setCreativeTab(TmodGroup.TMOD);
+        this.setCreativeTab(TmodGroup.OTHER_TAB);
     }
 
     @Override

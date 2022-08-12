@@ -24,9 +24,9 @@ public class SpaceOre extends BlockOre {
         super(MapColor.STONE);
         this.setUnlocalizedName(name);
         this.setSoundType(SoundType.STONE);
-        this.setHardness(10);
-        this.setResistance(500);
-        this.setCreativeTab(TmodGroup.TMOD);
+        this.setHardness(30);
+        this.setResistance(100);
+        this.setCreativeTab(TmodGroup.OTHER_TAB);
         this.setHarvestLevel("pickaxe", 6);
     }
 
@@ -56,7 +56,7 @@ public class SpaceOre extends BlockOre {
     @Override
     public int getExpDrop(IBlockState state, IBlockAccess world, BlockPos pos, int fortune) {
         Random random = world instanceof World ? ((World) world).rand : new Random();
-        return MathHelper.getInt(random, 30, 70);
+        return MathHelper.getInt(random, 10, 20);
     }
 
     // Forge 的 patch，取代 getItem (func_185473_a)，用于创造模式下鼠标中键选取方块的功能。

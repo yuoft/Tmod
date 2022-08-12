@@ -17,10 +17,9 @@ import net.minecraftforge.common.IPlantable;
 
 public class EmeraldCropSeeds extends Item implements IPlantable {
     public EmeraldCropSeeds(String name) {
-        // TODO 自动生成的构造函数存根
         super();
         this.setUnlocalizedName(name);//绿宝石作物种子
-        this.setCreativeTab(TmodGroup.TMOD);
+        this.setCreativeTab(TmodGroup.CROP_TAB);
         this.setMaxStackSize(64);
     }
 

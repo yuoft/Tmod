@@ -22,6 +22,7 @@ public class RenderGreenZombies extends RenderLiving<EntityGreenZombies> {
         super(rendermanagerIn, new ModelZombie(), 0.5f);
         this.addLayer(new LayerBipedArmor(this));
         this.addLayer(new LayerHeldItem(this));
+        this.addLayer(new LayerGreenZombiesEyes(this));
     }
 
     //这里我们可以加一些我们想要的变换操作

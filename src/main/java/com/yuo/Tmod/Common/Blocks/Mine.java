@@ -27,9 +27,8 @@ public class Mine extends BlockFalling {
     public Mine(String name) {
         super(Material.ROCK);
         this.setUnlocalizedName(name);
-        this.setCreativeTab(TmodGroup.TMOD);
+        this.setCreativeTab(TmodGroup.OTHER_TAB);
         this.setHardness(1.0f);
-//		this.setHarvestLevel("pickaxe", 0);
         this.setResistance(20.0f);
         this.setSoundType(SoundType.STONE);
     }

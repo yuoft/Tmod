@@ -21,6 +21,7 @@ public class RenderRedZombies extends RenderLiving<EntityRedZombies> {
         super(rendermanagerIn, new ModelZombie(), 0.5f);
         this.addLayer(new LayerBipedArmor(this));
         this.addLayer(new LayerHeldItem(this));
+        this.addLayer(new LayerRedZombiesEyes(this));
     }
 
     @Override

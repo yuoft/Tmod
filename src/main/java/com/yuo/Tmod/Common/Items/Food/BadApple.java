@@ -16,7 +16,7 @@ public class BadApple extends ItemFood {
     public BadApple(String name, int hungerHeal, float saturation, boolean isWolfFood) {
         super(hungerHeal, saturation, isWolfFood);
         this.setUnlocalizedName(name);//item本地化名称
-        this.setCreativeTab(TmodGroup.TMOD);
+        this.setCreativeTab(TmodGroup.FOOD_TAB);
         this.setMaxStackSize(64);
 //           ItemFood 的默认实现中，只有在玩家饥饿条不满的时候才能吃东西。
 //           用这个可以解除此限制。

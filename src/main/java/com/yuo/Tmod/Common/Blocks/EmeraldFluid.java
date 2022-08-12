@@ -15,7 +15,7 @@ public class EmeraldFluid extends BlockFluidClassic {
     public EmeraldFluid(String name) {
         super(FluidLoader.emerald_fluid, Material.WATER);
         this.setUnlocalizedName(name);
-        this.setCreativeTab(TmodGroup.TMOD);
+        this.setCreativeTab(TmodGroup.OTHER_TAB);
         this.setTickRandomly(true);
     }
 

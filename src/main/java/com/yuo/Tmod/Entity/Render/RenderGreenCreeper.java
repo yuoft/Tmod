@@ -18,6 +18,7 @@ public class RenderGreenCreeper extends RenderLiving<EntityGreenCreeper> {
     //mc的渲染管理器，实体模型，阴影大小
     public RenderGreenCreeper(RenderManager renderManagerIn) {
         super(renderManagerIn, new ModelCreeper(), 0.5f);
+        this.addLayer(new LayerGreenCreeperEyes(this));
     }
 
     //这里我们可以加一些我们想要的变换操作

@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "tmod:item/gold_crop_seed"
+        "layer0": "tmod:item/crop/gold_crop_seed"
     }
 }

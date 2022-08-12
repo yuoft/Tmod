@@ -22,14 +22,6 @@ public class EmeraldOreGen extends WorldGenerator {
     }
 
     /*
-    public EmeraldOreCreate()
-    {
-        // 这个 true 的含义是“在调用 setBlockAndNotifyAdequately 时会造成方块更新”。
-        // setBlockAndNotifyAdequately 是 WorldGenerator 类提供的一个 util method，
-        // 可以根据实际需求给 setBlockState 提供不同的更新选项。
-        super(true);
-    }
-/*
     @Override
     public boolean generate(World world, Random rand, BlockPos position) {
         // 所有放置方块的逻辑均在这里发生。

@@ -13,6 +13,7 @@ public class RenderKiana extends RenderLiving<EntityKiana> {
 
     public RenderKiana(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelPlayer(0.0f, true), 0.5f);
+        this.addLayer(new LayerKianaEyes(this));
     }
 
     @Override

@@ -49,7 +49,7 @@ public class ManyFunTool extends ItemTool {
     public ManyFunTool(String name, float attack, float speed, ToolMaterial material) {
         super(attack, speed, material, blocks);
         this.setUnlocalizedName(name);
-        this.setCreativeTab(TmodGroup.TMOD);
+        this.setCreativeTab(TmodGroup.TOOL_TAB);
         this.setMaxStackSize(1);
         this.level = material.getHarvestLevel();
     }

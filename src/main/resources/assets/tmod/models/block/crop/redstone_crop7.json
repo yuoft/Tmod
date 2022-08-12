@@ -1,6 +1,0 @@
-{
-    "parent": "block/stem_growth7",
-    "textures": {
-		"stem": "tmod:block/crop/redstone_crop"
-    }
-}

@@ -16,9 +16,8 @@ public class StorageRing extends Item {
     public StorageRing(String name) {
         super();
         this.setUnlocalizedName(name);
-        this.setCreativeTab(TmodGroup.TMOD);
+        this.setCreativeTab(TmodGroup.OTHER_TAB);
         this.setMaxStackSize(1);
-        this.setMaxDamage(0);
     }
 
     //右键打开gui
@@ -39,6 +38,6 @@ public class StorageRing extends Item {
                 playerIn.openGui(Tmod.instance, GuiLoader.THREE_GUI, worldIn, pos.getX(), pos.getY(), pos.getZ());
             }
         }
-        return new ActionResult<ItemStack>(EnumActionResult.PASS, playerIn.getHeldItem(handIn));
+        return new ActionResult<>(EnumActionResult.PASS, playerIn.getHeldItem(handIn));
     }
 }
