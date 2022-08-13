@@ -1,9 +1,6 @@
 package com.yuo.Tmod.Common.Blocks;
 
-import com.yuo.Tmod.Common.Blocks.Crops.ModXCrop;
-import com.yuo.Tmod.Common.Blocks.Crops.StemCrop;
-import com.yuo.Tmod.Common.Blocks.Crops.AllReeds;
-import com.yuo.Tmod.Common.Blocks.Crops.EmeraldCrop;
+import com.yuo.Tmod.Common.Blocks.Crops.*;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCrops;
@@ -18,10 +15,6 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.List;
 
 public class BlockLoader {
     //矿物
@@ -51,25 +44,25 @@ public class BlockLoader {
     public static final Block speedTorch = new SpeedTorch("speed_torch"); //加速火把
     public static final Block elevator = new Elevator("elevator"); //电梯
     //树木
-    public static final Block emeraldTree = new EmeraldTree("emerald_tree");
-    public static final Block emeraldLeaf = new EmeraldLeaf("emerald_leaf");
-    public static final Block emeraldSapling = new EmeraldSapling("emerald_sapling");
-    public static final Block coalLeaf = new EmeraldLeaf("coal_leaf");
-    public static final Block coalSapling = new EmeraldSapling("coal_sapling");
-    public static final Block diamondLeaf = new EmeraldLeaf("diamond_leaf");
-    public static final Block diamondSapling = new EmeraldSapling("diamond_sapling");
-    public static final Block goldLeaf = new EmeraldLeaf("gold_leaf");
-    public static final Block goldSapling = new EmeraldSapling("gold_sapling");
-    public static final Block ironLeaf = new EmeraldLeaf("iron_leaf");
-    public static final Block ironSapling = new EmeraldSapling("iron_sapling");
-    public static final Block lapisLeaf = new EmeraldLeaf("lapis_leaf");
-    public static final Block lapisSapling = new EmeraldSapling("lapis_sapling");
-    public static final Block quartzLeaf = new EmeraldLeaf("quartz_leaf");
-    public static final Block quartzSapling = new EmeraldSapling("quartz_sapling");
-    public static final Block redstoneLeaf = new EmeraldLeaf("redstone_leaf");
-    public static final Block redstoneSapling = new EmeraldSapling("redstone_sapling");
-    public static final Block netheriteLeaf = new EmeraldLeaf("netherite_leaf");
-    public static final Block netheriteSapling = new EmeraldSapling("netherite_sapling");
+    public static final Block emeraldTree = new OreTree("emerald_tree");
+    public static final Block emeraldLeaf = new OreLeaf("emerald_leaf");
+    public static final Block emeraldSapling = new OreSapling("emerald_sapling", emeraldTree, emeraldLeaf);
+    public static final Block coalLeaf = new OreLeaf("coal_leaf");
+    public static final Block coalSapling = new OreSapling("coal_sapling", emeraldTree, coalLeaf);
+    public static final Block diamondLeaf = new OreLeaf("diamond_leaf");
+    public static final Block diamondSapling = new OreSapling("diamond_sapling", emeraldTree, diamondLeaf);
+    public static final Block goldLeaf = new OreLeaf("gold_leaf");
+    public static final Block goldSapling = new OreSapling("gold_sapling", emeraldTree, goldLeaf);
+    public static final Block ironLeaf = new OreLeaf("iron_leaf");
+    public static final Block ironSapling = new OreSapling("iron_sapling", emeraldTree, ironLeaf);
+    public static final Block lapisLeaf = new OreLeaf("lapis_leaf");
+    public static final Block lapisSapling = new OreSapling("lapis_sapling", emeraldTree, lapisLeaf);
+    public static final Block quartzLeaf = new OreLeaf("quartz_leaf");
+    public static final Block quartzSapling = new OreSapling("quartz_sapling", emeraldTree, quartzLeaf);
+    public static final Block redstoneLeaf = new OreLeaf("redstone_leaf");
+    public static final Block redstoneSapling = new OreSapling("redstone_sapling", emeraldTree, redstoneLeaf);
+    public static final Block netheriteLeaf = new OreLeaf("netherite_leaf");
+    public static final Block netheriteSapling = new OreSapling("netherite_sapling", emeraldTree, netheriteLeaf);
     //作物
     public static final BlockCrops emeraldCrops = new EmeraldCrop("emerald_crops");
     public static final Block diamondStem = new StemCrop("diamond_stem", Blocks.DIAMOND_ORE);

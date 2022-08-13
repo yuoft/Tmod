@@ -1,4 +1,4 @@
-package com.yuo.Tmod.Common.Blocks;
+package com.yuo.Tmod.Common.Blocks.Crops;
 
 import java.util.Random;
 
@@ -15,11 +15,12 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class EmeraldSapling extends BlockBush implements IGrowable {
+public class OreSapling extends BlockBush implements IGrowable {
     protected static final AxisAlignedBB SAPLING_AABB = new AxisAlignedBB(0.30000001192092896D, 0.0D, 0.30000001192092896D, 0.699999988079071D, 0.6000000238418579D, 0.699999988079071D);
-
+    private final Block tree;
+    private final Block leaf;
     //绿宝石树苗
-    public EmeraldSapling(String name) {
+    public OreSapling(String name, Block tree, Block leaf) {
         super(Material.PLANTS);
         this.setUnlocalizedName(name);
         this.setHardness(0.01f);
@@ -27,6 +28,8 @@ public class EmeraldSapling extends BlockBush implements IGrowable {
         this.setCreativeTab(TmodGroup.CROP_TAB);
         this.setSoundType(SoundType.PLANT);
         this.setTickRandomly(true);
+        this.tree = tree;
+        this.leaf = leaf;
     }
 
     //获取边界框
@@ -50,7 +53,12 @@ public class EmeraldSapling extends BlockBush implements IGrowable {
     //生长
     @Override
     public void grow(World worldIn, Random rand, BlockPos pos, IBlockState state) {
-        WorldTreeGen tree = new WorldTreeGen();
+        if (!net.minecraftforge.event.terraingen.TerrainGen.saplingGrowTree(worldIn, rand, pos)) return;
+//        for (BlockPos allInBox : BlockPos.getAllInBox(pos.add(-1, 0, -1), pos.add(1, 1, 1))) {
+//            if (!worldIn.isAirBlock(allInBox) && allInBox != pos) return;
+//        }
+
+        WorldTreeGen tree = new WorldTreeGen(this.tree, this.leaf);
         tree.generate(worldIn, rand, pos);
     }
 
@@ -58,47 +66,11 @@ public class EmeraldSapling extends BlockBush implements IGrowable {
     public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
         if (!worldIn.isRemote) {
             super.updateTick(worldIn, pos, state, rand);
+            if (!worldIn.isAreaLoaded(pos, 1)) return; //检查区块是否加载
             //光照等级大于9,1/7
             if (worldIn.getLightFromNeighbors(pos.up()) >= 9 && rand.nextInt(7) == 0) {
                 this.grow(worldIn, rand, pos, state);
             }
         }
-    }
-
-    public static void worldGenTree(World world, Random random, int x, int z) {
-        BlockPos pos = EmeraldSapling.getGroundPos(world, x, z);
-        WorldTreeGen tree = new WorldTreeGen();
-        tree.generate(world, random, pos);//world.getHeight(new BlockPos(x, 0, z)));
-    }
-
-    @Nullable
-    public static BlockPos getGroundPos(World world, int x, int z) {
-        final BlockPos topPos = world.getHeight(new BlockPos(x, 0, z));
-        if (topPos.getY() == 0) {
-            return null;
-        }
-
-        final BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos(topPos);
-
-        IBlockState blockState = world.getBlockState(pos);
-        while (isTreeBlock(blockState, world, pos) || canReplace(blockState, world, pos)) {
-            pos.move(EnumFacing.DOWN);
-            if (pos.getY() <= 0) {
-                return null;
-            }
-            blockState = world.getBlockState(pos);
-        }
-
-        return pos.up();
-    }
-
-    public static boolean isTreeBlock(IBlockState blockState, World world, BlockPos pos) {
-        Block block = blockState.getBlock();
-        return block.isLeaves(blockState, world, pos) || block.isWood(world, pos);
-    }
-
-    public static boolean canReplace(IBlockState blockState, World world, BlockPos pos) {
-        Block block = blockState.getBlock();
-        return block.isReplaceable(world, pos) && !blockState.getMaterial().isLiquid();
     }
 }

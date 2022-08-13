@@ -3,7 +3,7 @@ package com.yuo.Tmod.World;
 import java.util.Random;
 
 import com.yuo.Tmod.Common.Blocks.BlockLoader;
-import com.yuo.Tmod.Common.Blocks.EmeraldSapling;
+import com.yuo.Tmod.Common.Blocks.Crops.OreSapling;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
@@ -15,23 +15,20 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 
 //树苗生长
 public class WorldTreeGen extends WorldGenAbstractTree {
-    public static final IBlockState tree = BlockLoader.emeraldTree.getDefaultState();
-    public static final IBlockState leaf = BlockLoader.emeraldLeaf.getDefaultState()
-            .withProperty(BlockLeaves.CHECK_DECAY, false).withProperty(BlockLeaves.DECAYABLE, false);
+    public final IBlockState tree;// 树干
+    public final IBlockState leaf;//  树叶
 
-    public WorldTreeGen() {
+    public WorldTreeGen(Block tree, Block leaf) {
         super(false);
+        this.tree = tree.getDefaultState();
+        this.leaf = leaf.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, false).withProperty(BlockLeaves.DECAYABLE, false);
     }
 
     @Override
     public boolean generate(World world, Random rand, BlockPos pos) {
-        //minHeigth 树木最小高度；tree 树木树干；leaf 树木树叶；growVines 是否有藤蔓；
-//		WorldGenTrees trees=new WorldGenTrees(false, minHeigth, tree, leaf, false);
-//		trees.generate(world, rand, pos);
-//		return true;
-//	}
-        int minHeigth = 4;
-        int height = rand.nextInt(3) + minHeigth;
+        //minHeight 树木最小高度；tree 树木树干；leaf 树木树叶；growVines 是否有藤蔓；
+        int minHeight = 4;
+        int height = rand.nextInt(3) + minHeight;
         boolean isReplaceable = true;
         //坐标检查
         if (pos.getY() >= 1 && pos.getY() + height + 1 <= 256) {
@@ -68,7 +65,7 @@ public class WorldTreeGen extends WorldGenAbstractTree {
                 Block downBlock = world.getBlockState(downPos).getBlock();
                 IBlockState state = world.getBlockState(downPos);
                 // 是可生成树的土壤
-                boolean isSoil = downBlock.canSustainPlant(state, world, downPos, EnumFacing.UP, (EmeraldSapling) BlockLoader.emeraldSapling);
+                boolean isSoil = downBlock.canSustainPlant(state, world, downPos, EnumFacing.UP, (OreSapling) BlockLoader.emeraldSapling);
                 //空间是否足够
                 if (isSoil && pos.getY() < 256 - height - 1) {
                     downBlock.onPlantGrow(state, world, downPos, pos);
