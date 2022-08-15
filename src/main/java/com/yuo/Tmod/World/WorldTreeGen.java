@@ -7,6 +7,7 @@ import com.yuo.Tmod.Common.Blocks.Crops.OreSapling;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
+import net.minecraft.block.BlockSapling;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
@@ -17,9 +18,11 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 public class WorldTreeGen extends WorldGenAbstractTree {
     public final IBlockState tree;// 树干
     public final IBlockState leaf;//  树叶
+    public final OreSapling sapling;
 
-    public WorldTreeGen(Block tree, Block leaf) {
+    public WorldTreeGen(Block tree, Block leaf, OreSapling sapling) {
         super(false);
+        this.sapling = sapling;
         this.tree = tree.getDefaultState();
         this.leaf = leaf.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, false).withProperty(BlockLeaves.DECAYABLE, false);
     }
@@ -48,7 +51,8 @@ public class WorldTreeGen extends WorldGenAbstractTree {
                 for (int x = pos.getX() - xzSize; x <= pos.getX() + xzSize && isReplaceable; ++x) {
                     for (int z = pos.getZ() - xzSize; z <= pos.getZ() + xzSize && isReplaceable; ++z) {
                         if (y >= 0 && y < 256) {
-                            if (!this.isReplaceable(world, tmpPos.setPos(x, y, z))) {
+                            BlockPos.MutableBlockPos setPos = tmpPos.setPos(x, y, z);
+                            if (!this.isReplaceable(world, setPos)) {
                                 isReplaceable = false;
                             }
                         } else {
@@ -65,7 +69,7 @@ public class WorldTreeGen extends WorldGenAbstractTree {
                 Block downBlock = world.getBlockState(downPos).getBlock();
                 IBlockState state = world.getBlockState(downPos);
                 // 是可生成树的土壤
-                boolean isSoil = downBlock.canSustainPlant(state, world, downPos, EnumFacing.UP, (OreSapling) BlockLoader.emeraldSapling);
+                boolean isSoil = downBlock.canSustainPlant(state, world, downPos, EnumFacing.UP, sapling);
                 //空间是否足够
                 if (isSoil && pos.getY() < 256 - height - 1) {
                     downBlock.onPlantGrow(state, world, downPos, pos);
@@ -113,5 +117,10 @@ public class WorldTreeGen extends WorldGenAbstractTree {
         } else {
             return false;
         }
+    }
+
+    //判断2个坐标是否相同
+    private boolean isPos(BlockPos blockPos, BlockPos pos){
+        return blockPos.getX() == pos.getX() && blockPos.getY() == pos.getY() && blockPos.getZ() == pos.getZ();
     }
 }

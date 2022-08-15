@@ -9,6 +9,7 @@ import com.yuo.Tmod.World.WorldTreeGen;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -47,18 +48,15 @@ public class OreSapling extends BlockBush implements IGrowable {
     //是否可以使用骨粉
     @Override
     public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, IBlockState state) {
-        return true;
+        return (double)worldIn.rand.nextFloat() < 0.45D;
     }
 
     //生长
     @Override
     public void grow(World worldIn, Random rand, BlockPos pos, IBlockState state) {
         if (!net.minecraftforge.event.terraingen.TerrainGen.saplingGrowTree(worldIn, rand, pos)) return;
-//        for (BlockPos allInBox : BlockPos.getAllInBox(pos.add(-1, 0, -1), pos.add(1, 1, 1))) {
-//            if (!worldIn.isAirBlock(allInBox) && allInBox != pos) return;
-//        }
-
-        WorldTreeGen tree = new WorldTreeGen(this.tree, this.leaf);
+        WorldTreeGen tree = new WorldTreeGen(this.tree, this.leaf, this);
+        worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 4);
         tree.generate(worldIn, rand, pos);
     }
 
