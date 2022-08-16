@@ -7,10 +7,7 @@ import com.yuo.Tmod.Common.Items.Armor.*;
 import com.yuo.Tmod.Common.Items.Crops.AllStemCropSeed;
 import com.yuo.Tmod.Common.Items.Crops.EmeraldCropSeeds;
 import com.yuo.Tmod.Common.Items.Crops.ModXCropSeed;
-import com.yuo.Tmod.Common.Items.Food.BadApple;
-import com.yuo.Tmod.Common.Items.Food.BuffApple;
-import com.yuo.Tmod.Common.Items.Food.GoldDiamondBread;
-import com.yuo.Tmod.Common.Items.Food.SaltMeat;
+import com.yuo.Tmod.Common.Items.Food.*;
 import com.yuo.Tmod.Common.Items.Tool.*;
 import com.yuo.Tmod.Client.SoundLoader;
 import com.yuo.Tmod.Tmod;
@@ -70,6 +67,9 @@ public class ItemLoader {
     public static final ItemArmor spaceLegs = new SpaceArmor("space_leggings", TmodMaterial.SPACE_ARMOR, 6, EntityEquipmentSlot.LEGS);
     public static final ItemArmor spaceFeet = new SpaceArmor("space_boots", TmodMaterial.SPACE_ARMOR, 3, EntityEquipmentSlot.FEET);
     public static final SpaceSword spaceSword = new SpaceSword("space_sword", TmodMaterial.SPACE_TOOL);
+    public static final ToolAxe spaceAxe = new ToolAxe("space_axe", TmodMaterial.SPACE_TOOL);
+    public static final ToolHoe spaceHoe = new ToolHoe("space_hoe", TmodMaterial.SPACE_TOOL);
+    public static final ToolShovel spaceShovel = new ToolShovel("space_shovel", TmodMaterial.SPACE_TOOL);
     public static final SpaceBow spaceBow = new SpaceBow("space_bow");
     public static final DragonBow dragonBow = new DragonBow("dragon_bow");
     public static final SpacePickaxe spacePickaxe = new SpacePickaxe("space_pickaxe", TmodMaterial.SPACE_TOOL);
@@ -97,6 +97,9 @@ public class ItemLoader {
     //龙晶套装
     public static final ToolPickaxe dragonPickaxe = new ToolPickaxe("dragon_pickaxe", TmodMaterial.DRAGON_TOOL);
     public static final ToolSword dragonSword = new ToolSword("dragon_sword", TmodMaterial.DRAGON_TOOL);
+    public static final ToolAxe dragonAxe = new ToolAxe("dragon_axe", TmodMaterial.DRAGON_TOOL);
+    public static final ToolHoe dragonHoe = new ToolHoe("dragon_hoe", TmodMaterial.DRAGON_TOOL);
+    public static final ToolShovel dragonShovel = new ToolShovel("dragon_shovel", TmodMaterial.DRAGON_TOOL);
     public static final DragonArmor dragonHead = new DragonArmor("dragon_head", TmodMaterial.DRAGON_ARMOR, 3, EntityEquipmentSlot.HEAD);
     public static final DragonArmor dragonChest = new DragonArmor("dragon_chest", TmodMaterial.DRAGON_ARMOR, 8, EntityEquipmentSlot.CHEST);
     public static final DragonArmor dragonLegs = new DragonArmor("dragon_chest", TmodMaterial.DRAGON_ARMOR, 6, EntityEquipmentSlot.LEGS);
@@ -165,6 +168,70 @@ public class ItemLoader {
     public static final ModItemBlock dragonBlock = new ModItemBlock(BlockLoader.dragonBlock);
     public static final ModItemBlock netheriteBlock = new ModItemBlock(BlockLoader.netheriteBlock);
     public static final ModItemBlock ancientDebris = new ModItemBlock(BlockLoader.ancientDebris);
+
+    public static final ModItemBlock xrayBlock = new ModItemBlock(BlockLoader.xrayBlock);
+    public static final ModItemBlock superOre = new ModItemBlock(BlockLoader.superOre);
+    public static final ModItemBlock superXrayBlock = new ModItemBlock(BlockLoader.superXrayBlock);
+    public static final ModItemBlock superBlock = new ModItemBlock(BlockLoader.superBlock);
+    public static final ModItemBlock ultraBlock = new ModItemBlock(BlockLoader.ultraBlock);
+    public static final ModItemBlock fragileBedrock = new ModItemBlock(BlockLoader.fragileBedrock);
+    //XRay
+    public static final Item superIngot = new ModItem("super_ingot");
+    public static final Item ultraIngot = new ModItem("ultra_ingot");
+    public static final Item xrayIngot = new ModItem("xray_ingot");
+    public static final Item superXrayIngot = new ModItem("super_xray_ingot");
+    public static final ToolSword xraySword = new ToolSword("xray_sword", TmodMaterial.XRAY_TOOL);
+    public static final ToolPickaxe xrayPickaxe = new ToolPickaxe("xray_pickaxe", TmodMaterial.XRAY_TOOL);
+    public static final ToolAxe xrayAxe = new ToolAxe("xray_axe", TmodMaterial.XRAY_TOOL);
+    public static final ToolHoe xrayHoe = new ToolHoe("xray_hoe", TmodMaterial.XRAY_TOOL);
+    public static final ToolShovel xrayShovel = new ToolShovel("xray_shovel", TmodMaterial.XRAY_TOOL);
+    public static final ToolSword superXraySword = new ToolSword("super_xray_sword", TmodMaterial.SUPER_XRAY_TOOL);
+    public static final ToolPickaxe superXrayPickaxe = new ToolPickaxe("super_xray_pickaxe", TmodMaterial.SUPER_XRAY_TOOL);
+    public static final ToolAxe superXrayAxe = new ToolAxe("super_xray_axe", TmodMaterial.SUPER_XRAY_TOOL);
+    public static final ToolHoe superXrayHoe = new ToolHoe("super_xray_hoe", TmodMaterial.SUPER_XRAY_TOOL);
+    public static final ToolShovel superXrayShovel = new ToolShovel("super_xray_shovel", TmodMaterial.SUPER_XRAY_TOOL);
+    public static final ToolSword superSword = new ToolSword("super_sword", TmodMaterial.SUPER_TOOL);
+    public static final ToolPickaxe superPickaxe = new ToolPickaxe("super_pickaxe", TmodMaterial.SUPER_TOOL);
+    public static final ToolAxe superAxe = new ToolAxe("super_axe", TmodMaterial.SUPER_TOOL);
+    public static final ToolHoe superHoe = new ToolHoe("super_hoe", TmodMaterial.SUPER_TOOL);
+    public static final ToolShovel superShovel = new ToolShovel("super_shovel", TmodMaterial.SUPER_TOOL);
+    public static final ToolSword ultraSword = new ToolSword("ultra_sword", TmodMaterial.ULTRA_TOOL);
+    public static final ToolPickaxe ultraPickaxe = new ToolPickaxe("ultra_pickaxe", TmodMaterial.ULTRA_TOOL);
+    public static final ToolAxe ultraAxe = new ToolAxe("ultra_axe", TmodMaterial.ULTRA_TOOL);
+    public static final ToolHoe ultraHoe = new ToolHoe("ultra_hoe", TmodMaterial.ULTRA_TOOL);
+    public static final ToolShovel ultraShovel = new ToolShovel("ultra_shovel", TmodMaterial.ULTRA_TOOL);
+    public static final ModArmor xrayHead = new ModArmor("xray_head", TmodMaterial.XRAY_ARMOR, 3, EntityEquipmentSlot.HEAD);
+    public static final ModArmor xrayChest = new ModArmor("xray_chest", TmodMaterial.XRAY_ARMOR, 8, EntityEquipmentSlot.CHEST);
+    public static final ModArmor xrayLegs = new ModArmor("xray_legs", TmodMaterial.XRAY_ARMOR, 6, EntityEquipmentSlot.LEGS);
+    public static final ModArmor xrayFeet = new ModArmor("xray_feet", TmodMaterial.XRAY_ARMOR, 3, EntityEquipmentSlot.FEET);
+    public static final ModArmor superXrayHead = new ModArmor("super_xray_head", TmodMaterial.SUPER_XRAY_ARMOR, 3, EntityEquipmentSlot.HEAD);
+    public static final ModArmor superXrayChest = new ModArmor("super_xray_chest", TmodMaterial.SUPER_XRAY_ARMOR, 8, EntityEquipmentSlot.CHEST);
+    public static final ModArmor superXrayLegs = new ModArmor("super_xray_legs", TmodMaterial.SUPER_XRAY_ARMOR, 6, EntityEquipmentSlot.LEGS);
+    public static final ModArmor superXrayFeet = new ModArmor("super_xray_feet", TmodMaterial.SUPER_XRAY_ARMOR, 3, EntityEquipmentSlot.FEET);
+    public static final ModArmor superHead = new ModArmor("super_head", TmodMaterial.SUPER_ARMOR, 3, EntityEquipmentSlot.HEAD);
+    public static final ModArmor superChest = new ModArmor("super_chest", TmodMaterial.SUPER_ARMOR, 8, EntityEquipmentSlot.CHEST);
+    public static final ModArmor superLegs = new ModArmor("super_legs", TmodMaterial.SUPER_ARMOR, 6, EntityEquipmentSlot.LEGS);
+    public static final ModArmor superFeet = new ModArmor("super_feet", TmodMaterial.SUPER_ARMOR, 3, EntityEquipmentSlot.FEET);
+    public static final ModArmor ultraHead = new ModArmor("ultra_head", TmodMaterial.ULTRA_ARMOR, 3, EntityEquipmentSlot.HEAD);
+    public static final ModArmor ultraChest = new ModArmor("ultra_chest", TmodMaterial.ULTRA_ARMOR, 8, EntityEquipmentSlot.CHEST);
+    public static final ModArmor ultraLegs = new ModArmor("ultra_legs", TmodMaterial.ULTRA_ARMOR, 6, EntityEquipmentSlot.LEGS);
+    public static final ModArmor ultraFeet = new ModArmor("ultra_feet", TmodMaterial.ULTRA_ARMOR, 3, EntityEquipmentSlot.FEET);
+
+    public static final Item superApple = new SuperFood("super_apple", 10, 0.6f);
+    public static final Item superBeetroot = new SuperFood("super_beetroot", 10, 0.6f);
+    public static final Item superBeetrootSoup = new SuperFood("super_beetroot_soup", 10, 0.6f);
+    public static final Item superBread = new SuperFood("super_bread", 10, 0.6f);
+    public static final Item superCarrot = new SuperFood("super_carrot", 10, 0.6f);
+    public static final Item superCookie = new SuperFood("super_cookie", 10, 0.6f);
+    public static final Item superPumpkinPie = new SuperFood("super_pumpkin_pie", 10, 0.6f);
+    public static final Item superPotato = new SuperFood("super_potato", 10, 0.6f);
+    public static final Item superBeef = new SuperMeat("super_beef", 12, 0.8f);
+    public static final Item superChicken = new SuperMeat("super_chicken", 12, 0.8f);
+    public static final Item superCod = new SuperMeat("super_cod", 12, 0.8f);
+    public static final Item superMutton = new SuperMeat("super_mutton", 12, 0.8f);
+    public static final Item superPork = new SuperMeat("super_pork", 12, 0.8f);
+    public static final Item superRabbit = new SuperMeat("super_rabbit", 12, 0.8f);
+    public static final Item superRabbitStew = new SuperMeat("super_rabbit_stew", 12, 0.8f);
     //特殊物品
     public static final GoldenTNT goldenTnt = new GoldenTNT("golden_tnt");
     public static final TmodMusicRecord tmodMusic1 = new TmodMusicRecord("tmod_music1", SoundLoader.LTY_JueTiJueMimg);
@@ -185,6 +252,14 @@ public class ItemLoader {
     public static final ManyFunTool ironTool = new ManyFunTool("iron_tool", 5.0f, -2.8f, ToolMaterial.IRON);
     public static final ManyFunTool stoneTool = new ManyFunTool("stone_tool", 6.0f, -2.8f, ToolMaterial.STONE);
     public static final ManyFunTool woodTool = new ManyFunTool("wood_tool", 5.0f, -2.8f, ToolMaterial.WOOD);
+    public static final ManyFunTool emeraldTool = new ManyFunTool("emerald_tool", 5.0f, -2.8f, TmodMaterial.EMERALD_TOOL);
+    public static final ManyFunTool netheriteTool = new ManyFunTool("netherite_tool", 5.0f, -2.8f, TmodMaterial.NETHERITE_TOOL);
+    public static final ManyFunTool rubyTool = new ManyFunTool("ruby_tool", 5.0f, -2.8f, TmodMaterial.RUBY_TOOL);
+    public static final ManyFunTool dragonTool = new ManyFunTool("dragon_tool", 5.0f, -2.8f, TmodMaterial.DRAGON_TOOL);
+    public static final ManyFunTool xrayTool = new ManyFunTool("xray_tool", 5.0f, -2.8f, TmodMaterial.XRAY_TOOL);
+    public static final ManyFunTool superXrayTool = new ManyFunTool("super_xray_tool", 5.0f, -2.8f, TmodMaterial.SUPER_XRAY_TOOL);
+    public static final ManyFunTool superTool = new ManyFunTool("super_tool", 5.0f, -2.8f, TmodMaterial.SUPER_TOOL);
+    public static final ManyFunTool ultraTool = new ManyFunTool("ultra_tool", 5.0f, -2.8f, TmodMaterial.ULTRA_TOOL);
     //作物 普通
     public static final EmeraldCropSeeds emeraldCropSeeds = new EmeraldCropSeeds("emerald_crop_seeds");
     //作物 甘蔗
@@ -305,6 +380,9 @@ public class ItemLoader {
         ForgeRegistries.ITEMS.register(dragonLegs.setRegistryName("dragon_legs"));
         ForgeRegistries.ITEMS.register(dragonFeet.setRegistryName("dragon_feet"));
         ForgeRegistries.ITEMS.register(dragonSword.setRegistryName("dragon_sword"));
+        ForgeRegistries.ITEMS.register(dragonAxe.setRegistryName("dragon_axe"));
+        ForgeRegistries.ITEMS.register(dragonHoe.setRegistryName("dragon_hoe"));
+        ForgeRegistries.ITEMS.register(dragonShovel.setRegistryName("dragon_shovel"));
         ForgeRegistries.ITEMS.register(dragonBow.setRegistryName("dragon_bow"));
         ForgeRegistries.ITEMS.register(dragonPickaxe.setRegistryName("dragon_pickaxe"));
         ForgeRegistries.ITEMS.register(spaceHead.setRegistryName("space_helmet"));
@@ -312,6 +390,9 @@ public class ItemLoader {
         ForgeRegistries.ITEMS.register(spaceLegs.setRegistryName("space_leggings"));
         ForgeRegistries.ITEMS.register(spaceFeet.setRegistryName("space_boots"));
         ForgeRegistries.ITEMS.register(spaceSword.setRegistryName("space_sword"));
+        ForgeRegistries.ITEMS.register(spaceAxe.setRegistryName("space_axe"));
+        ForgeRegistries.ITEMS.register(spaceHoe.setRegistryName("space_hoe"));
+        ForgeRegistries.ITEMS.register(spaceShovel.setRegistryName("space_shovel"));
         ForgeRegistries.ITEMS.register(spaceBow.setRegistryName("space_bow"));
         ForgeRegistries.ITEMS.register(spacePickaxe.setRegistryName("space_pickaxe"));
 
@@ -399,6 +480,70 @@ public class ItemLoader {
         ForgeRegistries.ITEMS.register(netheriteBlock.setRegistryName("netherite_block"));
         ForgeRegistries.ITEMS.register(ancientDebris.setRegistryName("ancient_debris"));
 
+        ForgeRegistries.ITEMS.register(xrayBlock.setRegistryName("xray_block"));
+        ForgeRegistries.ITEMS.register(superOre.setRegistryName("super_ore"));
+        ForgeRegistries.ITEMS.register(superXrayBlock.setRegistryName("super_xray_block"));
+        ForgeRegistries.ITEMS.register(superBlock.setRegistryName("super_block"));
+        ForgeRegistries.ITEMS.register(ultraBlock.setRegistryName("ultra_block"));
+        ForgeRegistries.ITEMS.register(fragileBedrock.setRegistryName("fragile_bedrock"));
+
+        ForgeRegistries.ITEMS.register(superIngot.setRegistryName("super_ingot"));
+        ForgeRegistries.ITEMS.register(ultraIngot.setRegistryName("ultra_ingot"));
+        ForgeRegistries.ITEMS.register(xrayIngot.setRegistryName("xray_ingot"));
+        ForgeRegistries.ITEMS.register(superXrayIngot.setRegistryName("super_xray_ingot"));
+        ForgeRegistries.ITEMS.register(xraySword.setRegistryName("xray_sword"));
+        ForgeRegistries.ITEMS.register(xrayPickaxe.setRegistryName("xray_pickaxe"));
+        ForgeRegistries.ITEMS.register(xrayAxe.setRegistryName("xray_axe"));
+        ForgeRegistries.ITEMS.register(xrayHoe.setRegistryName("xray_hoe"));
+        ForgeRegistries.ITEMS.register(xrayShovel.setRegistryName("xray_shovel"));
+        ForgeRegistries.ITEMS.register(superXraySword.setRegistryName("super_xray_sword"));
+        ForgeRegistries.ITEMS.register(superXrayPickaxe.setRegistryName("super_xray_pickaxe"));
+        ForgeRegistries.ITEMS.register(superXrayAxe.setRegistryName("super_xray_axe"));
+        ForgeRegistries.ITEMS.register(superXrayHoe.setRegistryName("super_xray_hoe"));
+        ForgeRegistries.ITEMS.register(superXrayShovel.setRegistryName("super_xray_shovel"));
+        ForgeRegistries.ITEMS.register(superSword.setRegistryName("super_sword"));
+        ForgeRegistries.ITEMS.register(superPickaxe.setRegistryName("super_pickaxe"));
+        ForgeRegistries.ITEMS.register(superAxe.setRegistryName("super_axe"));
+        ForgeRegistries.ITEMS.register(superHoe.setRegistryName("super_hoe"));
+        ForgeRegistries.ITEMS.register(superShovel.setRegistryName("super_shovel"));
+        ForgeRegistries.ITEMS.register(ultraSword.setRegistryName("ultra_sword"));
+        ForgeRegistries.ITEMS.register(ultraPickaxe.setRegistryName("ultra_pickaxe"));
+        ForgeRegistries.ITEMS.register(ultraAxe.setRegistryName("ultra_axe"));
+        ForgeRegistries.ITEMS.register(ultraHoe.setRegistryName("ultra_hoe"));
+        ForgeRegistries.ITEMS.register(ultraShovel.setRegistryName("ultra_shovel"));
+        ForgeRegistries.ITEMS.register(xrayHead.setRegistryName("xray_head"));
+        ForgeRegistries.ITEMS.register(xrayChest.setRegistryName("xray_chest"));
+        ForgeRegistries.ITEMS.register(xrayLegs.setRegistryName("xray_legs"));
+        ForgeRegistries.ITEMS.register(xrayFeet.setRegistryName("xray_feet"));
+        ForgeRegistries.ITEMS.register(superXrayHead.setRegistryName("super_xray_head"));
+        ForgeRegistries.ITEMS.register(superXrayChest.setRegistryName("super_xray_chest"));
+        ForgeRegistries.ITEMS.register(superXrayLegs.setRegistryName("super_xray_legs"));
+        ForgeRegistries.ITEMS.register(superXrayFeet.setRegistryName("super_xray_feet"));
+        ForgeRegistries.ITEMS.register(superHead.setRegistryName("super_head"));
+        ForgeRegistries.ITEMS.register(superChest.setRegistryName("super_chest"));
+        ForgeRegistries.ITEMS.register(superLegs.setRegistryName("super_legs"));
+        ForgeRegistries.ITEMS.register(superFeet.setRegistryName("super_feet"));
+        ForgeRegistries.ITEMS.register(ultraHead.setRegistryName("ultra_head"));
+        ForgeRegistries.ITEMS.register(ultraChest.setRegistryName("ultra_chest"));
+        ForgeRegistries.ITEMS.register(ultraLegs.setRegistryName("ultra_legs"));
+        ForgeRegistries.ITEMS.register(ultraFeet.setRegistryName("ultra_feet"));
+
+        ForgeRegistries.ITEMS.register(superApple.setRegistryName("super_apple"));
+        ForgeRegistries.ITEMS.register(superBeetroot.setRegistryName("super_beetroot"));
+        ForgeRegistries.ITEMS.register(superBeetrootSoup.setRegistryName("super_beetroot_soup"));
+        ForgeRegistries.ITEMS.register(superBread.setRegistryName("super_bread"));
+        ForgeRegistries.ITEMS.register(superCarrot.setRegistryName("super_carrot"));
+        ForgeRegistries.ITEMS.register(superCookie.setRegistryName("super_cookie"));
+        ForgeRegistries.ITEMS.register(superPotato.setRegistryName("super_potato"));
+        ForgeRegistries.ITEMS.register(superPumpkinPie.setRegistryName("super_pumpkin_pie"));
+        ForgeRegistries.ITEMS.register(superBeef.setRegistryName("super_beef"));
+        ForgeRegistries.ITEMS.register(superChicken.setRegistryName("super_chicken"));
+        ForgeRegistries.ITEMS.register(superCod.setRegistryName("super_cod"));
+        ForgeRegistries.ITEMS.register(superMutton.setRegistryName("super_mutton"));
+        ForgeRegistries.ITEMS.register(superPork.setRegistryName("super_pork"));
+        ForgeRegistries.ITEMS.register(superRabbit.setRegistryName("super_rabbit"));
+        ForgeRegistries.ITEMS.register(superRabbitStew.setRegistryName("super_rabbit_stew"));
+
         ForgeRegistries.ITEMS.register(goldenTnt.setRegistryName("golden_tnt"));
         ForgeRegistries.ITEMS.register(tmodMusic1.setRegistryName("tmod_music1"));
         ForgeRegistries.ITEMS.register(tmodMusic2.setRegistryName("tmod_music2"));
@@ -418,6 +563,14 @@ public class ItemLoader {
         ForgeRegistries.ITEMS.register(ironTool.setRegistryName("iron_tool"));
         ForgeRegistries.ITEMS.register(stoneTool.setRegistryName("stone_tool"));
         ForgeRegistries.ITEMS.register(woodTool.setRegistryName("wood_tool"));
+        ForgeRegistries.ITEMS.register(emeraldTool.setRegistryName("emerald_tool"));
+        ForgeRegistries.ITEMS.register(netheriteTool.setRegistryName("netherite_tool"));
+        ForgeRegistries.ITEMS.register(rubyTool.setRegistryName("ruby_tool"));
+        ForgeRegistries.ITEMS.register(dragonTool.setRegistryName("dragon_tool"));
+        ForgeRegistries.ITEMS.register(xrayTool.setRegistryName("xray_tool"));
+        ForgeRegistries.ITEMS.register(superXrayTool.setRegistryName("super_xray_tool"));
+        ForgeRegistries.ITEMS.register(superTool.setRegistryName("super_tool"));
+        ForgeRegistries.ITEMS.register(ultraTool.setRegistryName("ultra_tool"));
 
         ForgeRegistries.ITEMS.register(emeraldCropSeeds.setRegistryName("emerald_crop_seeds"));
         ForgeRegistries.ITEMS.register(appleReeds.setRegistryName("apple_reeds"));
@@ -497,7 +650,7 @@ public class ItemLoader {
     }
 
     @SideOnly(Side.CLIENT)
-    public static void registerRenders()//zhucecaizhi
+    public static void registerRenders()
     {
         OBJLoader.INSTANCE.addDomain(Tmod.MOD_ID);
 
@@ -547,6 +700,9 @@ public class ItemLoader {
         registerRender(dragonLegs);
         registerRender(dragonFeet);
         registerRender(dragonSword);
+        registerRender(dragonAxe);
+        registerRender(dragonHoe);
+        registerRender(dragonShovel);
         registerRender(dragonPickaxe);
         registerRender(dragonBow);
         registerRender(spaceHead);
@@ -554,6 +710,9 @@ public class ItemLoader {
         registerRender(spaceLegs);
         registerRender(spaceFeet);
         registerRender(spaceSword);
+        registerRender(spaceAxe);
+        registerRender(spaceHoe);
+        registerRender(spaceShovel);
         registerRender(spaceBow);
         registerRender(spacePickaxe);
 
@@ -639,6 +798,70 @@ public class ItemLoader {
         registerRender(netheriteBlock);
         registerRender(ancientDebris);
 
+        registerRender(xrayBlock);
+        registerRender(superOre);
+        registerRender(superXrayBlock);
+        registerRender(superBlock);
+        registerRender(ultraBlock);
+        registerRender(fragileBedrock);
+
+        registerRender(superIngot);
+        registerRender(ultraIngot);
+        registerRender(xrayIngot);
+        registerRender(superXrayIngot);
+        registerRender(xraySword);
+        registerRender(xrayPickaxe);
+        registerRender(xrayAxe);
+        registerRender(xrayHoe);
+        registerRender(xrayShovel);
+        registerRender(superXraySword);
+        registerRender(superXrayPickaxe);
+        registerRender(superXrayAxe);
+        registerRender(superXrayHoe);
+        registerRender(superXrayShovel);
+        registerRender(superSword);
+        registerRender(superPickaxe);
+        registerRender(superAxe);
+        registerRender(superHoe);
+        registerRender(superShovel);
+        registerRender(ultraSword);
+        registerRender(ultraPickaxe);
+        registerRender(ultraAxe);
+        registerRender(ultraHoe);
+        registerRender(ultraShovel);
+        registerRender(xrayHead);
+        registerRender(xrayChest);
+        registerRender(xrayLegs);
+        registerRender(xrayFeet);
+        registerRender(superXrayHead);
+        registerRender(superXrayChest);
+        registerRender(superXrayLegs);
+        registerRender(superXrayFeet);
+        registerRender(superHead);
+        registerRender(superChest);
+        registerRender(superLegs);
+        registerRender(superFeet);
+        registerRender(ultraHead);
+        registerRender(ultraChest);
+        registerRender(ultraLegs);
+        registerRender(ultraFeet);
+
+        registerRender(superApple);
+        registerRender(superBeetroot);
+        registerRender(superBeetrootSoup);
+        registerRender(superBread);
+        registerRender(superCarrot);
+        registerRender(superCookie);
+        registerRender(superPotato);
+        registerRender(superPumpkinPie);
+        registerRender(superBeef);
+        registerRender(superChicken);
+        registerRender(superCod);
+        registerRender(superMutton);
+        registerRender(superPork);
+        registerRender(superRabbit);
+        registerRender(superRabbitStew);
+
         registerRender(goldenTnt);
         registerRender(tmodMusic1);
         registerRender(tmodMusic2);
@@ -658,6 +881,14 @@ public class ItemLoader {
         registerRender(ironTool);
         registerRender(stoneTool);
         registerRender(woodTool);
+        registerRender(emeraldTool);
+        registerRender(netheriteTool);
+        registerRender(rubyTool);
+        registerRender(dragonTool);
+        registerRender(xrayTool);
+        registerRender(superTool);
+        registerRender(superXrayTool);
+        registerRender(ultraTool);
 
         registerRender(emeraldCropSeeds);
         registerRender(appleReeds);

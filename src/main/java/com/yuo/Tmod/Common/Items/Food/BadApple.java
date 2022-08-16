@@ -3,6 +3,7 @@ package com.yuo.Tmod.Common.Items.Food;
 import com.yuo.Tmod.Tab.TmodGroup;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
@@ -31,7 +32,7 @@ public class BadApple extends ItemFood {
 //			第一个参数表示对应药水效果的id。
 //			The second parameter represents the duration of the corresponding liquid medicine effect, in seconds,一秒为20个gametick
 //			第三个参数表示对应药水效果的等级，很明显，0为一级，1为二级，2为三级。
-            player.addPotionEffect(new PotionEffect(Potion.getPotionById(19), 100, 0));
+            player.addPotionEffect(new PotionEffect(MobEffects.POISON, 100, 0));
 //            食用该食物还会给玩家减少十点经验
 //            player.addExperience(-10);
         }

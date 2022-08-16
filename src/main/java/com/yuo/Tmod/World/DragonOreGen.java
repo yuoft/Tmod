@@ -13,7 +13,7 @@ import net.minecraftforge.event.terraingen.TerrainGen;
 import java.util.Random;
 
 public class DragonOreGen extends WorldGenerator {
-    private final WorldGenMinable DragonOreGen = new WorldGenMinable(BlockLoader.dragonBlock.getDefaultState(), 3, BlockMatcher.forBlock(Blocks.END_STONE));
+    private final WorldGenMinable DragonOreGen = new WorldGenMinable(BlockLoader.dragonOre.getDefaultState(), 5, BlockMatcher.forBlock(Blocks.END_STONE));
 
     @Override
     public boolean generate(World world, Random rand, BlockPos pos) {
@@ -25,7 +25,7 @@ public class DragonOreGen extends WorldGenerator {
 
     public void genEnd(World world, Random rand, BlockPos pos) {
         if (TerrainGen.generateOre(world, rand, this, pos, OreGenEvent.GenerateMinable.EventType.CUSTOM)) {
-            for (int i = 0; i < 6; ++i) {
+            for (int i = 0; i < 5; ++i) {
                 int posX = pos.getX() + rand.nextInt(16);
                 int posY = 32 + rand.nextInt(32);
                 int posZ = pos.getZ() + rand.nextInt(16);

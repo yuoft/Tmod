@@ -1,17 +1,21 @@
 package com.yuo.Tmod.Common.Blocks.Crops;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
+import com.google.common.base.Predicate;
 import com.yuo.Tmod.Common.Blocks.BlockLoader;
 import com.yuo.Tmod.Common.Items.ItemLoader;
 import com.yuo.Tmod.Tab.TmodGroup;
 
+import javafx.beans.property.IntegerProperty;
 import net.minecraft.block.*;
 import net.minecraft.block.BlockPlanks.EnumType;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.PropertyEnum;
+import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -34,11 +38,12 @@ public class OreLeaf extends BlockLeaves {
     public OreLeaf(String name) {
         super();
         this.setUnlocalizedName(name);
-        this.setHardness(0.5f);
+        this.setHardness(0.2f);
         this.setCreativeTab(TmodGroup.CROP_TAB);
         this.setLightOpacity(1); //透光率
+        this.setTickRandomly(true);
         //默认状态
-        this.setDefaultState(this.blockState.getBaseState().withProperty(BlockOldLeaf.VARIANT, EnumType.BIRCH).withProperty(CHECK_DECAY, false).withProperty(DECAYABLE, true));
+        this.setDefaultState(this.blockState.getBaseState().withProperty(CHECK_DECAY, true).withProperty(DECAYABLE, true));
     }
 
     @Override
@@ -193,7 +198,7 @@ public class OreLeaf extends BlockLeaves {
     @Nonnull
     @Override
     protected BlockStateContainer createBlockState() {
-        return new BlockStateContainer(this, BlockOldLeaf.VARIANT, CHECK_DECAY, DECAYABLE);//设置状态个数
+        return new BlockStateContainer(this, CHECK_DECAY, DECAYABLE);//设置状态个数
     }
 
     @Nonnull
@@ -213,4 +218,6 @@ public class OreLeaf extends BlockLeaves {
         }
         return i;
     }
+
+
 }

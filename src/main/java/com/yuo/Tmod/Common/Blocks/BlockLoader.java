@@ -24,9 +24,16 @@ public class BlockLoader {
     public static final Block spaceBlock = new SpaceBlock("space_block");
     public static final Block saltOre = new SaltOre("salt_ore");
     public static final Block dragonOre = new DragonOre("dragon_ore");
-    public static final Block rubyOre = new ModBlock("ruby_ore", 10, 2, Material.ROCK);
-    public static final Block netherRubyOre = new ModBlock("nether_ruby_ore", 12, 2, Material.ROCK);
-    public static final Block ancientDebris = new ModBlock("ancient_debris", 22, 3, Material.IRON);
+    public static final Block rubyOre = new ModBlock("ruby_ore", 8, 2, Material.ROCK);
+    public static final Block netherRubyOre = new ModBlock("nether_ruby_ore", 10, 2, Material.ROCK);
+    public static final Block ancientDebris = new ModBlock("ancient_debris", 12, 3, Material.IRON);
+
+    public static final Block xrayBlock = new XrayBlock("xray_block", 2, 10);
+    public static final Block superOre = new ModBlock("super_ore", 13, 3, Material.ROCK);
+    public static final Block superXrayBlock = new XrayBlock("super_xray_block", 4, 15);
+    public static final Block superBlock = new ModBlock("super_block", 15, 3, Material.IRON);
+    public static final Block ultraBlock = new ModBlock("ultra_block", 20, 5, Material.IRON);
+    public static final Block fragileBedrock = new ModBlock("fragile_bedrock", 100, 7, Material.ROCK);
     //普通方块
     public static final Block emeraldIngotBlock = new ModBlock("emerald_ingot_block", 10, 3, Material.ROCK);
     public static final Block rubyBlock = new ModBlock("ruby_block", 15, 3, Material.IRON);
@@ -103,6 +110,14 @@ public class BlockLoader {
         register(spaceBlock, "space_block");
         register(saltOre, "salt_ore");
         register(dragonOre, "dragon_ore");
+
+        register(xrayBlock, "xray_block");
+        register(superOre, "super_ore");
+        register(superXrayBlock, "super_xray_block");
+        register(superBlock, "super_block");
+        register(ultraBlock, "ultra_block");
+        register(fragileBedrock, "fragile_bedrock");
+
         register(diamondStem, "diamond_stem");
         register(goldStem, "gold_stem");
         register(ironStem, "iron_stem");
@@ -178,6 +193,14 @@ public class BlockLoader {
         registerRender(spaceBlock);
         registerRender(saltOre);
         registerRender(dragonOre);
+
+        registerRender(xrayBlock);
+        registerRender(superOre);
+        registerRender(superXrayBlock);
+        registerRender(superBlock);
+        registerRender(ultraBlock);
+        registerRender(fragileBedrock);
+
         registerRender(diamondStem);
         registerRender(goldStem);
         registerRender(ironStem);

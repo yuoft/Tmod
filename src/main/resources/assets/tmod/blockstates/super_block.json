@@ -1,0 +1,5 @@
+{
+    "variants": {
+        "normal": { "model": "tmod:super_block" }
+    }
+}
