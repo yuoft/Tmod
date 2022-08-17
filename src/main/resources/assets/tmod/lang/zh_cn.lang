@@ -354,8 +354,15 @@ splash_potion.effect.potionfall_type=喷溅型摔落减免药水
 tipped_arrow.effect.potionfall_type=摔落减免之箭
 lingering_potion.effect.potionfall_type=滞留型摔落减免药水
 #附魔
-enchantment.fireimmune=火焰免疫
-enchantment.wartowar=以战养战
+enchantment.fire_immune=火焰免疫
+enchantment.war_to_war=以战养战
+enchantment.blast_arrow=爆炸箭
+enchantment.fire_thorns=火焰荆棘
+enchantment.insight=洞察
+enchantment.last_stand=屹立不倒
+enchantment.lava_walker=熔岩行者
+enchantment.many_arrow=万箭
+enchantment.slow=拖拉
 #进度
 advancement.tmod:good_food=更好的食物
 advancement.tmod:good_food.desc=吃下一个黄金钻石面包
