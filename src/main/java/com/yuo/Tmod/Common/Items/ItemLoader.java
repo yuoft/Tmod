@@ -216,7 +216,7 @@ public class ItemLoader {
     public static final ModArmor ultraChest = new ModArmor("ultra_chest", TmodMaterial.ULTRA_ARMOR, 8, EntityEquipmentSlot.CHEST);
     public static final ModArmor ultraLegs = new ModArmor("ultra_legs", TmodMaterial.ULTRA_ARMOR, 6, EntityEquipmentSlot.LEGS);
     public static final ModArmor ultraFeet = new ModArmor("ultra_feet", TmodMaterial.ULTRA_ARMOR, 3, EntityEquipmentSlot.FEET);
-
+    //创建食物
     public static final Item superApple = new SuperFood("super_apple", 10, 0.6f);
     public static final Item superBeetroot = new SuperFood("super_beetroot", 10, 0.6f);
     public static final Item superBeetrootSoup = new SuperFood("super_beetroot_soup", 10, 0.6f);
@@ -232,6 +232,18 @@ public class ItemLoader {
     public static final Item superPork = new SuperMeat("super_pork", 12, 0.8f);
     public static final Item superRabbit = new SuperMeat("super_rabbit", 12, 0.8f);
     public static final Item superRabbitStew = new SuperMeat("super_rabbit_stew", 12, 0.8f);
+    //弓箭
+    public static final Item spaceArrow = new ModArrow("space_arrow");
+    public static final Item dragonArrow = new ModArrow("dragon_arrow");
+    public static final Item netheriteArrow = new ModArrow("netherite_arrow");
+    public static final Item diamondArrow = new ModArrow("diamond_arrow");
+    public static final Item goldArrow = new ModArrow("gold_arrow");
+    public static final Item ironArrow = new ModArrow("iron_arrow");
+    public static final Item ironBow = new IronBow("iron_bow");
+    public static final Item diamondBow = new DiamondBow("diamond_bow");
+    public static final Item netheriteBow = new NetheriteBow("netherite_bow");
+    public static final Item goldBow = new GoldBow("gold_bow");
+
     //特殊物品
     public static final GoldenTNT goldenTnt = new GoldenTNT("golden_tnt");
     public static final TmodMusicRecord tmodMusic1 = new TmodMusicRecord("tmod_music1", SoundLoader.LTY_JueTiJueMimg);
@@ -543,6 +555,17 @@ public class ItemLoader {
         ForgeRegistries.ITEMS.register(superPork.setRegistryName("super_pork"));
         ForgeRegistries.ITEMS.register(superRabbit.setRegistryName("super_rabbit"));
         ForgeRegistries.ITEMS.register(superRabbitStew.setRegistryName("super_rabbit_stew"));
+
+        ForgeRegistries.ITEMS.register(spaceArrow.setRegistryName("space_arrow"));
+        ForgeRegistries.ITEMS.register(dragonArrow.setRegistryName("dragon_arrow"));
+        ForgeRegistries.ITEMS.register(netheriteArrow.setRegistryName("netherite_arrow"));
+        ForgeRegistries.ITEMS.register(diamondArrow.setRegistryName("diamond_arrow"));
+        ForgeRegistries.ITEMS.register(goldArrow.setRegistryName("gold_arrow"));
+        ForgeRegistries.ITEMS.register(ironArrow.setRegistryName("iron_arrow"));
+        ForgeRegistries.ITEMS.register(ironBow.setRegistryName("iron_bow"));
+        ForgeRegistries.ITEMS.register(goldBow.setRegistryName("gold_bow"));
+        ForgeRegistries.ITEMS.register(diamondBow.setRegistryName("diamond_bow"));
+        ForgeRegistries.ITEMS.register(netheriteBow.setRegistryName("netherite_bow"));
 
         ForgeRegistries.ITEMS.register(goldenTnt.setRegistryName("golden_tnt"));
         ForgeRegistries.ITEMS.register(tmodMusic1.setRegistryName("tmod_music1"));
@@ -861,6 +884,17 @@ public class ItemLoader {
         registerRender(superPork);
         registerRender(superRabbit);
         registerRender(superRabbitStew);
+
+        registerRender(spaceArrow);
+        registerRender(dragonArrow);
+        registerRender(netheriteArrow);
+        registerRender(diamondArrow);
+        registerRender(goldArrow);
+        registerRender(ironArrow);
+        registerRender(ironBow);
+        registerRender(goldBow);
+        registerRender(diamondBow);
+        registerRender(netheriteBow);
 
         registerRender(goldenTnt);
         registerRender(tmodMusic1);

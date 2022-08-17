@@ -10,7 +10,7 @@ import javax.annotation.Nullable;
 
 public class RenderSpaceArrow extends RenderArrow<EntitySpaceArrow> {
 
-    private static final ResourceLocation SPACE_ARROW_TEXTURE = new ResourceLocation(Tmod.MOD_ID + ":" + "textures/entity/arrow.png");
+    private static final ResourceLocation SPACE_ARROW_TEXTURE = new ResourceLocation(Tmod.MOD_ID + ":" + "textures/entity/arrow/space_arrow.png");
 
     public RenderSpaceArrow(RenderManager renderManagerIn) {
         super(renderManagerIn);

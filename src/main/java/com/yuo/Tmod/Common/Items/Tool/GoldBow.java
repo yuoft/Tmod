@@ -1,11 +1,11 @@
 package com.yuo.Tmod.Common.Items.Tool;
 
 import com.yuo.Tmod.Common.Items.ItemLoader;
+import com.yuo.Tmod.Entity.EntityGoldArrow;
+import com.yuo.Tmod.Entity.EntityIronArrow;
 import com.yuo.Tmod.Tab.TmodGroup;
-import com.yuo.Tmod.Entity.EntityDragonArrow;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityArrow;
-import net.minecraft.init.Items;
 import net.minecraft.item.IItemPropertyGetter;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
@@ -16,10 +16,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
 
-public class DragonBow extends ItemBow {
-    public DragonBow(String name) {
+public class GoldBow extends ItemBow {
+    public GoldBow(String name) {
         this.setUnlocalizedName(name);
-        this.setMaxDamage(467);
+        this.setMaxDamage(284);
         this.setMaxStackSize(1);
         this.setCreativeTab(TmodGroup.TOOL_TAB);
         this.addPropertyOverride(new ResourceLocation("pull"), new IItemPropertyGetter() {
@@ -42,11 +42,11 @@ public class DragonBow extends ItemBow {
 
     @Override
     public EntityArrow customizeArrow(EntityArrow arrow) {
-        return new EntityDragonArrow(arrow.world, (EntityLivingBase) arrow.shootingEntity);
+        return new EntityGoldArrow(arrow.world, (EntityLivingBase) arrow.shootingEntity);
     }
 
     @Override
     protected boolean isArrow(ItemStack stack) {
-        return stack.getItem() == ItemLoader.dragonArrow;
+        return stack.getItem() == ItemLoader.goldArrow;
     }
 }

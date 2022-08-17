@@ -2,6 +2,7 @@ package com.yuo.Tmod.Common.Items.Tool;
 
 import javax.annotation.Nullable;
 
+import com.yuo.Tmod.Common.Items.ItemLoader;
 import com.yuo.Tmod.Tab.TmodGroup;
 
 import com.yuo.Tmod.Entity.EntitySpaceArrow;
@@ -19,10 +20,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class SpaceBow extends ItemBow {
     public SpaceBow(String name) {
         this.setUnlocalizedName(name);
-        this.setMaxDamage(1000);
+        this.setMaxDamage(498);
         this.setMaxStackSize(1);
         this.setCreativeTab(TmodGroup.TOOL_TAB);
-        this.setContainerItem(Items.ARROW);
         this.setDamage(new ItemStack(this), 100);
         this.addPropertyOverride(new ResourceLocation("pull"), new IItemPropertyGetter() {
             @SideOnly(Side.CLIENT)
@@ -45,5 +45,10 @@ public class SpaceBow extends ItemBow {
     @Override
     public EntityArrow customizeArrow(EntityArrow arrow) {
         return new EntitySpaceArrow(arrow.world, (EntityLivingBase) arrow.shootingEntity);
+    }
+
+    @Override
+    protected boolean isArrow(ItemStack stack) {
+        return stack.getItem() == ItemLoader.spaceArrow;
     }
 }

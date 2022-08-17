@@ -10,7 +10,7 @@ import javax.annotation.Nullable;
 
 public class RenderDragonArrow extends RenderArrow<EntityDragonArrow> {
 
-    private static final ResourceLocation SPACE_ARROW_TEXTURE = new ResourceLocation(Tmod.MOD_ID + ":" + "textures/entity/arrow.png");
+    private static final ResourceLocation SPACE_ARROW_TEXTURE = new ResourceLocation(Tmod.MOD_ID + ":" + "textures/entity/arrow/dragon_arrow.png");
 
     public RenderDragonArrow(RenderManager renderManagerIn) {
         super(renderManagerIn);

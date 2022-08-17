@@ -27,6 +27,10 @@ public class EntityLoader {
         registerEntity(EntityNewFireball.class, "NewFireball", 64, 10, true);
         registerEntity(EntitySpaceArrow.class, "SpaceArrow", 64, 10, true);
         registerEntity(EntityDragonArrow.class, "DragonArrow", 64, 10, true);
+        registerEntity(EntityNetheriteArrow.class, "NetheriteArrow", 64, 10, true);
+        registerEntity(EntityDiamondArrow.class, "DiamondArrow", 64, 10, true);
+        registerEntity(EntityGoldArrow.class, "GoldArrow", 64, 10, true);
+        registerEntity(EntityIronArrow.class, "IronArrow", 64, 10, true);
         //新的僵尸:绿僵
         registerEntity(EntityGreenZombies.class, "GreenZombies", 80, 3, true);
         registerEntityEgg(new ResourceLocation("GreenZombies"), 0x006400, 0x00FF00);
@@ -101,6 +105,10 @@ public class EntityLoader {
         registerEntityRender(EntityNewFireball.class, RenderNewFireball.class);
         registerEntityRender(EntitySpaceArrow.class, RenderSpaceArrow.class);
         registerEntityRender(EntityDragonArrow.class, RenderDragonArrow.class);
+        registerEntityRender(EntityNetheriteArrow.class, RenderNetheriteArrow.class);
+        registerEntityRender(EntityDiamondArrow.class, RenderDiamondArrow.class);
+        registerEntityRender(EntityGoldArrow.class, RenderGoldArrow.class);
+        registerEntityRender(EntityIronArrow.class, RenderIronArrow.class);
 
         registerEntityRender(EntityGreenZombies.class, RenderGreenZombies.class);
         registerEntityRender(EntityRedZombies.class, RenderRedZombies.class);
