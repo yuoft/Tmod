@@ -1,0 +1,30 @@
+{
+  "parent": "tmod:ruby",
+  "display": { 
+    "icon": { 
+      "item": "tmod:iron_stick"
+    },
+    "title": {
+		"translate": "advancements.tmod:iron_stick"
+	},
+    "description": {
+		"translate": "advancements.tmod:iron_stick.desc"
+	},
+    "frame": "task"
+  },
+  "criteria": { 
+    "iron_stick": {
+      "trigger": "minecraft:inventory_changed", 
+      "conditions": { 
+		"items":[
+			{
+				"item": "tmod:iron_stick"
+			}
+		]
+      }
+    }
+  },
+  "rewards": { 
+    "experience": 10
+  }
+}

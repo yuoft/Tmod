@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " xy",
+    "xzy",
+    " xy"
+  ],
+  "key": {
+    "x": {
+      "item": "spacearms:netherite_stick"
+    },
+    "y": {
+      "item": "spacearms:super_string"
+    },
+    "z": {
+      "item": "minecraft:bow"
+    }
+  },
+  "result": {
+    "item": "spacearms:netherite_bow"
+  }
+}

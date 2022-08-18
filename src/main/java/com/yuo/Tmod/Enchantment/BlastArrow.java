@@ -1,12 +1,14 @@
 package com.yuo.Tmod.Enchantment;
 
 import com.yuo.Tmod.Tmod;
+import net.minecraft.block.BlockTNT;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.Enchantments;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.world.Explosion;
+import net.minecraft.world.World;
 
 public class BlastArrow extends Enchantment {
     BlastArrow(String name) {
@@ -31,9 +33,12 @@ public class BlastArrow extends Enchantment {
     }
 
     //产生爆炸
-    public static void boom(EntityArrow arrow, int blastArrow){
+    public static void boom(EntityArrow arrow){
         //产生爆炸
-        arrow.world.createExplosion(arrow, arrow.posX, arrow.posY, arrow.posZ, blastArrow * 4.0f, false);
-        arrow.setDead(); //删除实体
+        World world = arrow.world;
+        if (!world.isRemote){
+            world.createExplosion(arrow, arrow.posX, arrow.posY, arrow.posZ, 4.0f, true);
+            arrow.setDead(); //删除实体
+        }
     }
 }

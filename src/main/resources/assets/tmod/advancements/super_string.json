@@ -1,0 +1,30 @@
+{
+  "parent": "tmod:super_stick",
+  "display": { 
+    "icon": { 
+      "item": "tmod:super_string"
+    },
+    "title": {
+		"translate": "advancements.tmod:super_string"
+	},
+    "description": {
+		"translate": "advancements.tmod:super_string.desc"
+	},
+    "frame": "task"
+  },
+  "criteria": { 
+    "super_string": {
+      "trigger": "minecraft:inventory_changed", 
+      "conditions": { 
+		"items":[
+			{
+				"item": "tmod:super_string"
+			}
+		]
+      }
+    }
+  },
+  "rewards": { 
+    "experience": 10
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "parent": "tmod:space_path",
+  "display": { 
+    "icon": { 
+      "item": "tmod:space_sword"
+    },
+    "title": {
+		"translate": "advancements.tmod:space_sword"
+	},
+    "description": {
+		"translate": "advancements.tmod:space_sword.desc"
+	},
+    "frame": "goal"
+  },
+  "criteria": { 
+    "space_sword": {
+      "trigger": "minecraft:inventory_changed", 
+      "conditions": { 
+		"items":[
+			{
+				"item": "tmod:space_sword"
+			}
+		]
+      }
+    }
+  },
+  "rewards": { 
+    "experience": 50
+  }
+}

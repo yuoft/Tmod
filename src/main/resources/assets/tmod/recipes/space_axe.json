@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "yy ",
+    "yx ",
+    " x "
+  ],
+  "key": {
+    "y": {
+      "item": "spacearms:space_ingot"
+    },
+	"x": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "result": {
+    "item": "spacearms:space_axe"
+  }
+}

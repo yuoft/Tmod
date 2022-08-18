@@ -8,7 +8,7 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 
 public class Slow extends Enchantment {
     Slow(String name) {
-        super(Rarity.COMMON, EnumEnchantmentType.DIGGER, new EntityEquipmentSlot[]{EntityEquipmentSlot.MAINHAND, EntityEquipmentSlot.OFFHAND});
+        super(Rarity.COMMON, EnumEnchantmentType.DIGGER, new EntityEquipmentSlot[]{EntityEquipmentSlot.MAINHAND});
         this.setName(name);
         this.setRegistryName(Tmod.MOD_ID, name);
     }

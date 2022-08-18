@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " x ",
+    "xyx",
+    " x "
+  ],
+  "key": {
+    "x": {
+      "item": "spacearms:super_ingot"
+    },
+    "y": {
+      "item": "spacearms:super_block"
+    }
+  },
+  "result": {
+    "item": "spacearms:ultra_ingot"
+  }
+}

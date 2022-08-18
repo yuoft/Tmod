@@ -363,6 +363,7 @@ enchantment.last_stand=屹立不倒
 enchantment.lava_walker=熔岩行者
 enchantment.many_arrow=万箭
 enchantment.slow=拖拉
+enchantment.diamond=钻石无处不在
 #进度
 advancement.tmod:good_food=更好的食物
 advancement.tmod:good_food.desc=吃下一个黄金钻石面包

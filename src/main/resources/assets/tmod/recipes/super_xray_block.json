@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xxx",
+    "xyx",
+    "xxx"
+  ],
+  "key": {
+    "x": {
+      "item": "spacearms:xray_block"
+    },
+    "y": {
+      "item": "spacearms:xray_ingot"
+    }
+  },
+  "result": {
+    "item": "spacearms:super_xray_block"
+  }
+}

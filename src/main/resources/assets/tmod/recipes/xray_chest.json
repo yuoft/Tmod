@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "x x",
+    "xxx",
+    "xxx"
+  ],
+  "key": {
+    "x": {
+      "item": "spacearms:xray_ingot"
+    }
+  },
+  "result": {
+    "item": "spacearms:xray_chest"
+  }
+}

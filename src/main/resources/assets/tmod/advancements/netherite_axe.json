@@ -1,0 +1,29 @@
+{
+  "parent": "tmod:emerald_power",
+  "display": { 
+    "icon": { 
+      "item": "minecraft:netherite_axe"
+    },
+    "title": {
+		"translate": "advancements.tmod:netherite_axe"
+	},
+    "description": {
+		"translate": "advancements.tmod:netherite_axe.desc"
+	},
+    "frame": "challenge"
+  },
+  "criteria": { 
+    "netherite_axe": {
+      "trigger": "minecraft:item_durability_changed",
+      "conditions": {
+        "item": {
+          "item": "tmod:netherite_axe"
+        },
+        "durability": 0
+      }
+    }
+  },
+  "rewards": { 
+    "experience": 200
+  }
+}

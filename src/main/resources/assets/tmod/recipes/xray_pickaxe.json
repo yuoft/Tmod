@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "yyy",
+    " x ",
+    " x "
+  ],
+  "key": {
+    "y": {
+      "item": "spacearms:xray_ingot"
+    },
+	"x": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "spacearms:xray_pickaxe"
+  }
+}

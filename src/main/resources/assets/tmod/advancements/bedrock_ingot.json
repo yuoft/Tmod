@@ -1,0 +1,30 @@
+{
+  "parent": "tmod:bedrock_powder",
+  "display": { 
+    "icon": { 
+      "item": "tmod:bedrock_ingot"
+    },
+    "title": {
+		"translate": "advancements.tmod:bedrock_ingot"
+	},
+    "description": {
+		"translate": "advancements.tmod:bedrock_ingot.desc"
+	},
+    "frame": "task"
+  },
+  "criteria": { 
+    "bedrock_ingot": {
+      "trigger": "minecraft:inventory_changed", 
+      "conditions": { 
+		"items":[
+			{
+				"item":"tmod:bedrock_ingot"
+			}
+		]
+      }
+    }
+  },
+  "rewards": { 
+    "experience": 20
+  }
+}

@@ -61,7 +61,7 @@ dependencies {
 
 //    runtimeOnly 'curse.maven:jei-238222:3043174'
     compileOnly 'mezz.jei:jei_1.12.2:4.16.1.302:api'
-    runtimeOnly 'mezz.jei:jei_1.12.2:4.16.1.302'
+//    runtimeOnly 'mezz.jei:jei_1.12.2:4.16.1.302'
 }
 
 // Example for how to get properties into the manifest for reading by the runtime..

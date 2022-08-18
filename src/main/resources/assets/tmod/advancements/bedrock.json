@@ -1,0 +1,30 @@
+{
+  "parent": "tmod:bedrock_ingot",
+  "display": { 
+    "icon": { 
+      "item": "minecraft:bedrock"
+    },
+    "title": {
+		"translate": "advancements.tmod:bedrock"
+	},
+    "description": {
+		"translate": "advancements.tmod:bedrock.desc"
+	},
+    "frame": "task"
+  },
+  "criteria": { 
+    "bedrock": {
+      "trigger": "minecraft:inventory_changed", 
+      "conditions": { 
+		"items":[
+			{
+				"item":"minecraft:bedrock"
+			}
+		]
+      }
+    }
+  },
+  "rewards": { 
+    "experience": 20
+  }
+}

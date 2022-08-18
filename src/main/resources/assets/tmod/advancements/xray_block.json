@@ -1,0 +1,30 @@
+{
+  "parent": "tmod:emerald_power",
+  "display": { 
+    "icon": { 
+      "item": "tmod:xray_block"
+    },
+    "title": {
+		"translate": "advancements.tmod:xray_block"
+	},
+    "description": {
+		"translate": "advancements.tmod:xray_block.desc"
+	},
+    "frame": "task"
+  },
+  "criteria": { 
+    "xray_block": {
+      "trigger": "minecraft:inventory_changed", 
+      "conditions": { 
+		"items":[
+			{
+				"item":"tmod:xray_block"
+			}
+		]
+      }
+    }
+  },
+  "rewards": { 
+    "experience": 10
+  }
+}

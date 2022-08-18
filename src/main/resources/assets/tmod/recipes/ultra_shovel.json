@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " y ",
+    " x ",
+    " x "
+  ],
+  "key": {
+    "y": {
+      "item": "spacearms:ultra_ingot"
+    },
+	"x": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "spacearms:ultra_shovel"
+  }
+}

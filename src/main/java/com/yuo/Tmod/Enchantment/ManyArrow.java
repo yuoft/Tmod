@@ -40,8 +40,8 @@ public class ManyArrow extends Enchantment {
         if (itemStack.isEmpty()) return;
         int fireArrow = EnchantmentHelper.getEnchantmentLevel(Enchantments.FLAME, bow);
         for (int i = 0; i < manyArrow; i++){
-            ItemArrow arrowitem = (ItemArrow)(itemStack.getItem() instanceof ItemArrow ? itemStack.getItem() : Items.ARROW);
-            EntityArrow entityarrow = arrowitem.createArrow(world, itemStack, player);
+            ItemArrow arrow = (ItemArrow)(itemStack.getItem() instanceof ItemArrow ? itemStack.getItem() : Items.ARROW);
+            EntityArrow entityarrow = arrow.createArrow(world, itemStack, player);
             entityarrow.setDamage(2);
             if (fireArrow > 0) entityarrow.setFire(100);
             if (charge == 1.0F) entityarrow.setIsCritical(true);

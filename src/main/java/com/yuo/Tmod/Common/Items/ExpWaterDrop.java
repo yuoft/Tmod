@@ -27,11 +27,13 @@ public class ExpWaterDrop extends Item {
 
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
-        ItemStack stack = playerIn.getHeldItemMainhand();
-        int count = playerIn.isSneaking() ? stack.getCount() : 1;
-        int exp = stack.getItem() == ItemLoader.expSmall ? 10 : 100;
-        playerIn.addExperience(exp * count);
-        stack.shrink(count);
+        if (!worldIn.isRemote){
+            ItemStack stack = playerIn.getHeldItemMainhand();
+            int count = playerIn.isSneaking() ? stack.getCount() : 1;
+            int exp = stack.getItem() == ItemLoader.expSmall ? 10 : 100;
+            playerIn.addExperience(exp * count);
+            stack.shrink(count);
+        }
         return new ActionResult<>(EnumActionResult.PASS, playerIn.getHeldItem(handIn));
     }
 

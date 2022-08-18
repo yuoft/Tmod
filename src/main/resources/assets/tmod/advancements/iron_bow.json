@@ -1,0 +1,30 @@
+{
+  "parent": "tmod:super_ruby",
+  "display": { 
+    "icon": { 
+      "item": "tmod:iron_bow"
+    },
+    "title": {
+		"translate": "advancements.tmod:iron_bow"
+	},
+    "description": {
+		"translate": "advancements.tmod:iron_bow.desc"
+	},
+    "frame": "task"
+  },
+  "criteria": { 
+    "iron_bow": {
+      "trigger": "minecraft:inventory_changed", 
+      "conditions": { 
+		"items":[
+			{
+				"item": "tmod:iron_bow"
+			}
+		]
+      }
+    }
+  },
+  "rewards": { 
+    "experience": 10
+  }
+}

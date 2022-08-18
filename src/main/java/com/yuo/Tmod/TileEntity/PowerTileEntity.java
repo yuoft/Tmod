@@ -68,8 +68,8 @@ public class PowerTileEntity extends TileEntityLockable implements ITickable, IS
             return;
         }
 
-        ItemStack recipe = PowerRecipeManager.getRecipe(stack0, stack1);
-        if (!recipe.isEmpty() && (stack2.isEmpty() || stack2.isItemEqual(recipe))){ //配方有输出 产物为空或相同 才运行
+        ItemStack output = PowerRecipeManager.getRecipe(stack0, stack1);
+        if (!output.isEmpty() && (stack2.isEmpty() || stack2.isItemEqual(output))){ //配方有输出 产物为空或相同 才运行
             this.burnTime++;
             if (this.totalTime == 0){
                 this.totalTime = PowerRecipeManager.getTime(stack0, stack1);
@@ -78,12 +78,14 @@ public class PowerTileEntity extends TileEntityLockable implements ITickable, IS
         }
 
         if (this.burnTime >= this.totalTime){ //合成时间到 输出产物
-            if (stack2.isItemEqual(recipe)){
+            if (stack2.isItemEqual(output)){
                 this.burnTime++;
-                stack2.grow(recipe.getCount());
-            }else this.stacks.set(2, recipe);
-            stack0.shrink(1);
-            stack1.shrink(1);
+                stack2.grow(output.getCount());
+            }else this.stacks.set(2, output);
+
+            int[] shrink = PowerRecipeManager.getRecipeShrink(output);
+            stack0.shrink(shrink[0]);
+            stack1.shrink(shrink[1]);
             this.burnTime = 0;
             this.markDirty();
         }

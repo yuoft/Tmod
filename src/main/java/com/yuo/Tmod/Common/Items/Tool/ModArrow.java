@@ -10,15 +10,32 @@ import net.minecraft.item.ItemArrow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class ModArrow extends ItemArrow {
+public class ModArrow extends Item {
     public ModArrow(String name){
         super();
         this.setUnlocalizedName(name);
         this.setCreativeTab(TmodGroup.TOOL_TAB);
     }
 
+    public static ItemStack getArrow(ItemStack bow) {
+        Item item = bow.getItem();
+        if (item == ItemLoader.spaceBow){
+            return new ItemStack(ItemLoader.spaceArrow);
+        }else if (item == ItemLoader.dragonBow){
+            return new ItemStack(ItemLoader.dragonArrow);
+        }else if (item == ItemLoader.ironBow){
+            return new ItemStack(ItemLoader.ironArrow);
+        }else if (item == ItemLoader.goldBow){
+            return new ItemStack(ItemLoader.goldArrow);
+        }else if (item == ItemLoader.diamondBow){
+            return new ItemStack(ItemLoader.diamondArrow);
+        }else if (item == ItemLoader.netheriteBow){
+            return new ItemStack(ItemLoader.netheriteArrow);
+        }
+        return ItemStack.EMPTY;
+    }
+
     //创建箭矢
-    @Override
     public EntityArrow createArrow(World worldIn, ItemStack stack, EntityLivingBase shooter) {
         Item bow = stack.getItem();
         EntityArrow arrow = null;
@@ -39,7 +56,6 @@ public class ModArrow extends ItemArrow {
     }
 
     //是否无限
-    @Override
     public boolean isInfinite(ItemStack stack, ItemStack bow, net.minecraft.entity.player.EntityPlayer player) {
         int enchant = net.minecraft.enchantment.EnchantmentHelper.getEnchantmentLevel(net.minecraft.init.Enchantments.INFINITY, bow);
         return enchant > 0;

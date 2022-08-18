@@ -1,0 +1,30 @@
+{
+  "parent": "tmod:space_path",
+  "display": { 
+    "icon": { 
+      "item": "tmod:bedrock_powder"
+    },
+    "title": {
+		"translate": "advancements.tmod:bedrock_powder"
+	},
+    "description": {
+		"translate": "advancements.tmod:bedrock_powder.desc"
+	},
+    "frame": "task"
+  },
+  "criteria": { 
+    "bedrock_powder": {
+      "trigger": "minecraft:inventory_changed", 
+      "conditions": { 
+		"items":[
+			{
+				"item":"tmod:bedrock_powder"
+			}
+		]
+      }
+    }
+  },
+  "rewards": { 
+    "experience": 20
+  }
+}

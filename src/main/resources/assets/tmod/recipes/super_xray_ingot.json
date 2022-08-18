@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "spacearms:super_xray_block"
+  },
+  "result": "spacearms:super_xray_ingot",
+  "experience": 0.6,
+  "cookingtime": 270
+}

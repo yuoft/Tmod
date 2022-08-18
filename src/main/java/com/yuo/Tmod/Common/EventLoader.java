@@ -11,7 +11,10 @@ import com.yuo.Tmod.Enchantment.*;
 import com.yuo.Tmod.Potion.PotionLoader;
 import com.yuo.Tmod.TileEntity.TileTorcherino;
 import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockMagma;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -24,10 +27,7 @@ import net.minecraft.entity.passive.EntityLlama;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.projectile.EntityArrow;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.init.MobEffects;
-import net.minecraft.init.SoundEvents;
+import net.minecraft.init.*;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -100,7 +100,7 @@ public class EventLoader {
     }
 
     //铁砧配方
-    @SubscribeEvent
+//    @SubscribeEvent
     public void NewRecipes(AnvilUpdateEvent event) {
         ItemStack stack = event.getLeft();
         ItemStack stack2 = event.getRight();
@@ -465,7 +465,7 @@ public class EventLoader {
             ItemStack stack = getUseItem((EntityLivingBase) entity);
             int blastArrow = EnchantmentHelper.getEnchantmentLevel(EnchantLoader.blastArrow, stack);
             if (blastArrow > 0){
-                BlastArrow.boom(arrow, blastArrow);
+                BlastArrow.boom(arrow);
             }
         }
     }
@@ -473,11 +473,19 @@ public class EventLoader {
     @SubscribeEvent
     public void insight(BlockEvent.BreakEvent event){
         EntityPlayer player = event.getPlayer();
-        ItemStack stack = getUseItem(player);
+        ItemStack stack = player.getHeldItemMainhand();
+        int exp = event.getExpToDrop();
         int insight = EnchantmentHelper.getEnchantmentLevel(EnchantLoader.insight, stack);
-        if (insight > 0){
+        if (insight > 0 && exp > 0){
             Insight.addDropExp(event, insight);
         }
+        int diamond = EnchantmentHelper.getEnchantmentLevel(EnchantLoader.diamond, stack);
+        int fortune = EnchantmentHelper.getEnchantmentLevel(Enchantments.FORTUNE, stack);
+        Block block = event.getState().getBlock();
+        if (diamond > 0 && block == Blocks.COAL_ORE){
+            Diamond.dropDiamond(event.getWorld(), diamond, event.getPos(), fortune);
+        }
+
     }
 
     @SubscribeEvent
@@ -497,8 +505,16 @@ public class EventLoader {
             EntityPlayer player = (EntityPlayer) entityLiving;
             ItemStack feet = player.getItemStackFromSlot(EntityEquipmentSlot.FEET);
             int lastStand = EnchantmentHelper.getEnchantmentLevel(EnchantLoader.lastStand, feet);
-            if (lastStand > 0){
+            if (lastStand > 0 && !player.world.isRemote){
                 LastStand.lastStand(player, event, feet);
+            }
+            int lavaWalker = EnchantmentHelper.getEnchantmentLevel(EnchantLoader.lavaWalker, feet);
+            if (lavaWalker > 0){
+                if (event.getSource() == DamageSource.HOT_FLOOR){
+                    if (lavaWalker >= 3)
+                        event.setCanceled(true);
+                    else event.setAmount(event.getAmount() - 0.3f * lavaWalker);
+                }
             }
         }
     }
@@ -517,7 +533,7 @@ public class EventLoader {
     public void manyArrow(ArrowLooseEvent event){
         ItemStack bow = event.getBow();
         int manyArrow = EnchantmentHelper.getEnchantmentLevel(EnchantLoader.manyArrow, bow);
-        if (manyArrow > 0){
+        if (manyArrow > 0 && !event.getWorld().isRemote){
             ManyArrow.manyArrow(event.getCharge(), event.getEntityPlayer(), bow, manyArrow, event.getWorld());
         }
     }
@@ -525,7 +541,7 @@ public class EventLoader {
     @SubscribeEvent
     public void slow(PlayerEvent.BreakSpeed event){
         EntityPlayer player = event.getEntityPlayer();
-        int slow = EnchantmentHelper.getEnchantmentLevel(EnchantLoader.slow, player.getActiveItemStack());
+        int slow = EnchantmentHelper.getEnchantmentLevel(EnchantLoader.slow, player.getHeldItemMainhand());
         if (slow > 0){
             event.setNewSpeed(event.getOriginalSpeed() * ( 1 - slow * 0.2f)); //挖掘速度变慢
         }

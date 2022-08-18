@@ -1,0 +1,123 @@
+{
+  "parent": "tmod:ruby",
+  "display": { 
+    "icon": { 
+      "item": "tmod:super_apple"
+    },
+    "title": {
+		"translate": "advancements.tmod:super_apple"
+	},
+    "description": {
+		"translate": "advancements.tmod:super_apple.desc"
+	},
+    "frame": "task"
+  },
+  "criteria": {
+    "super_apple": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "item": "tmod:super_apple"
+        }
+      }
+    },
+    "super_beef": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "item": "tmod:super_beef"
+        }
+      }
+    },
+    "super_beetroot": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "item": "tmod:super_beetroot"
+        }
+      }
+    },
+    "super_bread": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "item": "tmod:super_bread"
+        }
+      }
+    },
+    "super_carrot": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "item": "tmod:super_carrot"
+        }
+      }
+    },
+    "super_chicken": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "item": "tmod:super_chicken"
+        }
+      }
+    },
+    "super_cod": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "item": "tmod:super_cod"
+        }
+      }
+    },
+    "super_mutton": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "item": "tmod:super_mutton"
+        }
+      }
+    },
+    "super_pork": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "item": "tmod:super_pork"
+        }
+      }
+    },
+    "super_potato": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "item": "tmod:super_potato"
+        }
+      }
+    },
+    "super_rabbit": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "item": "tmod:super_rabbit"
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "super_apple",
+      "super_beef",
+      "super_beetroot",
+      "super_bread",
+      "super_carrot",
+      "super_chicken",
+      "super_cod",
+      "super_mutton",
+      "super_pork",
+      "super_potato",
+      "super_rabbit"
+    ]
+  ],
+  "rewards": { 
+    "experience": 10
+  }
+}

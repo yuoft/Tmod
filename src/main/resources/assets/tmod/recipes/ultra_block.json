@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xxx",
+    "xxx",
+    "xxx"
+  ],
+  "key": {
+    "x": {
+      "item": "spacearms:ultra_ingot"
+    }
+  },
+  "result": {
+    "item": "spacearms:ultra_block"
+  }
+}

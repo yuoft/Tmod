@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xxx",
+    "xyx",
+    "xxx"
+  ],
+  "key": {
+    "x": {
+      "tag": "forge:glass"
+    },
+    "y": {
+      "item": "spacearms:super_ingot"
+    }
+  },
+  "result": {
+    "item": "spacearms:xray_block"
+  }
+}

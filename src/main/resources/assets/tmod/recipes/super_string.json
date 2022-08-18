@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:string"
+  },
+  "addition": {
+    "item": "spacearms:yuanshi"
+  },
+  "result": {
+    "item": "spacearms:super_string"
+  }
+}

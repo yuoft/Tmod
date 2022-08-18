@@ -1,0 +1,30 @@
+{
+  "parent": "tmod:iron_bow",
+  "display": { 
+    "icon": { 
+      "item": "tmod:space_bow"
+    },
+    "title": {
+		"translate": "advancements.tmod:space_bow"
+	},
+    "description": {
+		"translate": "advancements.tmod:space_bow.desc"
+	},
+    "frame": "goal"
+  },
+  "criteria": { 
+    "space_bow": {
+      "trigger": "minecraft:inventory_changed", 
+      "conditions": { 
+		"items":[
+			{
+				"item": "tmod:space_bow"
+			}
+		]
+      }
+    }
+  },
+  "rewards": { 
+    "experience": 50
+  }
+}

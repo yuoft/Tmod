@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xyz",
+    "mon",
+    " o "
+  ],
+  "key": {
+    "x": {
+      "item": "spacearms:ultra_sword"
+    },
+    "y": {
+      "item": "spacearms:ultra_pickaxe"
+    },
+    "z": {
+      "item": "spacearms:ultra_axe"
+    },
+    "m": {
+      "item": "spacearms:ultra_shovel"
+    },
+    "n": {
+      "item": "spacearms:ultra_hoe"
+    },
+    "o": {
+      "item": "spacearms:netherite_stick"
+    }
+  },
+  "result": {
+    "item": "spacearms:ultra_complex_tool"
+  }
+}

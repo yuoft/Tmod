@@ -14,6 +14,7 @@ public class EnchantLoader {
     public static Enchantment lavaWalker = new LavaWalker("lava_walker"); // 熔岩行者
     public static Enchantment manyArrow = new ManyArrow("many_arrow"); // 万箭
     public static Enchantment slow = new Slow("slow"); // 拖拉
+    public static Enchantment diamond = new Diamond("diamond"); // 钻石无处不在
 
 
     public EnchantLoader() {
@@ -22,6 +23,6 @@ public class EnchantLoader {
 
     @SubscribeEvent
     public static void Registr() {
-        ForgeRegistries.ENCHANTMENTS.registerAll(fireImmune, warToWar, blastArrow, fireThorns, insight, lastStand, lavaWalker, manyArrow, slow);
+        ForgeRegistries.ENCHANTMENTS.registerAll(fireImmune, warToWar, blastArrow, fireThorns, insight, lastStand, lavaWalker, manyArrow, slow, diamond);
     }
 }

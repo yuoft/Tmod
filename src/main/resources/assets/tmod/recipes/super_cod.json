@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " y ",
+    "yxy",
+    " y "
+  ],
+  "key": {
+    "x": {
+      "tag": "minecraft:fishes"
+    },
+    "y": {
+      "item": "spacearms:super_ingot"
+    }
+  },
+  "result": {
+    "item": "spacearms:super_cod"
+  }
+}

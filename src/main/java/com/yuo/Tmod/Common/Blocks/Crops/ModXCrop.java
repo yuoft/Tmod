@@ -7,6 +7,7 @@ import net.minecraft.block.*;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -45,8 +46,8 @@ public class ModXCrop extends BlockCrops implements IGrowable {
 
     @Override
     public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
-        if (entityIn instanceof EntityLiving) {
-            EntityLiving living = (EntityLiving) entityIn;
+        if (entityIn instanceof EntityLivingBase) {
+            EntityLivingBase living = (EntityLivingBase) entityIn;
             living.setInWeb();
             if (!worldIn.isRemote && getAge(state) > 0 && (entityIn.lastTickPosX != entityIn.posX || entityIn.lastTickPosZ != entityIn.posZ)) {
                 double d0 = Math.abs(entityIn.posX - entityIn.lastTickPosX);

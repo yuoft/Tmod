@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " y ",
+    "yxy",
+    " y "
+  ],
+  "key": {
+    "x": {
+      "item": "minecraft:bread"
+    },
+    "y": {
+      "item": "spacearms:super_ingot"
+    }
+  },
+  "result": {
+    "item": "spacearms:super_bread"
+  }
+}

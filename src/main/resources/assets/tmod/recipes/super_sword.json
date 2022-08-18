@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " y ",
+    " y ",
+    " x "
+  ],
+  "key": {
+    "y": {
+      "item": "spacearms:super_ingot"
+    },
+	"x": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "spacearms:super_sword"
+  }
+}

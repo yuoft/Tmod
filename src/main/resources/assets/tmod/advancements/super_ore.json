@@ -1,0 +1,30 @@
+{
+  "parent": "tmod:xray_block",
+  "display": { 
+    "icon": { 
+      "item": "tmod:super_ore"
+    },
+    "title": {
+		"translate": "advancements.tmod:super_ore"
+	},
+    "description": {
+		"translate": "advancements.tmod:super_ore.desc"
+	},
+    "frame": "task"
+  },
+  "criteria": { 
+    "super_ore": {
+      "trigger": "minecraft:inventory_changed", 
+      "conditions": { 
+		"items":[
+			{
+				"item":"tmod:super_ore"
+			}
+		]
+      }
+    }
+  },
+  "rewards": { 
+    "experience": 10
+  }
+}

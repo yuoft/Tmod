@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xyz",
+    "mon",
+    " o "
+  ],
+  "key": {
+    "x": {
+      "item": "minecraft:netherite_sword"
+    },
+    "y": {
+      "item": "minecraft:netherite_pickaxe"
+    },
+    "z": {
+      "item": "minecraft:netherite_axe"
+    },
+    "m": {
+      "item": "minecraft:netherite_shovel"
+    },
+    "o": {
+      "item": "spacearms:diamond_stick"
+    },
+    "n": {
+      "item": "minecraft:netherite_hoe"
+    }
+  },
+  "result": {
+    "item": "spacearms:netherite_complex_tool"
+  }
+}

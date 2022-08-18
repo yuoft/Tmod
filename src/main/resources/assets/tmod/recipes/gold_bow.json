@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " xy",
+    "xzy",
+    " xy"
+  ],
+  "key": {
+    "x": {
+      "item": "spacearms:gold_stick"
+    },
+    "y": {
+      "item": "spacearms:super_string"
+    },
+    "z": {
+      "item": "minecraft:bow"
+    }
+  },
+  "result": {
+    "item": "spacearms:gold_bow"
+  }
+}

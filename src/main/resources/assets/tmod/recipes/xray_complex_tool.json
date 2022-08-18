@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xyz",
+    "mon",
+    " o "
+  ],
+  "key": {
+    "x": {
+      "item": "spacearms:xray_sword"
+    },
+    "y": {
+      "item": "spacearms:xray_pickaxe"
+    },
+    "z": {
+      "item": "spacearms:xray_axe"
+    },
+    "m": {
+      "item": "spacearms:xray_shovel"
+    },
+    "n": {
+      "item": "spacearms:xray_hoe"
+    },
+    "o": {
+      "item": "spacearms:diamond_stick"
+    }
+  },
+  "result": {
+    "item": "spacearms:xray_complex_tool"
+  }
+}

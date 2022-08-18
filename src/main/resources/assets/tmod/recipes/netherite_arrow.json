@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " x ",
+    " y ",
+    " z "
+  ],
+  "key": {
+    "x": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "y": {
+      "item": "minecraft:stick"
+    },
+    "z": {
+      "item": "minecraft:feather"
+    }
+  },
+  "result": {
+    "item": "spacearms:netherite_arrow",
+    "count": 3
+  }
+}
