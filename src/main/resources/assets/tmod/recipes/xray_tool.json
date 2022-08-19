@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xyz",
+    "mon",
+    " o "
+  ],
+  "key": {
+    "x": {
+      "item": "tmod:xray_sword"
+    },
+    "y": {
+      "item": "tmod:xray_pickaxe"
+    },
+    "z": {
+      "item": "tmod:xray_axe"
+    },
+    "m": {
+      "item": "tmod:xray_shovel"
+    },
+    "n": {
+      "item": "tmod:xray_hoe"
+    },
+    "o": {
+      "item": "tmod:diamond_stick"
+    }
+  },
+  "result": {
+    "item": "tmod:xray_tool"
+  }
+}

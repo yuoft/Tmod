@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xyz",
+    "mon",
+    " o "
+  ],
+  "key": {
+    "x": {
+      "item": "tmod:ruby_sword"
+    },
+    "y": {
+      "item": "tmod:ruby_pickaxe"
+    },
+    "z": {
+      "item": "tmod:ruby_axe"
+    },
+    "m": {
+      "item": "tmod:ruby_shovel"
+    },
+    "n": {
+      "item": "tmod:ruby_hoe"
+    },
+    "o": {
+      "item": "tmod:iron_stick"
+    }
+  },
+  "result": {
+    "item": "tmod:ruby_tool"
+  }
+}

@@ -2,11 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-		"item": "spacearms:super_block"
+		"item": "tmod:super_block"
 	}
   ],
   "result": {
-    "item": "spacearms:super_ingot",
+    "item": "tmod:super_ingot",
     "count": 9
   }
 }

@@ -7,13 +7,13 @@
   ],
   "key": {
     "y": {
-      "item": "spacearms:super_ingot"
+      "item": "tmod:super_ingot"
     },
 	"x": {
       "item": "minecraft:stick"
     }
   },
   "result": {
-    "item": "spacearms:super_hoe"
+    "item": "tmod:super_hoe"
   }
 }

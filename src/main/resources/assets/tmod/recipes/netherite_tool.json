@@ -19,13 +19,13 @@
       "item": "minecraft:netherite_shovel"
     },
     "o": {
-      "item": "spacearms:diamond_stick"
+      "item": "tmod:diamond_stick"
     },
     "n": {
       "item": "minecraft:netherite_hoe"
     }
   },
   "result": {
-    "item": "spacearms:netherite_complex_tool"
+    "item": "tmod:netherite_tool"
   }
 }

@@ -7,13 +7,13 @@
   ],
   "key": {
     "x": {
-      "item": "spacearms:xray_block"
+      "item": "tmod:xray_block"
     },
     "y": {
-      "item": "spacearms:xray_ingot"
+      "item": "tmod:xray_ingot"
     }
   },
   "result": {
-    "item": "spacearms:super_xray_block"
+    "item": "tmod:super_xray_block"
   }
 }

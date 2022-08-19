@@ -7,16 +7,16 @@
   ],
   "key": {
     "x": {
-      "item": "spacearms:iron_stick"
+      "item": "tmod:iron_stick"
     },
     "y": {
-      "item": "spacearms:super_string"
+      "item": "tmod:super_string"
     },
     "z": {
       "item": "minecraft:bow"
     }
   },
   "result": {
-    "item": "spacearms:iron_bow"
+    "item": "tmod:iron_bow"
   }
 }

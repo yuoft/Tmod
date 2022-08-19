@@ -7,13 +7,13 @@
   ],
   "key": {
     "y": {
-      "item": "spacearms:space_ingot"
+      "item": "tmod:space_ingot"
     },
 	"x": {
       "item": "minecraft:diamond"
     }
   },
   "result": {
-    "item": "spacearms:space_axe"
+    "item": "tmod:space_axe"
   }
 }

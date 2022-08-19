@@ -7,10 +7,10 @@
   ],
   "key": {
     "x": {
-      "item": "spacearms:super_xray_ingot"
+      "item": "tmod:super_xray_ingot"
     }
   },
   "result": {
-    "item": "spacearms:super_xray_legs"
+    "item": "tmod:super_xray_legs"
   }
 }

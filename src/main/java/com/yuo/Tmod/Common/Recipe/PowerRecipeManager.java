@@ -157,5 +157,13 @@ public class PowerRecipeManager {
         public ItemStack getRecipeOutput() {
             return this.recipeOutput;
         }
+
+        public ItemStack getInputUp() {
+            return inputUp;
+        }
+
+        public ItemStack getInputDown() {
+            return inputDown;
+        }
     }
 }

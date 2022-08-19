@@ -7,13 +7,13 @@
   ],
   "key": {
     "y": {
-      "item": "spacearms:xray_ingot"
+      "item": "tmod:xray_ingot"
     },
 	"x": {
       "item": "minecraft:stick"
     }
   },
   "result": {
-    "item": "spacearms:xray_shovel"
+    "item": "tmod:xray_shovel"
   }
 }

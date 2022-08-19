@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xyz",
+    "mon",
+    " o "
+  ],
+  "key": {
+    "x": {
+      "item": "tmod:ultra_sword"
+    },
+    "y": {
+      "item": "tmod:ultra_pickaxe"
+    },
+    "z": {
+      "item": "tmod:ultra_axe"
+    },
+    "m": {
+      "item": "tmod:ultra_shovel"
+    },
+    "n": {
+      "item": "tmod:ultra_hoe"
+    },
+    "o": {
+      "item": "tmod:netherite_stick"
+    }
+  },
+  "result": {
+    "item": "tmod:ultra_tool"
+  }
+}

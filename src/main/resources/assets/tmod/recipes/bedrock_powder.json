@@ -7,10 +7,10 @@
   ],
   "key": {
     "x": {
-      "item": "spacearms:bedrock_nugget"
+      "item": "tmod:bedrock_nugget"
     }
   },
   "result": {
-    "item": "spacearms:bedrock_powder"
+    "item": "tmod:bedrock_powder"
   }
 }

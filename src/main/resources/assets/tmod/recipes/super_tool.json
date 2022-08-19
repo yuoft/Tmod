@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xyz",
+    "mon",
+    " o "
+  ],
+  "key": {
+    "x": {
+      "item": "tmod:super_sword"
+    },
+    "y": {
+      "item": "tmod:super_pickaxe"
+    },
+    "z": {
+      "item": "tmod:super_axe"
+    },
+    "m": {
+      "item": "tmod:super_shovel"
+    },
+    "n": {
+      "item": "tmod:super_hoe"
+    },
+    "o": {
+      "item": "tmod:diamond_stick"
+    }
+  },
+  "result": {
+    "item": "tmod:super_tool"
+  }
+}

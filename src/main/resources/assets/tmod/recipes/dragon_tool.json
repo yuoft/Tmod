@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xyz",
+    "mon",
+    " o "
+  ],
+  "key": {
+    "x": {
+      "item": "tmod:dragon_sword"
+    },
+    "y": {
+      "item": "tmod:dragon_pickaxe"
+    },
+    "z": {
+      "item": "tmod:dragon_axe"
+    },
+    "m": {
+      "item": "tmod:dragon_shovel"
+    },
+    "n": {
+      "item": "tmod:dragon_hoe"
+    },
+    "o": {
+      "item": "tmod:netherite_stick"
+    }
+  },
+  "result": {
+    "item": "tmod:dragon_tool"
+  }
+}

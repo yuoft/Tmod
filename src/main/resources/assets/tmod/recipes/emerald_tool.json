@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xyz",
+    "mon",
+    " o "
+  ],
+  "key": {
+    "x": {
+      "item": "tmod:emerald_sword"
+    },
+    "y": {
+      "item": "tmod:emerald_pickaxe"
+    },
+    "z": {
+      "item": "tmod:emerald_axe"
+    },
+    "m": {
+      "item": "tmod:emerald_shovel"
+    },
+    "n": {
+      "item": "tmod:emerald_hoe"
+    },
+    "o": {
+      "item": "tmod:iron_stick"
+    }
+  },
+  "result": {
+    "item": "tmod:emerald_tool"
+  }
+}

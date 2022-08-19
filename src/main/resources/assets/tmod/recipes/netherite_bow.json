@@ -7,16 +7,16 @@
   ],
   "key": {
     "x": {
-      "item": "spacearms:netherite_stick"
+      "item": "tmod:netherite_stick"
     },
     "y": {
-      "item": "spacearms:super_string"
+      "item": "tmod:super_string"
     },
     "z": {
       "item": "minecraft:bow"
     }
   },
   "result": {
-    "item": "spacearms:netherite_bow"
+    "item": "tmod:netherite_bow"
   }
 }

@@ -10,10 +10,10 @@
       "tag": "minecraft:fishes"
     },
     "y": {
-      "item": "spacearms:super_ingot"
+      "item": "tmod:super_ingot"
     }
   },
   "result": {
-    "item": "spacearms:super_cod"
+    "item": "tmod:super_cod"
   }
 }

@@ -7,7 +7,7 @@
   ],
   "key": {
     "x": {
-      "item": "minecraft:iron_ingot"
+      "item": "tmod:space_path"
     },
     "y": {
       "item": "minecraft:stick"
@@ -17,7 +17,7 @@
     }
   },
   "result": {
-    "item": "tmod:iron_arrow",
-    "count": 4
+    "item": "tmod:space_arrow",
+    "count": 1
   }
 }

@@ -10,10 +10,10 @@
       "tag": "forge:glass"
     },
     "y": {
-      "item": "spacearms:super_ingot"
+      "item": "tmod:super_ingot"
     }
   },
   "result": {
-    "item": "spacearms:xray_block"
+    "item": "tmod:xray_block"
   }
 }

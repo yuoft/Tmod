@@ -7,10 +7,10 @@
   ],
   "key": {
     "x": {
-      "item": "spacearms:ultra_ingot"
+      "item": "tmod:ultra_ingot"
     }
   },
   "result": {
-    "item": "spacearms:ultra_block"
+    "item": "tmod:ultra_block"
   }
 }

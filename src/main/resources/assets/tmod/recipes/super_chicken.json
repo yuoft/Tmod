@@ -10,10 +10,10 @@
       "item": "minecraft:chicken"
     },
     "y": {
-      "item": "spacearms:super_ingot"
+      "item": "tmod:super_ingot"
     }
   },
   "result": {
-    "item": "spacearms:super_chicken"
+    "item": "tmod:super_chicken"
   }
 }

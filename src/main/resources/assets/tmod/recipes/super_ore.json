@@ -10,10 +10,10 @@
       "tag": "forge:stone"
     },
     "y": {
-      "item": "spacearms:super_ingot"
+      "item": "tmod:super_ingot"
     }
   },
   "result": {
-    "item": "spacearms:super_ore"
+    "item": "tmod:super_ore"
   }
 }

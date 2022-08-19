@@ -342,6 +342,7 @@ public class ItemLoader {
     public static final Item spacePatch = new ModItem("space_patch");
     public static final Item spaceCore = new ModItem("space_core");
     public static final Item spaceLine = new ModItem("space_line");
+    public static final Item superString = new ModItem("super_string");
     public static final Item salt = new ModItem("salt");
     public static final Item saltWash = new ModItem("salt_wash");
     public static final Item dragonString = new ModItem("dragon_string");
@@ -616,6 +617,7 @@ public class ItemLoader {
         ForgeRegistries.ITEMS.register(spaceIngot.setRegistryName("space_ingot"));
         ForgeRegistries.ITEMS.register(spaceCore.setRegistryName("space_core"));
         ForgeRegistries.ITEMS.register(spaceLine.setRegistryName("space_line"));
+        ForgeRegistries.ITEMS.register(superString.setRegistryName("super_string"));
         ForgeRegistries.ITEMS.register(salt.setRegistryName("salt"));
         ForgeRegistries.ITEMS.register(saltWash.setRegistryName("salt_wash"));
         ForgeRegistries.ITEMS.register(dragonString.setRegistryName("dragon_string"));
@@ -945,6 +947,7 @@ public class ItemLoader {
         registerRender(spaceIngot);
         registerRender(spaceCore);
         registerRender(spaceLine);
+        registerRender(superString);
         registerRender(salt);
         registerRender(saltWash);
         registerRender(dragonString);

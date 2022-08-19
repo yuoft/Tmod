@@ -7,16 +7,16 @@
   ],
   "key": {
     "x": {
-      "item": "spacearms:gold_stick"
+      "item": "tmod:gold_stick"
     },
     "y": {
-      "item": "spacearms:super_string"
+      "item": "tmod:super_string"
     },
     "z": {
       "item": "minecraft:bow"
     }
   },
   "result": {
-    "item": "spacearms:gold_bow"
+    "item": "tmod:gold_bow"
   }
 }

@@ -48,10 +48,15 @@ public class ModRecipeManager {
         PowerRecipeManager.addRecipe(new ItemStack(ItemLoader.netheriteIngot), new ItemStack(ItemLoader.netheriteIngot),
                 new ItemStack(ItemLoader.netheriteStick), 60, 0);
 
+        PowerRecipeManager.addRecipe(new ItemStack(ItemLoader.bedrockPowder, 4), new ItemStack(ItemLoader.jiejing),
+                new ItemStack(ItemLoader.bedrockIngot), 80, 1);
+
         PowerRecipeManager.addRecipe(new ItemStack(ItemLoader.dragonCrystal), new ItemStack(Items.STRING),
-                new ItemStack(ItemLoader.dragonString), 40, 3);
+                new ItemStack(ItemLoader.dragonString), 40, 2);
+        PowerRecipeManager.addRecipe(new ItemStack(Items.IRON_INGOT), new ItemStack(Items.STRING),
+                new ItemStack(ItemLoader.superString), 40, 1);
         PowerRecipeManager.addRecipe(new ItemStack(ItemLoader.spacePatch), new ItemStack(Items.STRING),
-                new ItemStack(ItemLoader.spaceLine), 40,5);
+                new ItemStack(ItemLoader.spaceLine), 40,3);
         PowerRecipeManager.addRecipe(new ItemStack(ItemLoader.dragonCrystal, 4), new ItemStack(Items.DIAMOND_HELMET),
                 new ItemStack(ItemLoader.dragonHead), 40,5);
         PowerRecipeManager.addRecipe(new ItemStack(ItemLoader.dragonCrystal, 7), new ItemStack(Items.DIAMOND_CHESTPLATE),

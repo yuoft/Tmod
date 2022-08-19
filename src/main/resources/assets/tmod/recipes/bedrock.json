@@ -10,11 +10,11 @@
     {
         "o":
         {
-            "item": "minecraft:obsidian"
+            "item": "tmod:bedrock_ingot"
         },
 		"x":
         {
-            "item": "tmod:jiejing"
+            "item": "tmod:space_block"
         }
     },
     "result":
