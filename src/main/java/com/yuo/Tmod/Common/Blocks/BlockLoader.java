@@ -33,7 +33,7 @@ public class BlockLoader {
     public static final Block superXrayBlock = new XrayBlock("super_xray_block", 4, 15);
     public static final Block superBlock = new ModBlock("super_block", 15, 3, Material.IRON);
     public static final Block ultraBlock = new ModBlock("ultra_block", 20, 5, Material.IRON);
-    public static final Block fragileBedrock = new ModBlock("fragile_bedrock", 100, 7, Material.ROCK);
+    public static final Block fragileBedrock = new FragileBedrock("fragile_bedrock");
     //普通方块
     public static final Block emeraldIngotBlock = new ModBlock("emerald_ingot_block", 10, 3, Material.ROCK);
     public static final Block rubyBlock = new ModBlock("ruby_block", 15, 3, Material.IRON);

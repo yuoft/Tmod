@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xxx",
+    "xxx",
+    "xxx"
+  ],
+  "key": {
+    "x": {
+      "item": "tmod:diamond_fruit"
+    }
+  },
+  "result": {
+    "item": "minecraft:diamond",
+    "count": 8
+  }
+}

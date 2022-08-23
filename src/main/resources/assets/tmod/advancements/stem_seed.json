@@ -1,0 +1,30 @@
+{
+  "parent": "tmod:emerald_power",
+  "display": { 
+    "icon": { 
+      "item": "tmod:stem_seed"
+    },
+    "title": {
+		"translate": "advancements.tmod:stem_seed"
+	},
+    "description": {
+		"translate": "advancements.tmod:stem_seed.desc"
+	},
+    "frame": "task"
+  },
+  "criteria": { 
+    "ruby_ingot": {
+      "trigger": "minecraft:inventory_changed", 
+      "conditions": { 
+		"items":[
+			{
+				"item": "tmod:stem_seed"
+			}
+		]
+      }
+    }
+  },
+  "rewards": { 
+    "experience": 10
+  }
+}

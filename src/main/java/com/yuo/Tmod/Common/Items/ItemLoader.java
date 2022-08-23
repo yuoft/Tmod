@@ -353,6 +353,9 @@ public class ItemLoader {
     public static final Item goldStick = new ModItem("gold_stick");
     public static final Item ironStick = new ModItem("iron_stick");
     public static final Item netheriteStick = new ModItem("netherite_stick");
+    public static final Item stemSeed = new ModItem("stem_seed");
+    public static final Item cropSeed = new ModItem("crop_seed");
+    public static final Item oreSapling = new ModItem("ore_sapling");
 
     //注册item的id
     public static void init() {
@@ -628,6 +631,9 @@ public class ItemLoader {
         ForgeRegistries.ITEMS.register(goldStick.setRegistryName("gold_stick"));
         ForgeRegistries.ITEMS.register(ironStick.setRegistryName("iron_stick"));
         ForgeRegistries.ITEMS.register(netheriteStick.setRegistryName("netherite_stick"));
+        ForgeRegistries.ITEMS.register(stemSeed.setRegistryName("stem_seed"));
+        ForgeRegistries.ITEMS.register(cropSeed.setRegistryName("crop_seed"));
+        ForgeRegistries.ITEMS.register(oreSapling.setRegistryName("ore_sapling"));
 
         ForgeRegistries.ITEMS.register(coalLeaf.setRegistryName("coal_leaf"));
         ForgeRegistries.ITEMS.register(coalSapling.setRegistryName("coal_sapling"));
@@ -958,6 +964,9 @@ public class ItemLoader {
         registerRender(goldStick);
         registerRender(ironStick);
         registerRender(netheriteStick);
+        registerRender(stemSeed);
+        registerRender(cropSeed);
+        registerRender(oreSapling);
 
         registerRender(coalLeaf);
         registerRender(coalSapling);

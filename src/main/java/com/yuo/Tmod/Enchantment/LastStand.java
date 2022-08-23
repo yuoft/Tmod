@@ -27,7 +27,7 @@ public class LastStand extends Enchantment {
         float health = player.getHealth();
         if ((health - amount) < 1){ //受到致命伤害
             int exp = player.experienceTotal; //玩家经验值
-            int ceil = MathHelper.ceil((amount - (health - 1)) * 20); //将玩家血量扣到半颗心时 剩余的伤害值 * 抵消倍率
+            int ceil = MathHelper.ceil((amount - (health - 1)) * 10); //将玩家血量扣到半颗心时 剩余的伤害值 * 抵消倍率
             if (exp >= ceil){ //玩家经验值能够抵消伤害
                 removeExp(player, -ceil); //扣除经验值
                 player.setHealth(1);

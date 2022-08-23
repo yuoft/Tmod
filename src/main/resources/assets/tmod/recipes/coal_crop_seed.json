@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "zxz",
+    "xyx",
+    "zxz"
+  ],
+  "key": {
+    "y": {
+      "item": "tmod:crop_seed"
+    },
+    "x": {
+      "item": "minecraft:coal_block"
+    },
+    "z": {
+      "item": "minecraft:coal",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "tmod:coal_crop_seed"
+  }
+}

@@ -20,8 +20,8 @@ public class SuperFood extends ItemFood {
     protected void onFoodEaten(ItemStack stack, World worldIn, EntityPlayer player) {
         if (!worldIn.isRemote){
             player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 20 * 10, 1));
-            player.addPotionEffect(new PotionEffect(MobEffects.SPEED, 20 * 5, 0));
-            player.addPotionEffect(new PotionEffect(MobEffects.JUMP_BOOST, 20 * 5, 0));
+            player.addPotionEffect(new PotionEffect(MobEffects.SPEED, 20 * 10, 0));
+            player.addPotionEffect(new PotionEffect(MobEffects.JUMP_BOOST, 20 * 10, 0));
             if (worldIn.rand.nextDouble() < 0.05){
                 player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 20 * 20, 0));
             }

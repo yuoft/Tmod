@@ -1,0 +1,30 @@
+{
+  "parent": "tmod:stem_seed",
+  "display": { 
+    "icon": { 
+      "item": "tmod:crop_seed"
+    },
+    "title": {
+		"translate": "advancements.tmod:crop_seed"
+	},
+    "description": {
+		"translate": "advancements.tmod:crop_seed.desc"
+	},
+    "frame": "task"
+  },
+  "criteria": { 
+    "space_block": {
+      "trigger": "minecraft:inventory_changed", 
+      "conditions": { 
+		"items":[
+			{
+				"item":"tmod:crop_seed"
+			}
+		]
+      }
+    }
+  },
+  "rewards": { 
+    "experience": 20
+  }
+}

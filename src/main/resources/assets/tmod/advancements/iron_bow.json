@@ -1,5 +1,5 @@
 {
-  "parent": "tmod:super_ruby",
+  "parent": "tmod:super_string",
   "display": { 
     "icon": { 
       "item": "tmod:iron_bow"

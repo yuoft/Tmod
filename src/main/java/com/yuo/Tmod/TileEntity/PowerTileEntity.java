@@ -7,6 +7,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Items;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.ISidedInventory;
@@ -18,10 +19,9 @@ import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.tileentity.TileEntityLockable;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.ITickable;
-import net.minecraft.util.NonNullList;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -31,6 +31,7 @@ import javax.annotation.Nullable;
 public class PowerTileEntity extends TileEntityLockable implements ITickable, ISidedInventory {
     private int burnTime = 0;
     private int totalTime = 0;
+    private int exp = 0;
     private static final int[] SLOTS_TOP = new int[]{0};
     private static final int[] SLOTS_BOTTOM = new int[]{2, 1};
     private static final int[] SLOTS_SIDES = new int[]{1};
@@ -42,6 +43,7 @@ public class PowerTileEntity extends TileEntityLockable implements ITickable, IS
         super.readFromNBT(nbt);
         this.burnTime = nbt.getInteger("BurnTime");
         this.totalTime = nbt.getInteger("TotalTime");
+        this.exp = nbt.getInteger("Exp");
         this.stacks = NonNullList.withSize(this.getSizeInventory(), ItemStack.EMPTY);
         ItemStackHelper.loadAllItems(nbt, this.stacks);
     }
@@ -51,6 +53,7 @@ public class PowerTileEntity extends TileEntityLockable implements ITickable, IS
         super.writeToNBT(nbt);
         nbt.setInteger("BurnTime", this.burnTime);
         nbt.setInteger("TotalTime", this.totalTime);
+        nbt.setInteger("Exp", this.exp);
         ItemStackHelper.saveAllItems(nbt, stacks);
         return nbt;
     }
@@ -69,7 +72,9 @@ public class PowerTileEntity extends TileEntityLockable implements ITickable, IS
         }
 
         ItemStack output = PowerRecipeManager.getRecipe(stack0, stack1);
-        if (!output.isEmpty() && (stack2.isEmpty() || stack2.isItemEqual(output))){ //配方有输出 产物为空或相同 才运行
+        int recipeExp = PowerRecipeManager.getRecipeExp(output);
+        if (!output.isEmpty() && (stack2.isEmpty() || stack2.isItemEqual(output))
+            && exp >= recipeExp){ //配方有输出 产物为空或相同 经验足够时 才运行
             this.burnTime++;
             if (this.totalTime == 0){
                 this.totalTime = PowerRecipeManager.getTime(stack0, stack1);
@@ -78,17 +83,50 @@ public class PowerTileEntity extends TileEntityLockable implements ITickable, IS
         }
 
         if (this.burnTime >= this.totalTime){ //合成时间到 输出产物
-            if (stack2.isItemEqual(output)){
-                this.burnTime++;
-                stack2.grow(output.getCount());
-            }else this.stacks.set(2, output);
-
-            int[] shrink = PowerRecipeManager.getRecipeShrink(output);
-            stack0.shrink(shrink[0]);
-            stack1.shrink(shrink[1]);
-            this.burnTime = 0;
+            if (recipeExp > 0 && this.exp >= recipeExp){
+                outStack(stack0, stack1, stack2, output);
+                this.exp -= recipeExp;
+            }else if (recipeExp <= 0){
+                outStack(stack0, stack1, stack2, output);
+            }
             this.markDirty();
         }
+    }
+
+    /**
+     * 玩家添加经验等级
+     * @param player 玩家
+     */
+    public void setExp(EntityPlayer player, World world, BlockPos pos){
+        int level = player.experienceLevel;
+        if (level > 0){
+            if (exp < 10){
+                int shrinkExp = level + exp <= 10 ? level : 10;
+                player.addExperienceLevel(-shrinkExp);
+                this.exp = shrinkExp;
+                world.playSound(player, pos, SoundEvents.ENTITY_PLAYER_LEVELUP, SoundCategory.PLAYERS, 1.0f, 3.0f);
+                this.markDirty();
+            }else player.sendStatusMessage(new TextComponentTranslation("tmod.text.exp_ceil", ""),true );
+        }else player.sendStatusMessage(new TextComponentTranslation("tmod.text.level_floor", ""),true );
+    }
+
+    /**
+     * 合成产物
+     * @param stack0 up
+     * @param stack1 down
+     * @param stack2 out
+     * @param output 配方产物
+     */
+    private void outStack(ItemStack stack0, ItemStack stack1, ItemStack stack2, ItemStack output) {
+        if (stack2.isItemEqual(output)){
+            this.burnTime++;
+            stack2.grow(output.getCount());
+        }else this.stacks.set(2, output);
+
+        int[] shrink = PowerRecipeManager.getRecipeShrink(output);
+        stack0.shrink(shrink[0]);
+        stack1.shrink(shrink[1]);
+        this.burnTime = 0;
     }
 
     /**
@@ -120,6 +158,7 @@ public class PowerTileEntity extends TileEntityLockable implements ITickable, IS
         NBTTagCompound compound = super.getUpdateTag();
         compound.setInteger("BurnTime", this.burnTime);
         compound.setInteger("TotalTime", this.totalTime);
+        compound.setInteger("Exp", this.exp);
         ItemStackHelper.saveAllItems(compound, this.stacks);
         return compound;
     }
@@ -129,6 +168,7 @@ public class PowerTileEntity extends TileEntityLockable implements ITickable, IS
         ItemStackHelper.loadAllItems(tag, this.stacks);
         this.burnTime = tag.getInteger("BurnTime");
         this.totalTime = tag.getInteger("TotalTime");
+        this.exp = tag.getInteger("Exp");
     }
 
     //在世界更新TileEntity所在位置的方块状态时调用，默认的判定是oldState和newState不相等时替换，然而这里我们需要更新方块状态以表示炉子是否工作，所以这里只判定方块是否相同。
@@ -231,26 +271,26 @@ public class PowerTileEntity extends TileEntityLockable implements ITickable, IS
 
     @Override
     public int getField(int id) {
-        return id == 0 ? this.burnTime : this.totalTime;
+        switch (id){
+            case 0: return this.burnTime;
+            case 1: return this.totalTime;
+            case 2: return this.exp;
+            default: return 0;
+        }
     }
 
     @Override
     public void setField(int id, int value) {
-        if (id == 0) this.burnTime = value;
-        else this.totalTime = value;
+        switch (id){
+            case 0: this.burnTime = value;
+            case 1: this.totalTime = value;
+            case 2: this.exp = value;
+        }
     }
-
-    @SideOnly(Side.CLIENT)
-    public static int getBurnTime(IInventory inventory) {
-        return inventory.getField(0);
-    }
-
-    @SideOnly(Side.CLIENT)
-    public static int getTotalTime(IInventory inventory) { return inventory.getField(1);}
 
     @Override
     public int getFieldCount() {
-        return 1;
+        return 3;
     }
 
     @Override

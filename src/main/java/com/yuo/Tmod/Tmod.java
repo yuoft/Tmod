@@ -18,7 +18,7 @@ import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 public class Tmod {
     public static final String MOD_ID = "tmod";//modID
     public static final String NAME = "T Mod";//mod名称
-    public static final String VERSION = "1.12.2-1.7.0";//mod版本
+    public static final String VERSION = "1.12.2-2.0.0";//mod版本
     public static final String AcceptedMinecraftVersions = "1.12.2";//mod运行游戏版本
     public static final String ConfigGuiFactory = "com.yuo.Tmod.Client.ConfigGuiFactory";//可视化配置文件
 

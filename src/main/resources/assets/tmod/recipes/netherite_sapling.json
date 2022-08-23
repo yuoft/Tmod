@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xxx",
+    "xyx",
+    "xxx"
+  ],
+  "key": {
+    "y": {
+      "item": "tmod:ore_sapling"
+    },
+    "x": {
+      "item": "tmod:netherite_ingot"
+    }
+  },
+  "result": {
+    "item": "tmod:netherite_sapling"
+  }
+}

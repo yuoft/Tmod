@@ -5,7 +5,7 @@
         "frame": "task",
         "description": { "translate": "advancement.tmod:good_food.desc" } 
     },
-	"parent": "tmod:ruby",
+	"parent": "tmod:emerald_power",
     "criteria": {
         "tmod_good_food": {
             "trigger": "minecraft:consume_item",

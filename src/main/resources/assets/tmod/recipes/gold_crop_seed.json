@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "zxz",
+    "xyx",
+    "zxz"
+  ],
+  "key": {
+    "y": {
+      "item": "tmod:crop_seed"
+    },
+    "x": {
+      "item": "minecraft:gold_block"
+    },
+    "z": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "result": {
+    "item": "tmod:gold_crop_seed"
+  }
+}

@@ -33,9 +33,12 @@ public class CraftingLoader {
 //	    GameRegistry.addSmelting(itemLoader.emerald_powder,new ItemStack(itemLoader.emerald_ingot), 20.0f);
 //	    GameRegistry.addSmelting(Items.EMERALD,new ItemStack(itemLoader.emerald_ingot), 20.0f);
         GameRegistry.addSmelting(ItemLoader.badApple, new ItemStack(Items.APPLE), 0.3f);
-        GameRegistry.addSmelting(ItemLoader.saltMeat, new ItemStack(ItemLoader.cookingSaltMeat), 0.8f);
+        GameRegistry.addSmelting(ItemLoader.saltMeat, new ItemStack(ItemLoader.cookingSaltMeat), 0.5f);
         GameRegistry.addSmelting(ItemLoader.complexPowder, new ItemStack(ItemLoader.emeraldIngot), 1.0f);
-        GameRegistry.addSmelting(BlockLoader.ancientDebris, new ItemStack(ItemLoader.netheriteScrap), 2.0f);
+        GameRegistry.addSmelting(BlockLoader.ancientDebris, new ItemStack(ItemLoader.netheriteScrap), 1.0f);
+        GameRegistry.addSmelting(BlockLoader.superOre, new ItemStack(ItemLoader.superIngot), 1.0f);
+        GameRegistry.addSmelting(BlockLoader.xrayBlock, new ItemStack(ItemLoader.xrayIngot), 0.8f);
+        GameRegistry.addSmelting(BlockLoader.superXrayBlock, new ItemStack(ItemLoader.superXrayIngot), 1.2f);
     }
 
     //添加燃料

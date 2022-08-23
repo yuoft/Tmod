@@ -1,5 +1,5 @@
 {
-  "parent": "tmod:emerald_power",
+  "parent": "tmod:ruby",
   "display": { 
     "icon": { 
       "item": "tmod:xray_block"

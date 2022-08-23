@@ -1,8 +1,10 @@
 package com.yuo.Tmod.Common.Blocks;
 
+import java.util.List;
 import java.util.Random;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import com.yuo.Tmod.Tmod;
 import com.yuo.Tmod.Tab.TmodGroup;
@@ -15,6 +17,8 @@ import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.resources.I18n;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
@@ -46,6 +50,22 @@ public class PowerExtractor extends BlockContainer {
         this.setHarvestLevel("pickaxe", 1);
         this.setLightLevel(this.blockState.getBaseState().getValue(BURNING) ? 12 : 0);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(BURNING, false));
+    }
+
+    @Override
+    public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced) {
+        tooltip.add(I18n.format("tmod.block.power_extractor", ""));
+    }
+
+    @Override
+    public void onBlockClicked(World worldIn, BlockPos pos, EntityPlayer playerIn) {
+        if (!worldIn.isRemote){
+            TileEntity tileEntity = worldIn.getTileEntity(pos);
+            if (tileEntity instanceof PowerTileEntity){
+                PowerTileEntity powerTile = (PowerTileEntity) tileEntity;
+                powerTile.setExp(playerIn, worldIn, pos);
+            }
+        }
     }
 
     //告知我们的方块使用了这2种IProperty

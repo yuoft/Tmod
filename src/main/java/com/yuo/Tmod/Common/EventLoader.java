@@ -474,6 +474,8 @@ public class EventLoader {
     public void insight(BlockEvent.BreakEvent event){
         EntityPlayer player = event.getPlayer();
         ItemStack stack = player.getHeldItemMainhand();
+        BlockPos pos = event.getPos();
+        World world = event.getWorld();
         int exp = event.getExpToDrop();
         int insight = EnchantmentHelper.getEnchantmentLevel(EnchantLoader.insight, stack);
         if (insight > 0 && exp > 0){
@@ -483,9 +485,12 @@ public class EventLoader {
         int fortune = EnchantmentHelper.getEnchantmentLevel(Enchantments.FORTUNE, stack);
         Block block = event.getState().getBlock();
         if (diamond > 0 && block == Blocks.COAL_ORE){
-            Diamond.dropDiamond(event.getWorld(), diamond, event.getPos(), fortune);
+            Diamond.dropDiamond(world, diamond, pos, fortune);
         }
-
+        if (block == Blocks.TALLGRASS && world.rand.nextDouble() < 0.15 + fortune * 0.05){
+            world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(),
+                    new ItemStack(ItemLoader.stemSeed, MathHelper.getInt(world.rand, 1, 1 + fortune))));
+        }
     }
 
     @SubscribeEvent

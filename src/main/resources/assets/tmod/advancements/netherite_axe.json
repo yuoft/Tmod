@@ -2,7 +2,7 @@
   "parent": "tmod:emerald_power",
   "display": { 
     "icon": { 
-      "item": "minecraft:netherite_axe"
+      "item": "tmod:netherite_axe"
     },
     "title": {
 		"translate": "advancements.tmod:netherite_axe"

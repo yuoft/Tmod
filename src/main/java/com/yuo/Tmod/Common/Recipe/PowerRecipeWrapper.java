@@ -12,7 +12,7 @@ public class PowerRecipeWrapper implements IRecipeWrapper {
     private final List<ItemStack> input = new ArrayList<>();
     private final ItemStack output;
 
-    public PowerRecipeWrapper(PowerRecipeManager.PowerRecipe powerRecipe) {
+    public PowerRecipeWrapper(PowerRecipe powerRecipe) {
         output = powerRecipe.getRecipeOutput();
         input.add(powerRecipe.getInputUp());
         input.add(powerRecipe.getInputDown());

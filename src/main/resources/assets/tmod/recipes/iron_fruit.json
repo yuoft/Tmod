@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xxx",
+    "xxx",
+    "xxx"
+  ],
+  "key": {
+    "x": {
+      "item": "tmod:iron_fruit"
+    }
+  },
+  "result": {
+    "item": "minecraft:iron_ingot",
+    "count": 12
+  }
+}

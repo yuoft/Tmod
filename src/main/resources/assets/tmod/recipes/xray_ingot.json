@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "ingredient": {
-    "item": "tmod:xray_block"
-  },
-  "result": "tmod:xray_ingot",
-  "experience": 0.6,
-  "cookingtime": 270
-}

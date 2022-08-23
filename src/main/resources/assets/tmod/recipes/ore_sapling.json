@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xyz",
+    "mno",
+    "   "
+  ],
+  "key": {
+    "x": {
+      "item": "minecraft:sapling",
+      "data": 0
+    },
+    "y": {
+      "item": "minecraft:sapling",
+      "data": 1
+    },
+    "z": {
+      "item": "minecraft:sapling",
+      "data": 2
+    },
+    "m": {
+      "item": "minecraft:sapling",
+      "data": 3
+    },
+    "n": {
+      "item": "minecraft:sapling",
+      "data": 4
+    },
+    "o": {
+      "item": "minecraft:sapling",
+      "data": 5
+    }
+  },
+  "result": {
+    "item": "tmod:ore_sapling"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xxx",
+    "xxx",
+    "xxx"
+  ],
+  "key": {
+    "x": {
+      "item": "tmod:emerald_fruit"
+    }
+  },
+  "result": {
+    "item": "minecraft:emerald",
+    "count": 6
+  }
+}

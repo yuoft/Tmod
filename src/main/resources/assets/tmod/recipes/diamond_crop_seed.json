@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "zxz",
+    "xyx",
+    "zxz"
+  ],
+  "key": {
+    "y": {
+      "item": "tmod:crop_seed"
+    },
+    "x": {
+      "item": "minecraft:diamond_block"
+    },
+    "z": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "result": {
+    "item": "tmod:diamond_crop_seed"
+  }
+}

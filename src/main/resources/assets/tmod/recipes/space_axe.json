@@ -7,10 +7,10 @@
   ],
   "key": {
     "y": {
-      "item": "tmod:space_ingot"
+      "item": "tmod:space_core"
     },
 	"x": {
-      "item": "minecraft:diamond"
+      "item": "tmod:space_ingot"
     }
   },
   "result": {

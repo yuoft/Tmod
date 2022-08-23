@@ -7,22 +7,22 @@
   ],
   "key": {
     "x": {
-      "item": "minecraft:netherite_sword"
+      "item": "tmod:netherite_sword"
     },
     "y": {
-      "item": "minecraft:netherite_pickaxe"
+      "item": "tmod:netherite_pickaxe"
     },
     "z": {
-      "item": "minecraft:netherite_axe"
+      "item": "tmod:netherite_axe"
     },
     "m": {
-      "item": "minecraft:netherite_shovel"
+      "item": "tmod:netherite_shovel"
     },
     "o": {
       "item": "tmod:diamond_stick"
     },
     "n": {
-      "item": "minecraft:netherite_hoe"
+      "item": "tmod:netherite_hoe"
     }
   },
   "result": {

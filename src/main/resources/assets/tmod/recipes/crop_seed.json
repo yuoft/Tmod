@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xyz",
+    "jkm",
+    "ino"
+  ],
+  "key": {
+    "k": {
+      "item": "tmod:stem_seed"
+    },
+    "x": {
+      "item": "minecraft:coal",
+      "data": 0
+    },
+    "y": {
+      "item": "minecraft:diamond"
+    },
+    "z": {
+      "item": "minecraft:emerald"
+    },
+    "m": {
+      "item": "minecraft:gold_ingot"
+    },
+    "o": {
+      "item": "minecraft:iron_ingot"
+    },
+    "n": {
+      "item": "minecraft:dye",
+      "data": 4
+    },
+    "i": {
+      "item": "minecraft:quartz"
+    },
+    "j": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "result": {
+    "item": "tmod:crop_seed"
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "parent": "tmod:space_path",
+  "parent": "tmod:space_patch",
   "display": { 
     "icon": { 
       "item": "tmod:bedrock_powder"

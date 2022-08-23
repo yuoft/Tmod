@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xxx",
+    "xxx",
+    "xxx"
+  ],
+  "key": {
+    "x": {
+      "item": "tmod:coal_nugget"
+    }
+  },
+  "result": {
+    "item": "minecraft:coal",
+    "data": 0
+  }
+}

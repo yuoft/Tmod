@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xxx",
+    "xxx",
+    "xxx"
+  ],
+  "key": {
+    "x": {
+      "item": "tmod:netherite_nugget"
+    }
+  },
+  "result": {
+    "item": "tmod:netherite_scrap"
+  }
+}

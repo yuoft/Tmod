@@ -1,0 +1,30 @@
+{
+  "parent": "tmod:crop_seed",
+  "display": { 
+    "icon": { 
+      "item": "tmod:ore_sapling"
+    },
+    "title": {
+		"translate": "advancements.tmod:ore_sapling"
+	},
+    "description": {
+		"translate": "advancements.tmod:ore_sapling.desc"
+	},
+    "frame": "task"
+  },
+  "criteria": { 
+    "space_block": {
+      "trigger": "minecraft:inventory_changed", 
+      "conditions": { 
+		"items":[
+			{
+				"item":"tmod:ore_sapling"
+			}
+		]
+      }
+    }
+  },
+  "rewards": { 
+    "experience": 20
+  }
+}

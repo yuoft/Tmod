@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "yoy",
+    "oxo",
+    "yoy"
+  ],
+  "key": {
+    "x": {
+      "item": "minecraft:chest"
+    },
+    "o": {
+      "item": "tmod:emerald_ingot"
+    },
+    "y": {
+      "item": "minecraft:emerald"
+    }
+  },
+  "result": {
+    "item": "tmod:emerald_barrel",
+    "count": 1
+  }
+}

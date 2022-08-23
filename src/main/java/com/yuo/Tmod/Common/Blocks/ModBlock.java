@@ -4,6 +4,8 @@ import com.yuo.Tmod.Tab.TmodGroup;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.init.Items;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class ModBlock extends Block {
     //绿宝石锭块

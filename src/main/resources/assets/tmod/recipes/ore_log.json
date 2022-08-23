@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "tmod:emerald_tree"
+    }
+  ],
+  "result": {
+    "item": "minecraft:birch_planks",
+    "count":6
+  }
+}

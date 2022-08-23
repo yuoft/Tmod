@@ -46,16 +46,21 @@ public class GuiContainerDemo extends GuiContainer {
         //绘制进度条
         int burnTime = this.inventory.getField(0);
         int totalTime = this.inventory.getField(1);
+        int exp = this.inventory.getField(2);
         if (burnTime > 0) {
             int textureWidth = (int) Math.ceil(34.0 * burnTime / totalTime);
             this.drawTexturedModalRect(offsetX + 73, offsetY + 23, 176, 0, textureWidth, 40);
         }
+        int expIn = (int) Math.ceil(49.0 * exp / 10);
+        if (expIn > 0)
+            this.drawTexturedModalRect(offsetX + 42, offsetY + 18 + 49 - expIn, 210, 49 - expIn, 3, expIn);
     }
 
     @Override
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
         String s = this.inventory.getDisplayName().getUnformattedText();
         this.fontRenderer.drawString(s, this.xSize / 2 - this.fontRenderer.getStringWidth(s) / 2, 6, 4210752);
+        this.fontRenderer.drawString("exp:" + this.inventory.getField(2),  8, 16, 4210752);
         this.fontRenderer.drawString(this.playerInventory.getDisplayName().getUnformattedText(), 8, this.ySize - 96 + 2, 4210752);
     }
 }

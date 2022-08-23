@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "zxz",
+    "xyx",
+    "zxz"
+  ],
+  "key": {
+    "y": {
+      "item": "tmod:crop_seed"
+    },
+    "x": {
+      "item": "minecraft:emerald_block"
+    },
+    "z": {
+      "item": "minecraft:emerald"
+    }
+  },
+  "result": {
+    "item": "tmod:emerald_crop_seed"
+  }
+}

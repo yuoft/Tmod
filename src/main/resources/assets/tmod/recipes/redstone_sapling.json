@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xxx",
+    "xyx",
+    "xxx"
+  ],
+  "key": {
+    "y": {
+      "item": "tmod:ore_sapling"
+    },
+    "x": {
+      "item": "minecraft:redstone_block"
+    }
+  },
+  "result": {
+    "item": "tmod:redstone_sapling"
+  }
+}

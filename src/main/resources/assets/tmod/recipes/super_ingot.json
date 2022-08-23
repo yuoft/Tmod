@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "ingredient": {
-    "item": "tmod:super_ore"
-  },
-  "result": "tmod:super_ingot",
-  "experience": 0.7,
-  "cookingtime": 300
-}

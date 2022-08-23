@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xxx",
+    "xyx",
+    "xxx"
+  ],
+  "key": {
+    "y": {
+      "item": "tmod:ore_sapling"
+    },
+    "x": {
+      "item": "minecraft:iron_block"
+    }
+  },
+  "result": {
+    "item": "tmod:iron_sapling"
+  }
+}

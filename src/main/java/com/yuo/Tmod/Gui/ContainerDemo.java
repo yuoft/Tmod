@@ -13,13 +13,11 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ContainerDemo extends Container {
-    //新建了一个拥有3个物品槽
-    private final NonNullList<ItemStack> stacks = NonNullList.withSize(3, ItemStack.EMPTY);
-
     private final IInventory inventory;
 
     private int burnTime;
     private int totalTime;
+    private int exp;
 
     public ContainerDemo(InventoryPlayer inventory, IInventory tileEntity) {
         super();
@@ -115,9 +113,13 @@ public class ContainerDemo extends Container {
             if (this.totalTime != this.inventory.getField(1)) {
                 icontainerlistener.sendWindowProperty(this, 1, this.inventory.getField(1));
             }
+            if (this.exp != this.inventory.getField(2)) {
+                icontainerlistener.sendWindowProperty(this, 2, this.inventory.getField(2));
+            }
         }
         this.burnTime = inventory.getField(0);
         this.totalTime = inventory.getField(1);
+        this.exp = inventory.getField(2);
     }
 
     //更新数据

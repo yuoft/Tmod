@@ -24,15 +24,11 @@ public class ModItem extends Item {
 
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-        if (stack.getItem().equals(ItemLoader.spaceLine)) {
-            tooltip.add(I18n.format("tmod.item.space_line1"));
-            tooltip.add(I18n.format("tmod.item.space_line2"));
-        }
-        if (stack.getItem() == ItemLoader.dragonString) {
-            tooltip.add(I18n.format("tmod.item.dragon_string"));
-        }
         if (stack.getItem().equals(ItemLoader.salt)) {
             tooltip.add(I18n.format("tmod.item.salt1"));
+        }
+        if (stack.getItem().equals(ItemLoader.stemSeed)) {
+            tooltip.add(I18n.format("tmod.item.stem_seed"));
         }
     }
 }

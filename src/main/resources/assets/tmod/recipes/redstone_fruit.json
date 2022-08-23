@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xxx",
+    "xxx",
+    "xxx"
+  ],
+  "key": {
+    "x": {
+      "item": "tmod:redstone_fruit"
+    }
+  },
+  "result": {
+    "item": "minecraft:redstone",
+    "count": 13
+  }
+}
