@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "x x",
+    "xxx",
+    "xxx"
+  ],
+  "key": {
+    "x": {
+      "item": "minecraft:bedrock"
+    }
+  },
+  "result": {
+    "item": "tmod:op_chest"
+  }
+}

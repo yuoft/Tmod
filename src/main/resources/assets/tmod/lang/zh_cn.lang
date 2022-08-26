@@ -412,6 +412,8 @@ advancement.tmod:op_armor=约等于无敌
 advancement.tmod:op_armor.desc=获取全套op装备
 advancements.tmod:bedrock_powder=不一样的粉末
 advancements.tmod:bedrock_powder.desc=挖掘脆弱基岩获得基岩粉
+advancements.tmod:bedrock_ingot=过程呢？
+advancements.tmod:bedrock_ingot.desc=使用基岩粉末和创世结晶在能量转变机合成基岩锭
 advancements.tmod:bedrock=最重最硬的方块
 advancements.tmod:bedrock.desc=使用基岩锭与空间核心合成基岩
 advancements.tmod:super_string=更有韧性的线
@@ -438,6 +440,8 @@ advancements.tmod:crop_seed=真正的矿石作物
 advancements.tmod:crop_seed.desc=收集八种矿物，合成矿物种子
 advancements.tmod:ore_sapling=矿石树木
 advancements.tmod:ore_sapling.desc=收集六种树苗，合成矿石树木
+advancements.tmod:netherite_axe=伐！伐！伐！伐木工！
+advancements.tmod:netherite_axe.desc=消耗完一把下界合金斧
 #GUI
 container.tmod.emerald_extractor=能量转变机
 container.tmod.NineGui=储物戒指·大

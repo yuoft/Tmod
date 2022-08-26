@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " x ",
+    " x ",
+    " o "
+  ],
+  "key": {
+    "x": {
+      "item": "minecraft:bedrock"
+    },
+    "o": {
+      "item": "tmod:space_core"
+    }
+  },
+  "result": {
+    "item": "tmod:op_sword"
+  }
+}
