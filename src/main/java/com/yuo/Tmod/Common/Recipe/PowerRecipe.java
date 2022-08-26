@@ -7,8 +7,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 
-import javax.annotation.Nullable;
-
 //配方
 public class PowerRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements IRecipe {
     private final ItemStack inputUp; //输入 上

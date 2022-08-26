@@ -29,7 +29,6 @@ public class ContainerDemo extends Container {
         //把36个玩家背包中的物品槽加入了GUI
         for (int i = 0; i < 3; ++i) {//9-36
             for (int j = 0; j < 9; ++j) {//slot第一个参数代表相关联的IInventory，第二个参数代表物品槽在IInventory中的ID，最后两个参数代表它在GUI中的坐标。
-
                 this.addSlotToContainer(new Slot(inventory, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
             }
         }

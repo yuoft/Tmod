@@ -101,10 +101,11 @@ public class PowerTileEntity extends TileEntityLockable implements ITickable, IS
         int level = player.experienceLevel;
         if (level > 0){
             if (exp < 10){
-                int shrinkExp = level + exp <= 10 ? level : 10;
+                int shrinkExp = level + exp <= 10 ? level : (level + exp) - 10;
                 player.addExperienceLevel(-shrinkExp);
-                this.exp = shrinkExp;
-                world.playSound(player, pos, SoundEvents.ENTITY_PLAYER_LEVELUP, SoundCategory.PLAYERS, 1.0f, 3.0f);
+                this.exp += shrinkExp;
+                this.exp = Math.min(this.exp, 10);
+                player.world.playSound(null, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.ENTITY_PLAYER_LEVELUP, SoundCategory.BLOCKS, 1.0f, 3.0f);
                 this.markDirty();
             }else player.sendStatusMessage(new TextComponentTranslation("tmod.text.exp_ceil", ""),true );
         }else player.sendStatusMessage(new TextComponentTranslation("tmod.text.level_floor", ""),true );
@@ -119,7 +120,7 @@ public class PowerTileEntity extends TileEntityLockable implements ITickable, IS
      */
     private void outStack(ItemStack stack0, ItemStack stack1, ItemStack stack2, ItemStack output) {
         if (stack2.isItemEqual(output)){
-            this.burnTime++;
+//            this.burnTime++;
             stack2.grow(output.getCount());
         }else this.stacks.set(2, output);
 
@@ -127,6 +128,7 @@ public class PowerTileEntity extends TileEntityLockable implements ITickable, IS
         stack0.shrink(shrink[0]);
         stack1.shrink(shrink[1]);
         this.burnTime = 0;
+        this.totalTime = 0;
     }
 
     /**
@@ -282,8 +284,8 @@ public class PowerTileEntity extends TileEntityLockable implements ITickable, IS
     @Override
     public void setField(int id, int value) {
         switch (id){
-            case 0: this.burnTime = value;
-            case 1: this.totalTime = value;
+            case 0: this.burnTime = value;break;
+            case 1: this.totalTime = value;break;
             case 2: this.exp = value;
         }
     }
