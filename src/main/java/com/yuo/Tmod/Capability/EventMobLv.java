@@ -661,7 +661,8 @@ public class EventMobLv {
             if (i > 0 && worldTime % i == 0) {
                 dataSave.addBase();
                 EntityPlayerSP player = Minecraft.getMinecraft().player;
-                player.sendMessage(new TextComponentTranslation("tmod.text.mobLevelUp", dataSave.getMobLevelBase()));
+                if (player != null)
+                    player.sendMessage(new TextComponentTranslation("tmod.text.mobLevelUp", dataSave.getMobLevelBase()));
             }
         }
     }

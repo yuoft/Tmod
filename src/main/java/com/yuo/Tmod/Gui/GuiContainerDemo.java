@@ -61,9 +61,7 @@ public class GuiContainerDemo extends GuiContainer {
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
         String s = this.inventory.getDisplayName().getUnformattedText();
         this.fontRenderer.drawString(s, this.xSize / 2 - this.fontRenderer.getStringWidth(s) / 2, 6, 4210752);
-        this.fontRenderer.drawString("burn:" + this.inventory.getField(0),  8, 16, 4210752);
-        this.fontRenderer.drawString("total:" + this.inventory.getField(1),  8, 26, 4210752);
-        this.fontRenderer.drawString("exp:" + this.inventory.getField(2),  8, 36, 4210752);
+        this.fontRenderer.drawString("exp:" + this.inventory.getField(2),  8, 16, 4210752);
         this.fontRenderer.drawString(this.playerInventory.getDisplayName().getUnformattedText(), 8, this.ySize - 96 + 2, 4210752);
     }
 }

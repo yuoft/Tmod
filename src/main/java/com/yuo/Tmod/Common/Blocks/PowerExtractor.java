@@ -63,7 +63,7 @@ public class PowerExtractor extends BlockContainer {
             TileEntity tileEntity = worldIn.getTileEntity(pos);
             if (tileEntity instanceof PowerTileEntity){
                 PowerTileEntity powerTile = (PowerTileEntity) tileEntity;
-                powerTile.setExp(playerIn, worldIn, pos);
+                powerTile.setExp(playerIn, pos);
             }
         }
     }

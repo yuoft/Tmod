@@ -1,13 +1,8 @@
 package com.yuo.Tmod.Common.Items.Tool;
 
-import java.util.Set;
-
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
-import com.google.common.collect.Sets;
-import com.yuo.Tmod.Common.Items.ItemLoader;
 import com.yuo.Tmod.Tab.TmodGroup;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirt;
 import net.minecraft.block.state.IBlockState;
@@ -17,10 +12,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemHoe;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemTool;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -86,27 +79,9 @@ public class ToolHoe extends ItemHoe {
         Multimap<String, AttributeModifier> multimap = HashMultimap.create();
 
         if (slot == EntityEquipmentSlot.MAINHAND) {
-            double damage = 0;
-            Item item = stack.getItem();
-            if (item == ItemLoader.rubyAxe){
-                damage = 2;
-            }else if (item == ItemLoader.emeraldAxe){
-                damage = 3;
-            }else if (item == ItemLoader.netheriteAxe){
-                damage = 4;
-            }else if (item == ItemLoader.xrayAxe){
-                damage = 5;
-            }else if (item == ItemLoader.superAxe){
-                damage = 6;
-            }else if (item == ItemLoader.dragonAxe){
-                damage = 7;
-            }else if (item == ItemLoader.superXrayAxe){
-                damage = 8;
-            }else if (item == ItemLoader.spaceAxe){
-                damage = 10;
-            }
+            double damage =  Math.max(toolMaterial.getAttackDamage() - 5, 1);
             multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", damage, 0));
-            multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", 4.0f, 0));
+            multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", 0, 0));
         }
 
         return multimap;

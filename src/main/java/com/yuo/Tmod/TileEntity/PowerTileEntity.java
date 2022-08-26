@@ -82,7 +82,7 @@ public class PowerTileEntity extends TileEntityLockable implements ITickable, IS
             this.markDirty();
         }
 
-        if (this.burnTime >= this.totalTime){ //合成时间到 输出产物
+        if (this.burnTime >= this.totalTime && this.totalTime > 0){ //合成时间到 输出产物
             if (recipeExp > 0 && this.exp >= recipeExp){
                 outStack(stack0, stack1, stack2, output);
                 this.exp -= recipeExp;
@@ -97,11 +97,11 @@ public class PowerTileEntity extends TileEntityLockable implements ITickable, IS
      * 玩家添加经验等级
      * @param player 玩家
      */
-    public void setExp(EntityPlayer player, World world, BlockPos pos){
+    public void setExp(EntityPlayer player, BlockPos pos){
         int level = player.experienceLevel;
         if (level > 0){
             if (exp < 10){
-                int shrinkExp = level + exp <= 10 ? level : (level + exp) - 10;
+                int shrinkExp = level + exp <= 10 ? level : 10 - exp;
                 player.addExperienceLevel(-shrinkExp);
                 this.exp += shrinkExp;
                 this.exp = Math.min(this.exp, 10);
@@ -120,13 +120,15 @@ public class PowerTileEntity extends TileEntityLockable implements ITickable, IS
      */
     private void outStack(ItemStack stack0, ItemStack stack1, ItemStack stack2, ItemStack output) {
         if (stack2.isItemEqual(output)){
-//            this.burnTime++;
             stack2.grow(output.getCount());
+            this.stacks.set(2, stack2);
         }else this.stacks.set(2, output);
 
         int[] shrink = PowerRecipeManager.getRecipeShrink(output);
         stack0.shrink(shrink[0]);
         stack1.shrink(shrink[1]);
+        this.stacks.set(0, stack0);
+        this.stacks.set(1, stack1);
         this.burnTime = 0;
         this.totalTime = 0;
     }
@@ -167,6 +169,7 @@ public class PowerTileEntity extends TileEntityLockable implements ITickable, IS
 
     @Override
     public void handleUpdateTag(NBTTagCompound tag) {
+        this.stacks = NonNullList.withSize(this.getSizeInventory(), ItemStack.EMPTY);
         ItemStackHelper.loadAllItems(tag, this.stacks);
         this.burnTime = tag.getInteger("BurnTime");
         this.totalTime = tag.getInteger("TotalTime");

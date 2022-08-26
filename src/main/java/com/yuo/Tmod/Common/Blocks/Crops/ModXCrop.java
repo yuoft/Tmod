@@ -53,7 +53,7 @@ public class ModXCrop extends BlockCrops implements IGrowable {
                 double d0 = Math.abs(entityIn.posX - entityIn.lastTickPosX);
                 double d1 = Math.abs(entityIn.posZ - entityIn.lastTickPosZ);
                 if (d0 >= (double)0.003F || d1 >= (double)0.003F) {
-                    entityIn.attackEntityFrom(DamageSource.MAGIC, 1.0F);
+                    living.attackEntityFrom(DamageSource.MAGIC, 1.0F);
                 }
             }
         }
